@@ -129,11 +129,120 @@
       border-radius: var(--r-sm);
       letter-spacing: 0.05em;
     }
-    .course-title {
-      font-size: 0.92rem;
-      font-weight: 700;
+    .lecture-switcher {
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
       color: var(--ink);
+      font-family: var(--font-sans);
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: var(--r-full);
+      cursor: pointer;
+      outline: none;
+      max-width: 290px;
+      transition: all .15s ease;
     }
+    .lecture-switcher:hover { border-color: var(--teal); }
+
+    /* Interactive Quiz */
+    .quiz-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 20px 22px;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 20px;
+    }
+    .quiz-stem {
+      font-size: 0.94rem;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+    .quiz-opts {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .q-opt {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      border-radius: var(--r-sm);
+      border: 1px solid var(--border);
+      background: var(--surface-subtle);
+      color: var(--ink);
+      font-size: 0.88rem;
+      cursor: pointer;
+      text-align: left;
+      transition: all .15s ease;
+    }
+    .q-opt:hover:not(:disabled) {
+      border-color: var(--teal);
+      background: var(--surface);
+    }
+    .q-opt:disabled {
+      cursor: default;
+    }
+    .q-key {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      font-weight: 800;
+      font-size: 0.74rem;
+      display: grid;
+      place-items: center;
+      flex: none;
+    }
+    .q-opt.correct {
+      background: var(--teal-soft) !important;
+      border-color: var(--teal) !important;
+      color: var(--teal) !important;
+      font-weight: 700;
+    }
+    .q-opt.correct .q-key {
+      background: var(--teal);
+      color: #fff;
+      border-color: var(--teal);
+    }
+    .q-opt.wrong {
+      background: var(--rose-soft) !important;
+      border-color: var(--rose) !important;
+      color: var(--rose) !important;
+    }
+    .q-opt.wrong .q-key {
+      background: var(--rose);
+      color: #fff;
+      border-color: var(--rose);
+    }
+    .q-opt.reveal-correct {
+      border-color: var(--teal) !important;
+      background: var(--teal-soft) !important;
+      font-weight: 700;
+    }
+    .quiz-explanation {
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-radius: var(--r-sm);
+      background: var(--surface-subtle);
+      border-left: 4px solid var(--teal);
+      font-size: 0.86rem;
+      line-height: 1.6;
+    }
+    .exp-badge {
+      font-weight: 800;
+      font-size: 0.74rem;
+      color: var(--teal);
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .exp-text { color: var(--ink-secondary); }
 
     .topic-pills {
       display: flex;
@@ -549,7 +658,14 @@
     <div class="topbar-inner">
       <div class="brand-wrap">
         <span class="badge-block">BLOK 9 EMN</span>
-        <span class="course-title">Malnutrisi Energi Protein (dr. Ditya, Sp.A)</span>
+        <select class="lecture-switcher" onchange="if(this.value) location.href=this.value" aria-label="Pilih Kuliah Cepat">
+          <option value="EMN_KUL5_Malnutrisi.html" selected>📍 KUL 5: Malnutrisi (dr. DTY)</option>
+          <option value="EMN_KUL3_Defisiensi_Mineral.html">🔹 KUL 3: Defisiensi Mineral (dr. IWL)</option>
+          <option value="EMN_KUL2_Defisiensi_Vitamin.html">🔹 KUL 2: Defisiensi Vitamin (dr. IWL)</option>
+          <option value="HI_KUL20_Autoimunitas.html">🔹 Blok 8 HI · KUL 20: Autoimunitas (dr. LIA)</option>
+          <option value="BDT_KUL3_Patient_Safety.html">🔹 Blok 7 BDT · KUL 3: Patient Safety (dr. KI)</option>
+          <option value="index.html">🏠 Kembali ke Portal Utama</option>
+        </select>
       </div>
 
       <nav class="topic-pills">
@@ -982,33 +1098,65 @@
       <span class="section-kicker">Evaluasi Ujian</span>
       <h2 class="section-title">Refleksi Soal UAB: Malnutrisi Energi Protein</h2>
 
-      <div style="margin-bottom:24px;">
-        <p style="font-size:0.92rem;font-weight:700;color:var(--ink);background:var(--surface-subtle);padding:12px 16px;border-radius:var(--r-sm);">
-          1. Balita 20 bulan dibawa dengan edema seluruh tubuh, moon face, rambut pirang mudah dicabut, dan hepar teraba 3 cm BAC. Hasil lab: Albumin 1.7 g/dL, Hb 7.8 g/dL. Terapi manakah yang KONTRAINDIKASI mutlak diberikan saat fase stabilisasi?
+      <!-- Interactive Question 1 -->
+      <div class="quiz-card" id="q-card-1">
+        <p class="quiz-stem">
+          <b>Soal 01:</b> Balita 20 bulan dibawa dengan edema seluruh tubuh, moon face, rambut pirang mudah dicabut, dan hepar teraba 3 cm BAC. Hasil lab: Albumin 1.7 g/dL, Hb 7.8 g/dL. Terapi manakah yang KONTRAINDIKASI mutlak diberikan saat fase stabilisasi?
         </p>
-        <ul style="list-style:none;padding:0;margin:12px 0;display:flex;flex-direction:column;gap:8px;font-size:0.88rem;">
-          <li style="padding:8px 14px;border:1px solid var(--border);border-radius:6px;">A. Formula F-75 per oral porsi kecil sering</li>
-          <li style="padding:8px 14px;border:2px solid var(--rose);background:var(--rose-soft);font-weight:700;color:var(--rose);border-radius:6px;">B. Furosemid intravena untuk meredakan bengkak kaki (BENAR / KONTRAINDIKASI)</li>
-          <li style="padding:8px 14px;border:1px solid var(--border);border-radius:6px;">C. Larutan ReSoMal per NGT</li>
-          <li style="padding:8px 14px;border:1px solid var(--border);border-radius:6px;">D. Ampisilin dan Gentamisin IV</li>
-        </ul>
-        <div style="font-size:0.84rem;color:var(--ink-secondary);background:var(--surface-subtle);padding:12px 14px;border-radius:6px;">
-          <b>Rasionalitas Soal:</b> Furosemid menarik cairan intravaskular yang sebenarnya sedang deplesi volume relatif &rarr; memicu kolaps sirkulasi dan syok hipovolemik fatal.
+        <div class="quiz-opts">
+          <button type="button" class="q-opt" onclick="pickAnswer('q-card-1', 0, false, this)">
+            <span class="q-key">A</span>
+            <span class="q-text">Formula F-75 per oral porsi kecil sering</span>
+          </button>
+          <button type="button" class="q-opt" onclick="pickAnswer('q-card-1', 1, true, this)">
+            <span class="q-key">B</span>
+            <span class="q-text">Furosemid intravena untuk meredakan bengkak kaki</span>
+          </button>
+          <button type="button" class="q-opt" onclick="pickAnswer('q-card-1', 2, false, this)">
+            <span class="q-key">C</span>
+            <span class="q-text">Larutan ReSoMal per NGT</span>
+          </button>
+          <button type="button" class="q-opt" onclick="pickAnswer('q-card-1', 3, false, this)">
+            <span class="q-key">D</span>
+            <span class="q-text">Ampisilin dan Gentamisin IV</span>
+          </button>
+        </div>
+        <div class="quiz-explanation" id="q-card-1-exp" style="display:none;">
+          <div class="exp-badge">✓ JAWABAN BENAR: B (KONTRAINDIKASI MUTLAK)</div>
+          <div class="exp-text">
+            <b>Rasionalitas Soal:</b> Furosemid menarik cairan intravaskular yang sebenarnya sedang deplesi volume relatif &rarr; memicu kolaps sirkulasi dan <b>Syok Hipovolemik Fatal</b>. Edema akan hilang secara alami setelah sintesis albumin hepar pulih.
+          </div>
         </div>
       </div>
 
-      <div>
-        <p style="font-size:0.92rem;font-weight:700;color:var(--ink);background:var(--surface-subtle);padding:12px 16px;border-radius:var(--r-sm);">
-          2. Pada anak gizi buruk dengan anemia berat (Hb 7.5 g/dL), kapankah suplementasi zat besi (Fe 3 mg/kgBB/hari) mulai diberikan sesuai pedoman WHO?
+      <!-- Interactive Question 2 -->
+      <div class="quiz-card" id="q-card-2" style="margin-top:20px;">
+        <p class="quiz-stem">
+          <b>Soal 02:</b> Pada anak gizi buruk dengan anemia berat (Hb 7.5 g/dL), kapankah suplementasi zat besi (Fe 3 mg/kgBB/hari) mulai diberikan sesuai pedoman WHO?
         </p>
-        <ul style="list-style:none;padding:0;margin:12px 0;display:flex;flex-direction:column;gap:8px;font-size:0.88rem;">
-          <li style="padding:8px 14px;border:1px solid var(--border);border-radius:6px;">A. Hari ke-1 di IGD bersama dextrose</li>
-          <li style="padding:8px 14px;border:1px solid var(--border);border-radius:6px;">B. Bersama larutan rehidrasi ReSoMal</li>
-          <li style="padding:8px 14px;border:2px solid var(--teal);background:var(--teal-soft);font-weight:700;color:var(--teal);border-radius:6px;">C. Minggu ke-2 pada fase rehabilitasi setelah nafsu makan pulih dan edema hilang (BENAR)</li>
-          <li style="padding:8px 14px;border:1px solid var(--border);border-radius:6px;">D. Fase transisi hari ke-8 saat bengkak masih ada</li>
-        </ul>
-        <div style="font-size:0.84rem;color:var(--ink-secondary);background:var(--surface-subtle);padding:12px 14px;border-radius:6px;">
-          <b>Rasionalitas Soal:</b> Di fase akut, zat besi bebas (*free iron*) tidak terikat transferin dan menjadi santapan bakteri patogen untuk memicu sepsis bakteremia fatal.
+        <div class="quiz-opts">
+          <button type="button" class="q-opt" onclick="pickAnswer('q-card-2', 0, false, this)">
+            <span class="q-key">A</span>
+            <span class="q-text">Hari ke-1 di IGD bersama dextrose</span>
+          </button>
+          <button type="button" class="q-opt" onclick="pickAnswer('q-card-2', 1, false, this)">
+            <span class="q-key">B</span>
+            <span class="q-text">Bersama larutan rehidrasi ReSoMal</span>
+          </button>
+          <button type="button" class="q-opt" onclick="pickAnswer('q-card-2', 2, true, this)">
+            <span class="q-key">C</span>
+            <span class="q-text">Minggu ke-2 pada fase rehabilitasi setelah nafsu makan pulih dan edema hilang</span>
+          </button>
+          <button type="button" class="q-opt" onclick="pickAnswer('q-card-2', 3, false, this)">
+            <span class="q-key">D</span>
+            <span class="q-text">Fase transisi hari ke-8 saat bengkak masih ada</span>
+          </button>
+        </div>
+        <div class="quiz-explanation" id="q-card-2-exp" style="display:none;">
+          <div class="exp-badge">✓ JAWABAN BENAR: C (FASE REHABILITASI)</div>
+          <div class="exp-text">
+            <b>Rasionalitas Soal:</b> Di fase akut, zat besi bebas (*free iron*) tidak terikat transferin dan menjadi santapan bakteri patogen untuk memicu <b>Sepsis Bakteremia Fatal</b>.
+          </div>
         </div>
       </div>
     </section>
@@ -1061,6 +1209,22 @@
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape') closeLightbox();
     });
+    function pickAnswer(cardId, idx, isCorrect, btn) {
+      const card = document.getElementById(cardId);
+      const opts = card.querySelectorAll('.q-opt');
+      opts.forEach(b => b.disabled = true);
+      
+      if (isCorrect) {
+        btn.classList.add('correct');
+      } else {
+        btn.classList.add('wrong');
+        opts.forEach(b => {
+          if (b.getAttribute('onclick').includes('true')) b.classList.add('reveal-correct');
+        });
+      }
+      const exp = document.getElementById(cardId + '-exp');
+      if (exp) exp.style.display = 'block';
+    }
 
     function toggleTheme() {
       const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
