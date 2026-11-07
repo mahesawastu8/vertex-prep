@@ -50,23 +50,6 @@
   .app{flex:1;max-width:1240px;width:100%;margin:0 auto;padding:20px 20px 40px;display:flex;flex-direction:column}
   main{flex:1;background:#fff;border:1px solid var(--border);border-radius:var(--r-xl);box-shadow:var(--shadow);padding:24px 28px 36px;display:flex;flex-direction:column;width:100%}
 
-  /* Hero Showcase Section */
-  .hero-showcase{background:linear-gradient(135deg,rgba(2,132,199,0.05) 0%,rgba(5,150,105,0.05) 100%);border:1px solid rgba(2,132,199,0.18);border-radius:var(--r-lg);padding:22px 24px;margin-bottom:28px}
-  .hero-header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:18px;border-bottom:1px solid rgba(226,232,240,0.8);padding-bottom:12px}
-  .hero-kicker{font-size:0.72rem;font-weight:700;letter-spacing:0.06em;color:var(--cobalt);display:block;margin-bottom:3px}
-  .hero-title{font-size:1.25rem;font-weight:700;color:var(--ink9)}
-  .hero-badge{background:var(--emerald-s);color:var(--emerald);border:1px solid rgba(5,150,105,0.25);font-size:0.75rem;font-weight:700;padding:4px 10px;border-radius:999px}
-  .hero-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}
-  .hero-card{background:#fff;border:1px solid var(--border);border-radius:var(--r-md);padding:16px 18px;display:flex;flex-direction:column;justify-content:space-between;transition:all .2s cubic-bezier(.4,0,.2,1);position:relative;overflow:hidden;border-top:4px solid var(--card-color, var(--cobalt))}
-  .hero-card:hover{border-color:var(--cobalt);transform:translateY(-2px);box-shadow:var(--shadow-hover)}
-  .hero-card-tag{font-size:0.68rem;font-weight:700;color:var(--card-color, var(--cobalt));text-transform:uppercase;letter-spacing:0.04em;margin-bottom:4px}
-  .hero-card-title{font-size:0.98rem;font-weight:700;color:var(--ink9);line-height:1.35;margin-bottom:4px}
-  .hero-card-lecturer{font-size:0.78rem;font-weight:500;color:var(--ink5);margin-bottom:8px}
-  .hero-card-desc{font-size:0.8rem;color:var(--ink7);line-height:1.45;margin-bottom:12px;flex:1}
-  .hero-card-meta{display:flex;align-items:center;justify-content:space-between;font-size:0.75rem;font-weight:600;padding-top:8px;border-top:1px dashed var(--border)}
-  .hero-card-badge{background:var(--subtle);color:var(--ink7);padding:2px 8px;border-radius:4px;font-size:0.7rem}
-  .hero-card-btn{color:var(--card-color, var(--cobalt));font-weight:700;display:inline-flex;align-items:center;gap:3px}
-
   /* Breadcrumb & Path Bar */
   .drive-nav-header{display:flex;flex-direction:column;gap:8px;margin-bottom:18px;border-bottom:1px solid var(--border);padding-bottom:16px}
   .path-trail-row{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
@@ -169,9 +152,6 @@
     .search input{padding:8px 36px 8px 34px;font-size:0.86rem}
     .app{padding:12px 10px 32px;max-width:100vw;overflow-x:hidden}
     main{padding:14px 12px 24px;border-radius:12px;max-width:100%;overflow-x:hidden}
-    .hero-showcase{padding:16px 14px;margin-bottom:20px}
-    .hero-title{font-size:1.12rem}
-    .hero-grid{grid-template-columns:1fr;gap:12px}
     .grid{grid-template-columns:1fr;gap:10px}
     .card-folder{padding:12px 14px}
     .toolbar{gap:8px}
@@ -258,53 +238,6 @@
   let filter = 'all', sortBy = 'name', query = '', version = '';
   let modalList = [], modalIdx = -1, lastFocus = null;
 
-  const MASTERPIECES = [
-    {
-      title: 'Defisiensi Mineral',
-      lecturer: 'dr. Iwal Reza Ahdi, Sp.PD',
-      block: 'Blok 9 EMN · KUL 3',
-      url: 'EMN_KUL3_Defisiensi_Mineral.html',
-      desc: 'Misteri IGD Hipokalemia refrakter, Peta Besi/Seng/Kalsium, Sindrom Refeeding, dan latihan soal CBT UAB.',
-      color: '#059669',
-      badge: 'CBT UWorld + Kasus IGD'
-    },
-    {
-      title: 'Defisiensi Vitamin',
-      lecturer: 'dr. Iwal Reza Ahdi, Sp.PD',
-      block: 'Blok 9 EMN · KUL 2',
-      url: 'EMN_KUL2_Defisiensi_Vitamin.html',
-      desc: 'Vitamin larut lemak vs air, beri-beri basah vs kering, sindrom Wernicke-Korsakoff, skor anemia megaloblastik.',
-      color: '#0284C7',
-      badge: 'Slide-Sync + Skor Lab'
-    },
-    {
-      title: 'Malnutrisi Energi Protein',
-      lecturer: 'dr. Ditya Arisanti, Sp.A',
-      block: 'Blok 9 EMN · KUL 5',
-      url: 'EMN_KUL5_Malnutrisi.html',
-      desc: 'Perbedaan klinis Marasmus vs Kwashiorkor, bahaya fatal refeeding awal, dan 10 Langkah Rawat Inap Gizi Buruk WHO.',
-      color: '#D97706',
-      badge: 'Protokol 10 Langkah WHO'
-    },
-    {
-      title: 'Autoimunitas & Toleransi Imun',
-      lecturer: 'dr. Lailia Nur Rachma, M.Biomed',
-      block: 'Blok 8 HI · KUL 20',
-      url: 'HI_KUL20_Autoimunitas.html',
-      desc: 'Toleransi sentral vs perifer (FoxP3/AIRE), Reaksi Hipersensitivitas I-IV, Patofisiologi Lupus, dan Myasthenia Gravis.',
-      color: '#7C3AED',
-      badge: 'Peta AIRE/FoxP3 + UAB'
-    },
-    {
-      title: 'Patient Safety & Clinical Risk',
-      lecturer: 'dr. Riskiyah, MMRS',
-      block: 'Blok 7 BDT · KUL 3',
-      url: 'BDT_KUL3_Patient_Safety.html',
-      desc: '6 Sasaran Keselamatan Pasien (SKP), Komunikasi Efektif SBAR, Insiden IKP (KTD, KNC, KTC, Sentinel), Swiss Cheese Model.',
-      color: '#E11D48',
-      badge: 'SKP Kemenkes + SBAR'
-    }
-  ];
 
   function el(tag, attrs, ...kids) {
     const e = document.createElement(tag);
@@ -587,36 +520,6 @@
     return els;
   }
 
-  function buildHero() {
-    const section = el('div', {class: 'hero-showcase'});
-    const hdr = el('div', {class: 'hero-header'},
-      el('div', {},
-        el('span', {class: 'hero-kicker', text: '⭐ PLATFORM BELAJAR PREKLINIK FK TERVERIFIKASI'}),
-        el('h2', {class: 'hero-title', text: 'Modul Interaktif Masterpiece (Split-Screen & Soal UAB)'})
-      ),
-      el('span', {class: 'hero-badge', text: '5 Modul Unggulan'})
-    );
-    const grid = el('div', {class: 'hero-grid'});
-
-    MASTERPIECES.forEach(m => {
-      const card = el('a', {class: 'hero-card', href: m.url, style: `--card-color:${m.color}`},
-        el('div', {},
-          el('div', {class: 'hero-card-tag', text: m.block}),
-          el('h3', {class: 'hero-card-title', text: m.title}),
-          el('div', {class: 'hero-card-lecturer', text: m.lecturer}),
-          el('p', {class: 'hero-card-desc', text: m.desc})
-        ),
-        el('div', {class: 'hero-card-meta'},
-          el('span', {class: 'hero-card-badge', text: m.badge}),
-          el('span', {class: 'hero-card-btn'}, el('span', {text: 'Buka Modul'}), el('span', {text: '➔'}))
-        )
-      );
-      grid.append(card);
-    });
-
-    section.append(hdr, grid);
-    return section;
-  }
 
   function render() {
     renderCrumbs();
@@ -633,11 +536,6 @@
     
     $('vGrid').classList.toggle('on', view === 'grid'); $('vList').classList.toggle('on', view === 'list');
     const box = $('content'); box.replaceChildren();
-
-    // Show Hero Showcase on Root level when not searching
-    if (isRoot && !query) {
-      box.append(buildHero());
-    }
 
     // If searching and UAB questions match, display them on top!
     if (query && uabMatches.length > 0) {
