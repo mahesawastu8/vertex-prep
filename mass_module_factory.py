@@ -15,14 +15,12 @@ import urllib.request
 
 logging.disable(logging.CRITICAL)
 from pypdf import PdfReader
-import genanki
+# genanki removed
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 TREE_FILE = os.path.join(HERE, "drive_tree.json")
 SUMMARIES_FILE = os.path.join(HERE, "summaries.json")
 LECTURES_DIR = os.path.join(HERE, "analysis", "lectures")
-ANKI_DIR = os.path.join(HERE, "anki")
-os.makedirs(ANKI_DIR, exist_ok=True)
 os.makedirs(LECTURES_DIR, exist_ok=True)
 
 # Swift script template for fast PDFKit rendering
@@ -169,31 +167,7 @@ def generate_module(block_name, file_id, file_name, pdf_path):
             "points": summary_points[:4]
         })
         
-    # 4. Generate Anki Deck
-    model_id = 1700000000 + (hash(file_id) % 90000000)
-    deck_id = 2100000000 + (hash(file_id) % 90000000)
-    
-    model = genanki.Model(
-        model_id,
-        f"VERTEX Model {slug}",
-        fields=[{"name": "Question"}, {"name": "Answer"}, {"name": "SlideProof"}],
-        templates=[{
-            "name": "Card 1",
-            "qfmt": '<div style="font-family:Plus Jakarta Sans,sans-serif;font-size:16px;color:#161719;padding:12px;"><b>{{Question}}</b></div>',
-            "afmt": '{{FrontSide}}<hr id="answer"><div style="font-family:Plus Jakarta Sans,sans-serif;font-size:15px;color:#1E6B47;padding:12px;">{{Answer}}</div><div style="font-size:12px;color:#7C8087;padding:6px 12px;">Bukti: {{SlideProof}}</div>',
-        }],
-    )
-    
-    deck = genanki.Deck(deck_id, f"VERTEX-PREP :: {block_name} :: {base_name}")
-    for ch in chapters:
-        for s_num, pt in ch["points"][:2]:
-            q_txt = f"Pada materi {base_name}, apa poin kunci fisiologi/patologi yang dibahas pada Slide {s_num}?"
-            a_txt = f"<b>Poin Inti:</b> {pt}"
-            deck.add_note(genanki.Note(model=model, fields=[q_txt, a_txt, f"Slide {s_num}"]))
-            
-    anki_file = f"VERTEX_{slug}.apkg"
-    anki_path = os.path.join(ANKI_DIR, anki_file)
-    genanki.Package(deck).write_to_file(anki_path)
+    # Anki generation removed
 
     # 5. Build HTML content using Split-Screen Slide-Sync Masterpiece Blueprint
     chapters_html = ""
@@ -838,7 +812,7 @@ def generate_module(block_name, file_id, file_name, pdf_path):
         <button type="button" id="theme-btn" class="tool-btn" onclick="toggleTheme()" title="Shortcut tombol D">
           <span id="theme-label">🌙 Mode Malam</span>
         </button>
-        <a href="anki/{anki_file}" class="btn-anki" download>⬇ Anki</a>
+        <!-- Anki removed -->
       </div>
     </div>
   </header>
