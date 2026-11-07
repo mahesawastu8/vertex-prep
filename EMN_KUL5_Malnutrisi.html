@@ -498,10 +498,37 @@
 
     /* Modal Zoom */
     .modal-lightbox {
-      position: fixed; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px); z-index: 9999; display: none; align-items: center; justify-content: center; padding: 20px; cursor: zoom-out;
+      position: fixed; inset: 0; background: rgba(5, 8, 12, 0.94); backdrop-filter: blur(10px); z-index: 9999; display: none; align-items: center; justify-content: center; padding: 20px;
     }
     .modal-lightbox.open { display: flex; }
-    .modal-lightbox img { max-width: 95vw; max-height: 90vh; object-fit: contain; border-radius: 8px; }
+    .lightbox-close {
+      position: absolute; top: 18px; right: 24px; background: rgba(255,255,255,0.12); color: #fff; border: 1px solid rgba(255,255,255,0.2); padding: 7px 16px; border-radius: var(--r-full); font-size: 0.82rem; font-weight: 700; cursor: pointer; transition: all .15s;
+    }
+    .lightbox-close:hover { background: rgba(255,255,255,0.25); }
+    .lightbox-dialog {
+      max-width: 96vw; max-height: 92vh; display: flex; flex-direction: column; background: #121820; border: 1px solid rgba(255,255,255,0.15); border-radius: var(--r-lg); overflow: hidden; box-shadow: 0 25px 60px rgba(0,0,0,0.7);
+    }
+    .lightbox-toolbar {
+      padding: 10px 18px; background: #0B0F14; border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+    }
+    .hd-badge {
+      font-size: 0.72rem; font-weight: 800; font-family: var(--font-mono); color: #38BDF8; background: rgba(56, 189, 248, 0.15); padding: 2px 8px; border-radius: 4px; border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+    .lightbox-title-txt {
+      font-size: 0.86rem; font-weight: 700; color: #F1F5F9; flex: 1; min-width: 200px;
+    }
+    .lightbox-zoom-btn {
+      background: var(--teal); color: #fff; padding: 4px 12px; border-radius: var(--r-full); font-size: 0.76rem; font-weight: 700; cursor: pointer;
+    }
+    .lightbox-scrollable {
+      overflow: auto; max-width: 96vw; max-height: 84vh; display: flex; align-items: center; justify-content: center; background: #000;
+    }
+    .lightbox-scrollable img {
+      width: 100%; height: auto; max-height: 82vh; object-fit: contain; display: block; transition: transform 0.2s ease; cursor: zoom-in;
+    }
+    .lightbox-scrollable.zoomed img {
+      max-height: none; width: 140%; cursor: zoom-out;
+    }
 
     /* Mobile Responsive */
     @media (max-width: 1024px) {
@@ -737,10 +764,10 @@
         </div>
         <div class="dock-pills">
           <button class="dock-pill active" onclick="setDockSlide('d-1', 'slides_kul5/slide_23.jpg', 'Slide 23 · Foto Klinis Kwashiorkor (Edema &amp; Moon Face)', this)">Slide 23 (Foto Klinis)</button>
-          <button class="dock-pill" onclick="setDockSlide('d-1', 'slides_kul5/slide_20.jpg', 'Slide 20 · Karakteristik Klinis Kwashiorkor', this)">Slide 20 (Gejala)</button>
-          <button class="dock-pill" onclick="setDockSlide('d-1', 'slides_kul5/slide_29.jpg', 'Slide 29 · Patofisiologi Steatosis Hepatis', this)">Slide 29 (Fatty Liver)</button>
+          <button class="dock-pill" onclick="setDockSlide('d-1', 'slides_kul5/slide_20.jpg', 'Slide 20 · Pemeriksaan Fisik Kwashiorkor', this)">Slide 20 (Gejala)</button>
+          <button class="dock-pill" onclick="setDockSlide('d-1', 'slides_kul5/slide_21.jpg', 'Slide 21 · Tabel Pembeda Marasmus vs Kwashiorkor', this)">Slide 21 (Tabel)</button>
         </div>
-        <div class="dock-viewport" onclick="openLightbox(document.getElementById('d-1').src)">
+        <div class="dock-viewport" onclick="openLightbox(document.getElementById('d-1').src, document.getElementById('cap-d-1').textContent)">
           <img id="d-1" src="slides_kul5/slide_23.jpg" alt="Slide Kwashiorkor">
         </div>
         <div class="dock-caption" id="cap-d-1">Slide 23 · Foto Klinis Kwashiorkor (Edema &amp; Moon Face)</div>
@@ -825,11 +852,11 @@
           <span style="font-size:0.72rem;color:var(--ink-muted);">Kuliah dr. Ditya</span>
         </div>
         <div class="dock-pills">
-          <button class="dock-pill active" onclick="setDockSlide('d-2', 'slides_kul5/slide_22.jpg', 'Slide 22 · Foto Klinis Pasien Marasmus', this)">Slide 22 (Foto Klinis)</button>
+          <button class="dock-pill active" onclick="setDockSlide('d-2', 'slides_kul5/slide_22.jpg', 'Slide 22 · Foto Klinis Pasien Marasmus (Old Man Face &amp; Baggy Pants)', this)">Slide 22 (Foto Klinis)</button>
           <button class="dock-pill" onclick="setDockSlide('d-2', 'slides_kul5/slide_18.jpg', 'Slide 18 · Gejala Kardinal Marasmus', this)">Slide 18 (Gejala)</button>
           <button class="dock-pill" onclick="setDockSlide('d-2', 'slides_kul5/slide_21.jpg', 'Slide 21 · Tabel Pembeda Lengkap', this)">Slide 21 (Tabel)</button>
         </div>
-        <div class="dock-viewport" onclick="openLightbox(document.getElementById('d-2').src)">
+        <div class="dock-viewport" onclick="openLightbox(document.getElementById('d-2').src, document.getElementById('cap-d-2').textContent)">
           <img id="d-2" src="slides_kul5/slide_22.jpg" alt="Slide Marasmus">
         </div>
         <div class="dock-caption" id="cap-d-2">Slide 22 · Foto Klinis Pasien Marasmus</div>
@@ -935,14 +962,16 @@
           <span style="font-size:0.72rem;color:var(--ink-muted);">Kuliah dr. Ditya</span>
         </div>
         <div class="dock-pills">
-          <button class="dock-pill active" onclick="setDockSlide('d-3', 'slides_kul5/slide_35.jpg', 'Slide 35 · Formula ReSoMal', this)">Slide 35 (ReSoMal)</button>
-          <button class="dock-pill" onclick="setDockSlide('d-3', 'slides_kul5/slide_38.jpg', 'Slide 38 · Dosis Vitamin A &amp; Pantangan Besi', this)">Slide 38 (Vitamin A &amp; Fe)</button>
-          <button class="dock-pill" onclick="setDockSlide('d-3', 'slides_kul5/slide_39.jpg', 'Slide 39 · Tabel Komposisi F-75 vs F-100', this)">Slide 39 (F-75 vs F-100)</button>
+          <button class="dock-pill active" onclick="setDockSlide('d-3', 'slides_kul5/slide_31.jpg', 'Slide 31 · Atasi Dehidrasi (Aturan Dosis ReSoMal 5 mL/kg/30m)', this)">Slide 31 (ReSoMal)</button>
+          <button class="dock-pill" onclick="setDockSlide('d-3', 'slides_kul5/slide_32.jpg', 'Slide 32 · Formula Komposisi ReSoMal', this)">Slide 32 (Komposisi)</button>
+          <button class="dock-pill" onclick="setDockSlide('d-3', 'slides_kul5/slide_35.jpg', 'Slide 35 · Pilihan Antibiotik Spektrum Luas (Ampisilin + Gentamisin)', this)">Slide 35 (Antibiotik)</button>
+          <button class="dock-pill" onclick="setDockSlide('d-3', 'slides_kul5/slide_36.jpg', 'Slide 36 · Dosis Vitamin A, Asam Folat &amp; Suplementasi Fe', this)">Slide 36 (Vitamin A &amp; Fe)</button>
+          <button class="dock-pill" onclick="setDockSlide('d-3', 'slides_kul5/slide_38.jpg', 'Slide 38 · Tabel Kebutuhan Zat Gizi (Formula F-75, F-100, F-135)', this)">Slide 38 (Tabel F-75 &amp; F-100)</button>
         </div>
-        <div class="dock-viewport" onclick="openLightbox(document.getElementById('d-3').src)">
-          <img id="d-3" src="slides_kul5/slide_35.jpg" alt="Slide ReSoMal">
+        <div class="dock-viewport" onclick="openLightbox(document.getElementById('d-3').src, document.getElementById('cap-d-3').textContent)">
+          <img id="d-3" src="slides_kul5/slide_31.jpg" alt="Slide ReSoMal">
         </div>
-        <div class="dock-caption" id="cap-d-3">Slide 35 · Formula ReSoMal</div>
+        <div class="dock-caption" id="cap-d-3">Slide 31 · Atasi Dehidrasi (Aturan Dosis ReSoMal 5 mL/kg/30m)</div>
       </aside>
     </section>
 
@@ -987,8 +1016,19 @@
   </main>
 
   <!-- Image Lightbox Modal -->
+  <!-- Image Lightbox Modal with Ultra-HD Zoom -->
   <div class="modal-lightbox" id="modalLightbox" onclick="closeLightbox()">
-    <img id="lightboxTarget" src="" alt="Perbesar Slide">
+    <button type="button" class="lightbox-close" onclick="closeLightbox()">✕ Tutup (Esc)</button>
+    <div class="lightbox-dialog" onclick="event.stopPropagation()">
+      <div class="lightbox-toolbar">
+        <span class="hd-badge">✨ ULTRA-HD (2015 × 1134 PX)</span>
+        <span class="lightbox-title-txt" id="lightboxTitle">Pratinjau Slide</span>
+        <button type="button" class="lightbox-zoom-btn" onclick="toggleLightboxZoom()" id="btnZoomToggle">🔍 Perbesar 1.4x</button>
+      </div>
+      <div class="lightbox-scrollable" id="imgWrapper">
+        <img id="lightboxTarget" src="" alt="Perbesar Slide" onclick="toggleLightboxZoom()">
+      </div>
+    </div>
   </div>
 
   <script>
@@ -1002,13 +1042,25 @@
       }
     }
 
-    function openLightbox(src) {
+    function openLightbox(src, title) {
       document.getElementById('lightboxTarget').src = src;
+      if (title) document.getElementById('lightboxTitle').textContent = title;
+      document.getElementById('imgWrapper').classList.remove('zoomed');
+      document.getElementById('btnZoomToggle').textContent = '🔍 Perbesar 1.4x';
       document.getElementById('modalLightbox').classList.add('open');
     }
     function closeLightbox() {
       document.getElementById('modalLightbox').classList.remove('open');
+      document.getElementById('imgWrapper').classList.remove('zoomed');
     }
+    function toggleLightboxZoom() {
+      const wrap = document.getElementById('imgWrapper');
+      const isZoomed = wrap.classList.toggle('zoomed');
+      document.getElementById('btnZoomToggle').textContent = isZoomed ? '↺ Perkecil Normal' : '🔍 Perbesar 1.4x';
+    }
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeLightbox();
+    });
 
     function toggleTheme() {
       const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
