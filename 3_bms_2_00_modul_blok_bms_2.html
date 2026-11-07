@@ -84,9 +84,11 @@
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; overflow-x: hidden; width: 100%; }
 
     body {
+      overflow-x: hidden;
+      width: 100%;
       background: var(--bg);
       color: var(--ink);
       font-family: var(--font-sans);
@@ -205,18 +207,7 @@
       color: var(--ink);
     }
     .tool-btn.active .state-pill { background: var(--sage); color: #fff; }
-    .btn-anki {
-      background: var(--sage);
-      color: #FFFFFF !important;
-      font-size: 0.79rem;
-      font-weight: 700;
-      padding: 7px 14px;
-      border-radius: var(--r-full);
-      text-decoration: none;
-      white-space: nowrap;
-      transition: opacity 0.15s ease;
-    }
-    .btn-anki:hover { opacity: 0.9; }
+    
 
     .page-wrap {
       max-width: 1340px;
@@ -561,7 +552,6 @@
         <button type="button" id="theme-btn" class="tool-btn" onclick="toggleTheme()" title="Shortcut tombol D">
           <span id="theme-label">🌙 Mode Malam</span>
         </button>
-        <a href="anki/VERTEX_3_bms_2_00_modul_blok_bms_2.apkg" class="btn-anki" download>⬇ Anki</a>
       </div>
     </div>
   </header>
@@ -627,7 +617,7 @@
               <button class="slide-pill active" onclick="setStage('ch1', 1, 'Slide 1', this)">Slide 1</button><button class="slide-pill" onclick="setStage('ch1', 2, 'Slide 2', this)">Slide 2</button><button class="slide-pill" onclick="setStage('ch1', 3, 'Slide 3', this)">Slide 3</button><button class="slide-pill" onclick="setStage('ch1', 4, 'Slide 4', this)">Slide 4</button><button class="slide-pill" onclick="setStage('ch1', 5, 'Slide 5', this)">Slide 5</button><button class="slide-pill" onclick="setStage('ch1', 6, 'Slide 6', this)">Slide 6</button>
             </div>
             <div class="stage-frame" onclick="openZoom(document.getElementById('img-ch1').src)">
-              <img id="img-ch1" src="slides_3_bms_2_00_modul_blok_bms_2/slide_1.jpg" alt="Slide Bab 1">
+              <img id="img-ch1" src="slides_3_bms_2_00_modul_blok_bms_2/slide_1.jpg" alt="Slide Bab 1" onerror="this.onerror=null; this.src='https://drive.google.com/thumbnail?id=1a-ORugHfXGEG0BWIc3nlunCoFpMWqAxa&sz=w800'; this.title='Slide resmi dari Google Drive asli';">
             </div>
             <div class="stage-caption">
               <span id="cap-ch1">Slide 1</span>
@@ -683,7 +673,7 @@
               <button class="slide-pill active" onclick="setStage('ch2', 25, 'Slide 25', this)">Slide 25</button><button class="slide-pill" onclick="setStage('ch2', 26, 'Slide 26', this)">Slide 26</button><button class="slide-pill" onclick="setStage('ch2', 27, 'Slide 27', this)">Slide 27</button><button class="slide-pill" onclick="setStage('ch2', 28, 'Slide 28', this)">Slide 28</button><button class="slide-pill" onclick="setStage('ch2', 29, 'Slide 29', this)">Slide 29</button><button class="slide-pill" onclick="setStage('ch2', 30, 'Slide 30', this)">Slide 30</button>
             </div>
             <div class="stage-frame" onclick="openZoom(document.getElementById('img-ch2').src)">
-              <img id="img-ch2" src="slides_3_bms_2_00_modul_blok_bms_2/slide_25.jpg" alt="Slide Bab 2">
+              <img id="img-ch2" src="slides_3_bms_2_00_modul_blok_bms_2/slide_25.jpg" alt="Slide Bab 2" onerror="this.onerror=null; this.src='https://drive.google.com/thumbnail?id=1a-ORugHfXGEG0BWIc3nlunCoFpMWqAxa&sz=w800'; this.title='Slide resmi dari Google Drive asli';">
             </div>
             <div class="stage-caption">
               <span id="cap-ch2">Slide 25</span>
@@ -739,7 +729,7 @@
               <button class="slide-pill active" onclick="setStage('ch3', 49, 'Slide 49', this)">Slide 49</button><button class="slide-pill" onclick="setStage('ch3', 50, 'Slide 50', this)">Slide 50</button><button class="slide-pill" onclick="setStage('ch3', 51, 'Slide 51', this)">Slide 51</button><button class="slide-pill" onclick="setStage('ch3', 52, 'Slide 52', this)">Slide 52</button><button class="slide-pill" onclick="setStage('ch3', 53, 'Slide 53', this)">Slide 53</button><button class="slide-pill" onclick="setStage('ch3', 54, 'Slide 54', this)">Slide 54</button>
             </div>
             <div class="stage-frame" onclick="openZoom(document.getElementById('img-ch3').src)">
-              <img id="img-ch3" src="slides_3_bms_2_00_modul_blok_bms_2/slide_49.jpg" alt="Slide Bab 3">
+              <img id="img-ch3" src="slides_3_bms_2_00_modul_blok_bms_2/slide_49.jpg" alt="Slide Bab 3" onerror="this.onerror=null; this.src='https://drive.google.com/thumbnail?id=1a-ORugHfXGEG0BWIc3nlunCoFpMWqAxa&sz=w800'; this.title='Slide resmi dari Google Drive asli';">
             </div>
             <div class="stage-caption">
               <span id="cap-ch3">Slide 49</span>
@@ -795,7 +785,7 @@
               <button class="slide-pill active" onclick="setStage('ch4', 73, 'Slide 73', this)">Slide 73</button><button class="slide-pill" onclick="setStage('ch4', 74, 'Slide 74', this)">Slide 74</button><button class="slide-pill" onclick="setStage('ch4', 75, 'Slide 75', this)">Slide 75</button><button class="slide-pill" onclick="setStage('ch4', 76, 'Slide 76', this)">Slide 76</button><button class="slide-pill" onclick="setStage('ch4', 77, 'Slide 77', this)">Slide 77</button><button class="slide-pill" onclick="setStage('ch4', 78, 'Slide 78', this)">Slide 78</button>
             </div>
             <div class="stage-frame" onclick="openZoom(document.getElementById('img-ch4').src)">
-              <img id="img-ch4" src="slides_3_bms_2_00_modul_blok_bms_2/slide_73.jpg" alt="Slide Bab 4">
+              <img id="img-ch4" src="slides_3_bms_2_00_modul_blok_bms_2/slide_73.jpg" alt="Slide Bab 4" onerror="this.onerror=null; this.src='https://drive.google.com/thumbnail?id=1a-ORugHfXGEG0BWIc3nlunCoFpMWqAxa&sz=w800'; this.title='Slide resmi dari Google Drive asli';">
             </div>
             <div class="stage-caption">
               <span id="cap-ch4">Slide 73</span>
@@ -851,7 +841,7 @@
               <button class="slide-pill active" onclick="setStage('ch5', 97, 'Slide 97', this)">Slide 97</button><button class="slide-pill" onclick="setStage('ch5', 98, 'Slide 98', this)">Slide 98</button><button class="slide-pill" onclick="setStage('ch5', 99, 'Slide 99', this)">Slide 99</button><button class="slide-pill" onclick="setStage('ch5', 100, 'Slide 100', this)">Slide 100</button><button class="slide-pill" onclick="setStage('ch5', 101, 'Slide 101', this)">Slide 101</button><button class="slide-pill" onclick="setStage('ch5', 102, 'Slide 102', this)">Slide 102</button>
             </div>
             <div class="stage-frame" onclick="openZoom(document.getElementById('img-ch5').src)">
-              <img id="img-ch5" src="slides_3_bms_2_00_modul_blok_bms_2/slide_97.jpg" alt="Slide Bab 5">
+              <img id="img-ch5" src="slides_3_bms_2_00_modul_blok_bms_2/slide_97.jpg" alt="Slide Bab 5" onerror="this.onerror=null; this.src='https://drive.google.com/thumbnail?id=1a-ORugHfXGEG0BWIc3nlunCoFpMWqAxa&sz=w800'; this.title='Slide resmi dari Google Drive asli';">
             </div>
             <div class="stage-caption">
               <span id="cap-ch5">Slide 97</span>
@@ -907,7 +897,7 @@
               <button class="slide-pill active" onclick="setStage('ch6', 121, 'Slide 121', this)">Slide 121</button><button class="slide-pill" onclick="setStage('ch6', 122, 'Slide 122', this)">Slide 122</button>
             </div>
             <div class="stage-frame" onclick="openZoom(document.getElementById('img-ch6').src)">
-              <img id="img-ch6" src="slides_3_bms_2_00_modul_blok_bms_2/slide_121.jpg" alt="Slide Bab 6">
+              <img id="img-ch6" src="slides_3_bms_2_00_modul_blok_bms_2/slide_121.jpg" alt="Slide Bab 6" onerror="this.onerror=null; this.src='https://drive.google.com/thumbnail?id=1a-ORugHfXGEG0BWIc3nlunCoFpMWqAxa&sz=w800'; this.title='Slide resmi dari Google Drive asli';">
             </div>
             <div class="stage-caption">
               <span id="cap-ch6">Slide 121</span>
@@ -924,7 +914,7 @@
 
   <script>
     function setStage(chId, slideNum, caption, btn) {
-      document.getElementById('img-' + chId).src = 'slides_3_bms_2_00_modul_blok_bms_2/slide_' + slideNum + '.jpg';
+      const _tImg = document.getElementById('img-' + chId); _tImg.onerror = function() { this.onerror=null; this.src='https://drive.google.com/thumbnail?id=1a-ORugHfXGEG0BWIc3nlunCoFpMWqAxa&sz=w800'; }; _tImg.src = 'slides_3_bms_2_00_modul_blok_bms_2/slide_' + slideNum + '.jpg';
       document.getElementById('cap-' + chId).textContent = caption;
       const wrap = document.getElementById('pills-' + chId);
       wrap.querySelectorAll('.slide-pill').forEach(b => b.classList.remove('active'));

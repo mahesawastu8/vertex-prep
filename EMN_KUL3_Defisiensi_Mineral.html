@@ -85,9 +85,11 @@
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; overflow-x: hidden; width: 100%; }
 
     body {
+      overflow-x: hidden;
+      width: 100%;
       background: var(--bg);
       color: var(--ink);
       font-family: var(--font-sans);
@@ -234,18 +236,7 @@
       background: var(--sage);
       color: #fff;
     }
-    .btn-anki {
-      background: var(--sage);
-      color: #FFFFFF !important;
-      font-size: 0.79rem;
-      font-weight: 700;
-      padding: 7px 14px;
-      border-radius: var(--r-full);
-      text-decoration: none;
-      white-space: nowrap;
-      transition: opacity 0.15s ease;
-    }
-    .btn-anki:hover { opacity: 0.9; }
+    
 
     /* =========================================================================
        MAIN CONTAINER
@@ -972,8 +963,21 @@
       .sim-tabs { flex-direction: column; border-radius: var(--r-md); }
       .sim-tab { border-radius: var(--r-sm); }
       .iq-btn { min-height: 44px; padding: 12px 14px; }
-      .med-tooltip { width: min(290px, 84vw); }
-    }
+      .page-wrap { overflow-x: hidden; width: 100%; }
+      .med-tooltip {
+        position: fixed !important;
+        left: 16px !important;
+        right: 16px !important;
+        width: auto !important;
+        max-width: calc(100vw - 32px) !important;
+        bottom: 24px !important;
+        top: auto !important;
+        transform: none !important;
+        border-radius: 12px !important;
+        box-shadow: 0 16px 40px rgba(0,0,0,0.45) !important;
+        z-index: 9999 !important;
+      }
+      .med-tooltip::after { display: none !important; }
   </style>
 </head>
 <body>
@@ -1012,7 +1016,6 @@
         <button type="button" id="theme-btn" class="tool-btn" onclick="toggleTheme()" title="Shortcut tombol D">
           <span id="theme-label">🌙 Mode Malam</span>
         </button>
-        <a href="anki/VERTEX_EMN_KUL3_Defisiensi_Mineral.apkg" class="btn-anki" download>⬇ Anki</a>
       </div>
     </div>
   </header>

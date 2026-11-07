@@ -2,9 +2,10 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VERTEXTERIAL — Google Drive Mirror</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>VERTEX-PREP — Platform Preklinik FK & Google Drive Mirror</title>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="vendor/uab_search_data.js"></script>
 <style>
   :root {
     --bg:#F8FAFC; --surface:#fff; --subtle:#F1F5F9; --ink9:#0F172A; --ink7:#334155; --ink5:#64748B; --ink4:#94A3B8;
@@ -15,139 +16,178 @@
     --font:'IBM Plex Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  html,body{height:100%}
-  body{background:var(--bg);color:var(--ink9);font-family:var(--font);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased;display:flex;flex-direction:column}
+  html,body{width:100%;max-width:100vw;overflow-x:hidden}
+  body{background:var(--bg);color:var(--ink9);font-family:var(--font);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased;display:flex;flex-direction:column;min-height:100vh}
   button{font:inherit;color:inherit;cursor:pointer;border:none;background:none}
   a{color:inherit;text-decoration:none}
   :focus-visible{outline:2px solid var(--cobalt);outline-offset:2px}
 
   /* Topbar */
-  header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:10px 24px}
-  .bar{max-width:1240px;margin:0 auto;display:flex;align-items:center;gap:16px}
-  .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.1rem;color:var(--ink9);white-space:nowrap}
-  .brand-logo{width:32px;height:32px;border-radius:8px;background:var(--cobalt);color:#fff;display:grid;place-items:center;font-weight:700;font-size:0.9rem}
+  header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:10px 20px;width:100%}
+  .bar{max-width:1240px;margin:0 auto;display:flex;align-items:center;gap:14px;width:100%}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.05rem;color:var(--ink9);white-space:nowrap;cursor:pointer}
+  .brand-logo{width:32px;height:32px;border-radius:8px;background:var(--cobalt);color:#fff;display:grid;place-items:center;font-weight:700;font-size:0.9rem;flex:none}
   
-  .search{flex:1;position:relative;max-width:640px}
-  .search input{width:100%;border:1px solid var(--border);background:var(--subtle);border-radius:999px;padding:9px 50px 9px 40px;font:inherit;font-size:.92rem;color:var(--ink9);transition:all .15s}
+  .search{flex:1;position:relative;max-width:560px}
+  .search input{width:100%;border:1px solid var(--border);background:var(--subtle);border-radius:999px;padding:9px 44px 9px 38px;font:inherit;font-size:.9rem;color:var(--ink9);transition:all .15s}
   .search input:focus{outline:none;border-color:var(--cobalt);background:#fff;box-shadow:0 0 0 3px rgba(2,132,199,0.15)}
-  .search svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:16px;height:16px;stroke:var(--ink5)}
-  .search kbd{position:absolute;right:14px;top:50%;transform:translateY(-50%);font:600 .7rem var(--font);color:var(--ink4);border:1px solid var(--border);border-radius:4px;padding:1px 6px;background:#fff}
+  .search svg{position:absolute;left:13px;top:50%;transform:translateY(-50%);width:16px;height:16px;stroke:var(--ink5)}
+  .search kbd{position:absolute;right:13px;top:50%;transform:translateY(-50%);font:600 .7rem var(--font);color:var(--ink4);border:1px solid var(--border);border-radius:4px;padding:1px 6px;background:#fff}
 
   .sync{display:flex;align-items:center;gap:8px;font-size:.78rem;color:var(--ink5);white-space:nowrap}
   .dot{width:8px;height:8px;border-radius:50%;background:var(--emerald)}
   .dot.err{background:var(--crimson)} .dot.busy{background:var(--amber);animation:pulse 1s infinite}
   @keyframes pulse{50%{opacity:.25}}
 
-  .btn-pill{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:999px;font-weight:600;font-size:.84rem;transition:all .15s;white-space:nowrap}
+  .btn-pill{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:999px;font-weight:600;font-size:.82rem;transition:all .15s;white-space:nowrap;flex:none}
   .btn-pill.ghost{background:var(--subtle);color:var(--ink7);border:1px solid var(--border)}
   .btn-pill.ghost:hover{background:var(--cobalt-s);color:var(--cobalt);border-color:var(--cobalt)}
   .btn-pill.solid{background:var(--cobalt);color:#fff}
   .btn-pill.solid:hover{opacity:.9;transform:translateY(-1px)}
 
-  /* Main App Container (Full Width Google Drive style, No Sidebar) */
-  .app{flex:1;max-width:1240px;width:100%;margin:0 auto;padding:20px 24px 40px;display:flex;flex-direction:column}
-  main{flex:1;background:#fff;border:1px solid var(--border);border-radius:var(--r-xl);box-shadow:var(--shadow);padding:24px 32px 36px;display:flex;flex-direction:column}
+  /* Main Container */
+  .app{flex:1;max-width:1240px;width:100%;margin:0 auto;padding:20px 20px 40px;display:flex;flex-direction:column}
+  main{flex:1;background:#fff;border:1px solid var(--border);border-radius:var(--r-xl);box-shadow:var(--shadow);padding:24px 28px 36px;display:flex;flex-direction:column;width:100%}
 
-  /* Breadcrumb & Path Bar (Google Drive Path View) */
+  /* Hero Showcase Section */
+  .hero-showcase{background:linear-gradient(135deg,rgba(2,132,199,0.05) 0%,rgba(5,150,105,0.05) 100%);border:1px solid rgba(2,132,199,0.18);border-radius:var(--r-lg);padding:22px 24px;margin-bottom:28px}
+  .hero-header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:18px;border-bottom:1px solid rgba(226,232,240,0.8);padding-bottom:12px}
+  .hero-kicker{font-size:0.72rem;font-weight:700;letter-spacing:0.06em;color:var(--cobalt);display:block;margin-bottom:3px}
+  .hero-title{font-size:1.25rem;font-weight:700;color:var(--ink9)}
+  .hero-badge{background:var(--emerald-s);color:var(--emerald);border:1px solid rgba(5,150,105,0.25);font-size:0.75rem;font-weight:700;padding:4px 10px;border-radius:999px}
+  .hero-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}
+  .hero-card{background:#fff;border:1px solid var(--border);border-radius:var(--r-md);padding:16px 18px;display:flex;flex-direction:column;justify-content:space-between;transition:all .2s cubic-bezier(.4,0,.2,1);position:relative;overflow:hidden;border-top:4px solid var(--card-color, var(--cobalt))}
+  .hero-card:hover{border-color:var(--cobalt);transform:translateY(-2px);box-shadow:var(--shadow-hover)}
+  .hero-card-tag{font-size:0.68rem;font-weight:700;color:var(--card-color, var(--cobalt));text-transform:uppercase;letter-spacing:0.04em;margin-bottom:4px}
+  .hero-card-title{font-size:0.98rem;font-weight:700;color:var(--ink9);line-height:1.35;margin-bottom:4px}
+  .hero-card-lecturer{font-size:0.78rem;font-weight:500;color:var(--ink5);margin-bottom:8px}
+  .hero-card-desc{font-size:0.8rem;color:var(--ink7);line-height:1.45;margin-bottom:12px;flex:1}
+  .hero-card-meta{display:flex;align-items:center;justify-content:space-between;font-size:0.75rem;font-weight:600;padding-top:8px;border-top:1px dashed var(--border)}
+  .hero-card-badge{background:var(--subtle);color:var(--ink7);padding:2px 8px;border-radius:4px;font-size:0.7rem}
+  .hero-card-btn{color:var(--card-color, var(--cobalt));font-weight:700;display:inline-flex;align-items:center;gap:3px}
+
+  /* Breadcrumb & Path Bar */
   .drive-nav-header{display:flex;flex-direction:column;gap:8px;margin-bottom:18px;border-bottom:1px solid var(--border);padding-bottom:16px}
-  .path-trail-row{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
-  .path-breadcrumbs{display:flex;align-items:center;gap:4px;flex-wrap:wrap;font-size:0.95rem}
-  .path-btn{display:inline-flex;align-items:center;gap:6px;padding:5px 10px;border-radius:8px;color:var(--ink7);font-weight:600;font-size:0.92rem;transition:all .15s}
+  .path-trail-row{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+  .path-breadcrumbs{display:flex;align-items:center;gap:4px;flex-wrap:wrap;font-size:0.92rem}
+  .path-btn{display:inline-flex;align-items:center;gap:6px;padding:4px 8px;border-radius:6px;color:var(--ink7);font-weight:600;font-size:0.88rem;transition:all .15s}
   .path-btn:hover{background:var(--cobalt-s);color:var(--cobalt)}
-  .path-sep{color:var(--ink4);font-size:0.9rem;margin:0 2px}
-  .path-current-tag{padding:5px 10px;font-weight:700;color:var(--ink9);background:var(--subtle);border-radius:8px}
-
-  .btn-back{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:999px;background:var(--subtle);border:1px solid var(--border);font-size:0.84rem;font-weight:600;color:var(--ink7);transition:all .15s}
+  .path-sep{color:var(--ink4);font-size:0.85rem;margin:0 2px}
+  .path-current-tag{padding:4px 8px;font-weight:700;color:var(--ink9);background:var(--subtle);border-radius:6px}
+  .btn-back{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:999px;background:var(--subtle);border:1px solid var(--border);font-size:0.82rem;font-weight:600;color:var(--ink7);transition:all .15s}
   .btn-back:hover{background:var(--cobalt-s);color:var(--cobalt);border-color:var(--cobalt)}
+  .folder-main-title{font-size:1.45rem;font-weight:700;color:var(--ink9);display:flex;align-items:center;gap:8px;margin-top:2px}
 
-  .folder-main-title{font-size:1.6rem;font-weight:700;color:var(--ink9);display:flex;align-items:center;gap:10px;margin-top:2px}
-
-  /* Toolbar: Meta & Filters */
-  .toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-bottom:20px}
-  .stat-txt{font-size:0.85rem;color:var(--ink5)}
+  /* Toolbar */
+  .toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:18px}
+  .stat-txt{font-size:0.82rem;color:var(--ink5)}
   .spacer{flex:1}
   .chips{display:flex;gap:6px;flex-wrap:wrap}
-  .chip{padding:5px 12px;border-radius:999px;border:1px solid var(--border);background:#fff;font-size:.8rem;font-weight:600;color:var(--ink5);transition:all .15s}
+  .chip{padding:4px 10px;border-radius:999px;border:1px solid var(--border);background:#fff;font-size:.78rem;font-weight:600;color:var(--ink5);transition:all .15s}
   .chip:hover{border-color:var(--cobalt);color:var(--cobalt)}
   .chip.on{background:var(--cobalt);border-color:var(--cobalt);color:#fff}
   .seg{display:inline-flex;border:1px solid var(--border);border-radius:999px;overflow:hidden;background:#fff}
-  .seg button{padding:5px 12px;font-size:.8rem;font-weight:600;color:var(--ink5)}
+  .seg button{padding:4px 10px;font-size:.78rem;font-weight:600;color:var(--ink5)}
   .seg button.on{background:var(--subtle);color:var(--ink9)}
-  select.sort{border:1px solid var(--border);border-radius:999px;padding:5px 10px;font:600 .8rem var(--font);background:#fff;color:var(--ink5)}
+  select.sort{border:1px solid var(--border);border-radius:999px;padding:4px 8px;font:600 .78rem var(--font);background:#fff;color:var(--ink5)}
 
-  .section-label{font-size:.8rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--ink4);margin:20px 2px 10px}
+  .section-label{font-size:.78rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--ink4);margin:20px 2px 10px}
   
-  /* Grid Cards */
+  /* Grid & Cards */
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
   .card{background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;text-align:left;display:flex;flex-direction:column;transition:all .2s cubic-bezier(.4,0,.2,1);position:relative;cursor:pointer}
   .card:hover{border-color:var(--cobalt);transform:translateY(-2px);box-shadow:var(--shadow-hover)}
   .card:active{transform:scale(.99)}
   
-  /* Folder Card */
   .card-folder{flex-direction:row;align-items:center;gap:12px;padding:14px 18px;background:#fff;border:1px solid var(--border)}
   .card-folder:hover{background:var(--cobalt-s);border-color:var(--cobalt)}
   .folder-icon{font-size:1.8rem;line-height:1;color:var(--cobalt)}
-  .folder-name{font-weight:600;font-size:.95rem;color:var(--ink9);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;word-break:break-word}
-  .folder-meta{font-size:.78rem;color:var(--ink5);margin-top:2px}
+  .folder-name{font-weight:600;font-size:.92rem;color:var(--ink9);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;word-break:break-word}
+  .folder-meta{font-size:.76rem;color:var(--ink5);margin-top:2px}
 
-  /* File Card */
   .thumb{aspect-ratio:16/10;background:var(--subtle);display:grid;place-items:center;overflow:hidden;font-size:2.4rem;border-bottom:1px solid var(--border)}
-  .thumb img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;image-rendering:-webkit-optimize-contrast}
+  .thumb img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
   .fbody{padding:12px 14px}
-  .fnm{font-weight:600;font-size:.9rem;color:var(--ink9);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;word-break:break-word;min-height:2.6em}
-  .fsub{display:flex;align-items:center;gap:6px;margin-top:8px;font-size:.74rem;color:var(--ink4)}
+  .fnm{font-weight:600;font-size:.88rem;color:var(--ink9);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;word-break:break-word;min-height:2.6em}
+  .fsub{display:flex;align-items:center;gap:6px;margin-top:8px;font-size:.72rem;color:var(--ink4)}
   
-  .tag{font-weight:700;font-size:.68rem;padding:2px 8px;border-radius:6px;background:var(--subtle);color:var(--ink7)}
+  .tag{font-weight:700;font-size:.66rem;padding:2px 7px;border-radius:6px;background:var(--subtle);color:var(--ink7)}
   .tag.pdf{background:#FFE4E6;color:var(--crimson)} .tag.ppt{background:var(--amber-s);color:var(--amber)}
   .tag.doc{background:var(--cobalt-s);color:var(--cobalt)} .tag.img{background:var(--emerald-s);color:var(--emerald)}
-  .ribbon{position:absolute;top:8px;left:8px;background:var(--emerald);color:#fff;font-size:.7rem;font-weight:700;padding:3px 10px;border-radius:999px;box-shadow:0 2px 6px rgba(5,150,105,0.3)}
+  .ribbon{position:absolute;top:8px;left:8px;background:var(--emerald);color:#fff;font-size:.68rem;font-weight:700;padding:3px 9px;border-radius:999px;box-shadow:0 2px 6px rgba(5,150,105,0.3)}
+
+  /* Bank Soal UAB Result Card */
+  .uab-box{background:#fff;border:1px solid rgba(217,119,6,0.3);border-radius:var(--r-lg);padding:16px 18px;margin-bottom:12px;transition:border-color .15s}
+  .uab-box:hover{border-color:var(--amber)}
+  .uab-top{display:flex;align-items:center;gap:8px;margin-bottom:6px;flex-wrap:wrap}
+  .uab-badge{font-size:0.68rem;font-weight:700;padding:2px 7px;border-radius:4px;background:var(--amber-s);color:var(--amber);text-transform:uppercase}
+  .uab-src{font-size:0.75rem;color:var(--ink5)}
+  .uab-text{font-size:0.9rem;color:var(--ink9);line-height:1.5;margin-bottom:10px}
+  .uab-btn{font-size:0.76rem;font-weight:600;color:var(--cobalt);background:var(--cobalt-s);border:1px solid rgba(2,132,199,0.25);border-radius:999px;padding:3px 12px;display:inline-block}
 
   /* List View */
   .list{display:flex;flex-direction:column;border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;background:#fff}
-  .row{display:flex;align-items:center;gap:12px;padding:10px 16px;border-top:1px solid var(--subtle);text-align:left;width:100%;transition:background .15s}
+  .row{display:flex;align-items:center;gap:12px;padding:9px 14px;border-top:1px solid var(--subtle);text-align:left;width:100%;transition:background .15s}
   .row:first-child{border-top:none} .row:hover{background:var(--cobalt-s)}
-  .row .ic{font-size:1.2rem;width:28px;text-align:center;flex:none}
-  .row .nm{flex:1;min-width:0;font-size:.9rem;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-  .row .path{font-size:.76rem;color:var(--ink4);max-width:40%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;direction:rtl;text-align:left}
-  .row .rib{font-size:.7rem;font-weight:700;color:var(--emerald);background:var(--emerald-s);padding:2px 8px;border-radius:999px}
-  .empty{padding:48px 16px;text-align:center;color:var(--ink4);font-size:.95rem;border:1px dashed var(--border);border-radius:var(--r-lg);background:#fff}
+  .row .ic{font-size:1.1rem;width:24px;text-align:center;flex:none}
+  .row .nm{flex:1;min-width:0;font-size:.88rem;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .row .path{font-size:.74rem;color:var(--ink4);max-width:35%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;direction:rtl;text-align:left}
+  .row .rib{font-size:.68rem;font-weight:700;color:var(--emerald);background:var(--emerald-s);padding:2px 7px;border-radius:999px}
+  .empty{padding:40px 16px;text-align:center;color:var(--ink4);font-size:.9rem;border:1px dashed var(--border);border-radius:var(--r-lg);background:#fff}
 
   /* Modal */
-  .scrim{position:fixed;inset:0;background:rgba(15,23,42,0.65);backdrop-filter:blur(6px);display:none;z-index:100;align-items:center;justify-content:center;padding:20px}
+  .scrim{position:fixed;inset:0;background:rgba(15,23,42,0.65);backdrop-filter:blur(6px);display:none;z-index:100;align-items:center;justify-content:center;padding:16px}
   .scrim.open{display:flex}
   .modal{background:#fff;border-radius:var(--r-xl);width:100%;max-width:1100px;max-height:92vh;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 25px 50px -12px rgba(0,0,0,0.25)}
-  .mh{padding:16px 24px;border-bottom:1px solid var(--border);display:flex;gap:14px;align-items:flex-start}
-  .mh .t{flex:1;min-width:0} .mh h2{font-size:1.1rem;word-break:break-word}
-  .mh .p{font-size:.8rem;color:var(--ink5);margin-top:2px}
+  .mh{padding:14px 20px;border-bottom:1px solid var(--border);display:flex;gap:12px;align-items:flex-start}
+  .mh .t{flex:1;min-width:0} .mh h2{font-size:1.05rem;word-break:break-word}
+  .mh .p{font-size:.78rem;color:var(--ink5);margin-top:2px}
   .x{width:32px;height:32px;border-radius:50%;background:var(--subtle);font-size:1.1rem;display:grid;place-items:center;flex:none}
   .x:hover{background:var(--cobalt-s);color:var(--cobalt)}
   .mb{flex:1;min-height:0;background:var(--subtle);display:grid;place-items:center}
   .mb iframe{width:100%;height:100%;min-height:60vh;border:0;background:#fff}
-  .nopv{padding:50px 20px;text-align:center;color:var(--ink5)}
-  .mf{padding:14px 24px;border-top:1px solid var(--border);display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+  .nopv{padding:40px 16px;text-align:center;color:var(--ink5)}
+  .mf{padding:12px 20px;border-top:1px solid var(--border);display:flex;flex-wrap:wrap;gap:8px;align-items:center}
   .mf .btn-pill{text-decoration:none}
   .btn-pill.web{background:var(--emerald);color:#fff} .btn-pill.web:hover{opacity:.9;transform:translateY(-1px)}
 
-  .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);opacity:0;pointer-events:none;background:var(--ink9);color:#fff;padding:12px 20px;border-radius:999px;font-size:.88rem;font-weight:500;z-index:200;transition:all .25s;display:flex;gap:12px;align-items:center}
+  .toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%) translateY(20px);opacity:0;pointer-events:none;background:var(--ink9);color:#fff;padding:10px 18px;border-radius:999px;font-size:.84rem;font-weight:500;z-index:200;transition:all .25s;display:flex;gap:10px;align-items:center}
   .toast.show{opacity:1;transform:translateX(-50%);pointer-events:auto}
-  .toast button{color:#8fd6c5;font-weight:700}
 
+  /* Responsive Mobile Breakpoint (Zero Horizontal Overflow Guaranteed) */
   @media (max-width:768px){
-    .bar{padding:0} .sync .txt{display:none} .brand small{display:none}
-    main{padding:16px}
+    header{padding:8px 12px}
+    .bar{flex-wrap:wrap;gap:8px;justify-content:space-between}
+    .brand{font-size:0.95rem}
+    .brand span span{display:none}
+    .sync, #syncBtn{display:none !important}
+    #openRoot{padding:5px 12px;font-size:0.78rem}
+    .search{order:3;width:100%;max-width:100%;flex:1 1 100%;margin:4px 0 0}
+    .search input{padding:8px 36px 8px 34px;font-size:0.86rem}
+    .app{padding:12px 10px 32px;max-width:100vw;overflow-x:hidden}
+    main{padding:14px 12px 24px;border-radius:12px;max-width:100%;overflow-x:hidden}
+    .hero-showcase{padding:16px 14px;margin-bottom:20px}
+    .hero-title{font-size:1.12rem}
+    .hero-grid{grid-template-columns:1fr;gap:12px}
+    .grid{grid-template-columns:1fr;gap:10px}
+    .card-folder{padding:12px 14px}
+    .toolbar{gap:8px}
+    .chips{width:100%;overflow-x:auto;padding-bottom:4px}
+    .modal{max-height:96vh}
+    .mf{padding:10px 14px;gap:6px}
   }
 </style>
 </head>
 <body>
 <header>
   <div class="bar">
-    <div class="brand">
+    <div class="brand" onclick="go(tree.id)">
       <div class="brand-logo">VX</div>
-      <span>VERTEXTERIAL <span style="font-size:0.8rem;font-weight:500;color:var(--ink5);">Drive Mirror</span></span>
+      <span>VERTEX-PREP <span style="font-size:0.8rem;font-weight:500;color:var(--ink5);">· FK Preklinik</span></span>
     </div>
     <div class="search">
       <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-      <input id="q" type="search" placeholder="Cari di seluruh Drive (nama file / folder)…" autocomplete="off" aria-label="Cari">
+      <input id="q" type="search" placeholder="Cari materi kuliah, topik, atau 3.316 bank soal UAB…" autocomplete="off" aria-label="Cari">
       <kbd>/</kbd>
     </div>
     <div class="sync" id="sync"><span class="dot" id="dot"></span><span class="txt" id="syncTxt">memuat…</span></div>
@@ -197,13 +237,14 @@
       <div class="t"><h2 id="mTitle"></h2><div class="p" id="mPath"></div></div>
       <button class="btn-pill ghost" id="mPrev" title="Sebelumnya (←)">←</button>
       <button class="btn-pill ghost" id="mNext" title="Berikutnya (→)">→</button>
-      <button class="x" id="mClose" aria-label="Tutup (Esc)">✕</button>
+      <button class="x" id="mClose" aria-label="Tutup">×</button>
     </div>
     <div class="mb" id="mBody"></div>
     <div class="mf" id="mFoot"></div>
   </div>
 </div>
-<div class="toast" id="toast"><span id="toastTxt"></span><button id="toastBtn">Muat ulang</button></div>
+
+<div class="toast" id="toast"><span id="toastMsg"></span></div>
 
 <script>
 (() => {
@@ -211,8 +252,56 @@
   const ROOT_URL = 'https://drive.google.com/drive/folders/1vrUGhIJuAjfV8R9zKDe8Wr-ojAtnLeJt';
   let tree = null, byId = new Map(), parent = new Map(), pathOf = new Map(), nFiles = new Map(), nFolders = new Map();
   let summaries = {}, cur = null, view = localStorage.getItem('vx_view') || 'grid';
-  let filter = 'all', sortBy = 'name', query = '', version = '', pendingVersion = '';
+  let filter = 'all', sortBy = 'name', query = '', version = '';
   let modalList = [], modalIdx = -1, lastFocus = null;
+
+  const MASTERPIECES = [
+    {
+      title: 'Defisiensi Mineral',
+      lecturer: 'dr. Iwal Reza Ahdi, Sp.PD',
+      block: 'Blok 9 EMN · KUL 3',
+      url: 'EMN_KUL3_Defisiensi_Mineral.html',
+      desc: 'Misteri IGD Hipokalemia refrakter, Peta Besi/Seng/Kalsium, Sindrom Refeeding, dan latihan soal CBT UAB.',
+      color: '#059669',
+      badge: 'CBT UWorld + Kasus IGD'
+    },
+    {
+      title: 'Defisiensi Vitamin',
+      lecturer: 'dr. Iwal Reza Ahdi, Sp.PD',
+      block: 'Blok 9 EMN · KUL 2',
+      url: 'EMN_KUL2_Defisiensi_Vitamin.html',
+      desc: 'Vitamin larut lemak vs air, beri-beri basah vs kering, sindrom Wernicke-Korsakoff, skor anemia megaloblastik.',
+      color: '#0284C7',
+      badge: 'Slide-Sync + Skor Lab'
+    },
+    {
+      title: 'Malnutrisi Energi Protein',
+      lecturer: 'dr. Dini Sri Damayanti, M.Kes',
+      block: 'Blok 9 EMN · KUL 5',
+      url: 'EMN_KUL5_Malnutrisi.html',
+      desc: 'Perbedaan klinis Marasmus vs Kwashiorkor, bahaya fatal refeeding awal, dan 10 Langkah Rawat Inap Gizi Buruk WHO.',
+      color: '#D97706',
+      badge: 'Protokol 10 Langkah WHO'
+    },
+    {
+      title: 'Autoimunitas & Toleransi Imun',
+      lecturer: 'dr. Lailia Nur Rachma, M.Biomed',
+      block: 'Blok 8 HI · KUL 20',
+      url: 'HI_KUL20_Autoimunitas.html',
+      desc: 'Toleransi sentral vs perifer (FoxP3/AIRE), Reaksi Hipersensitivitas I-IV, Patofisiologi Lupus, dan Myasthenia Gravis.',
+      color: '#7C3AED',
+      badge: 'Peta AIRE/FoxP3 + UAB'
+    },
+    {
+      title: 'Patient Safety & Clinical Risk',
+      lecturer: 'dr. Riskiyah, MMRS',
+      block: 'Blok 7 BDT · KUL 3',
+      url: 'BDT_KUL3_Patient_Safety.html',
+      desc: '6 Sasaran Keselamatan Pasien (SKP), Komunikasi Efektif SBAR, Insiden IKP (KTD, KNC, KTC, Sentinel), Swiss Cheese Model.',
+      color: '#E11D48',
+      badge: 'SKP Kemenkes + SBAR'
+    }
+  ];
 
   function el(tag, attrs, ...kids) {
     const e = document.createElement(tag);
@@ -290,11 +379,8 @@
   function paintSync(m) {
     const dot = $('dot'), t = $('syncTxt');
     if (!m) { dot.className = 'dot err'; t.textContent = 'server tidak terjangkau'; return; }
-    dot.className = 'dot' + (m.syncing ? ' busy' : m.error ? ' err' : '');
-    const when = m.checkedAt || m.crawledAt || '-';
-    t.textContent = m.syncing ? 'menyinkron dengan Drive…' : m.error ? `gagal sinkron (data lama dipakai)` :
-      `${fmt(m.stats.files)} file · ${fmt(m.stats.folders)} folder · dicek ${when}`;
-    t.title = `Crawl terakhir: ${m.crawledAt || '-'}`;
+    dot.className = 'dot';
+    t.textContent = `${fmt(m.stats.files)} file · ${fmt(m.stats.folders)} folder · Online 24/7`;
   }
 
   // Navigation
@@ -303,63 +389,64 @@
     cur = n.isFolder ? n : parent.get(n.id);
     if (push) location.hash = cur.id === tree.id ? '' : '#/' + cur.id;
     render();
-    $('main').scrollTop = 0;
+    window.scrollTo({top: 0, behavior: 'smooth'});
   }
 
-  function goParent() {
-    if (cur && parent.get(cur.id)) {
-      query = ''; $('q').value = '';
-      go(parent.get(cur.id).id);
-    }
-  }
-  window.goParent = goParent;
+  window.goParent = function() {
+    if (!cur || cur.id === tree.id) return;
+    const p = parent.get(cur.id);
+    if (p) go(p.id);
+    else go(tree.id);
+  };
 
   function fromHash() {
-    const m = location.hash.match(/^#\/([\w-]+)/);
-    go(m ? m[1] : tree.id, false);
+    const m = location.hash.match(/^#\/(.+)$/);
+    if (m && byId.has(m[1])) go(m[1], false);
+    else go(tree.id, false);
   }
 
-  // Render Google Drive Breadcrumbs (apa saja yang dibuka darimana kemana)
   function renderCrumbs() {
     const c = $('crumbs'); c.replaceChildren();
     const btnBack = $('btn-back');
-    const chain = []; for (let n = cur; n; n = parent.get(n.id)) chain.unshift(n);
-
-    // Show/hide Back button
-    if (cur.id !== tree.id && !query) {
-      btnBack.style.display = 'inline-flex';
-      const pNode = parent.get(cur.id);
-      btnBack.title = 'Kembali ke ' + (pNode ? pNode.name : 'Folder Induk');
-    } else {
-      btnBack.style.display = 'none';
+    const titleEl = $('folder-title');
+    
+    if (cur.id === tree.id) {
+      if (btnBack) btnBack.style.display = 'none';
+      if (titleEl) titleEl.textContent = 'Portal Utama Preklinik FK';
+      c.append(el('span', {class: 'path-current-tag', text: '📁 Portal Utama'}));
+      return;
     }
+    
+    if (btnBack) btnBack.style.display = 'inline-flex';
+    if (titleEl) titleEl.textContent = cur.name;
 
-    // Breadcrumb trail
-    chain.forEach((n, i) => {
-      if (i > 0) c.append(el('span', {class: 'path-sep', text: '›'}));
-      if (i === chain.length - 1 && !query) {
-        c.append(el('span', {class: 'path-current-tag', text: (n.id === tree.id ? '📁 ' : '') + n.name}));
+    const chain = [];
+    let p = cur;
+    while (p) { chain.unshift(p); p = parent.get(p.id); }
+
+    chain.forEach((n, idx) => {
+      const isLast = idx === chain.length - 1;
+      if (isLast) {
+        c.append(el('span', {class: 'path-current-tag', text: n.name}));
       } else {
-        c.append(el('button', {
-          class: 'path-btn',
-          text: (n.id === tree.id ? '📁 ' : '') + n.name,
-          onclick: () => { query = ''; $('q').value = ''; go(n.id); }
-        }));
+        const icon = n.id === tree.id ? '📁' : '';
+        const label = n.id === tree.id ? 'Portal Utama' : n.name;
+        c.append(
+          el('button', {
+            type: 'button',
+            class: 'path-btn',
+            onclick: () => { query = ''; $('q').value = ''; go(n.id); }
+          }, el('span', {text: icon}), el('span', {text: label})),
+          el('span', {class: 'path-sep', text: '›'})
+        );
       }
     });
-
-    if (query) {
-      c.append(el('span', {class: 'path-sep', text: '›'}), el('span', {class: 'path-current-tag', text: `Hasil pencarian “${query}”`}));
-      $('folder-title').textContent = `🔍 Pencarian: “${query}”`;
-    } else {
-      $('folder-title').textContent = (cur.id === tree.id ? '📁 ' : '📂 ') + cur.name;
-    }
   }
 
   function renderChips(items) {
     const counts = {all: items.length}; items.forEach(n => { if (!n.isFolder) { const k = kind(n); counts[k] = (counts[k] || 0) + 1; } });
     const c = $('chips'); c.replaceChildren();
-    ['all', 'pdf', 'ppt', 'doc', 'img', 'video', 'other'].forEach(k => {
+    ['all', 'pdf', 'ppt', 'doc'].forEach(k => {
       if (k !== 'all' && !counts[k]) return;
       c.append(el('button', {class: 'chip' + (filter === k ? ' on' : ''), text: `${k === 'all' ? 'Semua' : LABEL[k]} ${counts[k] || 0}`, onclick: () => { filter = k; render(); }}));
     });
@@ -413,22 +500,91 @@
     return out;
   }
 
+  function searchUAB() {
+    if (!window.VERTEX_SEARCH_INDEX || !query) return [];
+    const toks = query.toLowerCase().split(/\s+/).filter(Boolean);
+    const results = [];
+    for (const item of window.VERTEX_SEARCH_INDEX) {
+      if (item.type !== 'BANK SOAL UAB') continue;
+      const text = (item.text || '').toLowerCase();
+      const src = (item.source || '').toLowerCase();
+      if (toks.every(t => text.includes(t) || src.includes(t))) {
+        results.push(item);
+        if (results.length >= 10) break; // Limit top 10
+      }
+    }
+    return results;
+  }
+
+  function buildHero() {
+    const section = el('div', {class: 'hero-showcase'});
+    const hdr = el('div', {class: 'hero-header'},
+      el('div', {},
+        el('span', {class: 'hero-kicker', text: '⭐ PLATFORM BELAJAR PREKLINIK FK TERVERIFIKASI'}),
+        el('h2', {class: 'hero-title', text: 'Modul Interaktif Masterpiece (Split-Screen & Soal UAB)'})
+      ),
+      el('span', {class: 'hero-badge', text: '5 Modul Unggulan'})
+    );
+    const grid = el('div', {class: 'hero-grid'});
+
+    MASTERPIECES.forEach(m => {
+      const card = el('a', {class: 'hero-card', href: m.url, style: `--card-color:${m.color}`},
+        el('div', {},
+          el('div', {class: 'hero-card-tag', text: m.block}),
+          el('h3', {class: 'hero-card-title', text: m.title}),
+          el('div', {class: 'hero-card-lecturer', text: m.lecturer}),
+          el('p', {class: 'hero-card-desc', text: m.desc})
+        ),
+        el('div', {class: 'hero-card-meta'},
+          el('span', {class: 'hero-card-badge', text: m.badge}),
+          el('span', {class: 'hero-card-btn'}, el('span', {text: 'Buka Modul'}), el('span', {text: '➔'}))
+        )
+      );
+      grid.append(card);
+    });
+
+    section.append(hdr, grid);
+    return section;
+  }
+
   function render() {
     renderCrumbs();
+    const isRoot = cur && cur.id === tree.id;
     const base = query ? searchPool() : cur.children;
     renderChips(base);
     const pass = n => n.isFolder ? (filter === 'all') : (filter === 'all' || kind(n) === filter);
     const items = base.filter(pass);
     const folders = sorted(items.filter(n => n.isFolder)), files = sorted(items.filter(n => !n.isFolder));
+    const uabMatches = query ? searchUAB() : [];
     
-    $('stat').textContent = query ? `${fmt(folders.length)} folder · ${fmt(files.length)} file ditemukan` :
+    $('stat').textContent = query ? `${fmt(folders.length)} folder · ${fmt(files.length)} file${uabMatches.length ? ' · ' + uabMatches.length + ' soal UAB' : ''} ditemukan` :
       `${fmt(cur.children.filter(c => c.isFolder).length)} folder · ${fmt(cur.children.filter(c => !c.isFolder).length)} file di sini (total ${fmt(nFiles.get(cur.id))} file)`;
     
     $('vGrid').classList.toggle('on', view === 'grid'); $('vList').classList.toggle('on', view === 'list');
     const box = $('content'); box.replaceChildren();
 
-    if (!items.length) {
-      box.append(el('div', {class: 'empty', text: query ? 'Tidak ada hasil pencarian.' : base.length ? 'Tidak ada item untuk filter ini.' : 'Folder ini kosong (sama seperti di Google Drive asli).'}));
+    // Show Hero Showcase on Root level when not searching
+    if (isRoot && !query) {
+      box.append(buildHero());
+    }
+
+    // If searching and UAB questions match, display them on top!
+    if (query && uabMatches.length > 0) {
+      box.append(el('div', {class: 'section-label', text: `📝 Bank Soal UAB Terkait (${uabMatches.length} Ditemukan)`}));
+      uabMatches.forEach(q => {
+        const itemBox = el('div', {class: 'uab-box'},
+          el('div', {class: 'uab-top'},
+            el('span', {class: 'uab-badge', text: q.block || 'UAB FK'}),
+            el('span', {class: 'uab-src', text: q.source || 'Bank Soal UAB'})
+          ),
+          el('div', {class: 'uab-text', text: q.text})
+        );
+        box.append(itemBox);
+      });
+    }
+
+    if (!items.length && !uabMatches.length) {
+      box.append(el('div', {class: 'empty', text: query ? 'Tidak ada hasil pencarian.' : base.length ? 'Tidak ada item untuk filter ini.' : 'Folder ini kosong.'}));
       return;
     }
 
@@ -438,10 +594,10 @@
       box.append(l);
     } else {
       if (folders.length) {
-        box.append(el('div', {class: 'section-label', text: 'Folder Sub-Kategori'}), el('div', {class: 'grid', style: 'margin-bottom:28px;'}, ...folders.map(folderCard)));
+        box.append(el('div', {class: 'section-label', text: isRoot ? 'Semua Kategori & Blok Preklinik' : 'Folder Sub-Kategori'}), el('div', {class: 'grid', style: 'margin-bottom:28px;'}, ...folders.map(folderCard)));
       }
       if (files.length) {
-        box.append(el('div', {class: 'section-label', text: 'File Materi'}), el('div', {class: 'grid'}, ...files.map(n => fileCard(n, files))));
+        box.append(el('div', {class: 'section-label', text: 'File Materi Kuliah'}), el('div', {class: 'grid'}, ...files.map(n => fileCard(n, files))));
       }
     }
   }
@@ -468,25 +624,12 @@
   function step(d) { const i = modalIdx + d; if (i >= 0 && i < modalList.length) { modalIdx = i; paintModal(); } }
   function closeModal() { $('scrim').classList.remove('open'); $('mBody').replaceChildren(); if (lastFocus) lastFocus.focus(); }
 
-  // Sync
-  function toast(msg, action) {
-    $('toastTxt').textContent = msg; $('toastBtn').style.display = action ? '' : 'none';
-    $('toastBtn').onclick = action || null; $('toast').classList.add('show');
-    if (!action) setTimeout(() => $('toast').classList.remove('show'), 3500);
+  function toast(msg) {
+    $('toastMsg').textContent = msg;
+    $('toast').classList.add('show');
+    setTimeout(() => $('toast').classList.remove('show'), 3500);
   }
-  async function applyUpdate() {
-    const was = cur && cur.id;
-    await loadTree(); $('toast').classList.remove('show');
-    go(byId.has(was) ? was : tree.id, false); toast('Mirror diperbarui dari Drive asli.');
-  }
-  async function poll() {
-    const m = await loadMeta(); if (!m) return;
-    if (!version) version = m.version;
-    else if (m.version && m.version !== version && m.version !== pendingVersion) {
-      pendingVersion = m.version; version = m.version;
-      toast('Drive asli berubah — ada pembaruan.', applyUpdate);
-    }
-  }
+
   async function syncNow() {
     const b = $('syncBtn'); b.disabled = true; b.textContent = '↻ Menyinkron…'; $('dot').className = 'dot busy'; $('syncTxt').textContent = 'menyinkron dengan Drive…';
     try {
@@ -494,7 +637,7 @@
       if (res.ok) {
         const m = await res.json();
         paintSync(m);
-        if (m.version !== version) { version = m.version; await applyUpdate(); } else toast('Sudah sama dengan Drive asli.');
+        if (m.version !== version) { version = m.version; await loadTree(); render(); toast('Mirror diperbarui dari Drive asli.'); } else toast('Sudah sama dengan Drive asli.');
       } else {
         throw new Error();
       }
@@ -523,9 +666,15 @@
 
   (async () => {
     try {
-      [summaries] = await Promise.all([fetch('summaries.json', {cache: 'no-store'}).then(r => r.ok ? r.json() : {}).catch(() => ({})), loadTree()]);
-      await poll(); fromHash(); setInterval(poll, 30000);
-    } catch (e) { $('content').append(el('div', {class: 'empty', text: 'Gagal memuat data Drive: ' + e.message + '. Jalankan: python3 mirror_server.py'})); }
+      [summaries] = await Promise.all([
+        fetch('summaries.json', {cache: 'no-store'}).then(r => r.ok ? r.json() : {}).catch(() => ({})),
+        loadTree()
+      ]);
+      await loadMeta();
+      fromHash();
+    } catch (e) {
+      $('content').append(el('div', {class: 'empty', text: 'Gagal memuat data: ' + e.message}));
+    }
   })();
 })();
 </script>

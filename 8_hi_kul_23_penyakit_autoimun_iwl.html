@@ -84,9 +84,11 @@
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; overflow-x: hidden; width: 100%; }
 
     body {
+      overflow-x: hidden;
+      width: 100%;
       background: var(--bg);
       color: var(--ink);
       font-family: var(--font-sans);
@@ -205,18 +207,7 @@
       color: var(--ink);
     }
     .tool-btn.active .state-pill { background: var(--sage); color: #fff; }
-    .btn-anki {
-      background: var(--sage);
-      color: #FFFFFF !important;
-      font-size: 0.79rem;
-      font-weight: 700;
-      padding: 7px 14px;
-      border-radius: var(--r-full);
-      text-decoration: none;
-      white-space: nowrap;
-      transition: opacity 0.15s ease;
-    }
-    .btn-anki:hover { opacity: 0.9; }
+    
 
     .page-wrap {
       max-width: 1340px;
@@ -561,7 +552,6 @@
         <button type="button" id="theme-btn" class="tool-btn" onclick="toggleTheme()" title="Shortcut tombol D">
           <span id="theme-label">🌙 Mode Malam</span>
         </button>
-        <a href="anki/VERTEX_8_hi_kul_23_penyakit_autoimun_iwl.apkg" class="btn-anki" download>⬇ Anki</a>
       </div>
     </div>
   </header>
@@ -627,7 +617,7 @@
               <button class="slide-pill active" onclick="setStage('ch1', 1, 'Slide 1', this)">Slide 1</button><button class="slide-pill" onclick="setStage('ch1', 2, 'Slide 2', this)">Slide 2</button><button class="slide-pill" onclick="setStage('ch1', 3, 'Slide 3', this)">Slide 3</button><button class="slide-pill" onclick="setStage('ch1', 4, 'Slide 4', this)">Slide 4</button>
             </div>
             <div class="stage-frame" onclick="openZoom(document.getElementById('img-ch1').src)">
-              <img id="img-ch1" src="slides_8_hi_kul_23_penyakit_autoimun_iwl/slide_1.jpg" alt="Slide Bab 1">
+              <img id="img-ch1" src="slides_8_hi_kul_23_penyakit_autoimun_iwl/slide_1.jpg" alt="Slide Bab 1" onerror="this.onerror=null; this.src='https://drive.google.com/thumbnail?id=104iwY_0GseLZZ66W_2XmkP_8_lBGqjz9&sz=w800'; this.title='Slide resmi dari Google Drive asli';">
             </div>
             <div class="stage-caption">
               <span id="cap-ch1">Slide 1</span>
@@ -683,7 +673,7 @@
               <button class="slide-pill active" onclick="setStage('ch2', 5, 'Slide 5', this)">Slide 5</button><button class="slide-pill" onclick="setStage('ch2', 6, 'Slide 6', this)">Slide 6</button><button class="slide-pill" onclick="setStage('ch2', 7, 'Slide 7', this)">Slide 7</button><button class="slide-pill" onclick="setStage('ch2', 8, 'Slide 8', this)">Slide 8</button>
             </div>
             <div class="stage-frame" onclick="openZoom(document.getElementById('img-ch2').src)">
-              <img id="img-ch2" src="slides_8_hi_kul_23_penyakit_autoimun_iwl/slide_5.jpg" alt="Slide Bab 2">
+              <img id="img-ch2" src="slides_8_hi_kul_23_penyakit_autoimun_iwl/slide_5.jpg" alt="Slide Bab 2" onerror="this.onerror=null; this.src='https://drive.google.com/thumbnail?id=104iwY_0GseLZZ66W_2XmkP_8_lBGqjz9&sz=w800'; this.title='Slide resmi dari Google Drive asli';">
             </div>
             <div class="stage-caption">
               <span id="cap-ch2">Slide 5</span>
@@ -739,7 +729,7 @@
               <button class="slide-pill active" onclick="setStage('ch3', 9, 'Slide 9', this)">Slide 9</button><button class="slide-pill" onclick="setStage('ch3', 10, 'Slide 10', this)">Slide 10</button><button class="slide-pill" onclick="setStage('ch3', 11, 'Slide 11', this)">Slide 11</button><button class="slide-pill" onclick="setStage('ch3', 12, 'Slide 12', this)">Slide 12</button>
             </div>
             <div class="stage-frame" onclick="openZoom(document.getElementById('img-ch3').src)">
-              <img id="img-ch3" src="slides_8_hi_kul_23_penyakit_autoimun_iwl/slide_9.jpg" alt="Slide Bab 3">
+              <img id="img-ch3" src="slides_8_hi_kul_23_penyakit_autoimun_iwl/slide_9.jpg" alt="Slide Bab 3" onerror="this.onerror=null; this.src='https://drive.google.com/thumbnail?id=104iwY_0GseLZZ66W_2XmkP_8_lBGqjz9&sz=w800'; this.title='Slide resmi dari Google Drive asli';">
             </div>
             <div class="stage-caption">
               <span id="cap-ch3">Slide 9</span>
@@ -795,7 +785,7 @@
               <button class="slide-pill active" onclick="setStage('ch4', 13, 'Slide 13', this)">Slide 13</button><button class="slide-pill" onclick="setStage('ch4', 14, 'Slide 14', this)">Slide 14</button><button class="slide-pill" onclick="setStage('ch4', 15, 'Slide 15', this)">Slide 15</button>
             </div>
             <div class="stage-frame" onclick="openZoom(document.getElementById('img-ch4').src)">
-              <img id="img-ch4" src="slides_8_hi_kul_23_penyakit_autoimun_iwl/slide_13.jpg" alt="Slide Bab 4">
+              <img id="img-ch4" src="slides_8_hi_kul_23_penyakit_autoimun_iwl/slide_13.jpg" alt="Slide Bab 4" onerror="this.onerror=null; this.src='https://drive.google.com/thumbnail?id=104iwY_0GseLZZ66W_2XmkP_8_lBGqjz9&sz=w800'; this.title='Slide resmi dari Google Drive asli';">
             </div>
             <div class="stage-caption">
               <span id="cap-ch4">Slide 13</span>
@@ -812,7 +802,7 @@
 
   <script>
     function setStage(chId, slideNum, caption, btn) {
-      document.getElementById('img-' + chId).src = 'slides_8_hi_kul_23_penyakit_autoimun_iwl/slide_' + slideNum + '.jpg';
+      const _tImg = document.getElementById('img-' + chId); _tImg.onerror = function() { this.onerror=null; this.src='https://drive.google.com/thumbnail?id=104iwY_0GseLZZ66W_2XmkP_8_lBGqjz9&sz=w800'; }; _tImg.src = 'slides_8_hi_kul_23_penyakit_autoimun_iwl/slide_' + slideNum + '.jpg';
       document.getElementById('cap-' + chId).textContent = caption;
       const wrap = document.getElementById('pills-' + chId);
       wrap.querySelectorAll('.slide-pill').forEach(b => b.classList.remove('active'));

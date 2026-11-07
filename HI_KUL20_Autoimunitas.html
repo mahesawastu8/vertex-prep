@@ -84,9 +84,11 @@
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; overflow-x: hidden; width: 100%; }
 
     body {
+      overflow-x: hidden;
+      width: 100%;
       background: var(--bg);
       color: var(--ink);
       font-family: var(--font-sans);
@@ -211,18 +213,7 @@
       color: var(--ink);
     }
     .tool-btn.active .state-pill { background: var(--sage); color: #fff; }
-    .btn-anki {
-      background: var(--sage);
-      color: #FFFFFF !important;
-      font-size: 0.79rem;
-      font-weight: 700;
-      padding: 7px 14px;
-      border-radius: var(--r-full);
-      text-decoration: none;
-      white-space: nowrap;
-      transition: opacity 0.15s ease;
-    }
-    .btn-anki:hover { opacity: 0.9; }
+    
 
     .page-wrap {
       max-width: 1340px;
@@ -792,7 +783,6 @@
         <button type="button" id="theme-btn" class="tool-btn" onclick="toggleTheme()" title="Shortcut tombol D">
           <span id="theme-label">🌙 Mode Malam</span>
         </button>
-        <a href="anki/VERTEX_HI_KUL20_Autoimunitas.apkg" class="btn-anki" download>⬇ Anki</a>
       </div>
     </div>
   </header>
