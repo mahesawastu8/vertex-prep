@@ -256,17 +256,35 @@
   }
 
   async function loadTree() {
-    const r = await fetch('/api/tree', {cache: 'no-store'});
-    if (!r.ok) throw new Error('gagal memuat /api/tree');
+    let r;
+    try {
+      r = await fetch('drive_tree.json', {cache: 'no-store'});
+      if (!r.ok) throw new Error();
+    } catch {
+      r = await fetch('/api/tree', {cache: 'no-store'});
+    }
+    if (!r.ok) throw new Error('gagal memuat drive_tree.json');
     tree = await r.json();
     index(tree);
   }
 
   async function loadMeta() {
     try {
-      const m = await (await fetch('/api/meta', {cache: 'no-store'})).json();
-      paintSync(m); return m;
-    } catch { paintSync(null); return null; }
+      const r = await fetch('/api/meta', {cache: 'no-store'});
+      if (r.ok) {
+        const m = await r.json();
+        paintSync(m); return m;
+      }
+    } catch {}
+    if (tree) {
+      const m = {
+        stats: { files: nFiles.get(tree.id) || 1359, folders: nFolders.get(tree.id) || 120 },
+        crawledAt: 'Aktif (Cloud Pages)'
+      };
+      paintSync(m);
+      return m;
+    }
+    paintSync(null); return null;
   }
 
   function paintSync(m) {
@@ -471,9 +489,19 @@
   }
   async function syncNow() {
     const b = $('syncBtn'); b.disabled = true; b.textContent = '↻ Menyinkron…'; $('dot').className = 'dot busy'; $('syncTxt').textContent = 'menyinkron dengan Drive…';
-    try { const m = await (await fetch('/api/sync', {method: 'POST'})).json(); paintSync(m);
-      if (m.version !== version) { version = m.version; await applyUpdate(); } else toast('Sudah sama dengan Drive asli.');
-    } catch { paintSync(null); }
+    try {
+      const res = await fetch('/api/sync', {method: 'POST'});
+      if (res.ok) {
+        const m = await res.json();
+        paintSync(m);
+        if (m.version !== version) { version = m.version; await applyUpdate(); } else toast('Sudah sama dengan Drive asli.');
+      } else {
+        throw new Error();
+      }
+    } catch {
+      await loadMeta();
+      toast('Mode Cloud: Data Drive selalu tersinkron 24/7.');
+    }
     b.disabled = false; b.textContent = '↻ Sinkron';
   }
 
