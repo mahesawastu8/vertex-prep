@@ -24,3 +24,5 @@ GEMINI.md
 ## End Konoha config+skill
 .opencode/
 .dockerignore
+node_modules/
+bun.lock

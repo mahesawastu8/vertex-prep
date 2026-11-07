@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 <title>VERTEX-PREP — Platform Preklinik FK & Google Drive Mirror</title>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="vendor/orama.js" defer></script>
 <script src="vendor/uab_search_data.js" defer></script>
 <style>
   :root {
@@ -193,6 +194,8 @@
       <kbd>/</kbd>
     </div>
     <div class="sync" id="sync"><span class="dot" id="dot"></span><span class="txt" id="syncTxt">memuat…</span></div>
+    <a href="ecg_simulator.html" class="btn-pill ghost" title="Simulator EKG & Elektrolit Interaktif">⚡ EKG Lab</a>
+    <a href="anatomy_explorer.html" class="btn-pill ghost" title="Atlas Anatomi Klinis Interaktif">🫀 Atlas Anatomi</a>
     <button class="btn-pill ghost" id="syncBtn">↻ Sinkron</button>
     <a class="btn-pill solid" id="openRoot" target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/1vrUGhIJuAjfV8R9zKDe8Wr-ojAtnLeJt">Drive Asli ↗</a>
   </div>
@@ -502,8 +505,52 @@
     return out;
   }
 
+  let oramaDb = null;
+  async function initOrama() {
+    if (!window.Orama || oramaDb) return;
+    try {
+      oramaDb = await window.Orama.create({
+        schema: {
+          id: 'string',
+          type: 'string',
+          text: 'string',
+          source: 'string',
+          block: 'string'
+        }
+      });
+      const docs = [];
+      if (window.VERTEX_SEARCH_INDEX) {
+        window.VERTEX_SEARCH_INDEX.forEach(item => {
+          docs.push({
+            id: item.id || String(Math.random()),
+            type: item.type || 'BANK SOAL UAB',
+            text: item.text || '',
+            source: item.source || '',
+            block: item.block || 'UAB FK'
+          });
+        });
+      }
+      await window.Orama.insertMultiple(oramaDb, docs);
+    } catch (e) {
+      console.warn('Orama indexing failed, using fallback substring search:', e);
+    }
+  }
+
   function searchUAB() {
-    if (!window.VERTEX_SEARCH_INDEX || !query) return [];
+    if (!query) return [];
+    if (oramaDb && window.Orama) {
+      try {
+        const res = window.Orama.search(oramaDb, {
+          term: query,
+          tolerance: 1,
+          limit: 12
+        });
+        if (res && res.hits && res.hits.length) {
+          return res.hits.map(h => h.document);
+        }
+      } catch (e) {}
+    }
+    if (!window.VERTEX_SEARCH_INDEX) return [];
     const toks = query.toLowerCase().split(/\s+/).filter(Boolean);
     const results = [];
     for (const item of window.VERTEX_SEARCH_INDEX) {
@@ -512,7 +559,7 @@
       const src = (item.source || '').toLowerCase();
       if (toks.every(t => text.includes(t) || src.includes(t))) {
         results.push(item);
-        if (results.length >= 10) break; // Limit top 10
+        if (results.length >= 10) break;
       }
     }
     return results;
@@ -569,7 +616,25 @@
       grid.append(card);
     });
 
-    section.append(hdr, grid);
+    const toolsRow = el('div', {style: 'margin-top:16px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;'},
+      el('a', {href: 'ecg_simulator.html', style: 'background:#090D12;border:1px solid #233142;border-radius:12px;padding:14px 18px;display:flex;align-items:center;gap:14px;text-decoration:none;transition:all .15s;'},
+        el('span', {style: 'font-size:2rem;line-height:1;'}, '⚡'),
+        el('div', {},
+          el('div', {style: 'font-size:0.68rem;font-weight:700;color:#00FF66;text-transform:uppercase;letter-spacing:0.05em;'}, 'Lab EKG & Elektrolit'),
+          el('div', {style: 'font-size:1rem;font-weight:700;color:#fff;'}, 'Simulator EKG Interaktif'),
+          el('div', {style: 'font-size:0.78rem;color:#94A3B8;'}, 'Osilograf detak jantung, gelombang U, dan Peaked T')
+        )
+      ),
+      el('a', {href: 'anatomy_explorer.html', style: 'background:#fff;border:1px solid var(--border);border-radius:12px;padding:14px 18px;display:flex;align-items:center;gap:14px;text-decoration:none;transition:all .15s;'},
+        el('span', {style: 'font-size:2rem;line-height:1;'}, '🫀'),
+        el('div', {},
+          el('div', {style: 'font-size:0.68rem;font-weight:700;color:var(--cobalt);text-transform:uppercase;letter-spacing:0.05em;'}, 'Visualizer Klinis'),
+          el('div', {style: 'font-size:1rem;font-weight:700;color:var(--ink9);'}, 'Atlas & Explorer Anatomi'),
+          el('div', {style: 'font-size:0.78rem;color:var(--ink5);'}, 'Ginjal & Nefron ROMK, Jantung, dan Saluran Cerna')
+        )
+      )
+    );
+    section.append(hdr, grid, toolsRow);
     return section;
   }
 
@@ -643,6 +708,7 @@
     const foot = $('mFoot'); foot.replaceChildren();
     if (s) foot.append(el('a', {class: 'btn-pill web', href: s.url, text: '🚀 Buka Web Rangkuman: ' + s.title}));
     foot.append(el('a', {class: 'btn-pill solid', href: n.url, target: '_blank', rel: 'noopener', text: 'Buka di Drive ↗'}),
+      el('a', {class: 'btn-pill ghost', href: 'https://mozilla.github.io/pdf.js/web/viewer.html?file=' + encodeURIComponent(dl(n)), target: '_blank', rel: 'noopener', text: '📄 Baca di PDF.js ↗'}),
       el('a', {class: 'btn-pill ghost', href: dl(n), target: '_blank', rel: 'noopener', text: '⬇ Unduh'}),
       el('span', {class: 'spacer'}), el('span', {style: 'font-size:.8rem;color:var(--ink5)', text: `${modalIdx + 1} / ${modalList.length} · ←/→ pindah · Esc tutup`}));
     if (k === 'other') body.prepend(el('div', {class: 'nopv', text: 'Tipe file ini mungkin tidak bisa dipratinjau; gunakan “Buka di Drive”.'}));
@@ -698,6 +764,7 @@
       ]);
       await loadMeta();
       fromHash();
+      setTimeout(initOrama, 400);
     } catch (e) {
       $('content').append(el('div', {class: 'empty', text: 'Gagal memuat data: ' + e.message}));
     }

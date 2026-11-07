@@ -11,6 +11,7 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
+    "@orama/orama": "^3.1.18",
     "@svgdotjs/svg.js": "^3.2.8",
     "cytoscape": "^3.34.4",
     "dexie": "^4.4.7",
