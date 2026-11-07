@@ -5,3 +5,22 @@ Bank_Soal_UAB/
 .DS_Store
 *.tmp
 __pycache__/
+
+## Start Konoha config+skill
+.agents/plugins/
+.aislop/
+.aislopignore
+.claude.json
+.claude/
+.codex/
+.commandcode/
+.cursor/
+.cursorrules
+.gemini/
+.omp/
+AGENTS.md
+CLAUDE.md
+GEMINI.md
+## End Konoha config+skill
+.opencode/
+.dockerignore
