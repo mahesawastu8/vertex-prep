@@ -1,0 +1,1957 @@
+#!/usr/bin/env python3
+"""Build the Definitive Masterpiece Blueprint for VERTEX-PREP:
+Split-Screen Slide-Sync + Peer-Taught Narrative + Smart Medical Tooltips + Active Cloze Masking
++ Interactive Simulators + Inline Chapter Quiz + Final Tryout + Warm Paper / Warm Dark Mode
++ Embedded Block Module (SKDI 4A, Pharmacology dr. SAN, Ulul Albab & Hajj Medicine).
+"""
+import os
+
+BASE_DIR = "/Users/dimaswastu/VERTEX-PREP"
+OUT_HTML = os.path.join(BASE_DIR, "EMN_KUL3_Defisiensi_Mineral.html")
+
+
+def tt(term, title, desc, pearl):
+    return (
+        f'<span class="med-term" tabindex="0">{term}'
+        f'<span class="med-tooltip">'
+        f'<span class="tt-kicker">Kamus Klinis</span>'
+        f'<span class="tt-title">{title}</span>'
+        f'<span class="tt-desc">{desc}</span>'
+        f'<span class="tt-pearl">💡 {pearl}</span>'
+        f'</span></span>'
+    )
+
+
+def cl(text):
+    return f'<span class="cloze-mask" onclick="this.classList.toggle(\'revealed\')" title="Klik untuk membuka">{text}</span>'
+
+
+HTML = f"""<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Defisiensi Mineral · Split-Screen Mastery EMN KUL 3</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+  <style>
+    :root {{
+      --bg: #FAF8F5;
+      --surface: #FFFFFF;
+      --surface-subtle: #F2EFE9;
+      --surface-card: #FDFCFA;
+      --border: #E5E0D5;
+      --border-strong: #C9C2B2;
+
+      --ink: #161719;
+      --ink-secondary: #4A4D52;
+      --ink-muted: #7C8087;
+
+      --sage: #1E6B47;
+      --sage-soft: #EBF5F0;
+      --sage-border: #B8DEC9;
+
+      --coral: #B93822;
+      --coral-soft: #FBEFEA;
+      --coral-border: #F2C6BC;
+
+      --ochre: #9E5E10;
+      --ochre-soft: #FDF4E7;
+      --ochre-border: #F3D5A8;
+
+      --navy: #1B3B6F;
+      --navy-soft: #EDF3FA;
+      --navy-border: #C2D6EE;
+
+      --shadow-sm: 0 2px 8px rgba(22, 23, 25, 0.04);
+      --shadow-md: 0 10px 28px -4px rgba(22, 23, 25, 0.07);
+      --shadow-lg: 0 24px 52px -10px rgba(22, 23, 25, 0.16);
+
+      --r-sm: 8px;
+      --r-md: 14px;
+      --r-lg: 20px;
+      --r-full: 9999px;
+
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-serif: 'Newsreader', Georgia, serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }}
+
+    /* WARM DARK MODE FOR LATE-NIGHT STUDYING */
+    html[data-theme="dark"] {{
+      --bg: #131517;
+      --surface: #1B1E21;
+      --surface-subtle: #23272B;
+      --surface-card: #1F2327;
+      --border: #2D3238;
+      --border-strong: #434A52;
+
+      --ink: #ECEAE4;
+      --ink-secondary: #B4B8BF;
+      --ink-muted: #7E848D;
+
+      --sage: #4CC38A;
+      --sage-soft: rgba(76, 195, 138, 0.13);
+      --sage-border: rgba(76, 195, 138, 0.35);
+
+      --coral: #F2745F;
+      --coral-soft: rgba(242, 116, 95, 0.13);
+      --coral-border: rgba(242, 116, 95, 0.35);
+
+      --ochre: #F0B15B;
+      --ochre-soft: rgba(240, 177, 91, 0.12);
+      --ochre-border: rgba(240, 177, 91, 0.32);
+
+      --navy: #7CB3F5;
+      --navy-soft: rgba(124, 179, 245, 0.13);
+      --navy-border: rgba(124, 179, 245, 0.32);
+
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.25);
+      --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.38);
+      --shadow-lg: 0 28px 60px rgba(0, 0, 0, 0.55);
+    }}
+
+    * {{ box-sizing: border-box; margin: 0; padding: 0; }}
+    html {{ scroll-behavior: smooth; }}
+
+    body {{
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+      transition: background 0.25s ease, color 0.25s ease;
+      padding-bottom: 120px;
+    }}
+
+    ::selection {{ background: var(--sage-soft); color: var(--sage); }}
+
+    /* =========================================================================
+       TOP STICKY BAR (CLEAN, UNIFIED, NO CONFUSING TABS)
+       ========================================================================= */
+    .topbar {{
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: color-mix(in srgb, var(--bg) 92%, transparent);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 24px;
+    }}
+    .scroll-bar {{
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--sage), var(--navy));
+      z-index: 300;
+      transition: width 0.1s ease-out;
+    }}
+    .topbar-inner {{
+      max-width: 1360px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }}
+    .brand-group {{
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex: none;
+    }}
+    .brand-badge {{
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 700;
+      background: var(--navy);
+      color: var(--bg);
+      padding: 4px 9px;
+      border-radius: var(--r-sm);
+      letter-spacing: 0.04em;
+    }}
+    .course-select {{
+      font-family: var(--font-sans);
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--ink);
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      outline: none;
+    }}
+    .course-select option {{
+      background: var(--surface);
+      color: var(--ink);
+    }}
+
+    /* Chapter Jump Strip in Topbar */
+    .chapter-strip {{
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding: 2px;
+    }}
+    .chapter-strip::-webkit-scrollbar {{ display: none; }}
+    .ch-jump {{
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--ink-secondary);
+      text-decoration: none;
+      padding: 6px 11px;
+      border-radius: var(--r-full);
+      white-space: nowrap;
+      transition: all 0.15s ease;
+    }}
+    .ch-jump:hover {{
+      background: var(--surface-subtle);
+      color: var(--ink);
+    }}
+    .ch-jump.active {{
+      background: var(--ink);
+      color: var(--bg);
+    }}
+
+    .tool-group {{
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex: none;
+    }}
+    .tool-btn {{
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--ink-secondary);
+      font-family: var(--font-sans);
+      font-size: 0.79rem;
+      font-weight: 600;
+      padding: 6px 13px;
+      border-radius: var(--r-full);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      transition: all 0.18s ease;
+      white-space: nowrap;
+    }}
+    .tool-btn:hover {{
+      border-color: var(--border-strong);
+      color: var(--ink);
+    }}
+    .tool-btn.active {{
+      background: var(--ink);
+      color: var(--bg);
+      border-color: var(--ink);
+    }}
+    .state-pill {{
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      padding: 1px 6px;
+      border-radius: 4px;
+      background: var(--surface-subtle);
+      color: var(--ink);
+    }}
+    .tool-btn.active .state-pill {{
+      background: var(--sage);
+      color: #fff;
+    }}
+    .btn-anki {{
+      background: var(--sage);
+      color: #FFFFFF !important;
+      font-size: 0.79rem;
+      font-weight: 700;
+      padding: 7px 14px;
+      border-radius: var(--r-full);
+      text-decoration: none;
+      white-space: nowrap;
+      transition: opacity 0.15s ease;
+    }}
+    .btn-anki:hover {{ opacity: 0.9; }}
+
+    /* =========================================================================
+       MAIN CONTAINER
+       ========================================================================= */
+    .page-wrap {{
+      max-width: 1340px;
+      margin: 0 auto;
+      padding: 32px 24px 0;
+    }}
+
+    /* =========================================================================
+       OPENING HOOK: "WHY" + 3 MISTERI IGD + PENCOCOKAN RPS MODUL EMN
+       ========================================================================= */
+    .hook-hero {{
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 36px 40px;
+      margin-bottom: 36px;
+      box-shadow: var(--shadow-md);
+    }}
+    .hook-meta-row {{
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px;
+    }}
+    .meta-pill {{
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: var(--r-full);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }}
+    .pill-skdi {{ background: var(--sage-soft); color: var(--sage); border: 1px solid var(--sage-border); }}
+    .pill-uab {{ background: var(--coral-soft); color: var(--coral); border: 1px solid var(--coral-border); }}
+    .pill-slides {{ background: var(--navy-soft); color: var(--navy); border: 1px solid var(--navy-border); }}
+
+    .hook-headline {{
+      font-family: var(--font-serif);
+      font-size: 2.55rem;
+      font-weight: 600;
+      line-height: 1.22;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+    }}
+    .hook-lead {{
+      font-size: 1.06rem;
+      color: var(--ink-secondary);
+      max-width: 960px;
+      margin-bottom: 26px;
+    }}
+
+    .enigma-row {{
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }}
+    .enigma-card {{
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.2s ease;
+    }}
+    .enigma-card:hover {{
+      border-color: var(--border-strong);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }}
+    .enigma-tag {{
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--coral);
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+    }}
+    .enigma-title {{
+      font-family: var(--font-serif);
+      font-size: 1.22rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }}
+    .enigma-desc {{
+      font-size: 0.9rem;
+      color: var(--ink-secondary);
+      line-height: 1.55;
+      margin-bottom: 14px;
+    }}
+    .enigma-btn {{
+      align-self: flex-start;
+      border: 1px solid var(--border-strong);
+      background: var(--surface);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      font-size: 0.79rem;
+      font-weight: 700;
+      padding: 6px 13px;
+      border-radius: var(--r-full);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }}
+    .enigma-btn:hover {{
+      background: var(--ink);
+      color: var(--bg);
+    }}
+    .enigma-answer {{
+      margin-top: 18px;
+      padding: 18px 22px;
+      background: var(--ochre-soft);
+      border: 1px solid var(--ochre-border);
+      border-radius: var(--r-md);
+      font-size: 0.94rem;
+      color: var(--ink);
+      display: none;
+    }}
+    .enigma-answer.open {{ display: block; }}
+
+    /* =========================================================================
+       SPLIT-SCREEN SLIDE-SYNC CHAPTERS (LEFT PEER NARRATIVE + RIGHT STICKY SLIDE)
+       ========================================================================= */
+    .split-chapter {{
+      display: grid;
+      grid-template-columns: 1fr 480px;
+      gap: 32px;
+      align-items: start;
+      margin-bottom: 52px;
+      scroll-margin-top: 84px;
+    }}
+
+    /* Right Sticky Slide Panel (Inspector Column) */
+    .slide-stage {{
+      grid-column: 2;
+      grid-row: 1;
+      position: sticky;
+      top: 78px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 18px;
+      box-shadow: var(--shadow-md);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }}
+    .slide-stage:hover {{
+      border-color: var(--border-strong);
+      box-shadow: var(--shadow-lg);
+    }}
+    .stage-nav-arrows {{
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }}
+    .stage-arrow-btn {{
+      border: 1px solid var(--border);
+      background: var(--surface-subtle);
+      color: var(--ink-secondary);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      width: 26px;
+      height: 26px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-grid;
+      place-items: center;
+      transition: all 0.15s ease;
+    }}
+    .stage-arrow-btn:hover {{
+      background: var(--ink);
+      color: var(--bg);
+      border-color: var(--ink);
+    }}
+    .stage-top {{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 12px;
+    }}
+    .stage-label {{
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: var(--sage);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }}
+    .slide-pills {{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-bottom: 12px;
+    }}
+    .slide-pill {{
+      border: 1px solid var(--border);
+      background: var(--surface-subtle);
+      color: var(--ink-secondary);
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: var(--r-full);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }}
+    .slide-pill:hover {{
+      border-color: var(--border-strong);
+      color: var(--ink);
+    }}
+    .slide-pill.active {{
+      background: var(--navy);
+      color: #FFFFFF;
+      border-color: var(--navy);
+    }}
+    .stage-frame {{
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: var(--surface-subtle);
+      border-radius: var(--r-md);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      cursor: zoom-in;
+    }}
+    .stage-frame img {{
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #fff;
+      display: block;
+    }}
+    .stage-caption {{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: var(--ink-muted);
+      margin-top: 10px;
+      padding: 0 4px;
+    }}
+    .stage-thumbs {{
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));
+      gap: 6px;
+      margin-top: 10px;
+    }}
+    .mini-thumb {{
+      aspect-ratio: 16 / 9;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 2px solid transparent;
+      cursor: pointer;
+      opacity: 0.65;
+      transition: all 0.15s ease;
+      background: #fff;
+    }}
+    .mini-thumb:hover {{ opacity: 0.95; }}
+    .mini-thumb.active {{
+      border-color: var(--navy);
+      opacity: 1;
+    }}
+    .mini-thumb img {{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }}
+
+    /* Left Narrative Content Panel (Primary Reading Stream) */
+    .narrative-panel {{
+      grid-column: 1;
+      grid-row: 1;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 36px 42px;
+      box-shadow: var(--shadow-sm);
+    }}
+    .ch-kicker-row {{
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 10px;
+    }}
+    .ch-kicker {{
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--navy);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }}
+    .ch-title {{
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      font-weight: 600;
+      line-height: 1.24;
+      color: var(--ink);
+      margin-bottom: 16px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+    }}
+    .peer-talk {{
+      font-size: 1rem;
+      color: var(--ink);
+      margin-bottom: 18px;
+    }}
+    .peer-talk p {{ margin-bottom: 14px; }}
+
+    /* Sub-cards inside chapter */
+    .concept-grid {{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin: 18px 0;
+    }}
+    .concept-box {{
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 16px 18px;
+    }}
+    .concept-box h4 {{
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--ink-muted);
+      margin-bottom: 8px;
+    }}
+    .concept-box ul {{
+      padding-left: 18px;
+      font-size: 0.93rem;
+      line-height: 1.6;
+      color: var(--ink);
+    }}
+    .concept-box li {{ margin-bottom: 5px; }}
+
+    /* Callouts: Trap, Pharmacology dr. SAN, SKDI & Ulul Albab */
+    .callout {{
+      border-radius: var(--r-md);
+      padding: 16px 20px;
+      margin: 16px 0;
+      font-size: 0.94rem;
+      line-height: 1.65;
+    }}
+    .callout-title {{
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 5px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }}
+    .callout.trap {{
+      background: var(--coral-soft);
+      border: 1px solid var(--coral-border);
+    }}
+    .callout.trap .callout-title {{ color: var(--coral); }}
+
+    .callout.pharma {{
+      background: var(--navy-soft);
+      border: 1px solid var(--navy-border);
+    }}
+    .callout.pharma .callout-title {{ color: var(--navy); }}
+
+    .callout.modul {{
+      background: var(--ochre-soft);
+      border: 1px solid var(--ochre-border);
+    }}
+    .callout.modul .callout-title {{ color: var(--ochre); }}
+
+    /* =========================================================================
+       EMBEDDED INTERACTIVE SIMULATORS INSIDE CHAPTERS
+       ========================================================================= */
+    .inline-sim {{
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 20px 22px;
+      margin: 20px 0;
+    }}
+    .sim-bar-title {{
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }}
+    .sim-tabs {{
+      display: flex;
+      background: var(--surface);
+      padding: 4px;
+      border-radius: var(--r-full);
+      border: 1px solid var(--border);
+      gap: 4px;
+      margin-bottom: 14px;
+    }}
+    .sim-tab {{
+      flex: 1;
+      border: none;
+      background: transparent;
+      color: var(--ink-secondary);
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 8px 10px;
+      border-radius: var(--r-full);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }}
+    .sim-tab.active {{
+      background: var(--ink);
+      color: var(--bg);
+    }}
+    .vials-3 {{
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 12px;
+    }}
+    .vial {{
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-sm);
+      padding: 12px 14px;
+    }}
+    .vial.alert {{
+      border-color: var(--coral);
+      box-shadow: 0 0 0 2px var(--coral-soft);
+    }}
+    .vial-kicker {{
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }}
+    .vial-num {{
+      font-family: var(--font-mono);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin: 2px 0 4px;
+    }}
+    .vial-note {{ font-size: 0.78rem; font-weight: 600; }}
+    .note-bad {{ color: var(--coral); }}
+    .note-ok {{ color: var(--sage); }}
+    .note-warn {{ color: var(--ochre); }}
+
+    /* =========================================================================
+       INLINE CHAPTER MINI-QUIZ (LANGSUNG DI BAWAH TIAP TOPIK)
+       ========================================================================= */
+    .inline-quiz {{
+      margin-top: 24px;
+      padding-top: 22px;
+      border-top: 2px dashed var(--border);
+    }}
+    .iq-kicker {{
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: var(--sage);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+    }}
+    .iq-stem {{
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }}
+    .iq-opts {{
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }}
+    .iq-btn {{
+      padding: 11px 15px;
+      border-radius: var(--r-sm);
+      border: 1px solid var(--border);
+      background: var(--surface-card);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      font-size: 0.91rem;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      transition: all 0.15s ease;
+    }}
+    .iq-btn:hover {{
+      border-color: var(--border-strong);
+      background: var(--surface-subtle);
+    }}
+    .iq-btn.is-correct {{
+      background: var(--sage-soft) !important;
+      border-color: var(--sage) !important;
+      color: var(--sage) !important;
+      font-weight: 700;
+    }}
+    .iq-btn.is-wrong {{
+      background: var(--coral-soft) !important;
+      border-color: var(--coral) !important;
+      color: var(--coral) !important;
+    }}
+    .iq-fb {{
+      margin-top: 12px;
+      padding: 14px 16px;
+      border-radius: var(--r-sm);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      display: none;
+    }}
+    .iq-fb.show {{ display: block; }}
+    .iq-fb.ok {{ background: var(--sage-soft); border: 1px solid var(--sage-border); color: var(--ink); }}
+    .iq-fb.no {{ background: var(--coral-soft); border: 1px solid var(--coral-border); color: var(--ink); }}
+
+    /* =========================================================================
+       AMBOSS SMART MEDICAL TOOLTIPS
+       ========================================================================= */
+    .med-term {{
+      border-bottom: 2px dotted var(--navy);
+      color: var(--navy);
+      font-weight: 600;
+      cursor: help;
+      position: relative;
+      display: inline-block;
+    }}
+    .med-term:hover,
+    .med-term.active-touch {{
+      background: var(--navy-soft);
+      border-radius: 4px;
+    }}
+    .med-term:hover .med-tooltip,
+    .med-term.active-touch .med-tooltip {{
+      visibility: visible;
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }}
+    .med-tooltip {{
+      visibility: hidden;
+      opacity: 0;
+      position: absolute;
+      bottom: 130%;
+      left: 50%;
+      transform: translateX(-50%) translateY(4px);
+      width: 290px;
+      background: #141619;
+      color: #FFFFFF;
+      border-radius: var(--r-md);
+      padding: 13px 15px;
+      font-family: var(--font-sans);
+      font-size: 0.82rem;
+      font-weight: 400;
+      line-height: 1.5;
+      box-shadow: var(--shadow-lg);
+      z-index: 400;
+      pointer-events: none;
+      transition: all 0.18s ease;
+      text-align: left;
+    }}
+    .med-tooltip::after {{
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -6px;
+      border-width: 6px;
+      border-style: solid;
+      border-color: #141619 transparent transparent transparent;
+    }}
+    .med-term:hover .med-tooltip,
+    .med-term:focus .med-tooltip {{
+      visibility: visible;
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }}
+    .tt-kicker {{ font-size: 0.66rem; font-weight: 700; color: #7FD8B2; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 2px; }}
+    .tt-title {{ font-size: 0.9rem; font-weight: 700; color: #FFFFFF; display: block; margin-bottom: 4px; }}
+    .tt-desc {{ color: #D5D8DC; display: block; }}
+    .tt-pearl {{ margin-top: 7px; padding-top: 7px; border-top: 1px solid #2D3137; color: #FAD99B; font-size: 0.78rem; display: block; }}
+
+    /* =========================================================================
+       ACTIVE CLOZE MASKING (UJI INGATAN)
+       ========================================================================= */
+    body.cloze-active .cloze-mask {{
+      background: var(--border-strong) !important;
+      color: transparent !important;
+      border-radius: 5px;
+      padding: 1px 7px;
+      cursor: pointer;
+      user-select: none;
+      display: inline-block;
+      transition: all 0.15s ease;
+    }}
+    body.cloze-active .cloze-mask.revealed {{
+      background: var(--sage-soft) !important;
+      color: var(--sage) !important;
+      font-weight: 700;
+      border: 1px solid var(--sage-border);
+    }}
+
+    /* =========================================================================
+       FINAL TRYOUT & H-1 MATRIX SECTION AT BOTTOM
+       ========================================================================= */
+    .tryout-section {{
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 36px 40px;
+      margin-top: 56px;
+      box-shadow: var(--shadow-md);
+      scroll-margin-top: 80px;
+    }}
+    .tryout-head {{
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding-bottom: 18px;
+      margin-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+    }}
+    .tryout-score {{
+      font-family: var(--font-mono);
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--sage);
+    }}
+
+    /* Lightbox */
+    .lightbox {{
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(12, 13, 15, 0.86);
+      backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }}
+    .lightbox.open {{ display: flex; }}
+    .lightbox img {{
+      max-width: 94%;
+      max-height: 90vh;
+      border-radius: var(--r-md);
+      box-shadow: var(--shadow-lg);
+    }}
+
+    /* Tablet / iPad (768px - 1080px): Balanced Two-Column Side-by-Side */
+    @media (min-width: 768px) and (max-width: 1080px) {{
+      .page-wrap {{ padding: 20px 18px 0; }}
+      .split-chapter {{
+        grid-template-columns: 1fr 370px;
+        gap: 22px;
+      }}
+      .narrative-panel {{ padding: 28px 26px; }}
+      .slide-stage {{ padding: 14px; top: 74px; }}
+      .enigma-row {{ grid-template-columns: repeat(3, 1fr); gap: 12px; }}
+      .hook-headline {{ font-size: 2.2rem; }}
+      .ch-title {{ font-size: 1.75rem; }}
+    }}
+
+    /* Mobile Phones (< 768px): Thumb-First Stacked Layout */
+    @media (max-width: 767px) {{
+      .topbar {{ padding: 8px 12px; }}
+      .topbar-inner {{ flex-direction: column; align-items: stretch; gap: 8px; }}
+      .brand-group {{ justify-content: space-between; width: 100%; }}
+      .course-select {{ font-size: 0.84rem; max-width: 210px; text-overflow: ellipsis; }}
+      .chapter-strip {{
+        width: 100%;
+        padding: 4px 0 2px;
+        border-top: 1px solid var(--border);
+        margin-top: 2px;
+      }}
+      .tool-group {{ justify-content: flex-end; width: 100%; }}
+      .tool-btn {{ padding: 5px 10px; font-size: 0.74rem; }}
+
+      .page-wrap {{ padding: 16px 12px 0; }}
+      .hook-hero {{ padding: 24px 18px; margin-bottom: 24px; }}
+      .hook-headline {{ font-size: 1.85rem; line-height: 1.25; }}
+      .hook-lead {{ font-size: 0.95rem; line-height: 1.6; margin-bottom: 18px; }}
+      .enigma-row {{ grid-template-columns: 1fr; gap: 12px; }}
+
+      .split-chapter {{
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin-bottom: 36px;
+      }}
+      /* Slide is shown on top so phone users see the slide first! */
+      .slide-stage {{
+        grid-column: 1;
+        grid-row: 1;
+        position: static;
+        padding: 14px;
+      }}
+      .narrative-panel {{
+        grid-column: 1;
+        grid-row: 2;
+        padding: 22px 18px;
+      }}
+      .ch-title {{ font-size: 1.55rem; }}
+      .concept-grid {{ grid-template-columns: 1fr; gap: 12px; }}
+      .vials-3 {{ grid-template-columns: 1fr; }}
+      .sim-tabs {{ flex-direction: column; border-radius: var(--r-md); }}
+      .sim-tab {{ border-radius: var(--r-sm); }}
+      .iq-btn {{ min-height: 44px; padding: 12px 14px; }}
+      .med-tooltip {{ width: min(290px, 84vw); }}
+    }}
+  </style>
+</head>
+<body>
+  <div class="scroll-bar" id="scroll-bar"></div>
+  <!-- TOP STICKY NAVIGATION -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand-group">
+        <span class="brand-badge">EMN · KUL 3</span>
+        <select class="course-select" onchange="window.location.href=this.value">
+          <option value="EMN_KUL3_Defisiensi_Mineral.html" selected>Blok 9 EMN · KUL 3: Defisiensi Mineral (dr. IWL)</option>
+          <option value="HI_KUL20_Autoimunitas.html">Blok 8 HI · KUL 20: Autoimunitas (dr. LIA)</option>
+          <option value="VERTEX-PREP_PoC_KUL2_Defisiensi_Vitamin.html">Blok 9 EMN · KUL 2: Defisiensi Vitamin (dr. IWL)</option>
+          <option value="BDT_KUL3_Patient_Safety.html">Blok 7 BDT · KUL 3: Patient Safety (dr. KI)</option>
+          <option value="drive_mirror.html#/1BDgeySHpYa3PMVSDHtXytPJqA6cMN0d3">← Kembali ke Drive Mirror</option>
+        </select>
+      </div>
+
+      <!-- Direct Chapter Jump Strip -->
+      <nav class="chapter-strip" aria-label="Lompat ke Bab">
+        <a href="#bab-1" class="ch-jump active">1. Pengantar</a>
+        <a href="#bab-2" class="ch-jump">2. Besi (Fe)</a>
+        <a href="#bab-3" class="ch-jump">3. Seng (Zn)</a>
+        <a href="#bab-4" class="ch-jump">4. Ca, Mg &amp; K</a>
+        <a href="#bab-5" class="ch-jump">5. Fosfat &amp; Refeeding</a>
+        <a href="#bab-6" class="ch-jump">6. Cu, I &amp; Se</a>
+        <a href="#bab-7" class="ch-jump">7. Kasus Diskusi</a>
+        <a href="#tryout-akhir" class="ch-jump">🎯 Tryout UAB (8)</a>
+      </nav>
+
+      <div class="tool-group">
+        <button type="button" id="cloze-btn" class="tool-btn" onclick="toggleCloze()" title="Shortcut tombol M">
+          <span>🧠 Uji Ingatan</span>
+          <span class="state-pill" id="cloze-state">OFF</span>
+        </button>
+        <button type="button" id="theme-btn" class="tool-btn" onclick="toggleTheme()" title="Shortcut tombol D">
+          <span id="theme-label">🌙 Mode Malam</span>
+        </button>
+        <a href="anki/VERTEX_EMN_KUL3_Defisiensi_Mineral.apkg" class="btn-anki" download>⬇ Anki</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-wrap">
+
+    <!-- =================================================================== -->
+    <!-- PEMBUKA ("WHY"): 3 MISTERI IGD + TARGET MODUL BLOK EMN              -->
+    <!-- =================================================================== -->
+    <section class="hook-hero">
+      <div class="hook-meta-row">
+        <span class="meta-pill pill-skdi">SKDI Level 4A · Tuntas Mandiri</span>
+        <span class="meta-pill pill-uab">Target 4 Soal UAB · 66.7% Kasus Klinis</span>
+        <span class="meta-pill pill-slides">32 Slide Asli dr. Iwal + Sinergi Farmakologi dr. SAN</span>
+      </div>
+      <h1 class="hook-headline">Kenapa Kurang Beberapa Miligram Atom Bisa Bikin Pasien Meninggal di IGD?</h1>
+      <p class="hook-lead">
+        Bayangin kamu lagi jaga malam di IGD. Materi mineral ini sering dianggap remeh: <i>"Ah, cuma hafalan tabel periodik."</i> Padahal di tubuh manusia, <strong>Besi, Magnesium, Fosfat, dan Seng</strong> adalah sakelar listrik 60 triliun sel. Salah paham sedikit saat ngasih makan atau ngitung infus, nyawa pasien taruhannya. Coba tebak 3 kejadian nyata di bangsal ini sebelum kita mulai:
+      </p>
+
+      <div class="enigma-row">
+        <div class="enigma-card">
+          <div>
+            <div class="enigma-tag">MISTERI IGD 01</div>
+            <h3 class="enigma-title">Bubur yang Mematikan</h3>
+            <p class="enigma-desc">Pasien kelaparan 12 hari kamu kasih makan karbohidrat dengan niat mulia. Dalam 48 jam, napasnya berhenti mendadak. Apa yang salah?</p>
+          </div>
+          <button type="button" class="enigma-btn" onclick="showMystery(1)">Buka Jawabannya ↗</button>
+        </div>
+
+        <div class="enigma-card">
+          <div>
+            <div class="enigma-tag">MISTERI IGD 02</div>
+            <h3 class="enigma-title">Otak yang Ngidam Es Batu</h3>
+            <p class="enigma-desc">Cewek muda ngunyah es batu 5 mangkok sehari. Dia gak gangguan jiwa; otaknya lagi kelaparan 1 atom, padahal Hb &amp; MCV-nya masih normal!</p>
+          </div>
+          <button type="button" class="enigma-btn" onclick="showMystery(2)">Buka Jawabannya ↗</button>
+        </div>
+
+        <div class="enigma-card">
+          <div>
+            <div class="enigma-tag">MISTERI IGD 03</div>
+            <h3 class="enigma-title">Infus Kalium yang Hilang</h3>
+            <p class="enigma-desc">Pasien aritmia udah diguyur 3 botol KCl, tapi kalium darahnya tetep 2,8 mmol/L. Kenapa ginjalnya malah ngebuang semua kalium itu?</p>
+          </div>
+          <button type="button" class="enigma-btn" onclick="showMystery(3)">Buka Jawabannya ↗</button>
+        </div>
+      </div>
+
+      <div id="mystery-box" class="enigma-answer"></div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- BAB 1: PENGANTAR, KLASIFIKASI, & 4 MEKANISME (SLIDE 1 - 8)          -->
+    <!-- =================================================================== -->
+    <section class="split-chapter" id="bab-1">
+      <aside class="slide-stage">
+        <div class="stage-top">
+          <span class="stage-label">Bab 01 · Bukti Slide Asli (1–8)</span>
+          <span style="font-size:0.75rem;color:var(--ink-muted);">Klik gambar untuk Zoom</span>
+        </div>
+        <div class="slide-pills" id="pills-ch1">
+          <button class="slide-pill active" onclick="setStage('ch1', 4, 'Slide 4 · Klasifikasi Mineral Mayor vs Renik', this)">Slide 4</button>
+          <button class="slide-pill" onclick="setStage('ch1', 5, 'Slide 5 · Homeostasis: Usus, Darah, Jaringan, Ginjal', this)">Slide 5</button>
+          <button class="slide-pill" onclick="setStage('ch1', 6, 'Slide 6 · Empat Mekanisme Defisiensi', this)">Slide 6</button>
+          <button class="slide-pill" onclick="setStage('ch1', 8, 'Slide 8 · Peta Organ & Mineral Terkait', this)">Slide 8</button>
+          <button class="slide-pill" onclick="setStage('ch1', 3, 'Slide 3 · Kasus Pemantik Pagophagia', this)">Slide 3</button>
+        </div>
+        <div class="stage-frame" onclick="openZoom(document.getElementById('img-ch1').src)">
+          <img id="img-ch1" src="slides_kul3/slide_4.jpg" alt="Slide Bab 1">
+        </div>
+        <div class="stage-caption">
+          <span id="cap-ch1">Slide 4 · Klasifikasi Mineral Mayor vs Renik</span>
+          <span style="color:var(--navy);font-weight:700;">Perbesar ↗</span>
+        </div>
+      </aside>
+
+      <div class="narrative-panel">
+        <div class="ch-kicker-row">
+          <span class="ch-kicker">Bab 01 · Slide 1 s.d. 8</span>
+          <span class="meta-pill pill-skdi">Peta Dasar &amp; Homeostasis</span>
+        </div>
+        <h2 class="ch-title">Jumlah Kebutuhan Kecil Bukan Berarti Kurang Penting!</h2>
+
+        <div class="peer-talk">
+          <p>Hal pertama yang ditekankan dr. Iwal di <b>Slide 4</b> simpel banget: kita membagi mineral jadi dua geng besar berdasarkan takaran kebutuhan hariannya, <b>bukan tingkat kepentingannya</b>. Mau mayor atau renik, kalau kurang, pasien sama-sama bisa masuk rumah sakit.</p>
+        </div>
+
+        <div class="concept-grid">
+          <div class="concept-box">
+            <h4>1. Mineral Mayor (Makromineral)</h4>
+            <ul>
+              <li>Anggotanya: <b>{cl("Ca, P, Mg, Na, K, Cl")}</b>.</li>
+              <li>Butuhnya banyak (ratusan mg sampai gram/hari).</li>
+              <li>Tugas utamanya bikin pondasi bangunan tulang/gigi, ngatur arus listrik saraf-otot, dan jaga tekanan cairan ({tt("Osmolaritas", "Osmolaritas Plasma", "Konsentrasi partikel terlarut aktif osmotik per liter larutan tubuh.", "Normal ~275–295 mOsm/kg; dijaga ketat oleh Natrium, Klorida, dan air.")}).</li>
+            </ul>
+          </div>
+          <div class="concept-box">
+            <h4>2. Mineral Renik (Trace Elements)</h4>
+            <ul>
+              <li>Anggotanya: <b>{cl("Fe, Zn, I, Se, Cu, Mn")}</b>.</li>
+              <li>Butuhnya cuma seujung kuku (miligram atau mikrogram).</li>
+              <li>Tugasnya jadi "kunci kontak" ratusan enzim ({tt("Kofaktor", "Kofaktor Enzim", "Ion logam non-protein yang wajib menempel pada enzim agar enzim bisa bekerja.", "Contoh: Seng untuk DNA polimerase, Besi untuk sitokrom, Tembaga untuk ceruloplasmin.")}), hormon tiroid, dan pembawa oksigen.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="callout trap">
+          <div class="callout-title">⚠️ Jebakan Pola Pikir Klinis (Slide 5 &amp; 6)</div>
+          Kalau hasil lab pasien nunjukkin mineral di darahnya rendah, <b>jangan langsung nuduh pasien kurang makan!</b> Ingat 4 jalur penyebab defisiensi di Slide 6:<br>
+          1. <b>Asupan kurang:</b> Diet monoton tinggi sereal atau kelaparan.<br>
+          2. <b>Malabsorpsi usus:</b> Penyakit {tt("Celiac", "Penyakit Celiac", "Enteropati autoimun terhadap protein gluten gandum yang merusak vili usus halus.", "Menyebabkan malabsorpsi besi, kalsium, seng, dan vitamin larut lemak.")}, diare kronik, atau habis operasi potong lambung ({tt("Bariatrik", "Operasi Bariatrik", "Pembedahan bypass lambung/duodenum untuk mengatasi obesitas morbid.", "Karena duodenum dilewati, penyerapan Besi (Fe), Kalsium, dan Tembaga (Cu) anjlok drastis.")}).<br>
+          3. <b>Kehilangan berlebih:</b> Mens banyak banget, perdarahan saluran cerna, atau obat kencing diuretik.<br>
+          4. <b>Redistribusi (Pindah Kamar):</b> Mineralnya gak hilang dari tubuh, tapi pindah mendadak dari darah masuk ke dalam sel (contoh: <b>Refeeding Syndrome</b> atau pemberian insulin).
+        </div>
+
+        <!-- Inline Quiz Bab 1 -->
+        <div class="inline-quiz" id="iq-1">
+          <div class="iq-kicker">🎯 Cek Paham Bab 01 (Langsung Uji Otakmu)</div>
+          <div class="iq-stem">Seorang pasien pasca-operasi bypass lambung (bariatrik) mengalami penurunan kadar besi dan tembaga serum meskipun sudah mengonsumsi makanan bergizi tinggi. Mekanisme utama yang mendasari defisiensi pada pasien ini adalah...</div>
+          <div class="iq-opts">
+            <button class="iq-btn" onclick="ansInline('iq-1', 0, false, 'Asupan pasien sudah bergizi tinggi, sehingga masalahnya bukan di asupan mulut.')"><span>A.</span><span>Rendahnya asupan mineral esensial dalam diet harian</span></button>
+            <button class="iq-btn" onclick="ansInline('iq-1', 1, true, 'Tepat! Duodenum dan jejunum proksimal adalah lokasi utama penyerapan Fe dan Cu. Bypass bariatrik melewati segmen ini sehingga memicu malabsorpsi (Slide 6).')"><span>B.</span><span>Malabsorpsi akibat berkurangnya permukaan serap mukosa usus halus</span></button>
+            <button class="iq-btn" onclick="ansInline('iq-1', 2, false, 'Redistribusi terjadi pada refeeding syndrome atau pemberian insulin akut.')"><span>C.</span><span>Redistribusi mineral dari ekstraseluler menuju kompartemen intraseluler</span></button>
+          </div>
+          <div class="iq-fb" id="iq-1-fb"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- BAB 2: BESI (FE), FERRITIN, & PEDOMAN AGA 2024 (SLIDE 9 - 11)       -->
+    <!-- =================================================================== -->
+    <section class="split-chapter" id="bab-2">
+      <aside class="slide-stage">
+        <div class="stage-top">
+          <span class="stage-label">Bab 02 · Bukti Slide Asli (9–11)</span>
+          <span style="font-size:0.75rem;color:var(--ink-muted);">Klik gambar untuk Zoom</span>
+        </div>
+        <div class="slide-pills" id="pills-ch2">
+          <button class="slide-pill active" onclick="setStage('ch2', 10, 'Slide 10 · 3 Stadium Defisiensi Besi (Ferritin Turun Duluan)', this)">Slide 10</button>
+          <button class="slide-pill" onclick="setStage('ch2', 11, 'Slide 11 · Terapi Fe Konsensus AGA 2024', this)">Slide 11</button>
+          <button class="slide-pill" onclick="setStage('ch2', 9, 'Slide 9 · Peran Besi, Hepcidin, & Gejala Pagophagia', this)">Slide 9</button>
+        </div>
+        <div class="stage-frame" onclick="openZoom(document.getElementById('img-ch2').src)">
+          <img id="img-ch2" src="slides_kul3/slide_10.jpg" alt="Slide Bab 2">
+        </div>
+        <div class="stage-caption">
+          <span id="cap-ch2">Slide 10 · 3 Stadium Defisiensi Besi (Ferritin Turun Duluan)</span>
+          <span style="color:var(--navy);font-weight:700;">Perbesar ↗</span>
+        </div>
+      </aside>
+
+      <div class="narrative-panel">
+        <div class="ch-kicker-row">
+          <span class="ch-kicker">Bab 02 · Slide 9, 10, &amp; 11</span>
+          <span class="meta-pill pill-uab">Langganan Soal UAB #1</span>
+        </div>
+        <h2 class="ch-title">Besi (Fe): Gudang yang Kosong Diam-Diam &amp; Aturan Resep AGA 2024</h2>
+
+        <div class="peer-talk">
+          <p>Besi itu bintang utamanya pengangkut oksigen ({tt("Hemoglobin", "Hemoglobin (Hb)", "Protein tetramer di eritrosit yang mengikat oksigen melalui atom besi ferro (Fe2+).", "Normal dewasa: Pria 13–17 g/dL, Wanita 12–15 g/dL.")} di darah &amp; {tt("Mioglobin", "Mioglobin", "Protein pengikat oksigen di jaringan otot rangka dan jantung.", "Saat besi habis, otot cepat lelah karena kekurangan mioglobin dan sitokrom.")} di otot). Nah, yang bikin mahasiswa sering kejebak di soal dr. Iwal adalah: <b>defisiensi besi itu kejadiannya nyicil 3 tahap</b> (lihat <b>Slide 10</b> di kanan).</p>
+        </div>
+
+        <!-- Embedded Interactive Simulator 1 -->
+        <div class="inline-sim">
+          <div class="sim-bar-title">
+            <span>⚡ Simulator Interaktif 3 Stadium Besi (Klik untuk Lihat Perubahan Lab)</span>
+          </div>
+          <div class="sim-tabs">
+            <button type="button" class="sim-tab active" onclick="simIron(1, this)">Stadium 1: Gudang Kosong</button>
+            <button type="button" class="sim-tab" onclick="simIron(2, this)">Stadium 2: Pabrik Seret</button>
+            <button type="button" class="sim-tab" onclick="simIron(3, this)">Stadium 3: Anemia Nyata</button>
+          </div>
+          <div class="vials-3">
+            <div class="vial alert" id="vi-ferr">
+              <div class="vial-kicker">Ferritin (Gudang)</div>
+              <div class="vial-num" id="vn-ferr">{cl("&lt; 15 ng/mL")}</div>
+              <div class="vial-note note-bad" id="vt-ferr">Anjlok Duluan!</div>
+            </div>
+            <div class="vial" id="vi-tsat">
+              <div class="vial-kicker">TSAT (Truk Besi)</div>
+              <div class="vial-num" id="vn-tsat">28%</div>
+              <div class="vial-note note-ok" id="vt-tsat">Masih Normal</div>
+            </div>
+            <div class="vial" id="vi-hb">
+              <div class="vial-kicker">Hb &amp; MCV</div>
+              <div class="vial-num" id="vn-hb">Hb 13.2 · MCV 86</div>
+              <div class="vial-note note-ok" id="vt-hb">Tampak Normal!</div>
+            </div>
+          </div>
+          <div id="sim-iron-note" style="font-size:0.88rem;color:var(--ink-secondary);">
+            💡 <b>Inti Slide 10:</b> Di Stadium 1, gudang {tt("Ferritin", "Ferritin Serum", "Protein penyimpan cadangan besi intraseluler.", "Biomarker paling sensitif dan paling awal turun pada defisiensi besi.")} udah habis, tapi Hb dan MCV masih normal! Jadi <b>MCV normal TIDAK menyingkirkan defisiensi besi dini</b>.
+          </div>
+        </div>
+
+        <div class="concept-grid">
+          <div class="concept-box">
+            <h4>Gejala Khas kalau Udah Lanjut</h4>
+            <ul>
+              <li>Lemas, pucat, berdebar saat naik tangga.</li>
+              <li><b>{tt("Pagophagia", "Pagophagia", "Keinginan kompulsif mengunyah es batu berulang kali.", "Bentuk pica spesifik untuk anemia defisiensi besi (Slide 3, 9, 27).")}:</b> Suka ngunyah es batu terus-menerus.</li>
+              <li>Kuku cekung kayak sendok ({tt("Koilonychia", "Koilonychia", "Kuku rapuh dan cekung menyerupai sendok.", "Tanda defisiensi besi kronis.")}) &amp; lidah licin perih ({tt("Glossitis", "Atrophic Glossitis", "Penyusutan papil lidah sehingga lidah tampak licin dan kemerahan.", "Sering pada defisiensi Fe, B9, atau B12.")}).</li>
+            </ul>
+          </div>
+          <div class="concept-box">
+            <h4>Aturan Terapi AGA 2024 (Slide 11)</h4>
+            <ul>
+              <li><b>Jangan beri tablet besi 3x sehari!</b></li>
+              <li>Tiap kali minum besi, hati mengeluarkan satpam bernama {tt("Hepcidin", "Hepcidin", "Hormon peptida hati yang mengunci pintu ferroportin usus.", "Naik selama 24–48 jam setelah dosis besi oral, memblokir penyerapan dosis berikutnya.")} yang mengunci pintu usus selama 24–48 jam.</li>
+              <li>Berikan <b>{cl("maksimal 1x/hari pagi hari atau selang-hari (alternate-day)")}</b>!</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="callout pharma">
+          <div class="callout-title">💊 Sinergi Farmakologi dr. SAN &amp; Ulul Albab (Modul Blok EMN Hal. 17 &amp; 22)</div>
+          • <b>Sediaan &amp; Dosis Resep:</b> Tablet <b>Sulfas Ferosus 300 mg</b> mengandung <b>{cl("60 mg besi elemental (20%)")}</b>. Minum saat perut kosong bersama <b>Vitamin C</b> (mengubah Fe3+ menjadi Fe2+ yang mudah diserap). Jangan minum bareng teh/kopi (tanin), susu, antasida, atau tetrasiklin!<br>
+          • <b>Integrasi Ulul Albab (CPL 14 — QS. Al-Hadid [57]: 25):</b> <i>"Dan Kami turunkan besi yang padanya terdapat kekuatan hebat dan berbagai manfaat bagi manusia..."</i> Besi ditempa dari fusi bintang supernova dan menjadi inti kehidupan pengikat oksigen di setiap sel darah merahmu.
+        </div>
+
+        <!-- Inline Quiz Bab 2 -->
+        <div class="inline-quiz" id="iq-2">
+          <div class="iq-kicker">🎯 Cek Paham Bab 02 (Gaya Soal dr. Iwal)</div>
+          <div class="iq-stem">Perempuan 29 tahun datang dengan keluhan lemas dan suka mengunyah es batu. Riwayat haid sangat banyak 8 hari/siklus. Lab: Hb 8,9 g/dL, MCV 68 fL. Setelah memberi tablet Sulfas Ferosus 1x1 hari, langkah klinis terpenting yang WAJIB dilakukan dokter sesuai Slide 11 adalah...</div>
+          <div class="iq-opts">
+            <button class="iq-btn" onclick="ansInline('iq-2', 0, false, 'Menaikkan dosis jadi 3x sehari justru memicu lonjakan Hepcidin dan efek samping sembelit/mual berat.')"><span>A.</span><span>Menaikkan frekuensi Sulfas Ferosus menjadi 3 kali sehari agar Hb cepat naik</span></button>
+            <button class="iq-btn" onclick="ansInline('iq-2', 1, true, 'Benar! Slide 11 menegaskan: Jangan berhenti pada beri tablet besi tanpa mengklarifikasi & mengatasi etiologi perdarahan (menorrhagia/GI).')"><span>B.</span><span>Menelusuri dan mengatasi sumber perdarahan menstruasi (menorrhagia) yang mendasari</span></button>
+            <button class="iq-btn" onclick="ansInline('iq-2', 2, false, 'Transfusi PRC hanya diindikasikan bila Hb <7 g/dL atau ada dekompensasi hemodinamik akut.')"><span>C.</span><span>Langsung memberikan transfusi darah Packed Red Cell (PRC) 2 kantong</span></button>
+          </div>
+          <div class="iq-fb" id="iq-2-fb"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- BAB 3: SENG (ZN), KULIT, IMUNITAS, & FITAT (SLIDE 12)               -->
+    <!-- =================================================================== -->
+    <section class="split-chapter" id="bab-3">
+      <aside class="slide-stage">
+        <div class="stage-top">
+          <span class="stage-label">Bab 03 · Bukti Slide Asli (12)</span>
+          <span style="font-size:0.75rem;color:var(--ink-muted);">Klik gambar untuk Zoom</span>
+        </div>
+        <div class="slide-pills" id="pills-ch3">
+          <button class="slide-pill active" onclick="setStage('ch3', 12, 'Slide 12 · Seng (Zn): Pertumbuhan, Kulit, Imunitas & Fitat', this)">Slide 12</button>
+        </div>
+        <div class="stage-frame" onclick="openZoom(document.getElementById('img-ch3').src)">
+          <img id="img-ch3" src="slides_kul3/slide_12.jpg" alt="Slide Bab 3">
+        </div>
+        <div class="stage-caption">
+          <span id="cap-ch3">Slide 12 · Seng (Zn): Pertumbuhan, Kulit, Imunitas &amp; Fitat</span>
+          <span style="color:var(--navy);font-weight:700;">Perbesar ↗</span>
+        </div>
+      </aside>
+
+      <div class="narrative-panel">
+        <div class="ch-kicker-row">
+          <span class="ch-kicker">Bab 03 · Slide 12</span>
+          <span class="meta-pill pill-skdi">Kulit, Mukosa Usus, &amp; Imun</span>
+        </div>
+        <h2 class="ch-title">Seng (Zn): Trias Koreng Sekitar Mulut, Diare, &amp; Musuh Bernama Fitat</h2>
+
+        <div class="peer-talk">
+          <p>Seng (Zinc) itu ibarat tukang bangunan untuk sel-sel yang rajin membelah cepat: <b>kulit, lapisan dalam usus, dan sel imun</b>. Dia jadi kofaktor ratusan enzim DNA/RNA polimerase. Makanya begitu tubuh kekurangan Seng, tiga tempat itu langsung rusak barengan!</p>
+        </div>
+
+        <div class="concept-grid">
+          <div class="concept-box">
+            <h4>Trias Patognomonik (Wajib Hafal!)</h4>
+            <ul>
+              <li><b>1. {cl("Dermatitis periorifisial &amp; akral")}:</b> Ruam merah bersisik/koreng di sekitar lubang tubuh (mulut, hidung, anus/bokong) dan ujung jari.</li>
+              <li><b>2. {cl("Diare kronik")}:</b> Karena vili usus rusak dan gagal regenerasi.</li>
+              <li><b>3. {cl("Alopesia")}:</b> Rambut rontok sampai botak, plus luka susah sembuh &amp; lidah mati rasa ({tt("Hipogeusia", "Hipogeusia", "Penurunan kepekaan indra pengecapan pada lidah.", "Karena seng merupakan kofaktor enzim gustin/karbonik anhidrase VI di papil pengecap.")}).</li>
+            </ul>
+          </div>
+          <div class="concept-box">
+            <h4>Siapa yang Paling Rawan Kena?</h4>
+            <ul>
+              <li>Anak dengan <b>diet monoton tinggi serealia/gandum</b> tanpa daging. Serealia kaya akan {tt("Asam Fitat", "Asam Fitat (Phytate)", "Senyawa penyimpan fosfor pada biji-bijian/serealia.", "Mengikat Seng (Zn) di lumen usus menjadi kompleks tak larut sehingga Zn terbuang bersama feses.")} yang mengikat Seng di usus!</li>
+              <li>Kelainan genetik bawaan mutasi transporter seng ZIP4: {tt("Acrodermatitis enteropathica", "Acrodermatitis Enteropathica", "Penyakit genetik resesif autosomal akibat mutasi transporter seng ZIP4 di usus.", "Gejala muncul pada bayi setelah disapih dari ASI: trias dermatitis periorifisial, diare, alopesia.")}.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="callout pharma">
+          <div class="callout-title">💊 Sinergi Farmakologi dr. SAN (Protokol Zinc Diare Anak WHO/Kemenkes)</div>
+          Pada anak diare akut maupun persisten, wajib berikan <b>Zinc selama 10–14 hari penuh</b> meskipun diare sudah berhenti:<br>
+          • Bayi usia <b>&lt; 6 bulan: {cl("10 mg/hari")}</b> (1/2 tablet dispersible).<br>
+          • Anak usia <b>&ge; 6 bulan: {cl("20 mg/hari")}</b> (1 tablet penuh).<br>
+          <i>Tujuan:</i> Meregenerasi epitel mikrovili usus dan mencegah diare kambuh selama 2–3 bulan ke depan.
+        </div>
+
+        <!-- Inline Quiz Bab 3 -->
+        <div class="inline-quiz" id="iq-3">
+          <div class="iq-kicker">🎯 Cek Paham Bab 03</div>
+          <div class="iq-stem">Anak 3 tahun dibawa dengan ruam merah berkrusta di sekitar mulut dan bokong, diare berulang sejak 1 bulan, serta rambut mudah rontok. Anak sehari-hari hanya diberi bubur gandum sereal tanpa lauk hewani. Senyawa dalam makanan anak yang menghambat penyerapan mineral penyebab kasus ini adalah...</div>
+          <div class="iq-opts">
+            <button class="iq-btn" onclick="ansInline('iq-3', 0, true, 'Benar! Asam fitat pada serealia/gandum mengikat Seng (Zn) menjadi kompleks tak larut di lumen usus halus (Slide 12).')"><span>A.</span><span>Asam fitat (phytic acid)</span></button>
+            <button class="iq-btn" onclick="ansInline('iq-3', 1, false, 'Asam askorbat (Vitamin C) justru meningkatkan penyerapan besi non-heme.')"><span>B.</span><span>Asam askorbat</span></button>
+            <button class="iq-btn" onclick="ansInline('iq-3', 2, false, 'Avidin pada putih telur mentah mengikat Biotin (Vitamin B7), bukan Seng.')"><span>C.</span><span>Avidin</span></button>
+          </div>
+          <div class="iq-fb" id="iq-3-fb"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- BAB 4: KALSIUM, MAGNESIUM, & KALIUM (SLIDE 14 - 17, 20)             -->
+    <!-- =================================================================== -->
+    <section class="split-chapter" id="bab-4">
+      <aside class="slide-stage">
+        <div class="stage-top">
+          <span class="stage-label">Bab 04 · Bukti Slide Asli (14–17, 20)</span>
+          <span style="font-size:0.75rem;color:var(--ink-muted);">Klik gambar untuk Zoom</span>
+        </div>
+        <div class="slide-pills" id="pills-ch4">
+          <button class="slide-pill active" onclick="setStage('ch4', 17, 'Slide 17 · Mengapa Kalium Sulit Naik Bila Mg Rendah?', this)">Slide 17</button>
+          <button class="slide-pill" onclick="setStage('ch4', 16, 'Slide 16 · Magnesium (Mg) — Stabilitas Neuromuskular', this)">Slide 16</button>
+          <button class="slide-pill" onclick="setStage('ch4', 15, 'Slide 15 · Hipokalsemia: Gejala & Evaluasi', this)">Slide 15</button>
+          <button class="slide-pill" onclick="setStage('ch4', 20, 'Slide 20 · Kalium (K) & Gambaran EKG Gelombang U', this)">Slide 20</button>
+          <button class="slide-pill" onclick="setStage('ch4', 14, 'Slide 14 · Kalsium (Ca) — Tulang & Saraf', this)">Slide 14</button>
+        </div>
+        <div class="stage-frame" onclick="openZoom(document.getElementById('img-ch4').src)">
+          <img id="img-ch4" src="slides_kul3/slide_17.jpg" alt="Slide Bab 4">
+        </div>
+        <div class="stage-caption">
+          <span id="cap-ch4">Slide 17 · Mengapa Kalium Sulit Naik Bila Mg Rendah?</span>
+          <span style="color:var(--navy);font-weight:700;">Perbesar ↗</span>
+        </div>
+      </aside>
+
+      <div class="narrative-panel">
+        <div class="ch-kicker-row">
+          <span class="ch-kicker">Bab 04 · Slide 14, 15, 16, 17, 20, &amp; 21</span>
+          <span class="meta-pill pill-uab">Langganan Soal Kasus #2</span>
+        </div>
+        <h2 class="ch-title">Trio Listrik Saraf-Jantung (Ca, Mg, K) &amp; Rahasia Gerbang ROMK Ginjal</h2>
+
+        <div class="peer-talk">
+          <p>Sekarang kita masuk ke bagian paling seru di kuliah dr. Iwal (<b>Slide 17</b>). Pernah gak kamu nemu pasien hipokalemia (Kalium &lt;3,5 mmol/L, lemes, di EKG muncul <b>{cl("Gelombang U")}</b>), udah dikasih tablet atau infus Kalium berhari-hari tapi kaliumnya gak mau naik? Ternyata biang keroknya adalah <b>Magnesium yang ikut rendah!</b></p>
+        </div>
+
+        <!-- Embedded Simulator 2: ROMK Kidney Gate -->
+        <div class="inline-sim">
+          <div class="sim-bar-title">
+            <span>⚡ Simulator Gerbang ROMK Tubulus Ginjal (Klik untuk Bandingkan)</span>
+          </div>
+          <div class="sim-tabs">
+            <button type="button" class="sim-tab active" onclick="simRomk(true, this)">🔒 Magnesium Normal (&gt;1.7 mg/dL)</button>
+            <button type="button" class="sim-tab" onclick="simRomk(false, this)">🚨 Magnesium Anjlok (Akibat Diuretik / PPI)</button>
+          </div>
+          <div id="romk-box-state" style="background:var(--sage-soft);border:1px solid var(--sage-border);border-radius:var(--r-sm);padding:14px 16px;font-size:0.92rem;">
+            <b>Status Ginjal:</b> Ion Mg intrasel menyumbat kanal {tt("ROMK", "Renal Outer Medullary Potassium Channel", "Kanal pembuangan kalium di membran apikal tubulus distal ginjal.", "Dalam keadaan normal, Mg intrasel mengerem kanal ini agar kalium tidak bocor ke urin.")} dengan rapat &rarr; <b>Kalium aman ditahan di darah.</b>
+          </div>
+        </div>
+
+        <div class="concept-grid">
+          <div class="concept-box">
+            <h4>Hipokalsemia (Slide 14–15)</h4>
+            <ul>
+              <li>99% Ca ada di tulang; di darah yang aktif hanya <b>{cl("Ionized Calcium")}</b> (dipengaruhi albumin!).</li>
+              <li>Gejala: kesemutan sekitar mulut (parestesia perioral), spasme karpopedal ({tt("Trousseau sign", "Tanda Trousseau", "Spasme pergelangan tangan saat manset tensi dipompa >sistolik 3 menit.", "Sangat spesifik untuk tetani hipokalsemia.")}), kedutan bibir ({tt("Chvostek sign", "Tanda Chvostek", "Kedutan otot wajah saat nervus fasialis diketuk di depan telinga.", "Menandakan hipereksitabilitas saraf.")}), dan EKG <b>{cl("QT memanjang")}</b>.</li>
+            </ul>
+          </div>
+          <div class="concept-box">
+            <h4>Hipokalemia &amp; Hiponatremia (Slide 20–21)</h4>
+            <ul>
+              <li><b>Hipokalemia (&lt;3.5 mmol/L):</b> Lemas otot, kram, EKG gelombang T datar, ST turun, &amp; <b>{cl("Gelombang U")}</b>.</li>
+              <li><b>Hiponatremia (Slide 21):</b> Bukan berarti "kurang makan garam"! Sering karena kelebihan air relatif ({tt("SIADH", "Syndrome of Inappropriate ADH", "Sekresi hormon antidiuretik berlebih yang menahan air murni di ginjal.", "Mengencerkan natrium darah (hiponatremia euvolemik).")}). Koreksi Na terlalu cepat berisiko merusak batang otak!</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="callout modul">
+          <div class="callout-title">🕋 Integrasi Kedokteran Haji (CPL 15 Modul EMN) &amp; Farmakologi dr. SAN</div>
+          • <b>Kasus Jemaah Haji di Arafah:</b> Jemaah lansia dengan hipertensi/gagal jantung yang rutin minum <b>furosemid</b> ditambah keringat masif saat suhu &gt;45&deg;C sangat rawan jatuh ke dalam <b>hipokalemia + hipomagnesemia refrakter</b> (kram otot hebat hingga aritmia Torsades de pointes).<br>
+          • <b>Pilihan Sediaan Kalsium (dr. SAN):</b> Kalsium Karbonat butuh asam lambung untuk diserap; pada pasien pengguna obat maag PPI (omeprazole) jangka panjang, berikan <b>{cl("Kalsium Sitrat")}</b>!
+        </div>
+
+        <!-- Inline Quiz Bab 4 -->
+        <div class="inline-quiz" id="iq-4">
+          <div class="iq-kicker">🎯 Cek Paham Bab 04 (Kasus Slide 28 dr. Iwal)</div>
+          <div class="iq-stem">Laki-laki 67 tahun pengguna rutin furosemid mengeluh lemas dan berdebar. EKG tampak gelombang U. Kalium serum 2,8 mmol/L tetap tidak naik meski sudah diberi KCl oral 3 hari. Pemeriksaan Mg serum 1,1 mg/dL. Tindakan yang paling tepat adalah...</div>
+          <div class="iq-opts">
+            <button class="iq-btn" onclick="ansInline('iq-4', 0, false, 'Selama Mg masih rendah (1,1 mg/dL), kanal ROMK ginjal akan terus membuang kalium yang masuk.')"><span>A.</span><span>Menggandakan dosis KCl oral tanpa menambah obat lain</span></button>
+            <button class="iq-btn" onclick="ansInline('iq-4', 1, true, 'Tepat! Koreksi Magnesium wajib diberikan bersamaan dengan Kalium untuk menutup kebocoran kanal ROMK di ginjal (Slide 17 & 28).')"><span>B.</span><span>Memberikan koreksi Magnesium secara bersamaan dengan koreksi Kalium</span></button>
+            <button class="iq-btn" onclick="ansInline('iq-4', 2, false, 'Kalsium glukonas diberikan untuk menstabilkan membran jantung pada hiperkalemia atau hipokalsemia tetani berat, bukan penyebab hipokalemia refrakter.')"><span>C.</span><span>Menghentikan kalium dan menggantinya dengan Kalsium Glukonas IV</span></button>
+          </div>
+          <div class="iq-fb" id="iq-4-fb"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- BAB 5: FOSFAT (P) & REFEEDING SYNDROME (SLIDE 18, 19, 29)           -->
+    <!-- =================================================================== -->
+    <section class="split-chapter" id="bab-5">
+      <aside class="slide-stage">
+        <div class="stage-top">
+          <span class="stage-label">Bab 05 · Bukti Slide Asli (18–19)</span>
+          <span style="font-size:0.75rem;color:var(--ink-muted);">Klik gambar untuk Zoom</span>
+        </div>
+        <div class="slide-pills" id="pills-ch5">
+          <button class="slide-pill active" onclick="setStage('ch5', 19, 'Slide 19 · Refeeding Syndrome: Pola yang Mengancam Nyawa', this)">Slide 19</button>
+          <button class="slide-pill" onclick="setStage('ch5', 18, 'Slide 18 · Fosfat (P): ATP, Membran, & Hipofosfatemia Berat', this)">Slide 18</button>
+        </div>
+        <div class="stage-frame" onclick="openZoom(document.getElementById('img-ch5').src)">
+          <img id="img-ch5" src="slides_kul3/slide_19.jpg" alt="Slide Bab 5">
+        </div>
+        <div class="stage-caption">
+          <span id="cap-ch5">Slide 19 · Refeeding Syndrome: Pola yang Mengancam Nyawa</span>
+          <span style="color:var(--navy);font-weight:700;">Perbesar ↗</span>
+        </div>
+      </aside>
+
+      <div class="narrative-panel">
+        <div class="ch-kicker-row">
+          <span class="ch-kicker">Bab 05 · Slide 18, 19, &amp; 29</span>
+          <span class="meta-pill pill-uab">Kegawatan Medis Fatal</span>
+        </div>
+        <h2 class="ch-title">Fosfat (P) &amp; Refeeding Syndrome: Ketika Makanan Mematikan Napas</h2>
+
+        <div class="peer-talk">
+          <p>Fosfat itu bahan baku utama bensin sel kita: <b>ATP</b>. Saat orang kelaparan berhari-hari (puasa panjang, anoreksia, malnutrisi berat), tabungan fosfat di dalam selnya udah tipis banget. Kalau tiba-tiba kamu kasih makan karbohidrat porsi besar, terjadilah bencana <b>{tt("Refeeding syndrome", "Refeeding Syndrome", "Pergeseran cairan dan elektrolit (P, K, Mg) secara drastis dari darah ke dalam sel akibat lonjakan insulin saat pemberian nutrisi kembali.", "Hallmark utama: Hipofosfatemia berat (<1,0 mg/dL) yang memicu gagal napas dan aritmia.")}</b> (lihat <b>Slide 19</b> di kanan):</p>
+        </div>
+
+        <div class="concept-grid">
+          <div class="concept-box">
+            <h4>Rantai Bencana 48 Jam Pertama</h4>
+            <ul>
+              <li>Karbohidrat masuk &rarr; pankreas kaget dan menyemburkan <b>{cl("Insulin")}</b> masif.</li>
+              <li>Insulin nyedot glukosa bersama <b>{cl("Fosfat (P), Kalium (K), dan Magnesium (Mg)")}</b> masuk ke dalam sel.</li>
+              <li>Fosfat darah langsung anjlok <b>{cl("&lt; 1,0 mg/dL")}</b> (hipofosfatemia berat).</li>
+              <li>Sel kehabisan ATP &rarr; <b>otot diafragma lumpuh (gagal napas akut)</b>, rabdomiolisis, hemolisis, &amp; aritmia!</li>
+            </ul>
+          </div>
+          <div class="concept-box">
+            <h4>Protokol Pencegahan NICE / ASPEN</h4>
+            <ul>
+              <li>1. Kenali pasien risiko tinggi (tidak makan &gt;5–10 hari).</li>
+              <li>2. Wajib beri <b>{cl("Tiamin (Vitamin B1)")}</b> sebelum nutrisi dimulai (cegah ensefalopati Wernicke).</li>
+              <li>3. Mulai kalori sangat pelan &amp; bertahap (10–15 kkal/kg/hari).</li>
+              <li>4. Pantau ketat <b>P – K – Mg</b> serial tiap hari!</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Inline Quiz Bab 5 -->
+        <div class="inline-quiz" id="iq-5">
+          <div class="iq-kicker">🎯 Cek Paham Bab 05 (Kasus Slide 29 dr. Iwal)</div>
+          <div class="iq-stem">Laki-laki 46 tahun dengan malnutrisi berat (tidak makan 12 hari) mulai diberi nutrisi enteral tinggi karbohidrat sejak 48 jam lalu. Pasien kini tampak sesak napas (takipnea), lemah otot menyeluruh, dan takikardia. Lab: Fosfat 0,8 mg/dL. Penyebab langsung turunnya fosfat serum secara drastis pada pasien ini adalah...</div>
+          <div class="iq-opts">
+            <button class="iq-btn" onclick="ansInline('iq-5', 0, true, 'Benar! Asupan karbohidrat memicu lonjakan sekresi insulin yang mendorong Fosfat, Kalium, dan Magnesium berpindah masif dari darah ke intraseluler (Slide 19 & 29).')"><span>A.</span><span>Lonjakan insulin yang memicu perpindahan fosfat dari ekstrasel ke intraseluler</span></button>
+            <button class="iq-btn" onclick="ansInline('iq-5', 1, false, 'Pada refeeding syndrome, fosfat tidak terbuang lewat diare melainkan tersedot masuk ke dalam sel untuk fosforilasi glukosa.')"><span>B.</span><span>Kehilangan fosfat masif melalui saluran cerna akibat malabsorpsi akut</span></button>
+            <button class="iq-btn" onclick="ansInline('iq-5', 2, false, 'Penurunan PTH justru meningkatkan reabsorpsi fosfat di ginjal (hiperfosfatemia).')"><span>C.</span><span>Penurunan mendadak hormon paratiroid (PTH) pasca pemberian makan</span></button>
+          </div>
+          <div class="iq-fb" id="iq-5-fb"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- BAB 6: TEMBAGA (CU), IODIUM (I), & SELENIUM (SE) (SLIDE 13, 22, 23) -->
+    <!-- =================================================================== -->
+    <section class="split-chapter" id="bab-6">
+      <aside class="slide-stage">
+        <div class="stage-top">
+          <span class="stage-label">Bab 06 · Bukti Slide Asli (13, 22, 23)</span>
+          <span style="font-size:0.75rem;color:var(--ink-muted);">Klik gambar untuk Zoom</span>
+        </div>
+        <div class="slide-pills" id="pills-ch6">
+          <button class="slide-pill active" onclick="setStage('ch6', 22, 'Slide 22 · Tembaga (Cu): Anemia, Neutropenia, & Jebakan Zinc', this)">Slide 22</button>
+          <button class="slide-pill" onclick="setStage('ch6', 13, 'Slide 13 · Iodium (I): Hormon Tiroid, Gondok, & Kretinisme', this)">Slide 13</button>
+          <button class="slide-pill" onclick="setStage('ch6', 23, 'Slide 23 · Selenium (Se): Deiodinase & Kardiomiopati Keshan', this)">Slide 23</button>
+        </div>
+        <div class="stage-frame" onclick="openZoom(document.getElementById('img-ch6').src)">
+          <img id="img-ch6" src="slides_kul3/slide_22.jpg" alt="Slide Bab 6">
+        </div>
+        <div class="stage-caption">
+          <span id="cap-ch6">Slide 22 · Tembaga (Cu): Anemia, Neutropenia, &amp; Jebakan Zinc</span>
+          <span style="color:var(--navy);font-weight:700;">Perbesar ↗</span>
+        </div>
+      </aside>
+
+      <div class="narrative-panel">
+        <div class="ch-kicker-row">
+          <span class="ch-kicker">Bab 06 · Slide 13, 22, &amp; 23</span>
+          <span class="meta-pill pill-skdi">3 Mineral Renik Unik</span>
+        </div>
+        <h2 class="ch-title">Tembaga (Cu) yang Kalah Saing dengan Seng, Iodium Tiroid, &amp; Jantung Keshan</h2>
+
+        <div class="peer-talk">
+          <p>Tiga mineral renik terakhir ini punya "tanda tangan khas" yang gampang banget kamu kenali begitu keluar di soal cerita UAB:</p>
+        </div>
+
+        <div class="concept-grid">
+          <div class="concept-box">
+            <h4>1. Tembaga / Cu (Slide 22)</h4>
+            <ul>
+              <li>Komponen {tt("Ceruloplasmin", "Ceruloplasmin", "Protein pengangkut tembaga utama di plasma yang berfungsi sebagai enzim ferroksidase (mengubah Fe2+ -> Fe3+ agar bisa diikat transferrin).", "Tanpa tembaga, besi tidak bisa diangkut keluar sel -> memicu anemia.")} untuk metabolisme besi.</li>
+              <li><b>Trias Khas:</b> <b>{cl("Anemia + Neutropenia + Mielopati/Neuropati")}</b> (jalan sempoyongan mirip kurang B12).</li>
+              <li><b>Pemicu Unik:</b> Minum suplemen <b>Zinc dosis tinggi berkepanjangan</b> atau lem gigi palsu kaya zinc &rarr; memicu {tt("Metallothionein", "Metallothionein", "Protein pengikat logam di enterosit usus yang diinduksi oleh konsumsi Seng tinggi.", "Mengikat Tembaga jauh lebih kuat daripada Seng, sehingga Cu terperangkap di sel usus dan terbuang.")} yang memblokir penyerapan Cu!</li>
+            </ul>
+          </div>
+          <div class="concept-box">
+            <h4>2. Iodium &amp; Selenium (Slide 13 &amp; 23)</h4>
+            <ul>
+              <li><b>Iodium (I):</b> Bahan baku hormon tiroid T3/T4. Kurang I &rarr; TSH naik &rarr; <b>Gondok (struma)</b>. Pada ibu hamil mengancam otak janin ({tt("Kretinisme", "Kretinisme Endemik", "Gagal tumbuh kembang saraf & fisik permanen pada janin akibat hipotiroidisme maternal.", "Gejala: retardasi mental berat, tuli-bisu, perawakan pendek.")}). Surveilans populasi pakai <b>median UIC</b> (Urinary Iodine Concentration).</li>
+              <li><b>Selenium (Se):</b> Bagian enzim antioksidan &amp; <b>deiodinase</b> (ubah T4 jadi T3). Kurang Se memperberat masalah iodium &amp; memicu kardiomiopati endemik <b>{cl("Penyakit Keshan")}</b>.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Inline Quiz Bab 6 -->
+        <div class="inline-quiz" id="iq-6">
+          <div class="iq-kicker">🎯 Cek Paham Bab 06</div>
+          <div class="iq-stem">Pasien dewasa datang dengan keluhan kesemutan di kedua tungkai, gangguan keseimbangan berjalan (mielopati), disertai hasil lab anemia dan neutropenia. Pasien rutin mengonsumsi suplemen Zinc dosis tinggi setiap hari selama 1 tahun terakhir. Defisiensi mineral yang terjadi adalah...</div>
+          <div class="iq-opts">
+            <button class="iq-btn" onclick="ansInline('iq-6', 0, false, 'Kromium berperan dalam potensiasi insulin, bukan penyebab anemia + neutropenia akibat zinc tinggi.')"><span>A.</span><span>Kromium (Cr)</span></button>
+            <button class="iq-btn" onclick="ansInline('iq-6', 1, true, 'Benar! Konsumsi Zinc tinggi berkepanjangan menghambat penyerapan Tembaga (Cu) di usus dan menyebabkan anemia + neutropenia + mielopati (Slide 22).')"><span>B.</span><span>Tembaga (Cu)</span></button>
+            <button class="iq-btn" onclick="ansInline('iq-6', 2, false, 'Fluorida berperan pada email gigi dan tulang (Slide 23).')"><span>C.</span><span>Fluorida (F)</span></button>
+          </div>
+          <div class="iq-fb" id="iq-6-fb"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- BAB 7: PEMILIHAN LAB, URUTAN TERAPI, & 3 KASUS ASLI (SLIDE 24 - 30) -->
+    <!-- =================================================================== -->
+    <section class="split-chapter" id="bab-7">
+      <aside class="slide-stage">
+        <div class="stage-top">
+          <span class="stage-label">Bab 07 · Bukti Slide Asli (24–30)</span>
+          <span style="font-size:0.75rem;color:var(--ink-muted);">Klik gambar untuk Zoom</span>
+        </div>
+        <div class="slide-pills" id="pills-ch7">
+          <button class="slide-pill active" onclick="setStage('ch7', 24, 'Slide 24 · Pilih Pemeriksaan Lab Sesuai Fenotipe Klinis', this)">Slide 24</button>
+          <button class="slide-pill" onclick="setStage('ch7', 25, 'Slide 25 · 5 Urutan Keputusan Tata Laksana Klinis', this)">Slide 25</button>
+          <button class="slide-pill" onclick="setStage('ch7', 27, 'Slide 27 · Diskusi Kasus 1: Mikrositosis & Pagophagia', this)">Slide 27</button>
+          <button class="slide-pill" onclick="setStage('ch7', 28, 'Slide 28 · Diskusi Kasus 2: Kalium Rendah Menetap', this)">Slide 28</button>
+          <button class="slide-pill" onclick="setStage('ch7', 29, 'Slide 29 · Diskusi Kasus 3: Refeeding Syndrome', this)">Slide 29</button>
+          <button class="slide-pill" onclick="setStage('ch7', 30, 'Slide 30 · Kunci & Rasional Singkat dr. Iwal', this)">Slide 30</button>
+        </div>
+        <div class="stage-frame" onclick="openZoom(document.getElementById('img-ch7').src)">
+          <img id="img-ch7" src="slides_kul3/slide_24.jpg" alt="Slide Bab 7">
+        </div>
+        <div class="stage-caption">
+          <span id="cap-ch7">Slide 24 · Pilih Pemeriksaan Lab Sesuai Fenotipe Klinis</span>
+          <span style="color:var(--navy);font-weight:700;">Perbesar ↗</span>
+        </div>
+      </aside>
+
+      <div class="narrative-panel">
+        <div class="ch-kicker-row">
+          <span class="ch-kicker">Bab 07 · Slide 24 s.d. 30</span>
+          <span class="meta-pill pill-skdi">Rangkuman Pamungkas dr. Iwal</span>
+        </div>
+        <h2 class="ch-title">Peta Pemeriksaan Lab Sesuai Gejala &amp; 5 Kunci Emas Slide 30</h2>
+
+        <div class="peer-talk">
+          <p>Di bagian penutup kuliahnya (<b>Slide 24, 25, dan 30</b>), dr. Iwal sudah membocorkan sendiri 5 kalimat kunci yang merangkum seluruh kuliah ini. Pastikan 5 baris di bawah ini nempel di kepalamu:</p>
+        </div>
+
+        <div class="callout trap">
+          <div class="callout-title">🔑 5 Kunci &amp; Rasional Singkat dr. Iwal (Persis Slide 30)</div>
+          1. <b>Ferritin:</b> Turun paling awal saat cadangan Fe mulai habis; tapi hati-hati karena ferritin juga ikut naik saat ada inflamasi akut ({tt("Reaktan Fase Akut", "Acute Phase Reactant", "Protein hati (seperti Ferritin dan CRP) yang kadarnya meningkat saat terjadi infeksi atau peradangan sistemik.", "Karena itu pada pasien inflamasi, ferritin normal belum tentu cadangan besinya cukup; cek CRP & TSAT!")}, jadi cek bareng CRP!).<br>
+          2. <b>Seng (Zn):</b> Mendukung integritas epitel kulit/mukosa usus, imunitas, dan pertumbuhan.<br>
+          3. <b>Magnesium (Mg):</b> Mg rendah menyebabkan kehilangan Kalium lewat ginjal dan bikin hipokalemia refrakter terhadap koreksi.<br>
+          4. <b>Fosfat (P):</b> Turun drastis akibat lonjakan insulin dan redistribusi intrasel pasca <i>refeeding</i>.<br>
+          5. <b>Iodium (UIC):</b> Kadar iodium urin sewaktu (*spot UIC*) sangat bervariasi harian; yang bermakna adalah <b>median populasi</b>, sedangkan untuk diagnosis fungsi tiroid individu gunakan <b>TSH &amp; FT4</b>.
+        </div>
+
+        <div class="concept-grid">
+          <div class="concept-box">
+            <h4>Pasangan Gejala &rarr; Panel Lab (Slide 24)</h4>
+            <ul>
+              <li><b>Anemia:</b> CBC, hapusan darah, {cl("Ferritin, TSAT ± CRP")} (Fe / Cu).</li>
+              <li><b>Kulit + Diare:</b> Zn serum/plasma + evaluasi inflamasi &amp; diet fitat.</li>
+              <li><b>Tetani / Kejang:</b> {cl("Ionized Ca, Mg, P")}, fungsi ginjal.</li>
+              <li><b>Aritmia / Lemas:</b> Na, K, Mg, Ca, EKG, kreatinin.</li>
+            </ul>
+          </div>
+          <div class="concept-box">
+            <h4>5 Urutan Tata Laksana (Slide 25)</h4>
+            <ul>
+              <li>1. <b>Nilai kegawatan:</b> Kejang, aritmia, tetani berat, gagal napas.</li>
+              <li>2. <b>Koreksi terarah:</b> Pilih oral vs IV sesuai berat gejala &amp; malabsorpsi.</li>
+              <li>3. <b>Cari akar masalah:</b> Perdarahan, penyakit GI/renal, obat, diet.</li>
+              <li>4. <b>Monitor &amp; Cegah:</b> Pantau respon lab &amp; fortifikasi pangan.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- TRYOUT AKHIR GABUNGAN (8 SOAL PREDIKSI UAB BEBAS BUG)               -->
+    <!-- =================================================================== -->
+    <section class="tryout-section" id="tryout-akhir">
+      <div class="tryout-head">
+        <div>
+          <span class="ch-kicker">Uji Kesiapan Akhir · Sebelum Tutup Halaman Ini</span>
+          <h2 style="font-family:var(--font-serif);font-size:2.1rem;color:var(--ink);margin-top:4px;">Tryout 8 Soal Prediksi UAB Defisiensi Mineral</h2>
+          <p style="font-size:0.94rem;color:var(--ink-secondary);">Seluruh soal merujuk langsung ke nomor slide asli dr. Iwal dan Modul Blok EMN.</p>
+        </div>
+        <div style="text-align:right;">
+          <span style="font-size:0.76rem;font-weight:700;color:var(--ink-muted);text-transform:uppercase;">Skor Tryout:</span>
+          <div class="tryout-score"><span id="tryout-score-val">0</span> / 8</div>
+        </div>
+      </div>
+
+      <div id="tryout-list"></div>
+    </section>
+
+  </main>
+
+  <!-- LIGHTBOX MODAL ZOOM -->
+  <div id="lightbox" class="lightbox" onclick="closeZoom()">
+    <img id="lightbox-img" src="" alt="Slide Zoom" onclick="event.stopPropagation()">
+  </div>
+
+  <script>
+    // 1. MYSTERY BOX REVEAL
+    const MYSTERIES = {{
+      1: "<b>Jawabannya: Refeeding Syndrome (Slide 19 & 29).</b> Saat pasien kelaparan >10 hari langsung diberi karbohidrat, pankreas melepas lonjakan <b>Insulin</b> masif. Insulin mendorong Fosfat, Kalium, dan Magnesium masuk ke dalam sel. Fosfat darah anjlok <1,0 mg/dL &rarr; pembentukan energi ATP berhenti &rarr; otot napas diafragma lumpuh mendadak!",
+      2: "<b>Jawabannya: Pagophagia pada Defisiensi Besi Stadium Dini (Slide 3, 9, & 10).</b> Mengunyah es batu (pagophagia) adalah tanda khas kekurangan besi. Mengapa Hb dan MCV-nya masih normal? Karena pada <b>Stadium 1</b>, yang habis terlebih dahulu adalah cadangan <b>Ferritin serum (<15 ng/mL)</b> sebelum Hb ikut turun.",
+      3: "<b>Jawabannya: Kebocoran Kanal ROMK akibat Hipomagnesemia (Slide 17 & 28).</b> Obat diuretik membuang Kalium sekaligus Magnesium. Di ginjal, ion Magnesium berfungsi sebagai 'sumbat' kanal ROMK. Selama Magnesium masih rendah (<1,7 mg/dL), gerbang ROMK terbuka lebar dan membuang semua kalium infus ke urin!"
+    }};
+    function showMystery(n) {{
+      const box = document.getElementById('mystery-box');
+      box.innerHTML = MYSTERIES[n];
+      box.classList.add('open');
+    }}
+
+    // 2. SPLIT-SCREEN SLIDE STAGE SWITCHER
+    function setStage(chId, slideNum, caption, btn) {{
+      document.getElementById('img-' + chId).src = 'slides_kul3/slide_' + slideNum + '.jpg';
+      document.getElementById('cap-' + chId).textContent = caption;
+      const wrap = document.getElementById('pills-' + chId);
+      wrap.querySelectorAll('.slide-pill').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }}
+
+    // 3. SIMULATORS
+    function simIron(st, btn) {{
+      btn.parentElement.querySelectorAll('.sim-tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const vf = document.getElementById('vi-ferr'), vt = document.getElementById('vi-tsat'), vh = document.getElementById('vi-hb');
+      vf.classList.remove('alert'); vt.classList.remove('alert'); vh.classList.remove('alert');
+      if (st === 1) {{
+        vf.classList.add('alert');
+        document.getElementById('vn-ferr').textContent = '< 15 ng/mL';
+        document.getElementById('vt-ferr').textContent = 'Anjlok Duluan!';
+        document.getElementById('vt-ferr').className = 'vial-note note-bad';
+        document.getElementById('vn-tsat').textContent = '28%';
+        document.getElementById('vt-tsat').textContent = 'Masih Normal';
+        document.getElementById('vt-tsat').className = 'vial-note note-ok';
+        document.getElementById('vn-hb').textContent = 'Hb 13.2 · MCV 86';
+        document.getElementById('vt-hb').textContent = 'Tampak Normal!';
+        document.getElementById('vt-hb').className = 'vial-note note-ok';
+      }} else if (st === 2) {{
+        vt.classList.add('alert');
+        document.getElementById('vn-ferr').textContent = '< 10 ng/mL';
+        document.getElementById('vt-ferr').textContent = 'Kosong';
+        document.getElementById('vt-ferr').className = 'vial-note note-bad';
+        document.getElementById('vn-tsat').textContent = '12% (Turun)';
+        document.getElementById('vt-tsat').textContent = 'Besi Transpor Kurang';
+        document.getElementById('vt-tsat').className = 'vial-note note-bad';
+        document.getElementById('vn-hb').textContent = 'Hb 12.1 · MCV 81';
+        document.getElementById('vt-hb').textContent = 'Mulai Turun';
+        document.getElementById('vt-hb').className = 'vial-note note-warn';
+      }} else {{
+        vh.classList.add('alert');
+        document.getElementById('vn-ferr').textContent = '7 ng/mL';
+        document.getElementById('vt-ferr').textContent = 'Habis Total';
+        document.getElementById('vt-ferr').className = 'vial-note note-bad';
+        document.getElementById('vn-tsat').textContent = '6%';
+        document.getElementById('vt-tsat').textContent = 'Sangat Rendah';
+        document.getElementById('vt-tsat').className = 'vial-note note-bad';
+        document.getElementById('vn-hb').textContent = 'Hb 8.9 · MCV 68 fL';
+        document.getElementById('vt-hb').textContent = 'Anemia Mikrositik!';
+        document.getElementById('vt-hb').className = 'vial-note note-bad';
+      }}
+    }}
+
+    function simRomk(normal, btn) {{
+      btn.parentElement.querySelectorAll('.sim-tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const box = document.getElementById('romk-box-state');
+      if (normal) {{
+        box.style.background = 'var(--sage-soft)';
+        box.style.borderColor = 'var(--sage-border)';
+        box.innerHTML = '<b>Status Ginjal (Mg Normal):</b> Ion Mg intrasel menyumbat kanal ROMK dengan rapat &rarr; <b>Kalium aman ditahan di darah, tidak bocor ke urin.</b>';
+      }} else {{
+        box.style.background = 'var(--coral-soft)';
+        box.style.borderColor = 'var(--coral-border)';
+        box.innerHTML = '<b>Status Ginjal (Mg Rendah &lt;1,7 mg/dL):</b> Sumbat Mg lepas! Kanal ROMK terbuka lebar tanpa rem &rarr; <b>Semua Kalium bocor keluar lewat urin (Hipokalemia Refrakter). Wajib koreksi Mg + K serentak!</b>';
+      }}
+    }}
+
+    // 4. INLINE CHAPTER QUIZ EVALUATOR (100% BUG-FREE)
+    const inlineAnswered = {{}};
+    function ansInline(id, idx, isRight, reason) {{
+      if (inlineAnswered[id]) return;
+      inlineAnswered[id] = true;
+      const wrap = document.getElementById(id);
+      const btns = wrap.querySelectorAll('.iq-btn');
+      btns.forEach((b, i) => {{
+        if (i === idx) b.classList.add(isRight ? 'is-correct' : 'is-wrong');
+      }});
+      const fb = document.getElementById(id + '-fb');
+      fb.className = 'iq-fb show ' + (isRight ? 'ok' : 'no');
+      fb.innerHTML = (isRight ? '<strong>✅ Benar!</strong> ' : '<strong>❌ Kurang Tepat.</strong> ') + reason;
+    }}
+
+    // 5. CLOZE MASKING & DARK MODE TOGGLES
+    let clozeOn = false;
+    function toggleCloze() {{
+      clozeOn = !clozeOn;
+      document.body.classList.toggle('cloze-active', clozeOn);
+      document.getElementById('cloze-btn').classList.toggle('active', clozeOn);
+      document.getElementById('cloze-state').textContent = clozeOn ? 'ON' : 'OFF';
+      if (clozeOn) document.querySelectorAll('.cloze-mask').forEach(e => e.classList.remove('revealed'));
+    }}
+
+    function toggleTheme() {{
+      const root = document.documentElement;
+      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      document.getElementById('theme-label').textContent = next === 'dark' ? '☀️ Mode Kertas' : '🌙 Mode Malam';
+      try {{ localStorage.setItem('vx_emn_theme', next); }} catch(e) {{}}
+    }}
+
+    // 6. LIGHTBOX
+    function openZoom(src) {{
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox').classList.add('open');
+    }}
+    function closeZoom() {{
+      document.getElementById('lightbox').classList.remove('open');
+    }}
+
+    document.addEventListener('keydown', e => {{
+      if (e.key === 'Escape') closeZoom();
+      if (['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement.tagName)) return;
+      if (e.key.toLowerCase() === 'm') toggleCloze();
+      if (e.key.toLowerCase() === 'd') toggleTheme();
+    }});
+
+    // 7. FINAL TRYOUT 8 QUESTIONS
+    const TRYOUT_Q = [
+      {{
+        stem: '1. Perempuan 29 tahun mengeluh cepat lelah dan sering mengunyah es batu (pagophagia). Riwayat haid sangat banyak 8 hari/siklus. Jika pasien baru berada pada defisiensi besi tahap paling awal (Stadium 1), parameter laboratorium manakah yang pertama kali turun sementara Hb dan MCV masih normal?',
+        opts: ['Total Iron Binding Capacity (TIBC)', 'Ferritin serum', 'Saturasi transferrin (TSAT)', 'Mean Corpuscular Hemoglobin (MCH)', 'Hitung retikulosit'],
+        ans: 1,
+        exp: 'Pada Stadium 1 (penipisan cadangan besi / iron depletion), <b>Ferritin serum (<15–30 ng/mL)</b> turun paling awal, sedangkan Hb dan MCV masih normal (Slide 10).'
+      }},
+      {{
+        stem: '2. Berdasarkan AGA Clinical Practice Update (2024) pada Slide 11, bagaimana frekuensi pemberian tablet besi oral yang dianjurkan pada pasien anemia defisiensi besi stabil agar penyerapannya optimal dan minim efek samping?',
+        opts: ['3 kali sehari sesudah makan bersama teh hangat', 'Maksimal 1 kali sehari atau rejimen selang-hari (alternate-day)', '4 kali sehari bersama antasida untuk melindungi lambung', '2 kali sehari bersama suplemen kalsium dosis tinggi', 'Setiap 6 jam sekali selama 7 hari penuh'],
+        ans: 1,
+        exp: 'Pemberian besi oral memicu kenaikan Hepcidin selama 24–48 jam yang menghambat penyerapan dosis berikutnya. Karena itu AGA 2024 menganjurkan <b>maksimal 1x/hari atau selang-hari</b> (Slide 11).'
+      }},
+      {{
+        stem: '3. Anak 2 tahun datang dengan dermatitis periorifisial dan akral, diare kronik, serta alopesia. Selain mengatasi defisiensi Seng (Zn) dengan suplementasi selama 10–14 hari, faktor diet apa yang harus diedukasikan kepada ibu karena menghambat absorpsi seng di usus?',
+        opts: ['Konsumsi protein hewani berlebihan', 'Diet monoton tinggi fitat dari serealia/biji-bijian', 'Konsumsi buah-buahan kaya vitamin C', 'Pemberian ASI eksklusif', 'Konsumsi ikan laut kaya selenium'],
+        ans: 1,
+        exp: '<b>Fitat</b> pada serealia/gandum mengikat Zn di lumen usus dan menghambat absorpsinya (Slide 12).'
+      }},
+      {{
+        stem: '4. Laki-laki 67 tahun pengguna diuretik datang dengan kelemahan otot, palpitasi, gelombang U pada EKG, dan Kalium 2,8 mmol/L yang tidak membaik setelah terapi kalium oral. Mengapa hipomagnesemia (Mg 1,1 mg/dL) menyebabkan kondisi tersebut?',
+        opts: ['Mg rendah menghambat penyerapan kalium di lambung', 'Mg rendah menyebabkan kehilangan kalium lewat ginjal (ekskresi K urin meningkat)', 'Mg rendah mengikat kalium di dalam plasma menjadi kompleks inaktif', 'Mg rendah menghentikan produksi aldosteron di korteks adrenal', 'Mg rendah memicu hemolisis eritrosit masif'],
+        ans: 1,
+        exp: 'Defisiensi Mg melepas hambatan pada kanal ROMK di tubulus ginjal sehingga <b>ekskresi K lewat urin meningkat terus-menerus</b> dan menyebabkan hipokalemia refrakter (Slide 17 & 28).'
+      }},
+      {{
+        stem: '5. Pasien malnutrisi berat (asupan sangat sedikit selama 12 hari) mengalami kelemahan otot napas (takipnea), takikardia, dan kadar fosfat 0,8 mg/dL pada 48 jam setelah nutrisi dimulai. Langkah pencegahan utama sindrom ini menurut pedoman NICE/ASPEN (Slide 19) adalah...',
+        opts: ['Langsung memberikan kalori penuh 40 kkal/kg/hari sejak hari pertama', 'Identifikasi risiko, beri Tiamin (B1), mulai nutrisi bertahap, dan pantau P–K–Mg', 'Memberikan insulin dosis tinggi sebelum makan dimulai', 'Membatasi asupan fosfat dan kalium selama minggu pertama', 'Memberikan diuretik furosemid untuk mencegah edema'],
+        ans: 1,
+        exp: 'Pencegahan Refeeding Syndrome pada Slide 19: <b>identifikasi risiko, beri tiamin sebelum nutrisi, mulai kalori bertahap, dan pantau serial P–K–Mg</b>.'
+      }},
+      {{
+        stem: '6. Pasien pasca-operasi bariatrik yang mengonsumsi suplemen Zinc dosis tinggi jangka panjang mengeluh gangguan jalan (mielopati/neuropati) disertai hasil lab anemia dan neutropenia. Pemeriksaan biomarker yang tepat untuk menegakkan defisiensi mineral penyebabnya adalah...',
+        opts: ['TSH dan FT4 serum', 'Tembaga (Cu) serum dan ceruloplasmin', 'Urinary Iodine Concentration (UIC) sewaktu', 'Kalsium ionisasi dan PTH', 'Kadar fluorida plasma'],
+        ans: 1,
+        exp: 'Anemia + neutropenia + gejala neurologis pada riwayat konsumsi Zinc tinggi mengarah pada <b>defisiensi Tembaga (Cu)</b>; dikonfirmasi dengan pemeriksaan <b>Cu serum dan ceruloplasmin</b> (Slide 22).'
+      }},
+      {{
+        stem: '7. Manakah pernyataan yang TEPAT mengenai pemeriksaan iodium dan selenium menurut Slide 13, 23, dan 30?',
+        opts: ['UIC (Urinary Iodine Concentration) sewaktu adalah baku emas diagnosis hipotiroidisme pada satu individu', 'Defisiensi selenium dapat memperberat masalah gangguan iodium karena Se berperan dalam enzim deiodinase', 'Suplementasi selenium dosis tinggi wajib diberikan secara universal kepada seluruh populasi sehat', 'Defisiensi iodium pada kehamilan hanya menyebabkan gondok ringan tanpa memengaruhi janin', 'Penyakit Keshan disebabkan oleh kelebihan kalsium dan fosfat'],
+        ans: 1,
+        exp: 'Selenium merupakan bagian dari selenoprotein antioksidan & <b>deiodinase</b> (mengubah T4 menjadi T3), sehingga defisiensi Se dapat memperberat masalah iodium dan memicu kardiomiopati Keshan (Slide 23 & 30).'
+      }},
+      {{
+        stem: '8. Seorang pasien datang dengan parestesia perioral, spasme karpopedal (tetani), dan pemanjangan interval QT pada EKG. Selain memeriksa kadar kalsium terionisasi (ionized Ca) dan fungsi ginjal, pemeriksaan laboratorium apa yang wajib dicek bersama menurut Slide 15 & 24?',
+        opts: ['Albumin, Magnesium, Fosfat, PTH, dan 25(OH)D', 'Amilase, Lipase, dan Bilirubin direk', 'Asam urat, Kolesterol total, dan Trigliserida', 'D-dimer, Fibrinogen, dan PT/aPTT', 'HBsAg, Anti-HCV, dan SGOT/SGPT'],
+        ans: 0,
+        exp: 'Evaluasi hipokalsemia pada Slide 15 & 24 meliputi: <b>ukur kalsium ionisasi, periksa albumin, Mg, P, kreatinin, serta PTH dan 25(OH)D</b> sesuai kecurigaan klinis.'
+      }}
+    ];
+
+    let tryoutAns = {{}};
+    let tryoutScore = 0;
+
+    function initTryout() {{
+      const host = document.getElementById('tryout-list');
+      host.innerHTML = TRYOUT_Q.map((q, qi) => `
+        <div class="inline-quiz" id="tq-${{qi}}" style="border-top:1px solid var(--border);margin-top:18px;padding-top:18px;">
+          <div class="iq-stem">${{q.stem}}</div>
+          <div class="iq-opts">
+            ${{q.opts.map((o, oi) => `
+              <button type="button" class="iq-btn" onclick="ansTryout(${{qi}}, ${{oi}})">
+                <span>${{String.fromCharCode(65 + oi)}}.</span>
+                <span>${{o}}</span>
+              </button>
+            `).join('')}}
+          </div>
+          <div class="iq-fb" id="tq-fb-${{qi}}"></div>
+        </div>
+      `).join('');
+    }}
+
+    function ansTryout(qi, oi) {{
+      if (tryoutAns[qi] !== undefined) return;
+      tryoutAns[qi] = oi;
+      const q = TRYOUT_Q[qi];
+      const ok = (oi === q.ans);
+      const wrap = document.getElementById('tq-' + qi);
+      wrap.querySelectorAll('.iq-btn').forEach((b, i) => {{
+        if (i === q.ans) b.classList.add('is-correct');
+        else if (i === oi && !ok) b.classList.add('is-wrong');
+      }});
+      const fb = document.getElementById('tq-fb-' + qi);
+      if (ok) {{
+        tryoutScore++;
+        fb.className = 'iq-fb show ok';
+        fb.innerHTML = `<strong>✅ Benar!</strong> ${{q.exp}}`;
+      }} else {{
+        fb.className = 'iq-fb show no';
+        fb.innerHTML = `<strong>❌ Kurang Tepat.</strong> Jawaban benar: <strong>${{String.fromCharCode(65 + q.ans)}} (${{q.opts[q.ans]}})</strong>.<br>${{q.exp}}`;
+      }}
+      document.getElementById('tryout-score-val').textContent = tryoutScore;
+    }}
+    // 8. AUTO-ENHANCE RIGHT SLIDE STAGES WITH PREV/NEXT ARROWS & SCROLL SPY
+    function stepStage(chId, dir) {{
+      const wrap = document.getElementById('pills-' + chId);
+      if (!wrap) return;
+      const pills = [...wrap.querySelectorAll('.slide-pill')];
+      if (pills.length < 2) return;
+      const idx = pills.findIndex(b => b.classList.contains('active'));
+      const nextIdx = (idx + dir + pills.length) % pills.length;
+      pills[nextIdx].click();
+    }}
+
+    document.addEventListener('DOMContentLoaded', () => {{
+      initTryout();
+
+      // Inject Prev/Next slide buttons into every right-hand slide stage with >=2 slides
+      document.querySelectorAll('.slide-stage').forEach(stage => {{
+        const pillsWrap = stage.querySelector('.slide-pills');
+        if (!pillsWrap) return;
+        const chId = pillsWrap.id.replace('pills-', '');
+        const count = pillsWrap.querySelectorAll('.slide-pill').length;
+        const top = stage.querySelector('.stage-top');
+        if (top && count > 1) {{
+          const nav = document.createElement('div');
+          nav.className = 'stage-nav-arrows';
+          nav.innerHTML = `<button type="button" class="stage-arrow-btn" title="Slide sebelumnya" onclick="stepStage('${{chId}}', -1)">‹</button><button type="button" class="stage-arrow-btn" title="Slide berikutnya" onclick="stepStage('${{chId}}', 1)">›</button>`;
+          top.appendChild(nav);
+        }}
+      }});
+
+      // Scroll-spy for top chapter strip & reading progress bar
+      const chapters = [...document.querySelectorAll('.split-chapter, #tryout-akhir')];
+      const navLinks = [...document.querySelectorAll('.ch-jump')];
+      window.addEventListener('scroll', () => {{
+        const doc = document.documentElement;
+        const pct = (doc.scrollTop / Math.max(1, doc.scrollHeight - doc.clientHeight)) * 100;
+        const bar = document.getElementById('scroll-bar');
+        if (bar) bar.style.width = pct + '%';
+
+        let currentId = 'bab-1';
+        for (const sec of chapters) {{
+          if (sec.getBoundingClientRect().top <= 160) currentId = sec.id;
+        }}
+        navLinks.forEach(a => {{
+          a.classList.toggle('active', a.getAttribute('href') === '#' + currentId);
+        }});
+      }}, {{ passive: true }});
+
+      // Touch-friendly tooltips for mobile & tablet (tap to show/hide)
+      document.addEventListener('click', e => {{
+        const term = e.target.closest('.med-term');
+        document.querySelectorAll('.med-term').forEach(el => {{
+          if (el !== term) el.classList.remove('active-touch');
+        }});
+        if (term) term.classList.toggle('active-touch');
+      }});
+
+      try {{
+        const saved = localStorage.getItem('vx_emn_theme');
+        if (saved === 'dark') toggleTheme();
+      }} catch(e) {{}}
+  </script>
+</body>
+</html>
+"""
+
+with open(OUT_HTML, "w", encoding="utf-8") as f:
+    f.write(HTML)
+
+print(f"Masterpiece Split-Screen Slide-Sync berhasil ditulis ke {OUT_HTML} ({len(HTML)} bytes)")

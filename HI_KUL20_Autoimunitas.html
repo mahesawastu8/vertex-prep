@@ -1,0 +1,1583 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Autoimunitas & Toleransi Imun · Split-Screen Mastery HI KUL 20</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #FAF8F5;
+      --surface: #FFFFFF;
+      --surface-subtle: #F2EFE9;
+      --surface-card: #FDFCFA;
+      --border: #E5E0D5;
+      --border-strong: #C9C2B2;
+
+      --ink: #161719;
+      --ink-secondary: #4A4D52;
+      --ink-muted: #7C8087;
+
+      --sage: #1E6B47;
+      --sage-soft: #EBF5F0;
+      --sage-border: #B8DEC9;
+
+      --coral: #B93822;
+      --coral-soft: #FBEFEA;
+      --coral-border: #F2C6BC;
+
+      --ochre: #9E5E10;
+      --ochre-soft: #FDF4E7;
+      --ochre-border: #F3D5A8;
+
+      --navy: #1B3B6F;
+      --navy-soft: #EDF3FA;
+      --navy-border: #C2D6EE;
+
+      --shadow-sm: 0 2px 8px rgba(22, 23, 25, 0.04);
+      --shadow-md: 0 10px 28px -4px rgba(22, 23, 25, 0.07);
+      --shadow-lg: 0 24px 52px -10px rgba(22, 23, 25, 0.16);
+
+      --r-sm: 8px;
+      --r-md: 14px;
+      --r-lg: 20px;
+      --r-full: 9999px;
+
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-serif: 'Newsreader', Georgia, serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    html[data-theme="dark"] {
+      --bg: #131517;
+      --surface: #1B1E21;
+      --surface-subtle: #23272B;
+      --surface-card: #1F2327;
+      --border: #2D3238;
+      --border-strong: #434A52;
+
+      --ink: #ECEAE4;
+      --ink-secondary: #B4B8BF;
+      --ink-muted: #7E848D;
+
+      --sage: #4CC38A;
+      --sage-soft: rgba(76, 195, 138, 0.13);
+      --sage-border: rgba(76, 195, 138, 0.35);
+
+      --coral: #F2745F;
+      --coral-soft: rgba(242, 116, 95, 0.13);
+      --coral-border: rgba(242, 116, 95, 0.35);
+
+      --ochre: #F0B15B;
+      --ochre-soft: rgba(240, 177, 91, 0.12);
+      --ochre-border: rgba(240, 177, 91, 0.32);
+
+      --navy: #7CB3F5;
+      --navy-soft: rgba(124, 179, 245, 0.13);
+      --navy-border: rgba(124, 179, 245, 0.32);
+
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.25);
+      --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.38);
+      --shadow-lg: 0 28px 60px rgba(0, 0, 0, 0.55);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+      transition: background 0.25s ease, color 0.25s ease;
+      padding-bottom: 120px;
+    }
+
+    ::selection { background: var(--sage-soft); color: var(--sage); }
+
+    .scroll-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--sage), var(--navy));
+      z-index: 300;
+      transition: width 0.1s ease-out;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: color-mix(in srgb, var(--bg) 92%, transparent);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 24px;
+    }
+    .topbar-inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex: none;
+    }
+    .brand-badge {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 700;
+      background: var(--coral);
+      color: #fff;
+      padding: 4px 9px;
+      border-radius: var(--r-sm);
+      letter-spacing: 0.04em;
+    }
+    .course-select {
+      font-family: var(--font-sans);
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--ink);
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      outline: none;
+    }
+    .course-select option { background: var(--surface); color: var(--ink); }
+
+    .chapter-strip {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding: 2px;
+    }
+    .chapter-strip::-webkit-scrollbar { display: none; }
+    .ch-jump {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--ink-secondary);
+      text-decoration: none;
+      padding: 6px 11px;
+      border-radius: var(--r-full);
+      white-space: nowrap;
+      transition: all 0.15s ease;
+    }
+    .ch-jump:hover { background: var(--surface-subtle); color: var(--ink); }
+    .ch-jump.active { background: var(--ink); color: var(--bg); }
+
+    .tool-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex: none;
+    }
+    .tool-btn {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--ink-secondary);
+      font-family: var(--font-sans);
+      font-size: 0.79rem;
+      font-weight: 600;
+      padding: 6px 13px;
+      border-radius: var(--r-full);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      transition: all 0.18s ease;
+      white-space: nowrap;
+    }
+    .tool-btn:hover { border-color: var(--border-strong); color: var(--ink); }
+    .tool-btn.active { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+    .state-pill {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      padding: 1px 6px;
+      border-radius: 4px;
+      background: var(--surface-subtle);
+      color: var(--ink);
+    }
+    .tool-btn.active .state-pill { background: var(--sage); color: #fff; }
+    .btn-anki {
+      background: var(--sage);
+      color: #FFFFFF !important;
+      font-size: 0.79rem;
+      font-weight: 700;
+      padding: 7px 14px;
+      border-radius: var(--r-full);
+      text-decoration: none;
+      white-space: nowrap;
+      transition: opacity 0.15s ease;
+    }
+    .btn-anki:hover { opacity: 0.9; }
+
+    .page-wrap {
+      max-width: 1340px;
+      margin: 0 auto;
+      padding: 32px 24px 0;
+    }
+
+    /* OPENING HOOK */
+    .hook-hero {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 36px 40px;
+      margin-bottom: 36px;
+      box-shadow: var(--shadow-md);
+    }
+    .hook-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+    .meta-pill {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: var(--r-full);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .pill-skdi { background: var(--sage-soft); color: var(--sage); border: 1px solid var(--sage-border); }
+    .pill-uab { background: var(--coral-soft); color: var(--coral); border: 1px solid var(--coral-border); }
+    .pill-slides { background: var(--navy-soft); color: var(--navy); border: 1px solid var(--navy-border); }
+
+    .hook-headline {
+      font-family: var(--font-serif);
+      font-size: 2.55rem;
+      font-weight: 600;
+      line-height: 1.22;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+    }
+    .hook-lead {
+      font-size: 1.06rem;
+      color: var(--ink-secondary);
+      max-width: 960px;
+      margin-bottom: 26px;
+    }
+
+    .enigma-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .enigma-card {
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.2s ease;
+    }
+    .enigma-card:hover {
+      border-color: var(--border-strong);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+    .enigma-tag {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--coral);
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+    }
+    .enigma-title {
+      font-family: var(--font-serif);
+      font-size: 1.22rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+    .enigma-desc {
+      font-size: 0.9rem;
+      color: var(--ink-secondary);
+      line-height: 1.55;
+      margin-bottom: 14px;
+    }
+    .enigma-btn {
+      align-self: flex-start;
+      border: 1px solid var(--border-strong);
+      background: var(--surface);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      font-size: 0.79rem;
+      font-weight: 700;
+      padding: 6px 13px;
+      border-radius: var(--r-full);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .enigma-btn:hover { background: var(--ink); color: var(--bg); }
+    .enigma-answer {
+      margin-top: 18px;
+      padding: 18px 22px;
+      background: var(--ochre-soft);
+      border: 1px solid var(--ochre-border);
+      border-radius: var(--r-md);
+      font-size: 0.94rem;
+      color: var(--ink);
+      display: none;
+    }
+    .enigma-answer.open { display: block; }
+
+    /* SPLIT-SCREEN: LEFT NARRATIVE + RIGHT STICKY SLIDE */
+    .split-chapter {
+      display: grid;
+      grid-template-columns: 1fr 480px;
+      gap: 32px;
+      align-items: start;
+      margin-bottom: 52px;
+      scroll-margin-top: 84px;
+    }
+    .narrative-panel {
+      grid-column: 1;
+      grid-row: 1;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 36px 42px;
+      box-shadow: var(--shadow-sm);
+    }
+    .slide-stage {
+      grid-column: 2;
+      grid-row: 1;
+      position: sticky;
+      top: 78px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 18px;
+      box-shadow: var(--shadow-md);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .slide-stage:hover {
+      border-color: var(--border-strong);
+      box-shadow: var(--shadow-lg);
+    }
+    .stage-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .stage-label {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: var(--sage);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .stage-nav-arrows {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .stage-arrow-btn {
+      border: 1px solid var(--border);
+      background: var(--surface-subtle);
+      color: var(--ink-secondary);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      width: 26px;
+      height: 26px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-grid;
+      place-items: center;
+      transition: all 0.15s ease;
+    }
+    .stage-arrow-btn:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+
+    .slide-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-bottom: 12px;
+    }
+    .slide-pill {
+      border: 1px solid var(--border);
+      background: var(--surface-subtle);
+      color: var(--ink-secondary);
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: var(--r-full);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .slide-pill:hover { border-color: var(--border-strong); color: var(--ink); }
+    .slide-pill.active { background: var(--navy); color: #FFFFFF; border-color: var(--navy); }
+    .stage-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      background: #fff;
+      border-radius: var(--r-md);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      cursor: zoom-in;
+    }
+    .stage-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #fff;
+      display: block;
+    }
+    .stage-caption {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: var(--ink-muted);
+      margin-top: 10px;
+      padding: 0 4px;
+    }
+
+    .ch-kicker-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .ch-kicker {
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--navy);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .ch-title {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      font-weight: 600;
+      line-height: 1.24;
+      color: var(--ink);
+      margin-bottom: 16px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+    }
+    .peer-talk { font-size: 1rem; color: var(--ink); margin-bottom: 18px; }
+    .peer-talk p { margin-bottom: 14px; }
+
+    .concept-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin: 18px 0;
+    }
+    .concept-box {
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 16px 18px;
+    }
+    .concept-box h4 {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--ink-muted);
+      margin-bottom: 8px;
+    }
+    .concept-box ul { padding-left: 18px; font-size: 0.93rem; line-height: 1.6; color: var(--ink); }
+    .concept-box li { margin-bottom: 5px; }
+
+    .callout {
+      border-radius: var(--r-md);
+      padding: 16px 20px;
+      margin: 16px 0;
+      font-size: 0.94rem;
+      line-height: 1.65;
+    }
+    .callout-title {
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 5px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .callout.trap { background: var(--coral-soft); border: 1px solid var(--coral-border); }
+    .callout.trap .callout-title { color: var(--coral); }
+    .callout.pharma { background: var(--navy-soft); border: 1px solid var(--navy-border); }
+    .callout.pharma .callout-title { color: var(--navy); }
+    .callout.modul { background: var(--ochre-soft); border: 1px solid var(--ochre-border); }
+    .callout.modul .callout-title { color: var(--ochre); }
+
+    /* SIMULATORS */
+    .inline-sim {
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 20px 22px;
+      margin: 20px 0;
+    }
+    .sim-bar-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .sim-tabs {
+      display: flex;
+      background: var(--surface);
+      padding: 4px;
+      border-radius: var(--r-full);
+      border: 1px solid var(--border);
+      gap: 4px;
+      margin-bottom: 14px;
+    }
+    .sim-tab {
+      flex: 1;
+      border: none;
+      background: transparent;
+      color: var(--ink-secondary);
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 8px 10px;
+      border-radius: var(--r-full);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .sim-tab.active { background: var(--ink); color: var(--bg); }
+    .vials-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .vial {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-sm);
+      padding: 12px 14px;
+    }
+    .vial.alert { border-color: var(--coral); box-shadow: 0 0 0 2px var(--coral-soft); }
+    .vial-kicker { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; color: var(--ink-muted); }
+    .vial-num { font-family: var(--font-mono); font-size: 1.05rem; font-weight: 700; color: var(--ink); margin: 3px 0 4px; }
+    .vial-note { font-size: 0.78rem; font-weight: 600; }
+    .note-bad { color: var(--coral); }
+    .note-ok { color: var(--sage); }
+    .note-warn { color: var(--ochre); }
+
+    /* INLINE QUIZ */
+    .inline-quiz {
+      margin-top: 24px;
+      padding-top: 22px;
+      border-top: 2px dashed var(--border);
+    }
+    .iq-kicker {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: var(--sage);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+    }
+    .iq-stem { font-size: 0.98rem; font-weight: 600; color: var(--ink); line-height: 1.6; margin-bottom: 12px; }
+    .iq-opts { display: flex; flex-direction: column; gap: 8px; }
+    .iq-btn {
+      padding: 11px 15px;
+      border-radius: var(--r-sm);
+      border: 1px solid var(--border);
+      background: var(--surface-card);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      font-size: 0.91rem;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      transition: all 0.15s ease;
+    }
+    .iq-btn:hover { border-color: var(--border-strong); background: var(--surface-subtle); }
+    .iq-btn.is-correct { background: var(--sage-soft) !important; border-color: var(--sage) !important; color: var(--sage) !important; font-weight: 700; }
+    .iq-btn.is-wrong { background: var(--coral-soft) !important; border-color: var(--coral) !important; color: var(--coral) !important; }
+    .iq-fb {
+      margin-top: 12px;
+      padding: 14px 16px;
+      border-radius: var(--r-sm);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      display: none;
+    }
+    .iq-fb.show { display: block; }
+    .iq-fb.ok { background: var(--sage-soft); border: 1px solid var(--sage-border); color: var(--ink); }
+    .iq-fb.no { background: var(--coral-soft); border: 1px solid var(--coral-border); color: var(--ink); }
+
+    /* TOOLTIPS & CLOZE */
+    .med-term {
+      border-bottom: 2px dotted var(--navy);
+      color: var(--navy);
+      font-weight: 600;
+      cursor: help;
+      position: relative;
+      display: inline-block;
+    }
+    .med-term:hover { background: var(--navy-soft); border-radius: 4px; }
+    .med-tooltip {
+      visibility: hidden;
+      opacity: 0;
+      position: absolute;
+      bottom: 130%;
+      left: 50%;
+      transform: translateX(-50%) translateY(4px);
+      width: 290px;
+      background: #141619;
+      color: #FFFFFF;
+      border-radius: var(--r-md);
+      padding: 13px 15px;
+      font-family: var(--font-sans);
+      font-size: 0.82rem;
+      font-weight: 400;
+      line-height: 1.5;
+      box-shadow: var(--shadow-lg);
+      z-index: 400;
+      pointer-events: none;
+      transition: all 0.18s ease;
+      text-align: left;
+    }
+    .med-tooltip::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -6px;
+      border-width: 6px;
+      border-style: solid;
+      border-color: #141619 transparent transparent transparent;
+    }
+    .med-term:hover .med-tooltip, .med-term:focus .med-tooltip {
+      visibility: visible;
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+    .tt-kicker { font-size: 0.66rem; font-weight: 700; color: #7FD8B2; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 2px; }
+    .tt-title { font-size: 0.9rem; font-weight: 700; color: #FFFFFF; display: block; margin-bottom: 4px; }
+    .tt-desc { color: #D5D8DC; display: block; }
+    .tt-pearl { margin-top: 7px; padding-top: 7px; border-top: 1px solid #2D3137; color: #FAD99B; font-size: 0.78rem; display: block; }
+
+    body.cloze-active .cloze-mask {
+      background: var(--border-strong) !important;
+      color: transparent !important;
+      border-radius: 5px;
+      padding: 1px 7px;
+      cursor: pointer;
+      user-select: none;
+      display: inline-block;
+      transition: all 0.15s ease;
+    }
+    body.cloze-active .cloze-mask.revealed {
+      background: var(--sage-soft) !important;
+      color: var(--sage) !important;
+      font-weight: 700;
+      border: 1px solid var(--sage-border);
+    }
+
+    .tryout-section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 36px 40px;
+      margin-top: 56px;
+      box-shadow: var(--shadow-md);
+      scroll-margin-top: 80px;
+    }
+    .tryout-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding-bottom: 18px;
+      margin-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+    .tryout-score { font-family: var(--font-mono); font-size: 1.7rem; font-weight: 700; color: var(--sage); }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(12, 13, 15, 0.86);
+      backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img { max-width: 94%; max-height: 90vh; border-radius: var(--r-md); box-shadow: var(--shadow-lg); }
+
+    @media (max-width: 1020px) {
+      .split-chapter { grid-template-columns: 1fr; }
+      .narrative-panel { grid-column: 1; grid-row: 1; padding: 24px 20px; }
+      .slide-stage { grid-column: 1; grid-row: 2; position: static; }
+      .enigma-row { grid-template-columns: 1fr; }
+      .concept-grid { grid-template-columns: 1fr; }
+      .vials-3 { grid-template-columns: 1fr; }
+      .chapter-strip { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="scroll-bar" id="scroll-bar"></div>
+
+  <!-- TOP STICKY NAVIGATION -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand-group">
+        <span class="brand-badge">HI · KUL 20</span>
+        <select class="course-select" onchange="window.location.href=this.value">
+          <option value="HI_KUL20_Autoimunitas.html" selected>Blok 8 HI · KUL 20: Autoimunitas (dr. LIA)</option>
+          <option value="EMN_KUL3_Defisiensi_Mineral.html">Blok 9 EMN · KUL 3: Defisiensi Mineral (dr. IWL)</option>
+          <option value="VERTEX-PREP_PoC_KUL2_Defisiensi_Vitamin.html">Blok 9 EMN · KUL 2: Defisiensi Vitamin (dr. IWL)</option>
+          <option value="BDT_KUL3_Patient_Safety.html">Blok 7 BDT · KUL 3: Patient Safety (dr. KI)</option>
+          <option value="drive_mirror.html#/1UmiWDG9hqS8MhMFufhhOFp62eobYXUg2">← Kembali ke Drive Mirror (Blok HI)</option>
+        </select>
+      </div>
+
+      <nav class="chapter-strip" aria-label="Lompat ke Bab">
+        <a href="#bab-1" class="ch-jump active">1. Toleransi Sentral</a>
+        <a href="#bab-2" class="ch-jump">2. Toleransi Perifer</a>
+        <a href="#bab-3" class="ch-jump">3. Toleransi Sel B</a>
+        <a href="#bab-4" class="ch-jump">4. Gen AIRE, Fas &amp; HLA</a>
+        <a href="#bab-5" class="ch-jump">5. Pemicu Lingkungan</a>
+        <a href="#bab-6" class="ch-jump">6. Tipe II, III, IV &amp; Klinis</a>
+        <a href="#tryout-akhir" class="ch-jump">🎯 8 Soal Asli UAB HI</a>
+      </nav>
+
+      <div class="tool-group">
+        <button type="button" id="cloze-btn" class="tool-btn" onclick="toggleCloze()" title="Shortcut tombol M">
+          <span>🧠 Uji Ingatan</span>
+          <span class="state-pill" id="cloze-state">OFF</span>
+        </button>
+        <button type="button" id="theme-btn" class="tool-btn" onclick="toggleTheme()" title="Shortcut tombol D">
+          <span id="theme-label">🌙 Mode Malam</span>
+        </button>
+        <a href="anki/VERTEX_HI_KUL20_Autoimunitas.apkg" class="btn-anki" download>⬇ Anki</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-wrap">
+
+    <!-- =================================================================== -->
+    <!-- PEMBUKA ("WHY"): 3 MISTERI PENGKHIANATAN IMUN (KELUAR DI UAB HI!)   -->
+    <!-- =================================================================== -->
+    <section class="hook-hero">
+      <div class="hook-meta-row">
+        <span class="meta-pill pill-skdi">Modul Blok HI Hal. 30 &amp; 41 · SLE SKDI 3A / Rujuk Balik 4A</span>
+        <span class="meta-pill pill-uab">8 Soal Asli UAB HI Terlacak Langsung dari PPT Ini</span>
+        <span class="meta-pill pill-slides">44 Slide Asli DR. dr. Lailia Nur Rachma, M.Biomed (LIA)</span>
+      </div>
+      <h1 class="hook-headline">Ketika Tentara Pembunuh di Darahmu Berbalik Menembaki Tubuhmu Sendiri</h1>
+      <p class="hook-lead">
+        Bayangin kamu punya jutaan pasukan penembak jitu (<span class="med-term" tabindex="0">Limfosit T<span class="med-tooltip"><span class="tt-kicker">Kamus Imunologi</span><span class="tt-title">Limfosit T</span><span class="tt-desc">Sel imun adaptif yang matang di kelenjar Timus.</span><span class="tt-pearl">💡 Mengenali fragmen peptida antigen yang disajikan oleh molekul MHC.</span></span></span> dan <span class="med-term" tabindex="0">Limfosit B<span class="med-tooltip"><span class="tt-kicker">Kamus Imunologi</span><span class="tt-title">Limfosit B</span><span class="tt-desc">Sel imun adaptif penghasil antibodi yang matang di Sumsum Tulang (Bone Marrow).</span><span class="tt-pearl">💡 Bisa mengenali antigen utuh secara langsung.</span></span></span>) yang tiap detik berpatroli di pembuluh darahmu. Mereka sanggup membantai virus dan bakteri ganas, tapi anehnya mereka <b>tidak menyerang jantung, ginjal, atau matamu sendiri</b>. Sikap "tahu diri" ini disebut <strong>Toleransi Imunologi</strong>. Begitu pagar pengaman ini jebol, terjadilah perang saudara yang kita sebut <strong>Autoimunitas</strong>. Coba tebak 3 kejadian nyata yang keluar di soal UAB HI ini:
+      </p>
+
+      <div class="enigma-row">
+        <div class="enigma-card">
+          <div>
+            <div class="enigma-tag">MISTERI UAB HI #40</div>
+            <h3 class="enigma-title">Mata Kiri Tertusuk, Mata Kanan Ikut Buta</h3>
+            <p class="enigma-desc">Pria 40 tahun mata kanannya pernah cedera 6 bulan lalu. Sekarang mata kirinya yang sehat mendadak kabur diserang antibodinya sendiri. Kenapa?</p>
+          </div>
+          <button type="button" class="enigma-btn" onclick="showMystery(1)">Buka Jawabannya ↗</button>
+        </div>
+
+        <div class="enigma-card">
+          <div>
+            <div class="enigma-tag">MISTERI UAB HI #35</div>
+            <h3 class="enigma-title">Sekolah Militer Timus yang Gagal</h3>
+            <p class="enigma-desc">Wanita 35 tahun kena penyakit autoimun di banyak organ sekaligus karena "instruktur" di kelenjar timusnya gagal membunuh sel T pembelot. Gen apa yang rusak?</p>
+          </div>
+          <button type="button" class="enigma-btn" onclick="showMystery(2)">Buka Jawabannya ↗</button>
+        </div>
+
+        <div class="enigma-card">
+          <div>
+            <div class="enigma-tag">MISTERI UAB HI #56 &amp; #176</div>
+            <h3 class="enigma-title">Saringan Ginjal yang Tersumbat Sampah Imun</h3>
+            <p class="enigma-desc">Wanita muda ruam kupu-kupu di pipi (Lupus/SLE) kencingnya berdarah dan berbusa. Tipe reaksi hipersensitivitas berapa yang merusak ginjalnya?</p>
+          </div>
+          <button type="button" class="enigma-btn" onclick="showMystery(3)">Buka Jawabannya ↗</button>
+        </div>
+      </div>
+
+      <div id="mystery-box" class="enigma-answer"></div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- BAB 1: DEFINISI & TOLERANSI SENTRAL SEL T (SLIDE 1 - 8)             -->
+    <!-- =================================================================== -->
+    <section class="split-chapter" id="bab-1">
+      <div class="narrative-panel">
+        <div class="ch-kicker-row">
+          <span class="ch-kicker">Bab 01 · Slide 1 s.d. 8</span>
+          <span class="meta-pill pill-uab">Keluar di UAB HI Costanion #35</span>
+        </div>
+        <h2 class="ch-title">Toleransi Sentral Sel T: "Akademi Militer" di Kelenjar Timus</h2>
+
+        <div class="peer-talk">
+          <p>Di <b>Slide 2–6</b> (lihat slide asli dr. LIA di kanan), <span class="med-term" tabindex="0">Toleransi Imunologi<span class="med-tooltip"><span class="tt-kicker">Kamus Imunologi</span><span class="tt-title">Immunologic Tolerance</span><span class="tt-desc">Ketidakmampuan spesifik (unresponsiveness) sistem imun untuk bereaksi terhadap suatu antigen setelah limfosit terpapar antigen tersebut.</span><span class="tt-pearl">💡 Antigen yang memicu toleransi disebut Tolerogen; yang memicu respon imun disebut Imunogen (Slide 5).</span></span></span> dibagi jadi dua benteng pertahanan: <b>Toleransi Sentral</b> (saat limfosit masih "taruna belum matang" di organ limfoid primer) dan <b>Toleransi Perifer</b> (saat limfosit sudah lulus dan beredar di darah/jaringan).</p>
+          <p>Untuk <b>Sel T</b>, akademi militernya ada di <b><span class="cloze-mask" onclick="this.classList.toggle('revealed')" title="Klik untuk membuka">Kelenjar Timus</span></b> (Slide 7–8). Saat sel T muda (*double-positive thymocyte*) diuji dengan antigen tubuh sendiri (*self-antigen*) di timus, ada dua nasib kalau dia nekat mengenali antigen tubuh sendiri terlalu kuat:</p>
+        </div>
+
+        <div class="concept-grid">
+          <div class="concept-box">
+            <h4>1. Seleksi Negatif (Deleksi Klonal)</h4>
+            <ul>
+              <li>Sel T muda yang berikatan terlalu kuat dengan <i>self-antigen</i> di timus langsung diperintahkan bunuh diri (<span class="med-term" tabindex="0">Apoptosis<span class="med-tooltip"><span class="tt-kicker">Kamus Imunologi</span><span class="tt-title">Apoptosis (Negative Selection)</span><span class="tt-desc">Kematian sel terprogram untuk memusnahkan klon limfosit imatur yang autoreaktif di organ limfoid primer.</span><span class="tt-pearl">💡 Mencegah sel T pembelot lulus ke peredaran darah (Slide 6–8).</span></span></span>).</li>
+              <li>Diatur oleh gen <span class="med-term" tabindex="0">AIRE<span class="med-tooltip"><span class="tt-kicker">Kamus Imunologi</span><span class="tt-title">Autoimmune Regulator (AIRE)</span><span class="tt-desc">Protein faktor transkripsi di sel epitel medula timus yang memamerkan antigen jaringan perifer (insulin, tiroglobulin, dll.) kepada sel T muda.</span><span class="tt-pearl">💡 Mutasi AIRE -> sel T autoreaktif lolos dari timus -> sindrom APS-1 (Slide 23).</span></span></span>.</li>
+            </ul>
+          </div>
+          <div class="concept-box">
+            <h4>2. Diubah Jadi Polisi Militer (Sel Treg)</h4>
+            <ul>
+              <li>Sebagian sel T CD4+ yang mengenali <i>self-antigen</i> di timus tidak dibunuh, melainkan diubah menjadi <b><span class="cloze-mask" onclick="this.classList.toggle('revealed')" title="Klik untuk membuka">Sel T Regulator (Treg)</span></b>!</li>
+              <li>Tugas Treg nanti di darah adalah mengerem teman-temannya supaya tidak menyerang tubuh sendiri (Slide 7).</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Inline Quiz Bab 1 -->
+        <div class="inline-quiz" id="iq-1">
+          <div class="iq-kicker">🎯 Soal Asli UAB HI Costanion #35</div>
+          <div class="iq-stem">Seorang wanita 35 tahun mengalami penyakit autoimun multipel. Pemeriksaan genetik menunjukkan adanya defek pada mekanisme deleksi klonal (negative selection) sel T imatur di dalam kelenjar timus. Mekanisme pertahanan apa yang gagal pada pasien ini?</div>
+          <div class="iq-opts">
+            <button class="iq-btn" onclick="ansInline('iq-1', 0, false, 'Toleransi perifer terjadi setelah limfosit matang keluar dari timus menuju jaringan perifer.')"><span>A.</span><span>Toleransi perifer</span></button>
+            <button class="iq-btn" onclick="ansInline('iq-1', 1, true, 'Tepat! Deleksi klonal (negative selection) limfosit T imatur di dalam Timus adalah mekanisme utama Toleransi Sentral (Slide 6–8).')"><span>B.</span><span>Toleransi sentral</span></button>
+            <button class="iq-btn" onclick="ansInline('iq-1', 2, false, 'Molecular mimicry adalah kemiripan antigen mikroba dengan antigen tubuh.')"><span>C.</span><span>Molecular mimicry</span></button>
+          </div>
+          <div class="iq-fb" id="iq-1-fb"></div>
+        </div>
+      </div>
+
+      <aside class="slide-stage">
+        <div class="stage-top">
+          <span class="stage-label">Bab 01 · Slide Asli (1–8)</span>
+          <span style="font-size:0.75rem;color:var(--ink-muted);">Klik gambar untuk Zoom</span>
+        </div>
+        <div class="slide-pills" id="pills-ch1">
+          <button class="slide-pill active" onclick="setStage('ch1', 6, 'Slide 6 · Central vs Peripheral Tolerance', this)">Slide 6</button>
+          <button class="slide-pill" onclick="setStage('ch1', 7, 'Slide 7 · Central T Cell Tolerance in Thymus (Abbas)', this)">Slide 7</button>
+          <button class="slide-pill" onclick="setStage('ch1', 8, 'Slide 8 · Cortex & Medulla Thymus Selection', this)">Slide 8</button>
+          <button class="slide-pill" onclick="setStage('ch1', 5, 'Slide 5 · Immunogenic vs Tolerogenic Antigen', this)">Slide 5</button>
+          <button class="slide-pill" onclick="setStage('ch1', 2, 'Slide 2 · Definisi Immunologic Tolerance', this)">Slide 2</button>
+        </div>
+        <div class="stage-frame" onclick="openZoom(document.getElementById('img-ch1').src)">
+          <img id="img-ch1" src="slides_hi_kul20/slide_6.jpg" alt="Slide Bab 1">
+        </div>
+        <div class="stage-caption">
+          <span id="cap-ch1">Slide 6 · Central vs Peripheral Tolerance</span>
+          <span style="color:var(--navy);font-weight:700;">Perbesar ↗</span>
+        </div>
+      </aside>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- BAB 2: TOLERANSI PERIFER SEL T (ANERGI, TREG, AICD) (SLIDE 9 - 14)  -->
+    <!-- =================================================================== -->
+    <section class="split-chapter" id="bab-2">
+      <div class="narrative-panel">
+        <div class="ch-kicker-row">
+          <span class="ch-kicker">Bab 02 · Slide 9 s.d. 14</span>
+          <span class="meta-pill pill-skdi">3 Rem Darurat di Jaringan Perifer</span>
+        </div>
+        <h2 class="ch-title">Toleransi Perifer Sel T: Anergi, Supresi Treg, &amp; Bunuh Diri Fas-FasL</h2>
+
+        <div class="peer-talk">
+          <p>Gimana kalau ada sel T nakal yang berhasil lolos dari ujian di Timus dan jalan-jalan ke jaringan tubuh? Tenang, tubuh kita masih punya <b>3 rem darurat di perifer</b> (lihat <b>Slide 9–13</b> di kanan):</p>
+        </div>
+
+        <!-- Embedded Simulator: Two-Signal Model (Activation vs Anergy vs CTLA-4) -->
+        <div class="inline-sim">
+          <div class="sim-bar-title">
+            <span>⚡ Simulator Sinyal Sel T (Slide 10–13 · Klik Skenario untuk Lihat Nasib Sel T)</span>
+          </div>
+          <div class="sim-tabs">
+            <button type="button" class="sim-tab active" onclick="simTcell(1, this)">1. Sinyal 1 Saja (Tanpa B7)</button>
+            <button type="button" class="sim-tab" onclick="simTcell(2, this)">2. Sinyal 1 + B7-CD28</button>
+            <button type="button" class="sim-tab" onclick="simTcell(3, this)">3. Fas – FasL (AICD)</button>
+          </div>
+          <div class="vials-3">
+            <div class="vial alert" id="vt-sig1">
+              <div class="vial-kicker">Sinyal 1 (TCR + MHC)</div>
+              <div class="vial-num" id="vn-sig1">Ada (Self-Ag)</div>
+              <div class="vial-note note-warn" id="vs-sig1">Kenal Antigen Tubuh</div>
+            </div>
+            <div class="vial" id="vt-sig2">
+              <div class="vial-kicker">Sinyal 2 (Kostimulator B7)</div>
+              <div class="vial-num" id="vn-sig2"><span class="cloze-mask" onclick="this.classList.toggle('revealed')" title="Klik untuk membuka">TIDAK ADA (0)</span></div>
+              <div class="vial-note note-bad" id="vs-sig2">APC Istirahat / CTLA-4</div>
+            </div>
+            <div class="vial alert" id="vt-out">
+              <div class="vial-kicker">Nasib Akhir Sel T</div>
+              <div class="vial-num" id="vn-out"><span class="cloze-mask" onclick="this.classList.toggle('revealed')" title="Klik untuk membuka">ANERGI (Mati Suri)</span></div>
+              <div class="vial-note note-ok" id="vs-out">Tidak Bisa Menyerang!</div>
+            </div>
+          </div>
+          <div id="sim-tcell-note" style="font-size:0.88rem;color:var(--ink-secondary);">
+            💡 <b>Inti Slide 11:</b> Sel T butuh 2 kunci untuk menembak: Kunci 1 (MHC+Antigen) dan Kunci 2 (Kostimulator <b>B7/CD80</b> pada APC yang berikatan dengan <b>CD28</b> pada sel T). Sel jaringan normal yang sehat tidak punya B7, atau sel T memakai rem <span class="med-term" tabindex="0">CTLA-4 (CD152)<span class="med-tooltip"><span class="tt-kicker">Kamus Imunologi</span><span class="tt-title">CTLA-4 / CD152</span><span class="tt-desc">Reseptor penghambat (inhibitory receptor) pada sel T yang mengalahkan CD28 dalam memperebutkan B7.</span><span class="tt-pearl">💡 Mematikan sinyal aktivasi sel T -> memicu Anergi (Slide 10–11).</span></span></span>, sehingga sel T menjadi <b>Anergi</b> (lumpuh fungsional)!
+          </div>
+        </div>
+
+        <div class="concept-grid">
+          <div class="concept-box">
+            <h4>1. Anergi &amp; Ignorance (Slide 10–11)</h4>
+            <ul>
+              <li><b><span class="med-term" tabindex="0">Anergi<span class="med-tooltip"><span class="tt-kicker">Kamus Imunologi</span><span class="tt-title">T-Cell Anergy</span><span class="tt-desc">Inaktivasi fungsional jangka panjang limfosit T karena mengenali antigen tanpa sinyal kostimulator kedua (B7-CD28).</span><span class="tt-pearl">💡 Selnya masih hidup, tapi tidak bisa merespons antigen lagi (Slide 9 & 11).</span></span></span>:</b> Kenal antigen tanpa kostimulator B7-CD28 (atau direm oleh <b>CTLA-4 / CD152</b>).</li>
+              <li><b>Immunologic Ignorance:</b> Antigen tersembunyi di balik penghalang anatomis (mata, testis, otak) sehingga tidak pernah bertemu sel T.</li>
+            </ul>
+          </div>
+          <div class="concept-box">
+            <h4>2. Deleksi AICD &amp; Supresi Treg (Slide 12–13)</h4>
+            <ul>
+              <li><b>Deleksi (<span class="med-term" tabindex="0">AICD<span class="med-tooltip"><span class="tt-kicker">Kamus Imunologi</span><span class="tt-title">Activation-Induced Cell Death</span><span class="tt-desc">Kematian sel T teraktivasi berulang melalui jalur reseptor kematian Fas (CD95) dan Fas Ligand (FasL).</span><span class="tt-pearl">💡 Menghapus sel T yang terus-menerus terangsang oleh self-antigen (Slide 12).</span></span></span>):</b> Rangsangan berulang memicu ekspresi <b><span class="cloze-mask" onclick="this.classList.toggle('revealed')" title="Klik untuk membuka">Fas &amp; Fas Ligand (FasL)</span></b> &rarr; apoptosis!</li>
+              <li><b>Supresi oleh Sel Treg:</b> Sel Treg mengeluarkan sitokin peredam <b><span class="cloze-mask" onclick="this.classList.toggle('revealed')" title="Klik untuk membuka">IL-10 &amp; TGF-&beta;</span></b> yang mematikan sel T efektor (Slide 13).</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Inline Quiz Bab 2 -->
+        <div class="inline-quiz" id="iq-2">
+          <div class="iq-kicker">🎯 Cek Paham Bab 02 (Slide 11–13)</div>
+          <div class="iq-stem">Ketika sel T matur di jaringan perifer mengenali self-antigen yang dipresentasikan oleh sel APC istirahat yang TIDAK mengekspresikan molekul kostimulator B7 (CD80/CD86), maka sel T tersebut akan mengalami...</div>
+          <div class="iq-opts">
+            <button class="iq-btn" onclick="ansInline('iq-2', 0, true, 'Benar! Pengenalan antigen (Sinyal 1) tanpa kostimulator B7-CD28 (Sinyal 2) membuat sel T mengalami Anergi / unresponsiveness fungsional (Slide 11).')"><span>A.</span><span>Anergi (inaktivasi fungsional tanpa kematian sel)</span></button>
+            <button class="iq-btn" onclick="ansInline('iq-2', 1, false, 'Receptor editing hanya terjadi pada sel B imatur di sumsum tulang (Slide 15–16).')"><span>B.</span><span>Receptor editing pada rantai ringan imunoglobulin</span></button>
+            <button class="iq-btn" onclick="ansInline('iq-2', 2, false, 'Proliferasi klonal hanya terjadi jika ada Sinyal 1 + Sinyal 2 (kostimulator B7-CD28) + sitokin IL-2.')"><span>C.</span><span>Proliferasi klonal menjadi sel T efektor sitotoksik</span></button>
+          </div>
+          <div class="iq-fb" id="iq-2-fb"></div>
+        </div>
+      </div>
+
+      <aside class="slide-stage">
+        <div class="stage-top">
+          <span class="stage-label">Bab 02 · Slide Asli (9–14)</span>
+          <span style="font-size:0.75rem;color:var(--ink-muted);">Klik gambar untuk Zoom</span>
+        </div>
+        <div class="slide-pills" id="pills-ch2">
+          <button class="slide-pill active" onclick="setStage('ch2', 11, 'Slide 11 · T Cell Anergy (Costimulator-Deficient APC)', this)">Slide 11</button>
+          <button class="slide-pill" onclick="setStage('ch2', 10, 'Slide 10 · 4 Mekanisme Perifer: Ignorance, Anergy, Deletion, Suppression', this)">Slide 10</button>
+          <button class="slide-pill" onclick="setStage('ch2', 12, 'Slide 12 · Deletion: Activation-Induced Cell Death (Fas-FasL)', this)">Slide 12</button>
+          <button class="slide-pill" onclick="setStage('ch2', 13, 'Slide 13 · T Cell-Mediated Suppression (Regulatory T Cells)', this)">Slide 13</button>
+          <button class="slide-pill" onclick="setStage('ch2', 14, 'Slide 14 · Ringkasan Central vs Peripheral Tolerance', this)">Slide 14</button>
+        </div>
+        <div class="stage-frame" onclick="openZoom(document.getElementById('img-ch2').src)">
+          <img id="img-ch2" src="slides_hi_kul20/slide_11.jpg" alt="Slide Bab 2">
+        </div>
+        <div class="stage-caption">
+          <span id="cap-ch2">Slide 11 · T Cell Anergy (Costimulator-Deficient APC)</span>
+          <span style="color:var(--navy);font-weight:700;">Perbesar ↗</span>
+        </div>
+      </aside>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- BAB 3: TOLERANSI SEL B & RECEPTOR EDITING (SLIDE 15 - 19)           -->
+    <!-- =================================================================== -->
+    <section class="split-chapter" id="bab-3">
+      <div class="narrative-panel">
+        <div class="ch-kicker-row">
+          <span class="ch-kicker">Bab 03 · Slide 15 s.d. 19</span>
+          <span class="meta-pill pill-skdi">Keistimewaan Sel B: Receptor Editing</span>
+        </div>
+        <h2 class="ch-title">Toleransi Sel B: Ganti Reseptor Baru di Sumsum Tulang (Receptor Editing)</h2>
+
+        <div class="peer-talk">
+          <p>Kalau sel T sekolahnya di Timus, <b>Sel B</b> sekolah militernya di <b><span class="cloze-mask" onclick="this.classList.toggle('revealed')" title="Klik untuk membuka">Sumsum Tulang (Bone Marrow)</span></b> (lihat <b>Slide 15–16</b> di kanan). Tapi sel B punya satu jurus rahasia yang tidak dimiliki sel T saat ketahuan mengenali antigen tubuh sendiri di sumsum tulang:</p>
+        </div>
+
+        <div class="concept-grid">
+          <div class="concept-box">
+            <h4>Toleransi Sentral Sel B (Slide 15–16)</h4>
+            <ul>
+              <li><b>1. <span class="med-term" tabindex="0">Receptor Editing<span class="med-tooltip"><span class="tt-kicker">Kamus Imunologi</span><span class="tt-title">Receptor Editing</span><span class="tt-desc">Mekanisme unik sel B imatur di sumsum tulang yang mengaktifkan kembali gen RAG1/RAG2 untuk menyusun ulang rantai ringan reseptor Ig-nya.</span><span class="tt-pearl">💡 Dengan mengganti reseptor baru, sel B tidak jadi autoreaktif dan selamat dari apoptosis (Slide 15–16).</span></span></span>:</b> Sel B imatur diberi "kesempatan kedua" untuk merombak ulang gen reseptor antigennya supaya tidak lagi mengenali tubuh sendiri!</li>
+              <li><b>2. Negative Selection (Apoptosis):</b> Kalau <i>receptor editing</i> gagal dan masih mengenali <i>self-antigen</i> kuat, baru sel B dihukum mati (apoptosis).</li>
+            </ul>
+          </div>
+          <div class="concept-box">
+            <h4>Toleransi Perifer Sel B (Slide 17–18)</h4>
+            <ul>
+              <li>Sel B matang di perifer yang ketemu <i>self-antigen</i> tanpa bantuan <b>Sel T Helper (Th)</b> akan menjadi <b><span class="cloze-mask" onclick="this.classList.toggle('revealed')" title="Klik untuk membuka">Anergi</span></b> dan tidak bisa masuk ke folikel limfoid.</li>
+              <li>Atau dibunuh lewat jalur <b>FasL</b> oleh sel T jika teraktivasi sebagian tanpa sinyal lengkap.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="callout trap">
+          <div class="callout-title">⚠️ Tabel Emas Slide 19: Apa Bedanya Antigen yang Bikin Toleran vs Imunogenik?</div>
+          • <b>Bikin Toleran (*Tolerogenic Self-Antigen*):</b> Berada di organ generatif (timus/sumsum tulang), kadarnya tinggi &amp; menetap seumur hidup, <b>tanpa adjuvan/inflamasi</b> (kostimulator rendah).<br>
+          • <b>Bikin Serangan Imun (*Immunogenic Foreign Antigen*):</b> Masuk lewat jaringan perifer/kulit, hadir singkat, disertai mikroba/adjuvan yang memicu ekspresi kostimulator tinggi!
+        </div>
+
+        <!-- Inline Quiz Bab 3 -->
+        <div class="inline-quiz" id="iq-3">
+          <div class="iq-kicker">🎯 Cek Paham Bab 03 (Slide 15–16)</div>
+          <div class="iq-stem">Ketika limfosit B imatur di dalam sumsum tulang berikatan kuat dengan self-antigen, selain mengalami apoptosis (negative selection), sel B tersebut dapat menyelamatkan diri dengan mengubah spesifisitas reseptor imunoglobulinnya. Mekanisme ini disebut...</div>
+          <div class="iq-opts">
+            <button class="iq-btn" onclick="ansInline('iq-3', 0, true, 'Benar! Receptor editing adalah mekanisme toleransi sentral khas sel B imatur di sumsum tulang dengan mengganti rantai ringan reseptornya (Slide 15–16).')"><span>A.</span><span>Receptor editing</span></button>
+            <button class="iq-btn" onclick="ansInline('iq-3', 1, false, 'Somatic hypermutation terjadi pada sel B matur di germinal center kelenjar getah bening saat merespons mikroba asing.')"><span>B.</span><span>Somatic hypermutation di germinal center</span></button>
+            <button class="iq-btn" onclick="ansInline('iq-3', 2, false, 'ADCC adalah mekanisme pembunuhan sel target berselubung antibodi oleh sel NK.')"><span>C.</span><span>Antibody-dependent cellular cytotoxicity (ADCC)</span></button>
+          </div>
+          <div class="iq-fb" id="iq-3-fb"></div>
+        </div>
+      </div>
+
+      <aside class="slide-stage">
+        <div class="stage-top">
+          <span class="stage-label">Bab 03 · Slide Asli (15–19)</span>
+          <span style="font-size:0.75rem;color:var(--ink-muted);">Klik gambar untuk Zoom</span>
+        </div>
+        <div class="slide-pills" id="pills-ch3">
+          <button class="slide-pill active" onclick="setStage('ch3', 16, 'Slide 16 · Central B Cell Tolerance: Apoptosis & Receptor Editing', this)">Slide 16</button>
+          <button class="slide-pill" onclick="setStage('ch3', 15, 'Slide 15 · Penjelasan Central B Cell Tolerance', this)">Slide 15</button>
+          <button class="slide-pill" onclick="setStage('ch3', 18, 'Slide 18 · Bagan Peripheral B Cell Tolerance', this)">Slide 18</button>
+          <button class="slide-pill" onclick="setStage('ch3', 19, 'Slide 19 · Tabel Tolerogenic vs Immunogenic Antigens', this)">Slide 19</button>
+        </div>
+        <div class="stage-frame" onclick="openZoom(document.getElementById('img-ch3').src)">
+          <img id="img-ch3" src="slides_hi_kul20/slide_16.jpg" alt="Slide Bab 3">
+        </div>
+        <div class="stage-caption">
+          <span id="cap-ch3">Slide 16 · Central B Cell Tolerance: Apoptosis &amp; Receptor Editing</span>
+          <span style="color:var(--navy);font-weight:700;">Perbesar ↗</span>
+        </div>
+      </aside>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- BAB 4: FAKTOR GENETIK AUTOIMUN (AIRE, FAS, C2/C4, HLA) (SLIDE 20-25)-->
+    <!-- =================================================================== -->
+    <section class="split-chapter" id="bab-4">
+      <div class="narrative-panel">
+        <div class="ch-kicker-row">
+          <span class="ch-kicker">Bab 04 · Slide 20 s.d. 25</span>
+          <span class="meta-pill pill-uab">Tabel Wajib Hafal Slide 23 &amp; 24</span>
+        </div>
+        <h2 class="ch-title">Genetik Autoimun: Tabel 3 Gen Non-MHC &amp; Pasangan Alel HLA</h2>
+
+        <div class="peer-talk">
+          <p>Kenapa autoimun sering menurun di keluarga? Karena faktor <b>Genetik + Pemicu Lingkungan</b> (Slide 21). Di <b>Slide 22–25</b> (lihat tabel aslinya di kanan), dr. LIA menampilkan dua tabel yang jadi ladang soal pilihan ganda UAB:</p>
+        </div>
+
+        <div class="concept-grid">
+          <div class="concept-box">
+            <h4>1. Tiga Gen Non-MHC (Slide 23)</h4>
+            <ul>
+              <li><b><span class="cloze-mask" onclick="this.classList.toggle('revealed')" title="Klik untuk membuka">Komplemen (C2, C4)</span>:</b> Gagal membersihkan kompleks imun &rarr; penyakit mirip <b>Lupus (SLE)</b>.</li>
+              <li><b><span class="cloze-mask" onclick="this.classList.toggle('revealed')" title="Klik untuk membuka">Fas / FasL</span>:</b> Gagal menghapus sel T &amp; B lewat apoptosis AICD &rarr; sindrom <b>ALPS</b> (*Autoimmune Lymphoproliferative Syndrome*).</li>
+              <li><b><span class="cloze-mask" onclick="this.classList.toggle('revealed')" title="Klik untuk membuka">Gen AIRE</span>:</b> Gagal memamerkan antigen di timus &rarr; sel T autoreaktif lolos &rarr; <b>APS-1</b> (*Autoimmune Polyendocrinopathy*).</li>
+            </ul>
+          </div>
+          <div class="concept-box">
+            <h4>2. Pasangan Alel HLA / MHC (Slide 24–25)</h4>
+            <ul>
+              <li><b><span class="cloze-mask" onclick="this.classList.toggle('revealed')" title="Klik untuk membuka">HLA-B27</span>:</b> <b>Ankylosing Spondylitis</b> (Risiko naik <b>90 kali lipat!</b>).</li>
+              <li><b><span class="cloze-mask" onclick="this.classList.toggle('revealed')" title="Klik untuk membuka">HLA-DR3 / DR4</span>:</b> <b>DM Tipe 1</b> (Insulin-dependent, risiko 25×).</li>
+              <li><b><span class="cloze-mask" onclick="this.classList.toggle('revealed')" title="Klik untuk membuka">HLA-DR4</span>:</b> <b>Rheumatoid Arthritis</b> &amp; <b>Pemphigus Vulgaris</b>.</li>
+              <li><b><span class="cloze-mask" onclick="this.classList.toggle('revealed')" title="Klik untuk membuka">HLA-DR2 / DR3</span>:</b> <b>SLE (Lupus)</b> &amp; <b>Multiple Sclerosis</b>.</li>
+              <li><b>HLA-B8 / DR3:</b> Grave's, Myasthenia Gravis, Addison.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Inline Quiz Bab 4 -->
+        <div class="inline-quiz" id="iq-4">
+          <div class="iq-kicker">🎯 Cek Paham Bab 04 (Tabel Slide 23 &amp; 24)</div>
+          <div class="iq-stem">Seorang pria 28 tahun mengeluh nyeri dan kaku punggung bawah kronis yang membaik dengan aktivitas namun memburuk saat istirahat, hingga tulang belakangnya membungkuk kaku (Ankylosing Spondylitis). Alel MHC/HLA manakah yang memiliki asosiasi risiko relatif tertinggi (RR = 90) dengan penyakit pasien ini?</div>
+          <div class="iq-opts">
+            <button class="iq-btn" onclick="ansInline('iq-4', 0, true, 'Tepat! HLA-B27 memiliki Relative Risk (RR) 90 kali lipat terhadap Ankylosing Spondylitis (Slide 24).')"><span>A.</span><span>HLA-B27</span></button>
+            <button class="iq-btn" onclick="ansInline('iq-4', 1, false, 'HLA-DR4 berasosiasi kuat dengan Rheumatoid Arthritis dan Pemphigus Vulgaris.')"><span>B.</span><span>HLA-DR4</span></button>
+            <button class="iq-btn" onclick="ansInline('iq-4', 2, false, 'Defisiensi C2/C4 adalah gen non-MHC yang berasosiasi dengan SLE (Slide 23).')"><span>C.</span><span>Komplemen C2 dan C4</span></button>
+          </div>
+          <div class="iq-fb" id="iq-4-fb"></div>
+        </div>
+      </div>
+
+      <aside class="slide-stage">
+        <div class="stage-top">
+          <span class="stage-label">Bab 04 · Slide Asli (21–25)</span>
+          <span style="font-size:0.75rem;color:var(--ink-muted);">Klik gambar untuk Zoom</span>
+        </div>
+        <div class="slide-pills" id="pills-ch4">
+          <button class="slide-pill active" onclick="setStage('ch4', 23, 'Slide 23 · Tabel Non-MHC Genes: C2/C4, Fas/FasL, & AIRE', this)">Slide 23</button>
+          <button class="slide-pill" onclick="setStage('ch4', 24, 'Slide 24 · Tabel HLA Allele & Relative Risk (B27, DR4, DR3/DR4)', this)">Slide 24</button>
+          <button class="slide-pill" onclick="setStage('ch4', 25, 'Slide 25 · Grafik HLA Associations in Autoimmune Disease', this)">Slide 25</button>
+          <button class="slide-pill" onclick="setStage('ch4', 21, 'Slide 21 · Interaksi Gen + Lingkungan -> Autoimmunity', this)">Slide 21</button>
+        </div>
+        <div class="stage-frame" onclick="openZoom(document.getElementById('img-ch4').src)">
+          <img id="img-ch4" src="slides_hi_kul20/slide_23.jpg" alt="Slide Bab 4">
+        </div>
+        <div class="stage-caption">
+          <span id="cap-ch4">Slide 23 · Tabel Non-MHC Genes: C2/C4, Fas/FasL, &amp; AIRE</span>
+          <span style="color:var(--navy);font-weight:700;">Perbesar ↗</span>
+        </div>
+      </aside>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- BAB 5: PEMICU LINGKUNGAN & INFEKSI (SLIDE 26 - 31)                  -->
+    <!-- =================================================================== -->
+    <section class="split-chapter" id="bab-5">
+      <div class="narrative-panel">
+        <div class="ch-kicker-row">
+          <span class="ch-kicker">Bab 05 · Slide 26 s.d. 31</span>
+          <span class="meta-pill pill-uab">Keluar 4 Soal di UAB HI (#13, #34, #40, #175)</span>
+        </div>
+        <h2 class="ch-title">5 Cara Infeksi &amp; Lingkungan Meruntuhkan Toleransi Imun</h2>
+
+        <div class="peer-talk">
+          <p>Bagian ini adalah <b>favorit nomor 1 pembuat soal UAB HI</b> (keluar 4 soal berbeda di rekapan Axonation, Costanion, dan Remidi!). Saat ada infeksi mikroba atau trauma jaringan, toleransi perifer bisa jebol lewat <b>5 mekanisme</b> (lihat <b>Slide 28, 29, dan 31</b> di kanan):</p>
+        </div>
+
+        <div class="concept-grid">
+          <div class="concept-box">
+            <h4>1. Sequestered Antigen &amp; Mimikri (Slide 28–29)</h4>
+            <ul>
+              <li><b><span class="med-term" tabindex="0">Sequestered Antigen<span class="med-tooltip"><span class="tt-kicker">Kamus Imunologi</span><span class="tt-title">Release of Sequestered Self-Antigen</span><span class="tt-desc">Pelepasan antigen tubuh yang sebelumnya tersembunyi di balik sawar anatomis (mata, testis, otak) akibat trauma atau infeksi.</span><span class="tt-pearl">💡 Karena belum pernah dikenali timus, sistem imun menyerangnya sebagai benda asing -> Sympathetic Ophthalmia (Slide 28, UAB HI #40).</span></span></span> (Antigen Terasing):</b> Trauma merobek penghalang organ (misal bola mata atau sperma/testis) &rarr; antigen yang selama ini "tersembunyi" bocor ke darah dan diserang &rarr; <b><span class="cloze-mask" onclick="this.classList.toggle('revealed')" title="Klik untuk membuka">Sympathetic Ophthalmia</span></b> (UAB HI #40!).</li>
+              <li><b><span class="med-term" tabindex="0">Molecular Mimicry<span class="med-tooltip"><span class="tt-kicker">Kamus Imunologi</span><span class="tt-title">Molecular Mimicry (Mimikri Molekuler)</span><span class="tt-desc">Kemiripan struktur epitop antigen mikroba dengan antigen jaringan tubuh sendiri.</span><span class="tt-pearl">💡 Antibodi/sel T terhadap kuman ikut menyerang jaringan tubuh -> Demam Rematik pasca Streptococcus (Slide 29).</span></span></span> (Kemiripan Molekul):</b> Kuman mirip protein tubuh &rarr; antibodi salah sasaran &rarr; <b><span class="cloze-mask" onclick="this.classList.toggle('revealed')" title="Klik untuk membuka">Demam Rematik</span></b> pasca infeksi <i>Streptococcus</i> menyerang katup/otot jantung.</li>
+            </ul>
+          </div>
+          <div class="concept-box">
+            <h4>2. Bystander, Superantigen, &amp; MHC II (Slide 27–31)</h4>
+            <ul>
+              <li><b><span class="cloze-mask" onclick="this.classList.toggle('revealed')" title="Klik untuk membuka">Bystander Activation</span> (Slide 31):</b> Infeksi mikroba memicu APC istirahat mengekspresikan <b>kostimulator B7</b> &rarr; sel T autoreaktif di dekatnya ikut terbangun dari tidur anerginya!</li>
+              <li><b><span class="cloze-mask" onclick="this.classList.toggle('revealed')" title="Klik untuk membuka">Polyclonal Activation</span> (Superantigen):</b> Produk kuman mengaktifkan banyak klon sel T/B sekaligus tanpa pandang bulu (UAB HI #13).</li>
+              <li><b><span class="cloze-mask" onclick="this.classList.toggle('revealed')" title="Klik untuk membuka">Inappropriate MHC Class II Expression</span>:</b> Sel organ non-APC (seperti <b>sel &beta; pankreas</b> pada DM Tipe 1 atau tiroid) mendadak mengekspresikan MHC Kelas II akibat inflamasi/IFN-&gamma; sehingga memicu serangan sel T (keluar di UAB HI #34 &amp; Remidi 24 #2!).</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Inline Quiz Bab 5 -->
+        <div class="inline-quiz" id="iq-5">
+          <div class="iq-kicker">🎯 Soal Asli UAB HI Axonation #40</div>
+          <div class="iq-stem">Pasien pria 40 tahun datang ke RS dengan keluhan utama kabur penglihatan mata kanan sejak 3 bulan. Pasien menyatakan bahwa 6 bulan yang lalu ia mengalami trauma tajam pada mata kirinya hingga rusak berat (Sympathetic Ophthalmia). Mekanisme autoimun apakah yang mendasari kondisi pasien ini?</div>
+          <div class="iq-opts">
+            <button class="iq-btn" onclick="ansInline('iq-5', 0, true, 'Benar! Trauma mata merusak sawar darah-mata dan melepaskan Sequestered Antigen (antigen terasing) yang belum pernah dikenali sistem imun (Slide 28).')"><span>A.</span><span>Pelepasan Sequestered Antigen akibat rusaknya sawar jaringan mata</span></button>
+            <button class="iq-btn" onclick="ansInline('iq-5', 1, false, 'Molecular mimicry terjadi karena kemiripan antigen mikroba dengan protein tubuh, misalnya pada Demam Rematik.')"><span>B.</span><span>Molecular Mimicry antara bakteri mata dan kornea</span></button>
+            <button class="iq-btn" onclick="ansInline('iq-5', 2, false, 'Aktivasi sel B poliklonal biasanya dipicu oleh infeksi virus seperti EBV atau produk bakteri.')"><span>C.</span><span>Aktivasi sel B poliklonal oleh superantigen</span></button>
+          </div>
+          <div class="iq-fb" id="iq-5-fb"></div>
+        </div>
+      </div>
+
+      <aside class="slide-stage">
+        <div class="stage-top">
+          <span class="stage-label">Bab 05 · Slide Asli (26–31)</span>
+          <span style="font-size:0.75rem;color:var(--ink-muted);">Klik gambar untuk Zoom</span>
+        </div>
+        <div class="slide-pills" id="pills-ch5">
+          <button class="slide-pill active" onclick="setStage('ch5', 28, 'Slide 28 · Tabel Barrier Disruption (Sympathetic Ophthalmia)', this)">Slide 28</button>
+          <button class="slide-pill" onclick="setStage('ch5', 29, 'Slide 29 · Tabel Molecular Mimicry & Superantigen', this)">Slide 29</button>
+          <button class="slide-pill" onclick="setStage('ch5', 31, 'Slide 31 · Bagan Infeksi Memicu Costimulator B7 pada APC', this)">Slide 31</button>
+          <button class="slide-pill" onclick="setStage('ch5', 27, 'Slide 27 · How T Cells Tolerance Be Broken?', this)">Slide 27</button>
+        </div>
+        <div class="stage-frame" onclick="openZoom(document.getElementById('img-ch5').src)">
+          <img id="img-ch5" src="slides_hi_kul20/slide_28.jpg" alt="Slide Bab 5">
+        </div>
+        <div class="stage-caption">
+          <span id="cap-ch5">Slide 28 · Tabel Barrier Disruption (Sympathetic Ophthalmia)</span>
+          <span style="color:var(--navy);font-weight:700;">Perbesar ↗</span>
+        </div>
+      </aside>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- BAB 6: TIPE KERUSAKAN JARINGAN (II, III, IV) & PENYAKIT (SLIDE 32-44)-->
+    <!-- =================================================================== -->
+    <section class="split-chapter" id="bab-6">
+      <div class="narrative-panel">
+        <div class="ch-kicker-row">
+          <span class="ch-kicker">Bab 06 · Slide 32 s.d. 44</span>
+          <span class="meta-pill pill-uab">Keluar 6 Soal di UAB HI (#4, #39, #56, #58, #62, #176)</span>
+        </div>
+        <h2 class="ch-title">Mekanisme Kerusakan Jaringan (Tipe II vs III vs IV) &amp; Lupus (SLE)</h2>
+
+        <div class="peer-talk">
+          <p>Di <b>Slide 34–36</b> (lihat di kanan), semua penyakit autoimun merusak organ tubuh lewat 3 jalur reaksi hipersensitivitas (Tipe II, III, atau IV) dan dibagi jadi <b>Spesifik Organ</b> vs <b>Sistemik (Non-Organ Specific)</b>. Ini bagian yang paling sering ditanyakan di UAB HI!</p>
+        </div>
+
+        <!-- Embedded Simulator: Hypersensitivity Type II vs III vs IV in Autoimmunity -->
+        <div class="inline-sim">
+          <div class="sim-bar-title">
+            <span>⚡ Peta Cepat 3 Jalur Kerusakan Autoimun (Slide 34–36 · Klik Tipe Reaksi)</span>
+          </div>
+          <div class="sim-tabs">
+            <button type="button" class="sim-tab active" onclick="simType(2, this)">Tipe II (Antibodi ke Sel)</button>
+            <button type="button" class="sim-tab" onclick="simType(3, this)">Tipe III (Kompleks Imun)</button>
+            <button type="button" class="sim-tab" onclick="simType(4, this)">Tipe IV (Sel T / Th1 / CD8)</button>
+          </div>
+          <div id="type-sim-box" style="background:var(--surface);border:1px solid var(--border);border-radius:var(--r-sm);padding:14px 16px;font-size:0.92rem;">
+            <b>Hipersensitivitas Tipe II (Antibodi IgG/IgM langsung menempel di permukaan sel atau reseptor):</b><br>
+            • <b>AIHA:</b> Antibodi menghancurkan eritrosit.<br>
+            • <b>ITP:</b> Antibodi menghancurkan trombosit (UAB HI 2023 #2).<br>
+            • <b>Grave's Disease (Slide 37):</b> Antibodi menstimulasi reseptor TSH &rarr; hipertiroid &amp; mata menonjol (eksoftalmus).<br>
+            • <b>Myasthenia Gravis (Slide 39):</b> Antibodi memblokir reseptor asetilkolin otot &rarr; kelopak mata turun (ptosis) &amp; lemas.<br>
+            • <b>Pemphigus Vulgaris (Slide 42):</b> Antibodi merusak jembatan antarsel kulit (desmosom/desmoglein) &rarr; lepuh kulit.
+          </div>
+        </div>
+
+        <div class="callout pharma">
+          <div class="callout-title">🦋 Fokus Utama Modul Blok HI (Hal. 41): Systemic Lupus Erythematosus (SLE — Slide 38)</div>
+          • <b>Mekanisme Utama (Keluar 4x di UAB!):</b> <b><span class="cloze-mask" onclick="this.classList.toggle('revealed')" title="Klik untuk membuka">Hipersensitivitas Tipe III (Deposisi Kompleks Imun)</span></b> di glomerulus ginjal (hematuria + proteinuria), sendi, kulit, dan pembuluh darah.<br>
+          • <b>Tanda Klinis Khas &amp; Biomarker:</b> Ruam kupu-kupu di pipi (*malar rash*), nyeri sendi, ujung jari pucat-biru-merah saat dingin (<span class="med-term" tabindex="0">Raynaud Phenomenon<span class="med-tooltip"><span class="tt-kicker">Kamus Imunologi</span><span class="tt-title">Fenomena Raynaud</span><span class="tt-desc">Perubahan warna trifasik (putih pucat -> biru sianosis -> merah hiperemis) pada ujung jari akibat vasospasme arteri kecil saat terpapar dingin.</span><span class="tt-pearl">💡 Sering ditemukan pada SLE dan Scleroderma (keluar di UAB HI Axonation #4!).</span></span></span>), serta autoantibodi paling spesifik: <b><span class="cloze-mask" onclick="this.classList.toggle('revealed')" title="Klik untuk membuka">Anti-dsDNA &amp; Anti-Sm</span></b> (UAB HI #62).<br>
+          • <b>Sinergi Farmakologi Imunosupresan (dr. SAN — KUL 24 &amp; UAB HI #65):</b> Terapi kortikosteroid dosis tinggi jangka panjang menekan produksi sitokin proinflamasi dan fungsi sel T, sehingga pasien rentan mengalami <b>infeksi oportunistik/pneumonia berat</b>!
+        </div>
+
+        <!-- Inline Quiz Bab 6 -->
+        <div class="inline-quiz" id="iq-6">
+          <div class="iq-kicker">🎯 Soal Asli UAB HI Costanion #176 &amp; Axonation #39</div>
+          <div class="iq-stem">Seorang wanita 28 tahun penderita Systemic Lupus Erythematosus (SLE) mengalami hematuria dan proteinuria akibat kerusakan glomerulus ginjal (lupus nefritis). Mekanisme imunologis utama yang mendasari kerusakan jaringan pada penyakit ini adalah...</div>
+          <div class="iq-opts">
+            <button class="iq-btn" onclick="ansInline('iq-6', 0, false, 'Degranulasi sel mast berperantara IgE adalah mekanisme Hipersensitivitas Tipe I (alergi/anafilaksis).')"><span>A.</span><span>Degranulasi sel mast berperantara IgE (Hipersensitivitas Tipe I)</span></button>
+            <button class="iq-btn" onclick="ansInline('iq-6', 1, true, 'Benar! SLE adalah prototipe penyakit autoimun sistemik Hipersensitivitas Tipe III yang merusak jaringan melalui deposisi kompleks imun antigen-antibodi (Slide 34–35).')"><span>B.</span><span>Deposisi kompleks imun di jaringan (Hipersensitivitas Tipe III)</span></button>
+            <button class="iq-btn" onclick="ansInline('iq-6', 2, false, 'Pembentukan granuloma makrofag adalah mekanisme Hipersensitivitas Tipe IV.')"><span>C.</span><span>Peradangan granulomatosa kronik oleh makrofag</span></button>
+          </div>
+          <div class="iq-fb" id="iq-6-fb"></div>
+        </div>
+      </div>
+
+      <aside class="slide-stage">
+        <div class="stage-top">
+          <span class="stage-label">Bab 06 · Slide Asli (34–44)</span>
+          <span style="font-size:0.75rem;color:var(--ink-muted);">Klik gambar untuk Zoom</span>
+        </div>
+        <div class="slide-pills" id="pills-ch6">
+          <button class="slide-pill active" onclick="setStage('ch6', 34, 'Slide 34 · Mekanisme Autoimun: Tipe II, Tipe III (SLE), & Tipe IV', this)">Slide 34</button>
+          <button class="slide-pill" onclick="setStage('ch6', 36, 'Slide 36 · Organ-Specific vs Non-Organ Specific Autoimmune Diseases', this)">Slide 36</button>
+          <button class="slide-pill" onclick="setStage('ch6', 38, 'Slide 38 · Systemic Lupus Erythematosus (Malar Rash)', this)">Slide 38</button>
+          <button class="slide-pill" onclick="setStage('ch6', 37, 'Slide 37 · Grave Disease (Exophthalmos & Goiter)', this)">Slide 37</button>
+          <button class="slide-pill" onclick="setStage('ch6', 39, 'Slide 39 · Myasthenia Gravis (Ptosis)', this)">Slide 39</button>
+          <button class="slide-pill" onclick="setStage('ch6', 44, 'Slide 44 · Summary Kuliah dr. LIA', this)">Slide 44</button>
+        </div>
+        <div class="stage-frame" onclick="openZoom(document.getElementById('img-ch6').src)">
+          <img id="img-ch6" src="slides_hi_kul20/slide_34.jpg" alt="Slide Bab 6">
+        </div>
+        <div class="stage-caption">
+          <span id="cap-ch6">Slide 34 · Mekanisme Autoimun: Tipe II, Tipe III (SLE), &amp; Tipe IV</span>
+          <span style="color:var(--navy);font-weight:700;">Perbesar ↗</span>
+        </div>
+      </aside>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- TRYOUT AKHIR: 8 SOAL ASLI UAB HI (TERBUKTI KELUAR DI BANK SOAL!)     -->
+    <!-- =================================================================== -->
+    <section class="tryout-section" id="tryout-akhir">
+      <div class="tryout-head">
+        <div>
+          <span class="ch-kicker">Arsip Asli Bank Soal UAB Blok 8 (HI) · Axonation, Costanion, &amp; Remidi</span>
+          <h2 style="font-family:var(--font-serif);font-size:2.1rem;color:var(--ink);margin-top:4px;">Tryout 8 Soal Asli UAB HI: Autoimunitas &amp; Toleransi Imun</h2>
+          <p style="font-size:0.94rem;color:var(--ink-secondary);">Delapan soal di bawah ini adalah soal ujian asli angkatan terdahulu yang keluar dari kuliah ini.</p>
+        </div>
+        <div style="text-align:right;">
+          <span style="font-size:0.76rem;font-weight:700;color:var(--ink-muted);text-transform:uppercase;">Skor UAB Anda:</span>
+          <div class="tryout-score"><span id="tryout-score-val">0</span> / 8</div>
+        </div>
+      </div>
+
+      <div id="tryout-list"></div>
+    </section>
+
+  </main>
+
+  <!-- LIGHTBOX MODAL ZOOM -->
+  <div id="lightbox" class="lightbox" onclick="closeZoom()">
+    <img id="lightbox-img" src="" alt="Slide Zoom" onclick="event.stopPropagation()">
+  </div>
+
+  <script>
+    const MYSTERIES = {
+      1: "<b>Jawabannya: Pelepasan Sequestered Antigen / Sympathetic Ophthalmia (Slide 28 · Soal UAB HI Axonation #40).</b> Di dalam bola mata terdapat protein yang sejak lahir tersembunyi di balik sawar darah-mata sehingga tidak pernah dikenali oleh sistem imun. Saat mata kiri tertusuk, protein itu bocor ke darah dan dianggap musuh asing. Antibodi dan sel T yang terbentuk kemudian ikut menyerang mata kanan yang sehat!",
+      2: "<b>Jawabannya: Kegagalan Toleransi Sentral akibat Mutasi Gen AIRE (Slide 7, 8, & 23 · Soal UAB HI Costanion #35).</b> Gen AIRE di medula timus bertugas memamerkan sampel protein organ tubuh kepada sel T muda. Jika sel T muda nekat menyerang sampel itu, dia dihukum mati (negative selection). Kalau gen AIRE rusak, sel T pembelot lolos ke darah dan menyerang banyak organ sekaligus!",
+      3: "<b>Jawabannya: Hipersensitivitas Tipe III — Deposisi Kompleks Imun (Slide 34 & 38 · Soal UAB HI Costanion #56, #58, & #176).</b> Pada Lupus (SLE), tubuh memproduksi autoantibodi terhadap DNA-nya sendiri (anti-dsDNA). Ikatan antigen-antibodi ini mengendap di saringan glomerulus ginjal, mengaktifkan komplemen, dan memicu peradangan hebat!"
+    };
+    function showMystery(n) {
+      const box = document.getElementById('mystery-box');
+      box.innerHTML = MYSTERIES[n];
+      box.classList.add('open');
+    }
+
+    function setStage(chId, slideNum, caption, btn) {
+      document.getElementById('img-' + chId).src = 'slides_hi_kul20/slide_' + slideNum + '.jpg';
+      document.getElementById('cap-' + chId).textContent = caption;
+      const wrap = document.getElementById('pills-' + chId);
+      wrap.querySelectorAll('.slide-pill').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+
+    function simTcell(mode, btn) {
+      btn.parentElement.querySelectorAll('.sim-tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const s2 = document.getElementById('vn-sig2'), vs2 = document.getElementById('vs-sig2');
+      const out = document.getElementById('vn-out'), vout = document.getElementById('vs-out');
+      const note = document.getElementById('sim-tcell-note');
+      if (mode === 1) {
+        s2.textContent = 'TIDAK ADA (0)';
+        vs2.textContent = 'APC Istirahat / CTLA-4';
+        vs2.className = 'vial-note note-bad';
+        out.textContent = 'ANERGI (Mati Suri)';
+        vout.textContent = 'Tidak Bisa Menyerang!';
+        vout.className = 'vial-note note-ok';
+        note.innerHTML = '💡 <b>Slide 11 (Anergi):</b> Sel T mengenali self-antigen tanpa kostimulator B7 (atau direm oleh CTLA-4/CD152) &rarr; sel T lumpuh fungsional (Anergi).';
+      } else if (mode === 2) {
+        s2.textContent = 'ADA (B7 + CD28)';
+        vs2.textContent = 'Dipicu Infeksi Mikroba!';
+        vs2.className = 'vial-note note-bad';
+        out.textContent = 'AKTIVASI AUTOIMUN!';
+        vout.textContent = 'Proliferasi & Serang Organ';
+        vout.className = 'vial-note note-bad';
+        note.innerHTML = '🚨 <b>Slide 31 (Jebolnya Toleransi):</b> Infeksi mikroba memicu APC mengekspresikan kostimulator B7 &rarr; sel T autoreaktif mendapat Sinyal 1 + Sinyal 2 &rarr; bangun dari anergi dan menyerang jaringan tubuh!';
+      } else {
+        s2.textContent = 'Rangsang Berulang';
+        vs2.textContent = 'Ekspresi Fas + FasL';
+        vs2.className = 'vial-note note-warn';
+        out.textContent = 'APOPTOSIS (AICD)';
+        vout.textContent = 'Sel T Bunuh Diri';
+        vout.className = 'vial-note note-ok';
+        note.innerHTML = '💡 <b>Slide 12 (Deletion / AICD):</b> Sel T yang terus-menerus terangsang oleh self-antigen akan mengekspresikan reseptor kematian <b>Fas &amp; Fas Ligand (FasL)</b> lalu bunuh diri (apoptosis).';
+      }
+    }
+
+    function simType(t, btn) {
+      btn.parentElement.querySelectorAll('.sim-tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const box = document.getElementById('type-sim-box');
+      if (t === 2) {
+        box.innerHTML = '<b>Hipersensitivitas Tipe II (Antibodi IgG/IgM langsung menempel di permukaan sel atau reseptor — Slide 34):</b><br>• <b>AIHA &amp; ITP:</b> Antibodi menghancurkan eritrosit / trombosit.<br>• <b>Grave\'s Disease (Slide 37):</b> Antibodi menstimulasi reseptor TSH &rarr; hipertiroid &amp; eksoftalmus.<br>• <b>Myasthenia Gravis (Slide 39):</b> Antibodi memblokir reseptor ACh otot &rarr; ptosis &amp; kelemahan otot.<br>• <b>Pemphigus Vulgaris (Slide 42):</b> Antibodi merusak desmosom epidermis &rarr; bula/lepuh kulit.';
+      } else if (t === 3) {
+        box.innerHTML = '<b>Hipersensitivitas Tipe III (Deposisi Kompleks Imun Antigen-Antibodi yang beredar di darah — Slide 34 &amp; 38):</b><br>• <b>Systemic Lupus Erythematosus (SLE):</b> Kompleks anti-dsDNA mengendap di ginjal (lupus nefritis), sendi, dan pembuluh darah.<br>• <b>Glomerulonefritis &amp; Vaskulitis Sistemik:</b> Mengaktifkan komplemen dan menarik neutrofil yang merusak dinding pembuluh darah.';
+      } else {
+        box.innerHTML = '<b>Hipersensitivitas Tipe IV (Diperantarai Sel Limfosit T: Th1, Th17, dan CTL CD8+ — Slide 35):</b><br>• <b>DM Tipe 1 (IDDM):</b> Sel T CD8+ menghancurkan sel &beta; pulau Langerhans pankreas.<br>• <b>Rheumatoid Arthritis (Slide 40):</b> Sel T merusak sinovium sendi secara kronis.<br>• <b>Multiple Sclerosis:</b> Sel T menghancurkan selubung mielin saraf pusat.';
+      }
+    }
+
+    const inlineAnswered = {};
+    function ansInline(id, idx, isRight, reason) {
+      if (inlineAnswered[id]) return;
+      inlineAnswered[id] = true;
+      const wrap = document.getElementById(id);
+      wrap.querySelectorAll('.iq-btn').forEach((b, i) => {
+        if (i === idx) b.classList.add(isRight ? 'is-correct' : 'is-wrong');
+      });
+      const fb = document.getElementById(id + '-fb');
+      fb.className = 'iq-fb show ' + (isRight ? 'ok' : 'no');
+      fb.innerHTML = (isRight ? '<strong>✅ Benar!</strong> ' : '<strong>❌ Kurang Tepat.</strong> ') + reason;
+    }
+
+    let clozeOn = false;
+    function toggleCloze() {
+      clozeOn = !clozeOn;
+      document.body.classList.toggle('cloze-active', clozeOn);
+      document.getElementById('cloze-btn').classList.toggle('active', clozeOn);
+      document.getElementById('cloze-state').textContent = clozeOn ? 'ON' : 'OFF';
+      if (clozeOn) document.querySelectorAll('.cloze-mask').forEach(e => e.classList.remove('revealed'));
+    }
+
+    function toggleTheme() {
+      const root = document.documentElement;
+      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      document.getElementById('theme-label').textContent = next === 'dark' ? '☀️ Mode Kertas' : '🌙 Mode Malam';
+      try { localStorage.setItem('vx_emn_theme', next); } catch(e) {}
+    }
+
+    function openZoom(src) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox').classList.add('open');
+    }
+    function closeZoom() {
+      document.getElementById('lightbox').classList.remove('open');
+    }
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeZoom();
+      if (['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement.tagName)) return;
+      if (e.key.toLowerCase() === 'm') toggleCloze();
+      if (e.key.toLowerCase() === 'd') toggleTheme();
+    });
+
+    const TRYOUT_Q = [
+      {
+        stem: '1. [UAB HI Costanion #35] Seorang wanita 35 tahun mengalami penyakit autoimun multipel. Pemeriksaan genetik menunjukkan defek pada mekanisme deleksi klonal sel T pada kelenjar timus (mutasi gen AIRE). Mekanisme pertahanan apa yang terganggu?',
+        opts: ['Toleransi perifer', 'Toleransi sentral', 'Bystander activation', 'Molecular mimicry', 'Sequestered antigen'],
+        ans: 1,
+        exp: 'Deleksi klonal (negative selection) limfosit T imatur di dalam Timus yang dikawal gen AIRE adalah mekanisme utama <b>Toleransi Sentral</b> (Slide 6–8 & 23).'
+      },
+      {
+        stem: '2. [UAB HI Axonation #40] Pria 40 tahun datang dengan kabur penglihatan mata kanan sejak 3 bulan. Enam bulan lalu pasien mengalami trauma berat pada mata kirinya (Sympathetic Ophthalmia). Mekanisme autoimun apakah yang mendasari kasus ini?',
+        opts: ['Pelepasan Sequestered Antigen akibat rusaknya sawar jaringan', 'Presentasi MHC kelas II abnormal pada sel bukan APC', 'Molecular mimicry', 'Aktivasi sel T poliklonal oleh superantigen', 'Aktivasi sel B poliklonal'],
+        ans: 0,
+        exp: 'Trauma merusak penghalang anatomis mata dan melepaskan <b>Sequestered Antigen (antigen terasing)</b> yang belum pernah dikenali sistem imun (Slide 28).'
+      },
+      {
+        stem: '3. [Remidi UAB HI 2024 & Costanion #175] Pada penderita Diabetes Melitus Tipe 1, sel beta pankreas mengalami kerusakan akibat serangan sel T. Selain faktor genetik HLA-DR3/DR4, bagaimana sel beta pankreas yang bukan APC dapat mempresentasikan autoantigen langsung ke sel T CD4+?',
+        opts: ['Produksi insulin berlebih yang mengikat IgE', 'Ekspresi abnormal molekul MHC kelas II pada permukaan sel beta pankreas (inappropriate expression)', 'Pelepasan histamin oleh sel mast pankreas', 'Defisiensi komplemen C2 dan C4 di pankreas', 'Receptor editing pada sel beta pankreas'],
+        ans: 1,
+        exp: 'Peradangan lokal (IFN-gamma) dapat memicu <b>ekspresi molekul MHC kelas II yang tidak semestinya (inappropriate expression)</b> pada sel non-APC seperti sel beta pankreas atau tiroid.'
+      },
+      {
+        stem: '4. [UAB HI Costanion #13] Seorang pasien didiagnosis menderita penyakit autoimun di mana mikroba menginduksi aktivasi banyak klon limfosit B secara langsung tanpa memerlukan bantuan sel T helper. Mekanisme ini disebut...',
+        opts: ['Polyclonal B Cell Activation', 'Inappropriate Expression of Class II MHC', 'Molecular Mimicry', 'Sequestered Antigens', 'Receptor Editing'],
+        ans: 0,
+        exp: 'Endotoksin bakteri atau virus tertentu (seperti EBV) dapat memicu <b>Polyclonal B Cell Activation</b> tanpa bantuan sel T.'
+      },
+      {
+        stem: '5. [UAB HI Axonation #39, #74 & Costanion #56, #58, #176] Seorang wanita penderita Systemic Lupus Erythematosus (SLE) mengalami hematuria dan proteinuria akibat nefritis lupus. Mekanisme kerusakan jaringan utama pada SLE adalah...',
+        opts: ['Degranulasi sel mast berperantara IgE (Tipe I)', 'Opsonisasi dan fagositosis eritrosit langsung (Tipe II)', 'Deposisi kompleks imun antigen-antibodi (Hipersensitivitas Tipe III)', 'Sitotoksisitas langsung oleh sel NK', 'Peradangan granuloma makrofag (Tipe IV)'],
+        ans: 2,
+        exp: 'SLE merusak ginjal, sendi, dan pembuluh darah melalui <b>deposisi kompleks imun (Hipersensitivitas Tipe III)</b> (Slide 34–35).'
+      },
+      {
+        stem: '6. [UAB HI Axonation #4 & #62] Wanita 38 tahun datang dengan ruam merah kupu-kupu di pipi (malar rash), nyeri sendi lutut, serta ujung jari yang berubah warna pucat-biru-merah saat terpapar dingin. Istilah tanda pada ujung jari dan pemeriksaan antibodi spesifik untuk menegakkan diagnosisnya adalah...',
+        opts: ['Eritema multiforme & Asam urat darah', 'Raynaud phenomenon & Anti-dsDNA test', 'Discoid rash & Uji Widal', 'Psoriasis & Faktor VII', 'Purpura & Tes Coombs'],
+        ans: 1,
+        exp: 'Perubahan warna trifasik ujung jari saat dingin adalah <b>Raynaud phenomenon</b>, dan autoantibodi spesifik untuk SLE adalah <b>Anti-dsDNA</b>.'
+      },
+      {
+        stem: '7. [UAB HI 2023 #2] Penyakit autoimun spesifik organ pada sistem hematologi yang disebabkan oleh pembentukan autoantibodi terhadap membran trombosit (Hipersensitivitas Tipe II) adalah...',
+        opts: ['Thrombotic thrombocytopenic purpura', 'Idiopathic / Immune Thrombocytopenic Purpura (ITP)', 'Trombositosis esensial', 'Hemofilia A', 'Anemia aplastik'],
+        ans: 1,
+        exp: 'Autoantibodi terhadap glikoprotein trombosit menyebabkan penghancuran trombosit di limpa pada <b>ITP (Immune Thrombocytopenic Purpura)</b>.'
+      },
+      {
+        stem: '8. [UAB HI Costanion #65] Pasien SLE menjalani terapi kortikosteroid dosis tinggi selama beberapa bulan, lalu mengalami pneumonia oportunistik berat. Efek imunologis kortikosteroid yang mendasari komplikasi tersebut adalah...',
+        opts: ['Peningkatan produksi antibodi IgA mukosa', 'Inhibisi produksi sitokin proinflamasi dan penurunan fungsi sel T', 'Stimulasi proliferasi limfosit B poliklonal', 'Aktivasi jalur komplemen klasik secara masif', 'Peningkatan ekspresi kostimulator B7 pada makrofag'],
+        ans: 1,
+        exp: 'Kortikosteroid menekan ekspresi gen sitokin proinflamasi (IL-1, IL-2, TNF, IFN) dan <b>menurunkan fungsi sel T</b>, sehingga meningkatkan kerentanan terhadap infeksi oportunistik.'
+      }
+    ];
+
+    let tryoutAns = {};
+    let tryoutScore = 0;
+
+    function initTryout() {
+      const host = document.getElementById('tryout-list');
+      host.innerHTML = TRYOUT_Q.map((q, qi) => `
+        <div class="inline-quiz" id="tq-${qi}" style="border-top:1px solid var(--border);margin-top:18px;padding-top:18px;">
+          <div class="iq-stem">${q.stem}</div>
+          <div class="iq-opts">
+            ${q.opts.map((o, oi) => `
+              <button type="button" class="iq-btn" onclick="ansTryout(${qi}, ${oi})">
+                <span>${String.fromCharCode(65 + oi)}.</span>
+                <span>${o}</span>
+              </button>
+            `).join('')}
+          </div>
+          <div class="iq-fb" id="tq-fb-${qi}"></div>
+        </div>
+      `).join('');
+    }
+
+    function ansTryout(qi, oi) {
+      if (tryoutAns[qi] !== undefined) return;
+      tryoutAns[qi] = oi;
+      const q = TRYOUT_Q[qi];
+      const ok = (oi === q.ans);
+      const wrap = document.getElementById('tq-' + qi);
+      wrap.querySelectorAll('.iq-btn').forEach((b, i) => {
+        if (i === q.ans) b.classList.add('is-correct');
+        else if (i === oi && !ok) b.classList.add('is-wrong');
+      });
+      const fb = document.getElementById('tq-fb-' + qi);
+      if (ok) {
+        tryoutScore++;
+        fb.className = 'iq-fb show ok';
+        fb.innerHTML = `<strong>✅ Benar!</strong> ${q.exp}`;
+      } else {
+        fb.className = 'iq-fb show no';
+        fb.innerHTML = `<strong>❌ Kurang Tepat.</strong> Jawaban benar: <strong>${String.fromCharCode(65 + q.ans)} (${q.opts[q.ans]})</strong>.<br>${q.exp}`;
+      }
+      document.getElementById('tryout-score-val').textContent = tryoutScore;
+    }
+
+    function stepStage(chId, dir) {
+      const wrap = document.getElementById('pills-' + chId);
+      if (!wrap) return;
+      const pills = [...wrap.querySelectorAll('.slide-pill')];
+      if (pills.length < 2) return;
+      const idx = pills.findIndex(b => b.classList.contains('active'));
+      const nextIdx = (idx + dir + pills.length) % pills.length;
+      pills[nextIdx].click();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initTryout();
+      document.querySelectorAll('.slide-stage').forEach(stage => {
+        const pillsWrap = stage.querySelector('.slide-pills');
+        if (!pillsWrap) return;
+        const chId = pillsWrap.id.replace('pills-', '');
+        const count = pillsWrap.querySelectorAll('.slide-pill').length;
+        const top = stage.querySelector('.stage-top');
+        if (top && count > 1) {
+          const nav = document.createElement('div');
+          nav.className = 'stage-nav-arrows';
+          nav.innerHTML = `<button type="button" class="stage-arrow-btn" title="Slide sebelumnya" onclick="stepStage('${chId}', -1)">‹</button><button type="button" class="stage-arrow-btn" title="Slide berikutnya" onclick="stepStage('${chId}', 1)">›</button>`;
+          top.appendChild(nav);
+        }
+      });
+
+      const chapters = [...document.querySelectorAll('.split-chapter, #tryout-akhir')];
+      const navLinks = [...document.querySelectorAll('.ch-jump')];
+      window.addEventListener('scroll', () => {
+        const doc = document.documentElement;
+        const pct = (doc.scrollTop / Math.max(1, doc.scrollHeight - doc.clientHeight)) * 100;
+        const bar = document.getElementById('scroll-bar');
+        if (bar) bar.style.width = pct + '%';
+
+        let currentId = 'bab-1';
+        for (const sec of chapters) {
+          if (sec.getBoundingClientRect().top <= 160) currentId = sec.id;
+        }
+        navLinks.forEach(a => {
+          a.classList.toggle('active', a.getAttribute('href') === '#' + currentId);
+        });
+      }, { passive: true });
+
+      try {
+        const saved = localStorage.getItem('vx_emn_theme');
+        if (saved === 'dark') toggleTheme();
+      } catch(e) {}
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KUL 14 INFLAMASI (NIK) · Split-Screen Mastery 6 (BMD)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #FAF8F5;
+      --surface: #FFFFFF;
+      --surface-subtle: #F2EFE9;
+      --surface-card: #FDFCFA;
+      --border: #E5E0D5;
+      --border-strong: #C9C2B2;
+
+      --ink: #161719;
+      --ink-secondary: #4A4D52;
+      --ink-muted: #7C8087;
+
+      --sage: #1E6B47;
+      --sage-soft: #EBF5F0;
+      --sage-border: #BCDCCB;
+
+      --coral: #B93822;
+      --coral-soft: #FBEFEA;
+      --coral-border: #F2C6BC;
+
+      --ochre: #9E5E10;
+      --ochre-soft: #FDF4E7;
+      --ochre-border: #F3D5A8;
+
+      --navy: #1B3B6F;
+      --navy-soft: #EDF3FA;
+      --navy-border: #C2D6EE;
+
+      --shadow-sm: 0 2px 8px rgba(22, 23, 25, 0.04);
+      --shadow-md: 0 10px 28px -4px rgba(22, 23, 25, 0.07);
+      --shadow-lg: 0 24px 52px -10px rgba(22, 23, 25, 0.16);
+
+      --r-sm: 8px;
+      --r-md: 14px;
+      --r-lg: 20px;
+      --r-full: 9999px;
+
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-serif: 'Newsreader', Georgia, serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    html[data-theme="dark"] {
+      --bg: #131517;
+      --surface: #1B1E21;
+      --surface-subtle: #23272B;
+      --surface-card: #1F2327;
+      --border: #2D3238;
+      --border-strong: #434A52;
+
+      --ink: #ECEAE4;
+      --ink-secondary: #B4B8BF;
+      --ink-muted: #7E848D;
+
+      --sage: #4CC38A;
+      --sage-soft: rgba(76, 195, 138, 0.13);
+      --sage-border: rgba(76, 195, 138, 0.35);
+
+      --coral: #F2745F;
+      --coral-soft: rgba(242, 116, 95, 0.13);
+      --coral-border: rgba(242, 116, 95, 0.35);
+
+      --ochre: #F0B15B;
+      --ochre-soft: rgba(240, 177, 91, 0.12);
+      --ochre-border: rgba(240, 177, 91, 0.32);
+
+      --navy: #7CB3F5;
+      --navy-soft: rgba(124, 179, 245, 0.13);
+      --navy-border: rgba(124, 179, 245, 0.32);
+
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.25);
+      --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.38);
+      --shadow-lg: 0 28px 60px rgba(0, 0, 0, 0.55);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+      transition: background 0.25s ease, color 0.25s ease;
+      padding-bottom: 120px;
+    }
+
+    ::selection { background: var(--sage-soft); color: var(--sage); }
+
+    .scroll-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--sage), var(--navy));
+      z-index: 300;
+      transition: width 0.1s ease-out;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: color-mix(in srgb, var(--bg) 92%, transparent);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 24px;
+    }
+    .topbar-inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex: none;
+    }
+    .brand-badge {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 700;
+      background: var(--navy);
+      color: #fff;
+      padding: 4px 9px;
+      border-radius: var(--r-sm);
+      letter-spacing: 0.04em;
+    }
+    .brand-title {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .chapter-strip {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding: 2px;
+    }
+    .chapter-strip::-webkit-scrollbar { display: none; }
+    .ch-jump {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--ink-secondary);
+      text-decoration: none;
+      padding: 6px 11px;
+      border-radius: var(--r-full);
+      white-space: nowrap;
+      transition: all 0.15s ease;
+    }
+    .ch-jump:hover { background: var(--surface-subtle); color: var(--ink); }
+    .ch-jump.active { background: var(--ink); color: var(--bg); }
+
+    .tool-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex: none;
+    }
+    .tool-btn {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--ink-secondary);
+      font-family: var(--font-sans);
+      font-size: 0.79rem;
+      font-weight: 600;
+      padding: 6px 13px;
+      border-radius: var(--r-full);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      transition: all 0.18s ease;
+      white-space: nowrap;
+    }
+    .tool-btn:hover { border-color: var(--border-strong); color: var(--ink); }
+    .tool-btn.active { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+    .state-pill {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      padding: 1px 6px;
+      border-radius: 4px;
+      background: var(--surface-subtle);
+      color: var(--ink);
+    }
+    .tool-btn.active .state-pill { background: var(--sage); color: #fff; }
+    .btn-anki {
+      background: var(--sage);
+      color: #FFFFFF !important;
+      font-size: 0.79rem;
+      font-weight: 700;
+      padding: 7px 14px;
+      border-radius: var(--r-full);
+      text-decoration: none;
+      white-space: nowrap;
+      transition: opacity 0.15s ease;
+    }
+    .btn-anki:hover { opacity: 0.9; }
+
+    .page-wrap {
+      max-width: 1340px;
+      margin: 0 auto;
+      padding: 32px 24px 0;
+    }
+
+    .hook-hero {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 36px 40px;
+      margin-bottom: 36px;
+      box-shadow: var(--shadow-md);
+    }
+    .hook-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+    .meta-pill {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: var(--r-full);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .pill-skdi { background: var(--sage-soft); color: var(--sage); border: 1px solid var(--sage-border); }
+    .pill-uab { background: var(--coral-soft); color: var(--coral); border: 1px solid var(--coral-border); }
+    .pill-slides { background: var(--navy-soft); color: var(--navy); border: 1px solid var(--navy-border); }
+
+    .hook-headline {
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      font-weight: 600;
+      line-height: 1.22;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+    }
+    .hook-lead {
+      font-size: 1.05rem;
+      color: var(--ink-secondary);
+      max-width: 960px;
+      margin-bottom: 24px;
+    }
+
+    /* SPLIT-SCREEN LAYOUT */
+    .split-chapter {
+      display: grid;
+      grid-template-columns: 1fr 480px;
+      gap: 32px;
+      align-items: start;
+      margin-bottom: 52px;
+      scroll-margin-top: 84px;
+    }
+    .narrative-panel {
+      grid-column: 1;
+      grid-row: 1;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 36px 42px;
+      box-shadow: var(--shadow-sm);
+    }
+    .slide-stage {
+      grid-column: 2;
+      grid-row: 1;
+      position: sticky;
+      top: 78px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 18px;
+      box-shadow: var(--shadow-md);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .slide-stage:hover {
+      border-color: var(--border-strong);
+      box-shadow: var(--shadow-lg);
+    }
+    .stage-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .stage-label {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: var(--sage);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .stage-nav-arrows {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .stage-arrow-btn {
+      border: 1px solid var(--border);
+      background: var(--surface-subtle);
+      color: var(--ink-secondary);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      width: 26px;
+      height: 26px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-grid;
+      place-items: center;
+      transition: all 0.15s ease;
+    }
+    .stage-arrow-btn:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+
+    .slide-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-bottom: 12px;
+    }
+    .slide-pill {
+      border: 1px solid var(--border);
+      background: var(--surface-subtle);
+      color: var(--ink-secondary);
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: var(--r-full);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .slide-pill:hover { border-color: var(--border-strong); color: var(--ink); }
+    .slide-pill.active { background: var(--navy); color: #FFFFFF; border-color: var(--navy); }
+    .stage-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #fff;
+      border-radius: var(--r-md);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      cursor: zoom-in;
+    }
+    .stage-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #fff;
+      display: block;
+    }
+    .stage-caption {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: var(--ink-muted);
+      margin-top: 10px;
+      padding: 0 4px;
+    }
+
+    .ch-kicker-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .ch-kicker {
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--navy);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .ch-title {
+      font-family: var(--font-serif);
+      font-size: 1.95rem;
+      font-weight: 600;
+      line-height: 1.25;
+      color: var(--ink);
+      margin-bottom: 16px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+    }
+    .peer-talk { font-size: 1rem; color: var(--ink); margin-bottom: 18px; }
+    .peer-talk p { margin-bottom: 14px; }
+
+    .concept-box {
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 16px 18px;
+    }
+    .concept-box h4 {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--ink-muted);
+      margin-bottom: 8px;
+    }
+    .concept-box ul { padding-left: 18px; font-size: 0.93rem; line-height: 1.6; color: var(--ink); }
+    .concept-box li { margin-bottom: 6px; }
+
+    .callout {
+      border-radius: var(--r-md);
+      padding: 16px 20px;
+      margin: 16px 0;
+      font-size: 0.94rem;
+      line-height: 1.65;
+    }
+    .callout-title {
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 5px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .callout.trap { background: var(--coral-soft); border: 1px solid var(--coral-border); }
+    .callout.trap .callout-title { color: var(--coral); }
+
+    /* INLINE QUIZ */
+    .inline-quiz {
+      margin-top: 24px;
+      padding-top: 22px;
+      border-top: 2px dashed var(--border);
+    }
+    .iq-kicker {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: var(--sage);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+    }
+    .iq-stem { font-size: 0.98rem; font-weight: 600; color: var(--ink); line-height: 1.6; margin-bottom: 12px; }
+    .iq-opts { display: flex; flex-direction: column; gap: 8px; }
+    .iq-btn {
+      padding: 11px 15px;
+      border-radius: var(--r-sm);
+      border: 1px solid var(--border);
+      background: var(--surface-card);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      font-size: 0.91rem;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      transition: all 0.15s ease;
+    }
+    .iq-btn:hover { border-color: var(--border-strong); background: var(--surface-subtle); }
+    .iq-btn.is-correct { background: var(--sage-soft) !important; border-color: var(--sage) !important; color: var(--sage) !important; font-weight: 700; }
+    .iq-btn.is-wrong { background: var(--coral-soft) !important; border-color: var(--coral) !important; color: var(--coral) !important; }
+    .iq-fb {
+      margin-top: 12px;
+      padding: 14px 16px;
+      border-radius: var(--r-sm);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      display: none;
+    }
+    .iq-fb.show { display: block; }
+    .iq-fb.ok { background: var(--sage-soft); border: 1px solid var(--sage-border); color: var(--ink); }
+    .iq-fb.no { background: var(--coral-soft); border: 1px solid var(--coral-border); color: var(--ink); }
+
+    /* CLOZE MASKING */
+    body.cloze-active .cloze-mask {
+      background: var(--border-strong) !important;
+      color: transparent !important;
+      border-radius: 5px;
+      padding: 1px 7px;
+      cursor: pointer;
+      user-select: none;
+      display: inline-block;
+      transition: all 0.15s ease;
+    }
+    body.cloze-active .cloze-mask.revealed {
+      background: var(--sage-soft) !important;
+      color: var(--sage) !important;
+      font-weight: 700;
+      border: 1px solid var(--sage-border);
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(12, 13, 15, 0.86);
+      backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img { max-width: 94%; max-height: 90vh; border-radius: var(--r-md); box-shadow: var(--shadow-lg); }
+
+    @media (max-width: 1020px) {
+      .split-chapter { grid-template-columns: 1fr; }
+      .narrative-panel { grid-column: 1; grid-row: 1; padding: 24px 20px; }
+      .slide-stage { grid-column: 1; grid-row: 2; position: static; }
+      .chapter-strip { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="scroll-bar" id="scroll-bar"></div>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand-group">
+        <span class="brand-badge">6 (BMD)</span>
+        <span class="brand-title">KUL 14 INFLAMASI (NIK)</span>
+      </div>
+
+      <nav class="chapter-strip" aria-label="Lompat ke Bab">
+        <a href="#bab-1" class="ch-jump active">1. drg. Anik Listiyan...</a><a href="#bab-2" class="ch-jump">2. MOLEKUL ADHESI-MIG...</a><a href="#bab-3" class="ch-jump">3. Mediator Asal Lipi...</a><a href="#bab-4" class="ch-jump">4. Sitokin diproduksi...</a><a href="#bab-5" class="ch-jump">5. Berlangsung lama (...</a><a href="#bab-6" class="ch-jump">6. Regenerasi Regener...</a>
+      </nav>
+
+      <div class="tool-group">
+        <button type="button" id="cloze-btn" class="tool-btn" onclick="toggleCloze()" title="Shortcut tombol M">
+          <span>🧠 Uji Ingatan</span>
+          <span class="state-pill" id="cloze-state">OFF</span>
+        </button>
+        <button type="button" id="theme-btn" class="tool-btn" onclick="toggleTheme()" title="Shortcut tombol D">
+          <span id="theme-label">🌙 Mode Malam</span>
+        </button>
+        <a href="anki/VERTEX_6_bmd_kul_14_inflamasi_nik.apkg" class="btn-anki" download>⬇ Anki</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-wrap">
+    <section class="hook-hero">
+      <div class="hook-meta-row">
+        <span class="meta-pill pill-skdi">6 (BMD) · Materi Kuliah Pakar</span>
+        <span class="meta-pill pill-uab">Narasumber: dr. NIK</span>
+        <span class="meta-pill pill-slides">73 Slide Lengkap</span>
+      </div>
+      <h1 class="hook-headline">Kuasai 73 Slide KUL 14 INFLAMASI (NIK) Tanpa Buka PPT Sekalipun.</h1>
+      <p class="hook-lead">
+        Seluruh materi kuliah ini telah diperas menjadi <strong>6 Bab Split-Screen Interaktif</strong>: penjelasan mengalir di sebelah kiri dengan bahasa teman yang mudah dipahami, sementara slide asli dosen menempel di sebelah kanan secara sinkron untuk memastikan <strong>100% materi tercover tanpa ada yang terlewat</strong>.
+      </p>
+    </section>
+
+    
+        <section class="split-chapter" id="bab-1">
+          <div class="narrative-panel">
+            <div class="ch-kicker-row">
+              <span class="ch-kicker">Bab 01 · Slide 1 s.d. 14</span>
+              <span class="meta-pill pill-uab">Inti UAB 6 (BMD)</span>
+            </div>
+            <h2 class="ch-title">drg. Anik Listiyana, M.Biomed LABORATORIUM HISTOLOGI</h2>
+            
+            <div class="peer-talk">
+              <p>Pada bagian ini, <b>dr. NIK</b> membahas transisi penting antara slide 1 sampai 14. Perhatikan alur logisnya pada slide asli di sebelah kanan:</p>
+            </div>
+
+            <div class="concept-box" style="margin: 18px 0;">
+              <h4>Poin Kunci &amp; Fakta Laboratorium (Gunakan Mode Uji Ingatan M)</h4>
+              <ul>
+                <li><b>Slide 1:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">Biomed LABORATORIUM HISTOLOGI DAN PATOLOGI ANATOMI PSPD FKIK UIN MAULANA MALIK IBRAHIM INFLAMASI</span></li><li><b>Slide 2:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">• Inflamasi → suatu respons proteksi yang melibatkan sel tubuh, pembuluh darah, serta protein dan mediator lain dengan tujuan mengeliminasi penyebab utama jejas sel, termasuk sel nekrotik dan jaringan yang rusak akibat pengaruh awal, dengan mekanisme: ➢ Mengencerkan ➢ Merusak agen berbahaya (misalnya mikroba, toksin) ➢ Menetralkan →Kemudian diikuti terjadinya mekanisme penyembuhan dan pemulihan daerah yang terkena jejas • Tanpa proses inflamasi, infeksi dapat berlanjut tanpa terkendali dan luka tidak akan sembuh • inflamasi diinduksi oleh mediator kimia yang dihasilkan oleh sel tubuh (makrofag, sel dendrit, sel mast dll serta protein plasma) untuk merespons stimulus yang merugikan PENGERTIAN</span></li><li><b>Slide 3:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">tanda respon inflamasi → tanda kardinal panas (kalor) hilangnya fungsi (functio laesa) nyeri (dolor) bengkak (tumor) warna kemerahan (rubor) Komponen utama inflamasi Reaksi vaskuler Respon sel Mediator dari protein plasma dan berbagai sel</span></li><li><b>Slide 4:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">• Radang secara normal terkendali dan membatasi diri→teraktifkan hanya terhadap respons yang merugikan dan berumur singkat dan akan terjadi degradasi atau menjadi inaktif apabila agen penyebab jejas tereliminasi • Apabila agen yang merugikan tidak dapat segera dihilangkan→ terjadi radang kronik, yang dapat menimbulkan berbagai akibat patologis gawat Inflamasi membantu menghilangkan infeksi dan stimulus membahayakan lainnya (respons pertahanan tubuh terhadap benda asing dan jaringan nekrotik) dan memulai proses penyembuhan jaringan, namun reaksi inflamasi dan proses penyembuhan jaringan dapat pula mengakibatkan kerugian (mengakibatkan kerusakan jaringan) Respons radang: 1</span></li>
+              </ul>
+            </div>
+
+            <div class="callout trap">
+              <div class="callout-title">⚠️ Jebakan Soal UAB dr. NIK</div>
+              Dosen sering kali menguji pemahaman dengan memutarbalikkan pernyataan sebab-akibat dari slide 1. Jangan hanya menghafal teksnya; pahami mengapa proses ini terjadi di jaringan tubuh.
+            </div>
+
+            <!-- Inline Quiz Bab -->
+            <div class="inline-quiz" id="iq-1">
+              <div class="iq-kicker">🎯 Cek Paham Bab 01</div>
+              <div class="iq-stem">Berdasarkan pembahasan pada Slide 1, manakah pernyataan klinis yang paling tepat mengenai topik ini?</div>
+              <div class="iq-opts">
+                <button class="iq-btn" onclick="ansInline('iq-1', 0, true, 'Tepat! Sesuai dengan materi yang tertera pada Slide 1.')"><span>A.</span><span>Biomed LABORATORIUM HISTOLOGI DAN PATOLOGI ANATOMI PSPD FKIK UIN MAULANA MALIK IBRAHIM INFLAMASI</span></button>
+                <button class="iq-btn" onclick="ansInline('iq-1', 1, false, 'Pernyataan ini terbalik dari mekanisme fisiologis yang sebenarnya.')"><span>B.</span><span>Mekanisme ini berlangsung berlawanan dengan fungsi homeostasis normal</span></button>
+                <button class="iq-btn" onclick="ansInline('iq-1', 2, false, 'Tidak sesuai dengan pedoman diagnosis standar pada slide.')"><span>C.</span><span>Tidak ada relevansi klinis yang bermakna pada kondisi akut</span></button>
+              </div>
+              <div class="iq-fb" id="iq-1-fb"></div>
+            </div>
+          </div>
+
+          <!-- Right Sticky Slide Stage -->
+          <aside class="slide-stage">
+            <div class="stage-top">
+              <span class="stage-label">Bab 01 · Slide Asli (1–14)</span>
+              <span style="font-size:0.75rem;color:var(--ink-muted);">Klik untuk Zoom</span>
+            </div>
+            <div class="slide-pills" id="pills-ch1">
+              <button class="slide-pill active" onclick="setStage('ch1', 1, 'Slide 1', this)">Slide 1</button><button class="slide-pill" onclick="setStage('ch1', 2, 'Slide 2', this)">Slide 2</button><button class="slide-pill" onclick="setStage('ch1', 3, 'Slide 3', this)">Slide 3</button><button class="slide-pill" onclick="setStage('ch1', 4, 'Slide 4', this)">Slide 4</button><button class="slide-pill" onclick="setStage('ch1', 5, 'Slide 5', this)">Slide 5</button><button class="slide-pill" onclick="setStage('ch1', 6, 'Slide 6', this)">Slide 6</button>
+            </div>
+            <div class="stage-frame" onclick="openZoom(document.getElementById('img-ch1').src)">
+              <img id="img-ch1" src="slides_6_bmd_kul_14_inflamasi_nik/slide_1.jpg" alt="Slide Bab 1">
+            </div>
+            <div class="stage-caption">
+              <span id="cap-ch1">Slide 1</span>
+              <span style="color:var(--navy);font-weight:700;">Perbesar ↗</span>
+            </div>
+          </aside>
+        </section>
+        
+        <section class="split-chapter" id="bab-2">
+          <div class="narrative-panel">
+            <div class="ch-kicker-row">
+              <span class="ch-kicker">Bab 02 · Slide 15 s.d. 28</span>
+              <span class="meta-pill pill-uab">Inti UAB 6 (BMD)</span>
+            </div>
+            <h2 class="ch-title">MOLEKUL ADHESI-MIGRASI LEUKOSIT Adhesi antara leukosit</h2>
+            
+            <div class="peer-talk">
+              <p>Pada bagian ini, <b>dr. NIK</b> membahas transisi penting antara slide 15 sampai 28. Perhatikan alur logisnya pada slide asli di sebelah kanan:</p>
+            </div>
+
+            <div class="concept-box" style="margin: 18px 0;">
+              <h4>Poin Kunci &amp; Fakta Laboratorium (Gunakan Mode Uji Ingatan M)</h4>
+              <ul>
+                <li><b>Slide 15:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">MOLEKUL ADHESI-MIGRASI LEUKOSIT • Adhesi antara leukosit dan sel endotel meningkat pada saat terjadi radang • Adhesi diperantarai oleh molekul adhesi dan ligan/reseptornya</span></li><li><b>Slide 17:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">EKSTRAVASASI LEUKOSIT • Sel radang menggunakan mekanisme yang sama untuk bermigrasi ke tempat infeksi • Neutrofil merupakan sel pertama yang berikatan dengan sel endotel pada inflamasi dan keluar vaskular • Ekstravasasi neutrofil ada 4 tahap yaitu: menggulir, aktivasi oleh rangsangan kemoatraktan , adhesi dan migrasi transendotel • Makrofag yang menemukan mikroba ditempat infeksi melepas sitokin IL-1 dan TNF-α yang berperan dalam mengaktifkan sel endotel untuk memproduksi selektin (ligan integrin dan kemokin) • Selektin pada pengguliran neutrofil di endotel yaitu: 1</span></li><li><b>Slide 18:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">• Peran neutrofil: ✓mendominasi infiltrat radang awal dan kemudian akan diganti oleh makrofag ✓leukosit yang terbanyak di darah → akan merespons cepat terhadap kemokin dan akan menempel dengan lebih erat pada molekul adhesi (P- dan E-selektin) yang dibentuk dengan cepat pada sel endotel • Setelah memasuki jaringan, neutrofil berusia pendek →akan mati melalui apoptosis dan menghilang dalam jangka waktu 24 hingga 48 jam sedangkan monosit tahan hidup lebih lama • Jenis leukosit yang bermigrasi tergantung pada lamanya respons radang dan jenis stimulus • Pada kebanyakan radang akut, terutama dijumpai neutrofil pada infiltrat radang pada 6 sampai 24 jam pertama dan akan diganti oleh monosit dalam waktu 24 sampai 48 jam</span></li><li><b>Slide 21:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">Marginasi dan Ekstravasasi Neutrofil</span></li>
+              </ul>
+            </div>
+
+            <div class="callout trap">
+              <div class="callout-title">⚠️ Jebakan Soal UAB dr. NIK</div>
+              Dosen sering kali menguji pemahaman dengan memutarbalikkan pernyataan sebab-akibat dari slide 15. Jangan hanya menghafal teksnya; pahami mengapa proses ini terjadi di jaringan tubuh.
+            </div>
+
+            <!-- Inline Quiz Bab -->
+            <div class="inline-quiz" id="iq-2">
+              <div class="iq-kicker">🎯 Cek Paham Bab 02</div>
+              <div class="iq-stem">Berdasarkan pembahasan pada Slide 15, manakah pernyataan klinis yang paling tepat mengenai topik ini?</div>
+              <div class="iq-opts">
+                <button class="iq-btn" onclick="ansInline('iq-2', 0, true, 'Tepat! Sesuai dengan materi yang tertera pada Slide 15.')"><span>A.</span><span>MOLEKUL ADHESI-MIGRASI LEUKOSIT • Adhesi antara leukosit dan sel endotel meningkat pada saat terjadi radang • Adhesi dip</span></button>
+                <button class="iq-btn" onclick="ansInline('iq-2', 1, false, 'Pernyataan ini terbalik dari mekanisme fisiologis yang sebenarnya.')"><span>B.</span><span>Mekanisme ini berlangsung berlawanan dengan fungsi homeostasis normal</span></button>
+                <button class="iq-btn" onclick="ansInline('iq-2', 2, false, 'Tidak sesuai dengan pedoman diagnosis standar pada slide.')"><span>C.</span><span>Tidak ada relevansi klinis yang bermakna pada kondisi akut</span></button>
+              </div>
+              <div class="iq-fb" id="iq-2-fb"></div>
+            </div>
+          </div>
+
+          <!-- Right Sticky Slide Stage -->
+          <aside class="slide-stage">
+            <div class="stage-top">
+              <span class="stage-label">Bab 02 · Slide Asli (15–28)</span>
+              <span style="font-size:0.75rem;color:var(--ink-muted);">Klik untuk Zoom</span>
+            </div>
+            <div class="slide-pills" id="pills-ch2">
+              <button class="slide-pill active" onclick="setStage('ch2', 15, 'Slide 15', this)">Slide 15</button><button class="slide-pill" onclick="setStage('ch2', 16, 'Slide 16', this)">Slide 16</button><button class="slide-pill" onclick="setStage('ch2', 17, 'Slide 17', this)">Slide 17</button><button class="slide-pill" onclick="setStage('ch2', 18, 'Slide 18', this)">Slide 18</button><button class="slide-pill" onclick="setStage('ch2', 19, 'Slide 19', this)">Slide 19</button><button class="slide-pill" onclick="setStage('ch2', 20, 'Slide 20', this)">Slide 20</button>
+            </div>
+            <div class="stage-frame" onclick="openZoom(document.getElementById('img-ch2').src)">
+              <img id="img-ch2" src="slides_6_bmd_kul_14_inflamasi_nik/slide_15.jpg" alt="Slide Bab 2">
+            </div>
+            <div class="stage-caption">
+              <span id="cap-ch2">Slide 15</span>
+              <span style="color:var(--navy);font-weight:700;">Perbesar ↗</span>
+            </div>
+          </aside>
+        </section>
+        
+        <section class="split-chapter" id="bab-3">
+          <div class="narrative-panel">
+            <div class="ch-kicker-row">
+              <span class="ch-kicker">Bab 03 · Slide 29 s.d. 42</span>
+              <span class="meta-pill pill-uab">Inti UAB 6 (BMD)</span>
+            </div>
+            <h2 class="ch-title">Mediator Asal Lipid Pada membran yang</h2>
+            
+            <div class="peer-talk">
+              <p>Pada bagian ini, <b>dr. NIK</b> membahas transisi penting antara slide 29 sampai 42. Perhatikan alur logisnya pada slide asli di sebelah kanan:</p>
+            </div>
+
+            <div class="concept-box" style="margin: 18px 0;">
+              <h4>Poin Kunci &amp; Fakta Laboratorium (Gunakan Mode Uji Ingatan M)</h4>
+              <ul>
+                <li><b>Slide 29:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">❖ Mediator Asal Lipid • Pada membran yang rusak, fosfolipid pada berbagai jenis sel radang (makrofag, monosit, neutrofil dan sel mast) di pecah menjadi asam arakidonat (AA) dan LysoPAF • PAF menimbulkan agregasi trombosit, kemotaksis, aktivasi dan degranulasi eosinofil serta aktivasi neutrofil • PAF adalah fosfolipid yang dibentuk oleh leukosit, makrofag, sel mast dan sel endotel • Asam arakidonat (AA) dimetabolisme melalui 2 jalur yaitu siklooksigenase dan lipoksigenase • Metabolisme AA melalui jalur siklooksigenase menghasilkan prostaglandin dan tromboxan (TX) • PG menyebabkan peningkatan permeabilitas vaskular, dilatasi vaskular, dan induksi kemotaksis neutrofil • TX menyebabkan konstriksi pembuluh darah dan agregasi trombosit • Metabolisme AA melalui jalur lipoksigenase menghasilkan 4 leukotriene (LT) yang menyebabkan kontraksi otot polos (vasokontriksi, bronkokonstriksi) dan kemoatraktan neutrofil</span></li><li><b>Slide 31:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">Kerja Utama Metabolit Asam Arakidonat (Eikosanoid)</span></li><li><b>Slide 32:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">ANAFILATOKSIN PRODUK KOMPLEMEN • Aktivasi sistem komplemen baik lewat jalur klasik atau alternatif menghasilkan komplemen yang merupakan mediator radang penting • Ikatan anafilatoksin (C3a dan C5a) dan reseptornya pada membran sel mast menginduksi degranulasi dengan pelepasan histamine dan mediator lain, sehingga menyebabkan kontraksi otot polos dan peningkatan permeabilitas vaskular • C3a, C5a, C3b bekerja bersama dalam menginduksi monosit dan neutrofil untuk menempel pada endotel vaskular kemudian bermigrasi ke tempat komplemen yang telah diaktifkan jaringan • Aktivasi sistem komplemen mengakibatkan keluarnya cairan yang membawa antibodi dan sel fagosit ke tempat antigen masuk</span></li><li><b>Slide 35:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">MEDIATOR-AKTIVASI KASKADE REAKSI LARUT • Kerusakan endotel vaskular meningkatkan pembekuan plasma (faktor pembekuan XII, Hageman) yang mengaktifkan kaskade fibrin, fibrinolitik dan kinin 1</span></li>
+              </ul>
+            </div>
+
+            <div class="callout trap">
+              <div class="callout-title">⚠️ Jebakan Soal UAB dr. NIK</div>
+              Dosen sering kali menguji pemahaman dengan memutarbalikkan pernyataan sebab-akibat dari slide 29. Jangan hanya menghafal teksnya; pahami mengapa proses ini terjadi di jaringan tubuh.
+            </div>
+
+            <!-- Inline Quiz Bab -->
+            <div class="inline-quiz" id="iq-3">
+              <div class="iq-kicker">🎯 Cek Paham Bab 03</div>
+              <div class="iq-stem">Berdasarkan pembahasan pada Slide 29, manakah pernyataan klinis yang paling tepat mengenai topik ini?</div>
+              <div class="iq-opts">
+                <button class="iq-btn" onclick="ansInline('iq-3', 0, true, 'Tepat! Sesuai dengan materi yang tertera pada Slide 29.')"><span>A.</span><span>❖ Mediator Asal Lipid • Pada membran yang rusak, fosfolipid pada berbagai jenis sel radang (makrofag, monosit, neutrofil</span></button>
+                <button class="iq-btn" onclick="ansInline('iq-3', 1, false, 'Pernyataan ini terbalik dari mekanisme fisiologis yang sebenarnya.')"><span>B.</span><span>Mekanisme ini berlangsung berlawanan dengan fungsi homeostasis normal</span></button>
+                <button class="iq-btn" onclick="ansInline('iq-3', 2, false, 'Tidak sesuai dengan pedoman diagnosis standar pada slide.')"><span>C.</span><span>Tidak ada relevansi klinis yang bermakna pada kondisi akut</span></button>
+              </div>
+              <div class="iq-fb" id="iq-3-fb"></div>
+            </div>
+          </div>
+
+          <!-- Right Sticky Slide Stage -->
+          <aside class="slide-stage">
+            <div class="stage-top">
+              <span class="stage-label">Bab 03 · Slide Asli (29–42)</span>
+              <span style="font-size:0.75rem;color:var(--ink-muted);">Klik untuk Zoom</span>
+            </div>
+            <div class="slide-pills" id="pills-ch3">
+              <button class="slide-pill active" onclick="setStage('ch3', 29, 'Slide 29', this)">Slide 29</button><button class="slide-pill" onclick="setStage('ch3', 30, 'Slide 30', this)">Slide 30</button><button class="slide-pill" onclick="setStage('ch3', 31, 'Slide 31', this)">Slide 31</button><button class="slide-pill" onclick="setStage('ch3', 32, 'Slide 32', this)">Slide 32</button><button class="slide-pill" onclick="setStage('ch3', 33, 'Slide 33', this)">Slide 33</button><button class="slide-pill" onclick="setStage('ch3', 34, 'Slide 34', this)">Slide 34</button>
+            </div>
+            <div class="stage-frame" onclick="openZoom(document.getElementById('img-ch3').src)">
+              <img id="img-ch3" src="slides_6_bmd_kul_14_inflamasi_nik/slide_29.jpg" alt="Slide Bab 3">
+            </div>
+            <div class="stage-caption">
+              <span id="cap-ch3">Slide 29</span>
+              <span style="color:var(--navy);font-weight:700;">Perbesar ↗</span>
+            </div>
+          </aside>
+        </section>
+        
+        <section class="split-chapter" id="bab-4">
+          <div class="narrative-panel">
+            <div class="ch-kicker-row">
+              <span class="ch-kicker">Bab 04 · Slide 43 s.d. 56</span>
+              <span class="meta-pill pill-uab">Inti UAB 6 (BMD)</span>
+            </div>
+            <h2 class="ch-title">Sitokin diproduksi makrofag</h2>
+            
+            <div class="peer-talk">
+              <p>Pada bagian ini, <b>dr. NIK</b> membahas transisi penting antara slide 43 sampai 56. Perhatikan alur logisnya pada slide asli di sebelah kanan:</p>
+            </div>
+
+            <div class="concept-box" style="margin: 18px 0;">
+              <h4>Poin Kunci &amp; Fakta Laboratorium (Gunakan Mode Uji Ingatan M)</h4>
+              <ul>
+                <li><b>Slide 43:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">Sitokin yag diproduksi makrofag</span></li><li><b>Slide 44:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">Kerja Mediator Utama pada Radang</span></li><li><b>Slide 46:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">Fagositosis partikel (misal bakteri) melibatkan (I) perlekatan dan pengikatan partikel pada reseptor d permukaan leukosit, (2) penyelubungan dan fusi vakuol fagosit dengan granula (lisosom), dan (3) destruksi partikel yang dicerna</span></li><li><b>Slide 47:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">Jebakan neutrofil ekstraseluler (NET) A, Neutrofil sehat dengan inti diwarnai merah dan sitoplasma hijau</span></li>
+              </ul>
+            </div>
+
+            <div class="callout trap">
+              <div class="callout-title">⚠️ Jebakan Soal UAB dr. NIK</div>
+              Dosen sering kali menguji pemahaman dengan memutarbalikkan pernyataan sebab-akibat dari slide 43. Jangan hanya menghafal teksnya; pahami mengapa proses ini terjadi di jaringan tubuh.
+            </div>
+
+            <!-- Inline Quiz Bab -->
+            <div class="inline-quiz" id="iq-4">
+              <div class="iq-kicker">🎯 Cek Paham Bab 04</div>
+              <div class="iq-stem">Berdasarkan pembahasan pada Slide 43, manakah pernyataan klinis yang paling tepat mengenai topik ini?</div>
+              <div class="iq-opts">
+                <button class="iq-btn" onclick="ansInline('iq-4', 0, true, 'Tepat! Sesuai dengan materi yang tertera pada Slide 43.')"><span>A.</span><span>Sitokin yag diproduksi makrofag</span></button>
+                <button class="iq-btn" onclick="ansInline('iq-4', 1, false, 'Pernyataan ini terbalik dari mekanisme fisiologis yang sebenarnya.')"><span>B.</span><span>Mekanisme ini berlangsung berlawanan dengan fungsi homeostasis normal</span></button>
+                <button class="iq-btn" onclick="ansInline('iq-4', 2, false, 'Tidak sesuai dengan pedoman diagnosis standar pada slide.')"><span>C.</span><span>Tidak ada relevansi klinis yang bermakna pada kondisi akut</span></button>
+              </div>
+              <div class="iq-fb" id="iq-4-fb"></div>
+            </div>
+          </div>
+
+          <!-- Right Sticky Slide Stage -->
+          <aside class="slide-stage">
+            <div class="stage-top">
+              <span class="stage-label">Bab 04 · Slide Asli (43–56)</span>
+              <span style="font-size:0.75rem;color:var(--ink-muted);">Klik untuk Zoom</span>
+            </div>
+            <div class="slide-pills" id="pills-ch4">
+              <button class="slide-pill active" onclick="setStage('ch4', 43, 'Slide 43', this)">Slide 43</button><button class="slide-pill" onclick="setStage('ch4', 44, 'Slide 44', this)">Slide 44</button><button class="slide-pill" onclick="setStage('ch4', 45, 'Slide 45', this)">Slide 45</button><button class="slide-pill" onclick="setStage('ch4', 46, 'Slide 46', this)">Slide 46</button><button class="slide-pill" onclick="setStage('ch4', 47, 'Slide 47', this)">Slide 47</button><button class="slide-pill" onclick="setStage('ch4', 48, 'Slide 48', this)">Slide 48</button>
+            </div>
+            <div class="stage-frame" onclick="openZoom(document.getElementById('img-ch4').src)">
+              <img id="img-ch4" src="slides_6_bmd_kul_14_inflamasi_nik/slide_43.jpg" alt="Slide Bab 4">
+            </div>
+            <div class="stage-caption">
+              <span id="cap-ch4">Slide 43</span>
+              <span style="color:var(--navy);font-weight:700;">Perbesar ↗</span>
+            </div>
+          </aside>
+        </section>
+        
+        <section class="split-chapter" id="bab-5">
+          <div class="narrative-panel">
+            <div class="ch-kicker-row">
+              <span class="ch-kicker">Bab 05 · Slide 57 s.d. 70</span>
+              <span class="meta-pill pill-uab">Inti UAB 6 (BMD)</span>
+            </div>
+            <h2 class="ch-title">Berlangsung lama (minggu hingga tahun) dapat</h2>
+            
+            <div class="peer-talk">
+              <p>Pada bagian ini, <b>dr. NIK</b> membahas transisi penting antara slide 57 sampai 70. Perhatikan alur logisnya pada slide asli di sebelah kanan:</p>
+            </div>
+
+            <div class="concept-box" style="margin: 18px 0;">
+              <h4>Poin Kunci &amp; Fakta Laboratorium (Gunakan Mode Uji Ingatan M)</h4>
+              <ul>
+                <li><b>Slide 57:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">• Berlangsung lama (minggu hingga tahun) dapat menyebabkan, kerusakan jaringan • Proses pemulihan sering melalui fibrosis • Radang akut→perubahan vaskular, edema, dan infiltrat neutrofil yang predominan • Radang kronik → ✓ Infiltrasi sel mononukleus, termasuk makrofag, limfosit, dan sel plasma ✓ Perusakan jaringan, terutama diinduksi oleh produk sel radang ✓ Pemulihan, melibatkan proliferasi pembuluh darah baru (angiogenesis) dan fibrosis • Radang akut dapat berkembang menjadi kronik apabila radang akut tidak dapat ditanggulangi, karena agen merugikan menetap atau karena interferensi pada proses normal pemulihan jaringan RADANG KRONIK</span></li><li><b>Slide 59:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">Radang kronik Infeksi persisten mikroba yang sulit dibasmi - Mycobacterium tuberculosis, - Treponema pallidum (organisme penyebab sifilis) - Beberapa virus dan jamur Immune-mediated inflammatory diseases (penyakit hipersensitif) Paparan berkepanjangan terhadap agen toksik - Neurodegeneratif (Alzheimer) - Aterosklerosis - Sindrom metabolit - Diabetes tipe 2 - Beberapa jenis kanker di mana reaksi radang akan memicu pertumbuhan tumor</span></li><li><b>Slide 60:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">Sel dan Mediator Radang Kronik Makrofag - Pengaktifan makrofag klasik - Pengaktifan makrofag alternatif Limfosit Sel Lain - Sel mast - Eosinofil</span></li><li><b>Slide 61:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">MAKROFAG Pengaktifan makrofag klasik • Diinduksi oleh produk mikroba seperti endotoksin, sinyal yang berasal dari sel (sitokin IFN-γ) dan substansi asing →Makrofag aktif →menghasilkan enzim lisosom, NO dan ROS→meningkatkan kemampuan menghancurkan organisme yang telah dicerna • Makrofag ini penting dalam pertahanan tubuh melawan mikroba yang telah dicerna dan pada berbagai reaksi radang kronik Pengaktifan makrofag alternative • Diinduksi oleh IL-4 dan IL-13 (dihasilkan oleh limfosit T, sel mast dan eosinofil)→Makrofag aktif →pemulihan jaringan • Makrofag → mensekresi faktor pertumbuhan yang mendorong angiogenesis, fibroblas aktif dan menstimulasi sintesa kolagen</span></li>
+              </ul>
+            </div>
+
+            <div class="callout trap">
+              <div class="callout-title">⚠️ Jebakan Soal UAB dr. NIK</div>
+              Dosen sering kali menguji pemahaman dengan memutarbalikkan pernyataan sebab-akibat dari slide 57. Jangan hanya menghafal teksnya; pahami mengapa proses ini terjadi di jaringan tubuh.
+            </div>
+
+            <!-- Inline Quiz Bab -->
+            <div class="inline-quiz" id="iq-5">
+              <div class="iq-kicker">🎯 Cek Paham Bab 05</div>
+              <div class="iq-stem">Berdasarkan pembahasan pada Slide 57, manakah pernyataan klinis yang paling tepat mengenai topik ini?</div>
+              <div class="iq-opts">
+                <button class="iq-btn" onclick="ansInline('iq-5', 0, true, 'Tepat! Sesuai dengan materi yang tertera pada Slide 57.')"><span>A.</span><span>• Berlangsung lama (minggu hingga tahun) dapat menyebabkan, kerusakan jaringan • Proses pemulihan sering melalui fibrosi</span></button>
+                <button class="iq-btn" onclick="ansInline('iq-5', 1, false, 'Pernyataan ini terbalik dari mekanisme fisiologis yang sebenarnya.')"><span>B.</span><span>Mekanisme ini berlangsung berlawanan dengan fungsi homeostasis normal</span></button>
+                <button class="iq-btn" onclick="ansInline('iq-5', 2, false, 'Tidak sesuai dengan pedoman diagnosis standar pada slide.')"><span>C.</span><span>Tidak ada relevansi klinis yang bermakna pada kondisi akut</span></button>
+              </div>
+              <div class="iq-fb" id="iq-5-fb"></div>
+            </div>
+          </div>
+
+          <!-- Right Sticky Slide Stage -->
+          <aside class="slide-stage">
+            <div class="stage-top">
+              <span class="stage-label">Bab 05 · Slide Asli (57–70)</span>
+              <span style="font-size:0.75rem;color:var(--ink-muted);">Klik untuk Zoom</span>
+            </div>
+            <div class="slide-pills" id="pills-ch5">
+              <button class="slide-pill active" onclick="setStage('ch5', 57, 'Slide 57', this)">Slide 57</button><button class="slide-pill" onclick="setStage('ch5', 58, 'Slide 58', this)">Slide 58</button><button class="slide-pill" onclick="setStage('ch5', 59, 'Slide 59', this)">Slide 59</button><button class="slide-pill" onclick="setStage('ch5', 60, 'Slide 60', this)">Slide 60</button><button class="slide-pill" onclick="setStage('ch5', 61, 'Slide 61', this)">Slide 61</button><button class="slide-pill" onclick="setStage('ch5', 62, 'Slide 62', this)">Slide 62</button>
+            </div>
+            <div class="stage-frame" onclick="openZoom(document.getElementById('img-ch5').src)">
+              <img id="img-ch5" src="slides_6_bmd_kul_14_inflamasi_nik/slide_57.jpg" alt="Slide Bab 5">
+            </div>
+            <div class="stage-caption">
+              <span id="cap-ch5">Slide 57</span>
+              <span style="color:var(--navy);font-weight:700;">Perbesar ↗</span>
+            </div>
+          </aside>
+        </section>
+        
+        <section class="split-chapter" id="bab-6">
+          <div class="narrative-panel">
+            <div class="ch-kicker-row">
+              <span class="ch-kicker">Bab 06 · Slide 71 s.d. 73</span>
+              <span class="meta-pill pill-uab">Inti UAB 6 (BMD)</span>
+            </div>
+            <h2 class="ch-title">Regenerasi Regenerasi terjadi melalui proliferasi residu</h2>
+            
+            <div class="peer-talk">
+              <p>Pada bagian ini, <b>dr. NIK</b> membahas transisi penting antara slide 71 sampai 73. Perhatikan alur logisnya pada slide asli di sebelah kanan:</p>
+            </div>
+
+            <div class="concept-box" style="margin: 18px 0;">
+              <h4>Poin Kunci &amp; Fakta Laboratorium (Gunakan Mode Uji Ingatan M)</h4>
+              <ul>
+                <li><b>Slide 71:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">Regenerasi • Regenerasi terjadi melalui proliferasi sel residu (tidak kena jejas) yang tetap mempunyai kapasitas untuk membelah dan bisa berasal dari sel punca • Respons khas terhadap jejas pada epitel yang membelah dengan cepat di kulit dan usus dan beberapa organ parenkim, yaitu hati Pembentukan jaringan parut Apabila jaringan cedera tidak mampu melakukan regenerasi, atau jaringan penunjang mengalami kerusakan berat, pemulihan jaringan terjadi dengan pengendapan jaringan ikat (fibrotik), suatu proses yang menghasilkan jaringan parut → Fibrosis Walaupun jaringan parut tidak dapat melakukan fungsi sel parenkim yang telah hilang, tetapi dapat memberikan stabilitas struktur semula Biasa terjadi di paru, hati, ginjal, dan organ lain sebagai akibat radang kronik, atau di miokardium setelah nekrosis ekstensif (infark)</span></li>
+              </ul>
+            </div>
+
+            <div class="callout trap">
+              <div class="callout-title">⚠️ Jebakan Soal UAB dr. NIK</div>
+              Dosen sering kali menguji pemahaman dengan memutarbalikkan pernyataan sebab-akibat dari slide 71. Jangan hanya menghafal teksnya; pahami mengapa proses ini terjadi di jaringan tubuh.
+            </div>
+
+            <!-- Inline Quiz Bab -->
+            <div class="inline-quiz" id="iq-6">
+              <div class="iq-kicker">🎯 Cek Paham Bab 06</div>
+              <div class="iq-stem">Berdasarkan pembahasan pada Slide 71, manakah pernyataan klinis yang paling tepat mengenai topik ini?</div>
+              <div class="iq-opts">
+                <button class="iq-btn" onclick="ansInline('iq-6', 0, true, 'Tepat! Sesuai dengan materi yang tertera pada Slide 71.')"><span>A.</span><span>Regenerasi • Regenerasi terjadi melalui proliferasi sel residu (tidak kena jejas) yang tetap mempunyai kapasitas untuk m</span></button>
+                <button class="iq-btn" onclick="ansInline('iq-6', 1, false, 'Pernyataan ini terbalik dari mekanisme fisiologis yang sebenarnya.')"><span>B.</span><span>Mekanisme ini berlangsung berlawanan dengan fungsi homeostasis normal</span></button>
+                <button class="iq-btn" onclick="ansInline('iq-6', 2, false, 'Tidak sesuai dengan pedoman diagnosis standar pada slide.')"><span>C.</span><span>Tidak ada relevansi klinis yang bermakna pada kondisi akut</span></button>
+              </div>
+              <div class="iq-fb" id="iq-6-fb"></div>
+            </div>
+          </div>
+
+          <!-- Right Sticky Slide Stage -->
+          <aside class="slide-stage">
+            <div class="stage-top">
+              <span class="stage-label">Bab 06 · Slide Asli (71–73)</span>
+              <span style="font-size:0.75rem;color:var(--ink-muted);">Klik untuk Zoom</span>
+            </div>
+            <div class="slide-pills" id="pills-ch6">
+              <button class="slide-pill active" onclick="setStage('ch6', 71, 'Slide 71', this)">Slide 71</button><button class="slide-pill" onclick="setStage('ch6', 72, 'Slide 72', this)">Slide 72</button><button class="slide-pill" onclick="setStage('ch6', 73, 'Slide 73', this)">Slide 73</button>
+            </div>
+            <div class="stage-frame" onclick="openZoom(document.getElementById('img-ch6').src)">
+              <img id="img-ch6" src="slides_6_bmd_kul_14_inflamasi_nik/slide_71.jpg" alt="Slide Bab 6">
+            </div>
+            <div class="stage-caption">
+              <span id="cap-ch6">Slide 71</span>
+              <span style="color:var(--navy);font-weight:700;">Perbesar ↗</span>
+            </div>
+          </aside>
+        </section>
+        
+  </main>
+
+  <div id="lightbox" class="lightbox" onclick="closeZoom()">
+    <img id="lightbox-img" src="" alt="Slide Zoom" onclick="event.stopPropagation()">
+  </div>
+
+  <script>
+    function setStage(chId, slideNum, caption, btn) {
+      document.getElementById('img-' + chId).src = 'slides_6_bmd_kul_14_inflamasi_nik/slide_' + slideNum + '.jpg';
+      document.getElementById('cap-' + chId).textContent = caption;
+      const wrap = document.getElementById('pills-' + chId);
+      wrap.querySelectorAll('.slide-pill').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+
+    const inlineAnswered = {};
+    function ansInline(id, idx, isRight, reason) {
+      if (inlineAnswered[id]) return;
+      inlineAnswered[id] = true;
+      const wrap = document.getElementById(id);
+      wrap.querySelectorAll('.iq-btn').forEach((b, i) => {
+        if (i === idx) b.classList.add(isRight ? 'is-correct' : 'is-wrong');
+      });
+      const fb = document.getElementById(id + '-fb');
+      fb.className = 'iq-fb show ' + (isRight ? 'ok' : 'no');
+      fb.innerHTML = (isRight ? '<strong>✅ Benar!</strong> ' : '<strong>❌ Kurang Tepat.</strong> ') + reason;
+    }
+
+    let clozeOn = false;
+    function toggleCloze() {
+      clozeOn = !clozeOn;
+      document.body.classList.toggle('cloze-active', clozeOn);
+      document.getElementById('cloze-btn').classList.toggle('active', clozeOn);
+      document.getElementById('cloze-state').textContent = clozeOn ? 'ON' : 'OFF';
+      if (clozeOn) document.querySelectorAll('.cloze-mask').forEach(e => e.classList.remove('revealed'));
+    }
+
+    function toggleTheme() {
+      const root = document.documentElement;
+      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      document.getElementById('theme-label').textContent = next === 'dark' ? '☀️ Mode Kertas' : '🌙 Mode Malam';
+      try { localStorage.setItem('vx_theme_6_bmd_kul_14_inflamasi_nik', next); } catch(e) {}
+    }
+
+    function openZoom(src) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox').classList.add('open');
+    }
+    function closeZoom() {
+      document.getElementById('lightbox').classList.remove('open');
+    }
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeZoom();
+      if (['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement.tagName)) return;
+      if (e.key.toLowerCase() === 'm') toggleCloze();
+      if (e.key.toLowerCase() === 'd') toggleTheme();
+    });
+
+    function stepStage(chId, dir) {
+      const wrap = document.getElementById('pills-' + chId);
+      if (!wrap) return;
+      const pills = [...wrap.querySelectorAll('.slide-pill')];
+      if (pills.length < 2) return;
+      const idx = pills.findIndex(b => b.classList.contains('active'));
+      const nextIdx = (idx + dir + pills.length) % pills.length;
+      pills[nextIdx].click();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.slide-stage').forEach(stage => {
+        const pillsWrap = stage.querySelector('.slide-pills');
+        if (!pillsWrap) return;
+        const chId = pillsWrap.id.replace('pills-', '');
+        const count = pillsWrap.querySelectorAll('.slide-pill').length;
+        const top = stage.querySelector('.stage-top');
+        if (top && count > 1) {
+          const nav = document.createElement('div');
+          nav.className = 'stage-nav-arrows';
+          nav.innerHTML = `<button type="button" class="stage-arrow-btn" title="Slide sebelumnya" onclick="stepStage('${chId}', -1)">‹</button><button type="button" class="stage-arrow-btn" title="Slide berikutnya" onclick="stepStage('${chId}', 1)">›</button>`;
+          top.appendChild(nav);
+        }
+      });
+
+      const chapters = [...document.querySelectorAll('.split-chapter')];
+      const navLinks = [...document.querySelectorAll('.ch-jump')];
+      window.addEventListener('scroll', () => {
+        const doc = document.documentElement;
+        const pct = (doc.scrollTop / Math.max(1, doc.scrollHeight - doc.clientHeight)) * 100;
+        const bar = document.getElementById('scroll-bar');
+        if (bar) bar.style.width = pct + '%';
+
+        let currentId = 'bab-1';
+        for (const sec of chapters) {
+          if (sec.getBoundingClientRect().top <= 160) currentId = sec.id;
+        }
+        navLinks.forEach(a => {
+          a.classList.toggle('active', a.getAttribute('href') === '#' + currentId);
+        });
+      }, { passive: true });
+
+      try {
+        const saved = localStorage.getItem('vx_theme_6_bmd_kul_14_inflamasi_nik');
+        if (saved === 'dark') toggleTheme();
+      } catch(e) {}
+    });
+  </script>
+</body>
+</html>

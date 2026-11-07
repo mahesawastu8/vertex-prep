@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KUL 3 HISTOLOGI SISTEM INDERA (NIK) · Split-Screen Mastery 5 (BMS 4)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #FAF8F5;
+      --surface: #FFFFFF;
+      --surface-subtle: #F2EFE9;
+      --surface-card: #FDFCFA;
+      --border: #E5E0D5;
+      --border-strong: #C9C2B2;
+
+      --ink: #161719;
+      --ink-secondary: #4A4D52;
+      --ink-muted: #7C8087;
+
+      --sage: #1E6B47;
+      --sage-soft: #EBF5F0;
+      --sage-border: #BCDCCB;
+
+      --coral: #B93822;
+      --coral-soft: #FBEFEA;
+      --coral-border: #F2C6BC;
+
+      --ochre: #9E5E10;
+      --ochre-soft: #FDF4E7;
+      --ochre-border: #F3D5A8;
+
+      --navy: #1B3B6F;
+      --navy-soft: #EDF3FA;
+      --navy-border: #C2D6EE;
+
+      --shadow-sm: 0 2px 8px rgba(22, 23, 25, 0.04);
+      --shadow-md: 0 10px 28px -4px rgba(22, 23, 25, 0.07);
+      --shadow-lg: 0 24px 52px -10px rgba(22, 23, 25, 0.16);
+
+      --r-sm: 8px;
+      --r-md: 14px;
+      --r-lg: 20px;
+      --r-full: 9999px;
+
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-serif: 'Newsreader', Georgia, serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    html[data-theme="dark"] {
+      --bg: #131517;
+      --surface: #1B1E21;
+      --surface-subtle: #23272B;
+      --surface-card: #1F2327;
+      --border: #2D3238;
+      --border-strong: #434A52;
+
+      --ink: #ECEAE4;
+      --ink-secondary: #B4B8BF;
+      --ink-muted: #7E848D;
+
+      --sage: #4CC38A;
+      --sage-soft: rgba(76, 195, 138, 0.13);
+      --sage-border: rgba(76, 195, 138, 0.35);
+
+      --coral: #F2745F;
+      --coral-soft: rgba(242, 116, 95, 0.13);
+      --coral-border: rgba(242, 116, 95, 0.35);
+
+      --ochre: #F0B15B;
+      --ochre-soft: rgba(240, 177, 91, 0.12);
+      --ochre-border: rgba(240, 177, 91, 0.32);
+
+      --navy: #7CB3F5;
+      --navy-soft: rgba(124, 179, 245, 0.13);
+      --navy-border: rgba(124, 179, 245, 0.32);
+
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.25);
+      --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.38);
+      --shadow-lg: 0 28px 60px rgba(0, 0, 0, 0.55);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+      transition: background 0.25s ease, color 0.25s ease;
+      padding-bottom: 120px;
+    }
+
+    ::selection { background: var(--sage-soft); color: var(--sage); }
+
+    .scroll-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--sage), var(--navy));
+      z-index: 300;
+      transition: width 0.1s ease-out;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: color-mix(in srgb, var(--bg) 92%, transparent);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 24px;
+    }
+    .topbar-inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex: none;
+    }
+    .brand-badge {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 700;
+      background: var(--navy);
+      color: #fff;
+      padding: 4px 9px;
+      border-radius: var(--r-sm);
+      letter-spacing: 0.04em;
+    }
+    .brand-title {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .chapter-strip {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding: 2px;
+    }
+    .chapter-strip::-webkit-scrollbar { display: none; }
+    .ch-jump {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--ink-secondary);
+      text-decoration: none;
+      padding: 6px 11px;
+      border-radius: var(--r-full);
+      white-space: nowrap;
+      transition: all 0.15s ease;
+    }
+    .ch-jump:hover { background: var(--surface-subtle); color: var(--ink); }
+    .ch-jump.active { background: var(--ink); color: var(--bg); }
+
+    .tool-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex: none;
+    }
+    .tool-btn {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--ink-secondary);
+      font-family: var(--font-sans);
+      font-size: 0.79rem;
+      font-weight: 600;
+      padding: 6px 13px;
+      border-radius: var(--r-full);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      transition: all 0.18s ease;
+      white-space: nowrap;
+    }
+    .tool-btn:hover { border-color: var(--border-strong); color: var(--ink); }
+    .tool-btn.active { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+    .state-pill {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      padding: 1px 6px;
+      border-radius: 4px;
+      background: var(--surface-subtle);
+      color: var(--ink);
+    }
+    .tool-btn.active .state-pill { background: var(--sage); color: #fff; }
+    .btn-anki {
+      background: var(--sage);
+      color: #FFFFFF !important;
+      font-size: 0.79rem;
+      font-weight: 700;
+      padding: 7px 14px;
+      border-radius: var(--r-full);
+      text-decoration: none;
+      white-space: nowrap;
+      transition: opacity 0.15s ease;
+    }
+    .btn-anki:hover { opacity: 0.9; }
+
+    .page-wrap {
+      max-width: 1340px;
+      margin: 0 auto;
+      padding: 32px 24px 0;
+    }
+
+    .hook-hero {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 36px 40px;
+      margin-bottom: 36px;
+      box-shadow: var(--shadow-md);
+    }
+    .hook-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+    .meta-pill {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: var(--r-full);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .pill-skdi { background: var(--sage-soft); color: var(--sage); border: 1px solid var(--sage-border); }
+    .pill-uab { background: var(--coral-soft); color: var(--coral); border: 1px solid var(--coral-border); }
+    .pill-slides { background: var(--navy-soft); color: var(--navy); border: 1px solid var(--navy-border); }
+
+    .hook-headline {
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      font-weight: 600;
+      line-height: 1.22;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+    }
+    .hook-lead {
+      font-size: 1.05rem;
+      color: var(--ink-secondary);
+      max-width: 960px;
+      margin-bottom: 24px;
+    }
+
+    /* SPLIT-SCREEN LAYOUT */
+    .split-chapter {
+      display: grid;
+      grid-template-columns: 1fr 480px;
+      gap: 32px;
+      align-items: start;
+      margin-bottom: 52px;
+      scroll-margin-top: 84px;
+    }
+    .narrative-panel {
+      grid-column: 1;
+      grid-row: 1;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 36px 42px;
+      box-shadow: var(--shadow-sm);
+    }
+    .slide-stage {
+      grid-column: 2;
+      grid-row: 1;
+      position: sticky;
+      top: 78px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 18px;
+      box-shadow: var(--shadow-md);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .slide-stage:hover {
+      border-color: var(--border-strong);
+      box-shadow: var(--shadow-lg);
+    }
+    .stage-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .stage-label {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: var(--sage);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .stage-nav-arrows {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .stage-arrow-btn {
+      border: 1px solid var(--border);
+      background: var(--surface-subtle);
+      color: var(--ink-secondary);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      width: 26px;
+      height: 26px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-grid;
+      place-items: center;
+      transition: all 0.15s ease;
+    }
+    .stage-arrow-btn:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+
+    .slide-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-bottom: 12px;
+    }
+    .slide-pill {
+      border: 1px solid var(--border);
+      background: var(--surface-subtle);
+      color: var(--ink-secondary);
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: var(--r-full);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .slide-pill:hover { border-color: var(--border-strong); color: var(--ink); }
+    .slide-pill.active { background: var(--navy); color: #FFFFFF; border-color: var(--navy); }
+    .stage-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #fff;
+      border-radius: var(--r-md);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      cursor: zoom-in;
+    }
+    .stage-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #fff;
+      display: block;
+    }
+    .stage-caption {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: var(--ink-muted);
+      margin-top: 10px;
+      padding: 0 4px;
+    }
+
+    .ch-kicker-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .ch-kicker {
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--navy);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .ch-title {
+      font-family: var(--font-serif);
+      font-size: 1.95rem;
+      font-weight: 600;
+      line-height: 1.25;
+      color: var(--ink);
+      margin-bottom: 16px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+    }
+    .peer-talk { font-size: 1rem; color: var(--ink); margin-bottom: 18px; }
+    .peer-talk p { margin-bottom: 14px; }
+
+    .concept-box {
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 16px 18px;
+    }
+    .concept-box h4 {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--ink-muted);
+      margin-bottom: 8px;
+    }
+    .concept-box ul { padding-left: 18px; font-size: 0.93rem; line-height: 1.6; color: var(--ink); }
+    .concept-box li { margin-bottom: 6px; }
+
+    .callout {
+      border-radius: var(--r-md);
+      padding: 16px 20px;
+      margin: 16px 0;
+      font-size: 0.94rem;
+      line-height: 1.65;
+    }
+    .callout-title {
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 5px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .callout.trap { background: var(--coral-soft); border: 1px solid var(--coral-border); }
+    .callout.trap .callout-title { color: var(--coral); }
+
+    /* INLINE QUIZ */
+    .inline-quiz {
+      margin-top: 24px;
+      padding-top: 22px;
+      border-top: 2px dashed var(--border);
+    }
+    .iq-kicker {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: var(--sage);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+    }
+    .iq-stem { font-size: 0.98rem; font-weight: 600; color: var(--ink); line-height: 1.6; margin-bottom: 12px; }
+    .iq-opts { display: flex; flex-direction: column; gap: 8px; }
+    .iq-btn {
+      padding: 11px 15px;
+      border-radius: var(--r-sm);
+      border: 1px solid var(--border);
+      background: var(--surface-card);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      font-size: 0.91rem;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      transition: all 0.15s ease;
+    }
+    .iq-btn:hover { border-color: var(--border-strong); background: var(--surface-subtle); }
+    .iq-btn.is-correct { background: var(--sage-soft) !important; border-color: var(--sage) !important; color: var(--sage) !important; font-weight: 700; }
+    .iq-btn.is-wrong { background: var(--coral-soft) !important; border-color: var(--coral) !important; color: var(--coral) !important; }
+    .iq-fb {
+      margin-top: 12px;
+      padding: 14px 16px;
+      border-radius: var(--r-sm);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      display: none;
+    }
+    .iq-fb.show { display: block; }
+    .iq-fb.ok { background: var(--sage-soft); border: 1px solid var(--sage-border); color: var(--ink); }
+    .iq-fb.no { background: var(--coral-soft); border: 1px solid var(--coral-border); color: var(--ink); }
+
+    /* CLOZE MASKING */
+    body.cloze-active .cloze-mask {
+      background: var(--border-strong) !important;
+      color: transparent !important;
+      border-radius: 5px;
+      padding: 1px 7px;
+      cursor: pointer;
+      user-select: none;
+      display: inline-block;
+      transition: all 0.15s ease;
+    }
+    body.cloze-active .cloze-mask.revealed {
+      background: var(--sage-soft) !important;
+      color: var(--sage) !important;
+      font-weight: 700;
+      border: 1px solid var(--sage-border);
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(12, 13, 15, 0.86);
+      backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img { max-width: 94%; max-height: 90vh; border-radius: var(--r-md); box-shadow: var(--shadow-lg); }
+
+    @media (max-width: 1020px) {
+      .split-chapter { grid-template-columns: 1fr; }
+      .narrative-panel { grid-column: 1; grid-row: 1; padding: 24px 20px; }
+      .slide-stage { grid-column: 1; grid-row: 2; position: static; }
+      .chapter-strip { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="scroll-bar" id="scroll-bar"></div>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand-group">
+        <span class="brand-badge">5 (BMS 4)</span>
+        <span class="brand-title">KUL 3 HISTOLOGI SISTEM INDERA (NIK)</span>
+      </div>
+
+      <nav class="chapter-strip" aria-label="Lompat ke Bab">
+        <a href="#bab-1" class="ch-jump active">1. Histologi Sistem P...</a><a href="#bab-2" class="ch-jump">2. Topik Bagian 2...</a><a href="#bab-3" class="ch-jump">3. Retina EPITEL PIGM...</a><a href="#bab-4" class="ch-jump">4. Topik Bagian 4...</a><a href="#bab-5" class="ch-jump">5. LABIRIN MEMBRANOSA...</a><a href="#bab-6" class="ch-jump">6. Topik Bagian 6...</a>
+      </nav>
+
+      <div class="tool-group">
+        <button type="button" id="cloze-btn" class="tool-btn" onclick="toggleCloze()" title="Shortcut tombol M">
+          <span>🧠 Uji Ingatan</span>
+          <span class="state-pill" id="cloze-state">OFF</span>
+        </button>
+        <button type="button" id="theme-btn" class="tool-btn" onclick="toggleTheme()" title="Shortcut tombol D">
+          <span id="theme-label">🌙 Mode Malam</span>
+        </button>
+        <a href="anki/VERTEX_5_bms_4_kul_3_histologi_sistem_indera_nik.apkg" class="btn-anki" download>⬇ Anki</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-wrap">
+    <section class="hook-hero">
+      <div class="hook-meta-row">
+        <span class="meta-pill pill-skdi">5 (BMS 4) · Materi Kuliah Pakar</span>
+        <span class="meta-pill pill-uab">Narasumber: dr. NIK</span>
+        <span class="meta-pill pill-slides">91 Slide Lengkap</span>
+      </div>
+      <h1 class="hook-headline">Kuasai 91 Slide KUL 3 HISTOLOGI SISTEM INDERA (NIK) Tanpa Buka PPT Sekalipun.</h1>
+      <p class="hook-lead">
+        Seluruh materi kuliah ini telah diperas menjadi <strong>6 Bab Split-Screen Interaktif</strong>: penjelasan mengalir di sebelah kiri dengan bahasa teman yang mudah dipahami, sementara slide asli dosen menempel di sebelah kanan secara sinkron untuk memastikan <strong>100% materi tercover tanpa ada yang terlewat</strong>.
+      </p>
+    </section>
+
+    
+        <section class="split-chapter" id="bab-1">
+          <div class="narrative-panel">
+            <div class="ch-kicker-row">
+              <span class="ch-kicker">Bab 01 · Slide 1 s.d. 18</span>
+              <span class="meta-pill pill-uab">Inti UAB 5 (BMS 4)</span>
+            </div>
+            <h2 class="ch-title">Histologi Sistem Penginderaan drg. Anik Listiyana,</h2>
+            
+            <div class="peer-talk">
+              <p>Pada bagian ini, <b>dr. NIK</b> membahas transisi penting antara slide 1 sampai 18. Perhatikan alur logisnya pada slide asli di sebelah kanan:</p>
+            </div>
+
+            <div class="concept-box" style="margin: 18px 0;">
+              <h4>Poin Kunci &amp; Fakta Laboratorium (Gunakan Mode Uji Ingatan M)</h4>
+              <ul>
+                <li><b>Slide 1:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">Histologi Sistem Penginderaan Dr</span></li><li><b>Slide 3:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">Organ fotosensitif yang kompleks Menganalisis dengan cermat tentang : ✓ Bentuk ✓ Intensitas cahaya ✓ Warna yang dipantulkan objek Lokasinya terletak dalam rongga orbita Organ berbentuk bola (sferis) Digerakkan oleh otot penggerak bola mata</span></li><li><b>Slide 4:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">Embriogenesis Mata berkembang dari 3 sumber yang berbeda pada minggu ke 4 selama masa perkembangan embrio Pertumbuhan otak depan (forebrain) ke arah luar ✓ cikal bakal retina ✓ nervus optikus Ektoderm permukaan diinduksi untuk berkembang menjadi lensa dan beberapa stuktur tambahan yang terletak dibagian anterior mata Mesenkim yang terdapat disekitarnya memadat membentuk tunika dan struktur-struktur yang berhubungan dengan bola mata</span></li><li><b>Slide 6:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">Struktur dinding bola mata terdiri atas tiga lapisan: Tunika fibrosa yang terdiri atas kornea dan sklera Tunika vaskulosa, terdiri atas koroid, korpus siliaris dan iris Tunika nervosa yang disusun oleh retina</span></li>
+              </ul>
+            </div>
+
+            <div class="callout trap">
+              <div class="callout-title">⚠️ Jebakan Soal UAB dr. NIK</div>
+              Dosen sering kali menguji pemahaman dengan memutarbalikkan pernyataan sebab-akibat dari slide 1. Jangan hanya menghafal teksnya; pahami mengapa proses ini terjadi di jaringan tubuh.
+            </div>
+
+            <!-- Inline Quiz Bab -->
+            <div class="inline-quiz" id="iq-1">
+              <div class="iq-kicker">🎯 Cek Paham Bab 01</div>
+              <div class="iq-stem">Berdasarkan pembahasan pada Slide 1, manakah pernyataan klinis yang paling tepat mengenai topik ini?</div>
+              <div class="iq-opts">
+                <button class="iq-btn" onclick="ansInline('iq-1', 0, true, 'Tepat! Sesuai dengan materi yang tertera pada Slide 1.')"><span>A.</span><span>Histologi Sistem Penginderaan Dr</span></button>
+                <button class="iq-btn" onclick="ansInline('iq-1', 1, false, 'Pernyataan ini terbalik dari mekanisme fisiologis yang sebenarnya.')"><span>B.</span><span>Mekanisme ini berlangsung berlawanan dengan fungsi homeostasis normal</span></button>
+                <button class="iq-btn" onclick="ansInline('iq-1', 2, false, 'Tidak sesuai dengan pedoman diagnosis standar pada slide.')"><span>C.</span><span>Tidak ada relevansi klinis yang bermakna pada kondisi akut</span></button>
+              </div>
+              <div class="iq-fb" id="iq-1-fb"></div>
+            </div>
+          </div>
+
+          <!-- Right Sticky Slide Stage -->
+          <aside class="slide-stage">
+            <div class="stage-top">
+              <span class="stage-label">Bab 01 · Slide Asli (1–18)</span>
+              <span style="font-size:0.75rem;color:var(--ink-muted);">Klik untuk Zoom</span>
+            </div>
+            <div class="slide-pills" id="pills-ch1">
+              <button class="slide-pill active" onclick="setStage('ch1', 1, 'Slide 1', this)">Slide 1</button><button class="slide-pill" onclick="setStage('ch1', 2, 'Slide 2', this)">Slide 2</button><button class="slide-pill" onclick="setStage('ch1', 3, 'Slide 3', this)">Slide 3</button><button class="slide-pill" onclick="setStage('ch1', 4, 'Slide 4', this)">Slide 4</button><button class="slide-pill" onclick="setStage('ch1', 5, 'Slide 5', this)">Slide 5</button><button class="slide-pill" onclick="setStage('ch1', 6, 'Slide 6', this)">Slide 6</button>
+            </div>
+            <div class="stage-frame" onclick="openZoom(document.getElementById('img-ch1').src)">
+              <img id="img-ch1" src="slides_5_bms_4_kul_3_histologi_sistem_indera_nik/slide_1.jpg" alt="Slide Bab 1">
+            </div>
+            <div class="stage-caption">
+              <span id="cap-ch1">Slide 1</span>
+              <span style="color:var(--navy);font-weight:700;">Perbesar ↗</span>
+            </div>
+          </aside>
+        </section>
+        
+        <section class="split-chapter" id="bab-2">
+          <div class="narrative-panel">
+            <div class="ch-kicker-row">
+              <span class="ch-kicker">Bab 02 · Slide 19 s.d. 36</span>
+              <span class="meta-pill pill-uab">Inti UAB 5 (BMS 4)</span>
+            </div>
+            <h2 class="ch-title">Topik Bagian 2</h2>
+            
+            <div class="peer-talk">
+              <p>Pada bagian ini, <b>dr. NIK</b> membahas transisi penting antara slide 19 sampai 36. Perhatikan alur logisnya pada slide asli di sebelah kanan:</p>
+            </div>
+
+            <div class="concept-box" style="margin: 18px 0;">
+              <h4>Poin Kunci &amp; Fakta Laboratorium (Gunakan Mode Uji Ingatan M)</h4>
+              <ul>
+                <li><b>Slide 20:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">Korpus Siliaris  merupakan perluasan koroid melingkari dinding dalam bola mata setingkat dengan lensa  ruang antara ora serata retina dan iris  Sisi luar korpus siliaris melekatkan ke sklera pada hubungan sklerokornea  pada potongan melintang berbentuk segitiga  Secara Histologi: ▪ Badan siliar disusun oleh jaringan ikat longgar yang mengandung banyak serat elastin, pembuluh darah, dan melanosit yang mengelilingi muskulus siliaris ▪ Pada sisi dalam (permukaan korpus siliaris yang menghadap korpus vitreus , bilik posterior dan lensa) dilapisi oleh bagian siliar retina yaitu lapisan pigmen retina yang terdiri atas 2 lapis sel (epitel selapis silindris tidak berpigmen dan epitel selapis silindris berpigmen) ▪ muskulus siliaris terdiri : 2 berkas otot polos ✓ insersi dianterior pada sklera ✓ insersi posterior pada berbagai daerah dari korpus siliaris ✓ salah satu berkas berfungsi mereganggkan koroid (sehingga membuka kanal Schlemm untuk mengalirkan humor akweus), berkas yang lain bila berkontraksi mengendurkan tegangan lensa (penting untuk akomodasi visual)</span></li><li><b>Slide 21:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">PROSESUS SILIARIS  Juluran menonjol dari korpus siliaris  pusatnya pada jaringan ikat longgar & banyak kapiler bertingkap  Muncul serat-serat yang tertanam kedalam simplai dari lensa dan menahannya (serat oksitalan)  ditutupi 2 lapisan epitel (berpigmen dan tak berpigmen)  Sel-sel tersebut bertemu kepala dengan kepala (disatukan oleh desmosome dan taut kedap)  Membran basal sel berpigmen bersebelahan dengan massa utama korpus siliaris  Membran basal sel tanpa pigmen bersebelahan dengan bilik posterior  Pada membran basal bermula serat-serat zonula  Sel tanpa pigmen memiliki lipatan lipatan basal dan interdigitasi luas (khas untuk sel pentranspor ion)  Sel ini secara aktif mentranpor unsur plasma ke bilik posterior (membentuk Humor akweus)  Humor akweus mengalir dari bilik mata belakang ke dalam bilik mata depan melalui celah pupil antara iris dan lensa dan keluar dari bilik mata depan melintasi jejaring trabekular dekat limbus dan akhirnya masuk kedalam kanal Schlemm, yang akan membawanya masuk kedalam sistem vena sistemik  Humor akweus memberikan nutrisi dan oksigen untuk lensa dan kornea</span></li><li><b>Slide 25:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">Iris  perluasan koroid → antara bilik mata depan dan belakang, menutupi lensa kecuali di pupil  permukaan anterior iris ▪ Tidak teratur dan kasar ▪ Mengandung sel-sel pigmen yang tidak utuh dan fibroblas ▪ Struktur bawahnya ditemui jaringan ikat ,sedikit pembuluh darah , serat, fibroblast dan melanosit dan lapisan berikutnya adalah jaringan ikat longgar yang sangat vaskular (stroma)  permukaan posterior iris ▪ rata dilapisi 2 lapis epitel ▪ Permukaan yang menghadap ke lensa disusun oleh banyak sel-sel pigmen yang menghalangi cahaya melintas melalui iris kecuali melalui pupil ▪ Sel-sel epitel yang berhadapan dengan stroma iris meluas membentuk otot-otot dilatator pupil (mioepitel) ▪ Otot yang lain, otot sfingter pupil</span></li><li><b>Slide 27:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')"> Sejumlah melanosit pada epitel dan stroma iris tidak hanya menghalangi melintasnya cahaya ke dalam mata (kecuali pada pupil) tetapi juga menyebabkan mata menjadi bewarna  Mata tampak hitam bila populasi melanosit banyak dan sebaliknya</span></li>
+              </ul>
+            </div>
+
+            <div class="callout trap">
+              <div class="callout-title">⚠️ Jebakan Soal UAB dr. NIK</div>
+              Dosen sering kali menguji pemahaman dengan memutarbalikkan pernyataan sebab-akibat dari slide 19. Jangan hanya menghafal teksnya; pahami mengapa proses ini terjadi di jaringan tubuh.
+            </div>
+
+            <!-- Inline Quiz Bab -->
+            <div class="inline-quiz" id="iq-2">
+              <div class="iq-kicker">🎯 Cek Paham Bab 02</div>
+              <div class="iq-stem">Berdasarkan pembahasan pada Slide 20, manakah pernyataan klinis yang paling tepat mengenai topik ini?</div>
+              <div class="iq-opts">
+                <button class="iq-btn" onclick="ansInline('iq-2', 0, true, 'Tepat! Sesuai dengan materi yang tertera pada Slide 20.')"><span>A.</span><span>Korpus Siliaris  merupakan perluasan koroid melingkari dinding dalam bola mata setingkat dengan lensa  ruang antara or</span></button>
+                <button class="iq-btn" onclick="ansInline('iq-2', 1, false, 'Pernyataan ini terbalik dari mekanisme fisiologis yang sebenarnya.')"><span>B.</span><span>Mekanisme ini berlangsung berlawanan dengan fungsi homeostasis normal</span></button>
+                <button class="iq-btn" onclick="ansInline('iq-2', 2, false, 'Tidak sesuai dengan pedoman diagnosis standar pada slide.')"><span>C.</span><span>Tidak ada relevansi klinis yang bermakna pada kondisi akut</span></button>
+              </div>
+              <div class="iq-fb" id="iq-2-fb"></div>
+            </div>
+          </div>
+
+          <!-- Right Sticky Slide Stage -->
+          <aside class="slide-stage">
+            <div class="stage-top">
+              <span class="stage-label">Bab 02 · Slide Asli (19–36)</span>
+              <span style="font-size:0.75rem;color:var(--ink-muted);">Klik untuk Zoom</span>
+            </div>
+            <div class="slide-pills" id="pills-ch2">
+              <button class="slide-pill active" onclick="setStage('ch2', 19, 'Slide 19', this)">Slide 19</button><button class="slide-pill" onclick="setStage('ch2', 20, 'Slide 20', this)">Slide 20</button><button class="slide-pill" onclick="setStage('ch2', 21, 'Slide 21', this)">Slide 21</button><button class="slide-pill" onclick="setStage('ch2', 22, 'Slide 22', this)">Slide 22</button><button class="slide-pill" onclick="setStage('ch2', 23, 'Slide 23', this)">Slide 23</button><button class="slide-pill" onclick="setStage('ch2', 24, 'Slide 24', this)">Slide 24</button>
+            </div>
+            <div class="stage-frame" onclick="openZoom(document.getElementById('img-ch2').src)">
+              <img id="img-ch2" src="slides_5_bms_4_kul_3_histologi_sistem_indera_nik/slide_19.jpg" alt="Slide Bab 2">
+            </div>
+            <div class="stage-caption">
+              <span id="cap-ch2">Slide 19</span>
+              <span style="color:var(--navy);font-weight:700;">Perbesar ↗</span>
+            </div>
+          </aside>
+        </section>
+        
+        <section class="split-chapter" id="bab-3">
+          <div class="narrative-panel">
+            <div class="ch-kicker-row">
+              <span class="ch-kicker">Bab 03 · Slide 37 s.d. 54</span>
+              <span class="meta-pill pill-uab">Inti UAB 5 (BMS 4)</span>
+            </div>
+            <h2 class="ch-title">Retina EPITEL PIGMEN disusun oleh sel-sel</h2>
+            
+            <div class="peer-talk">
+              <p>Pada bagian ini, <b>dr. NIK</b> membahas transisi penting antara slide 37 sampai 54. Perhatikan alur logisnya pada slide asli di sebelah kanan:</p>
+            </div>
+
+            <div class="concept-box" style="margin: 18px 0;">
+              <h4>Poin Kunci &amp; Fakta Laboratorium (Gunakan Mode Uji Ingatan M)</h4>
+              <ul>
+                <li><b>Slide 37:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">Retina EPITEL PIGMEN  disusun oleh sel-sel silindris  inti dibagian dasar  melekat pada membrane Bruch (terletak diantara koroid dan sel-sel pigmen)  sitoplasmanya banyak mengandung mitokondria terutama di daerah yang berbatasan dengan membran Bruch  pada sisi lateral membran yang membentuk sawar darah-retina (membentuk taut desmosom, zonula occluden dan zonula adherens)  gap junction pada sisi lateral membran sel memungkinkan komunikasi interselular  puncak selnya mengandung mikrovili dan mengelilingi serta mengisolasi ujung sel-sel fotoreseptor  gambaran sel pigmen yang sangat khas adalah adanya granula-granula pigmen dalam jumlah sangat banyak pada bagian apikal sel  fungsinya: ✓ menyerap sisa cahaya setelah cahaya melintasi retina dan menstimulus fotoreseptor, sehingga mencegah pantulan cahaya yang dapat mempengaruhi fokus ✓ memfagosit lempeng membran yang sudah tak terpakai dari ujung sel-sel ✓ penimbunan dan pelepasan Vitamin A</span></li><li><b>Slide 38:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">Retina LAPISAN BATANG DAN KERUCUT  bagian optik retina terdapatnya 2 jenis sel fotoreseptor (sel-sel batang dan kerucut)  sel-sel yang mempunyai juluran pada bagian apikalnya (segmen luar → dendrite khusus)  segmen luar dikelilingi oleh sel-sel epitel pigmen  dasar sel-sel batang dan kerucut membentuk sinaps dengan sel-sel bipolar yang terdapat dibawahnya  ada kira-kira 100-120 juta sel-sel batang dan 6 juta sel-sel kerucut  sel-sel batang → reseptor khusus untuk cahaya redup, sel-sel kerucut → reseptor untuk cahaya terang  sel-sel kerucut beradaptasi dengan penglihatan warna, sel-sel batang hanya menerima cahaya redup  terdistribusi secara tidak merata pada retina  sel-sel kerucut banyak terdapat pada fovea, karenanya daerah ini merupakan tempat dengan ketajaman penglihatan yang paling tinggi</span></li><li><b>Slide 39:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">Retina SEL BATANG (Rods)  hanya teraktivasi oleh cahaya redup  tidak dapat memediasi sinyal-sinyal pada cahaya terang dan tidak sensitive terhadap warna  sel-sel panjang paralel satu sama lain  disusun oleh suatu segmen luar, segmen dalam, daerah inti dan daerah sinaps  segmen luar sel batang (ujung dendritnya mempunyai beberapa ratus lamel-lamel membran pipih yang tegak lurus dengan sumbu sel batang)  setiap lamel merepresentasikan suatu invaginasi plasmalema yang terlepas dari permukaan sel sehingga membentuk suatu lempeng (disusun oleh 2 membran yang terpisah oleh celah)  membran-mebran ini mengandung rhodopsin (pigmen yang sensitive terhadap cahaya)  segmen luar sel batang lebih panjang daripada sel kerucut (sehingga mengandung lebih banyak rodopsin, bereaksi lebih lambat dan mempunyai kemampuan untuk mengumpulkan rangsang)  segmen dalam sel batang dipisahkan dari segmen luar oleh suatu penyempitan → tangkai penghubung (muncul pada bagian apikal segmen dalam)  daerah dekat tangkai penghubung mengandung banyak mitokondria dan granul-granula glikogen yang keduanya penting untuk menghasilkan energi yang dibutuhkan proses penglihatan  protein yang dihasilkan pada segmen dalam bermigrasi ke segmen luar → membentuk suatu lempeng  lempeng ini akan bermigrasi kebagian ujung apical segmen luar dan masuk kedalam selubung sel pigmen tempat mereka difagositosis</span></li><li><b>Slide 40:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">Retina SEL KERUCUT (Cones)  diaktivasi cahaya terang dan menghasilkan ketajaman visual yang lebih besar dibandingkan dengan sel batang  ada 3 jenis sel kerucut yang mengandung fotopigmen iodopsin yang berbeda  setiap jenis iodopsin mempunyai sensitivitas yang maksimum untuk satu dari 3 spektrum warna (merah, hijau dan biru)  sel kerucut lebih panjang dan lebih lebar pada daerah fovea sentralis  sama dengan struktur sel batang dengan beberapa pengecualian: ✓ ujung apikalnya berbentuk lebih menyerupai kerucut dibandingkan batang ✓ lempeng kerucut menempel pada membran plasma, tidak seperti lamel pada sel batang yang terpisah dari membran plasma ✓ protein yang dihasilkan pada segmen dalam akan diinsersikan kedalam lempeng melalui keseluruhan segmen luar, sebaliknya pada sel batang protein yang dihasilkan terkonsentrasi pada daerah segmen luar paling distal ✓ tidak seperti sel batang, sel kerucut sensitive terhadap warna dan memberikan ketajaman visual yang lebih besar ✓ daur ulang fotopigmen sel kerucut tidak membutuhkan sel-sel pigmen retina untuk prosesnya</span></li>
+              </ul>
+            </div>
+
+            <div class="callout trap">
+              <div class="callout-title">⚠️ Jebakan Soal UAB dr. NIK</div>
+              Dosen sering kali menguji pemahaman dengan memutarbalikkan pernyataan sebab-akibat dari slide 37. Jangan hanya menghafal teksnya; pahami mengapa proses ini terjadi di jaringan tubuh.
+            </div>
+
+            <!-- Inline Quiz Bab -->
+            <div class="inline-quiz" id="iq-3">
+              <div class="iq-kicker">🎯 Cek Paham Bab 03</div>
+              <div class="iq-stem">Berdasarkan pembahasan pada Slide 37, manakah pernyataan klinis yang paling tepat mengenai topik ini?</div>
+              <div class="iq-opts">
+                <button class="iq-btn" onclick="ansInline('iq-3', 0, true, 'Tepat! Sesuai dengan materi yang tertera pada Slide 37.')"><span>A.</span><span>Retina EPITEL PIGMEN  disusun oleh sel-sel silindris  inti dibagian dasar  melekat pada membrane Bruch (terletak dian</span></button>
+                <button class="iq-btn" onclick="ansInline('iq-3', 1, false, 'Pernyataan ini terbalik dari mekanisme fisiologis yang sebenarnya.')"><span>B.</span><span>Mekanisme ini berlangsung berlawanan dengan fungsi homeostasis normal</span></button>
+                <button class="iq-btn" onclick="ansInline('iq-3', 2, false, 'Tidak sesuai dengan pedoman diagnosis standar pada slide.')"><span>C.</span><span>Tidak ada relevansi klinis yang bermakna pada kondisi akut</span></button>
+              </div>
+              <div class="iq-fb" id="iq-3-fb"></div>
+            </div>
+          </div>
+
+          <!-- Right Sticky Slide Stage -->
+          <aside class="slide-stage">
+            <div class="stage-top">
+              <span class="stage-label">Bab 03 · Slide Asli (37–54)</span>
+              <span style="font-size:0.75rem;color:var(--ink-muted);">Klik untuk Zoom</span>
+            </div>
+            <div class="slide-pills" id="pills-ch3">
+              <button class="slide-pill active" onclick="setStage('ch3', 37, 'Slide 37', this)">Slide 37</button><button class="slide-pill" onclick="setStage('ch3', 38, 'Slide 38', this)">Slide 38</button><button class="slide-pill" onclick="setStage('ch3', 39, 'Slide 39', this)">Slide 39</button><button class="slide-pill" onclick="setStage('ch3', 40, 'Slide 40', this)">Slide 40</button><button class="slide-pill" onclick="setStage('ch3', 41, 'Slide 41', this)">Slide 41</button><button class="slide-pill" onclick="setStage('ch3', 42, 'Slide 42', this)">Slide 42</button>
+            </div>
+            <div class="stage-frame" onclick="openZoom(document.getElementById('img-ch3').src)">
+              <img id="img-ch3" src="slides_5_bms_4_kul_3_histologi_sistem_indera_nik/slide_37.jpg" alt="Slide Bab 3">
+            </div>
+            <div class="stage-caption">
+              <span id="cap-ch3">Slide 37</span>
+              <span style="color:var(--navy);font-weight:700;">Perbesar ↗</span>
+            </div>
+          </aside>
+        </section>
+        
+        <section class="split-chapter" id="bab-4">
+          <div class="narrative-panel">
+            <div class="ch-kicker-row">
+              <span class="ch-kicker">Bab 04 · Slide 55 s.d. 72</span>
+              <span class="meta-pill pill-uab">Inti UAB 5 (BMS 4)</span>
+            </div>
+            <h2 class="ch-title">Topik Bagian 4</h2>
+            
+            <div class="peer-talk">
+              <p>Pada bagian ini, <b>dr. NIK</b> membahas transisi penting antara slide 55 sampai 72. Perhatikan alur logisnya pada slide asli di sebelah kanan:</p>
+            </div>
+
+            <div class="concept-box" style="margin: 18px 0;">
+              <h4>Poin Kunci &amp; Fakta Laboratorium (Gunakan Mode Uji Ingatan M)</h4>
+              <ul>
+                <li><b>Slide 57:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">Apparatus lakrimalis Terdiri atas  kelenjar lakrimalis ✓ kelenjar tubuloalveolar sel sel jenis serosa  kanalikuli lakrimalis ✓ dilapisi epital berlapis squamous  sakus lakrimalis ✓ terletak dalam fosa lakrimalis ✓ epitel bertingkat silindris bersilia  duktus nasolakrimalis ✓ lanjutan kebawah sakus lakrimalis , membuka kedalam meatus inferior lateral terhadap konka inferior ✓ epitel bertingkat silindris bersilia</span></li><li><b>Slide 60:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">Telinga Organ pendengaran dan keseimbangan Anatomis Telinga luar Telinga tengah Telinga dalam Gelombang suara yang diterima oleh telinga luar → diterjemahkan menjadi getaran mekanis oleh membran timpani → kemudian di perkuat oleh tulang-tulang padat di ruang telinga tengah dan diteruskan ke media cair pada telinga dalam (melalui foramen oval) yaitu ✓ruangan labirin tulang yang diisi oleh cairan perilimf ✓mengandung labirin membran ▪ rumah siput / koklea (cochlea) yang bertanggung jawab untuk pendengaran ▪ organ vestibular yang bertanggung jawab untuk pemeliharaan keseimbangan ✓Rangsang sensorik diteruskan ke dalam otak oleh saraf akustik (N</span></li><li><b>Slide 62:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">Telinga Luar Terdiri atas daun telinga, meatus akustikus eksternus, membrane timpani  Daun telinga (Auricular/Pinna) ✓permukaan luar ditutupi kulit tipis ✓subkutis mengandung sedikit otot lurik (rudimenter pada manusia) ✓tulang rawan elastis ✓berfungsi menangkap gelombang suara  Liang telinga luar (meatus akustikus eksternus) ✓saluran yang membentang dari daun telinga ke dalam tulang temporal hingga permukaan luar membran timpani ✓terdiri atas 1/3 luar kerangka kartilago elastis, 2/3 dalam tulang temporal ✓diliputi kulit (mengandung folikel rambut, kelenjar sebasea, kelenjar serumen) → modifikasi kelenjar keringat menghasilkan materi yang mirip lilin (wax) yaitu serume ✓Rambut dan wax yang lengket mencegah masuknya benda asing ke dalam liang telinga</span></li><li><b>Slide 63:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">Telinga Luar  Gendang telinga (membran timpani) ✓ Pembatas liang telinga luar - ruang timpani ✓ Strukturnya epidermis tipis (luar) dengan epitel selapis gepeng atau kuboid (dalam), serat kolagen ✓Berfungsi menerima gelombang suara dan merubahnya menjadi energi mekanik untuk diteruskan ke tulang pendengaran pada telinga tengah  Permukaan luar membrane timpani ditutupi oleh selapis tipis epidermis, sedang permukaan dalam oleh selapis kuboid  Antar kedua epitel → terdapat lapisan jaringan ikat kolagen dan elastis serta fibroblas → pada kuadran atas anterior bersifat lemas dan tranparan (jar</span></li>
+              </ul>
+            </div>
+
+            <div class="callout trap">
+              <div class="callout-title">⚠️ Jebakan Soal UAB dr. NIK</div>
+              Dosen sering kali menguji pemahaman dengan memutarbalikkan pernyataan sebab-akibat dari slide 55. Jangan hanya menghafal teksnya; pahami mengapa proses ini terjadi di jaringan tubuh.
+            </div>
+
+            <!-- Inline Quiz Bab -->
+            <div class="inline-quiz" id="iq-4">
+              <div class="iq-kicker">🎯 Cek Paham Bab 04</div>
+              <div class="iq-stem">Berdasarkan pembahasan pada Slide 57, manakah pernyataan klinis yang paling tepat mengenai topik ini?</div>
+              <div class="iq-opts">
+                <button class="iq-btn" onclick="ansInline('iq-4', 0, true, 'Tepat! Sesuai dengan materi yang tertera pada Slide 57.')"><span>A.</span><span>Apparatus lakrimalis Terdiri atas  kelenjar lakrimalis ✓ kelenjar tubuloalveolar sel sel jenis serosa  kanalikuli lakr</span></button>
+                <button class="iq-btn" onclick="ansInline('iq-4', 1, false, 'Pernyataan ini terbalik dari mekanisme fisiologis yang sebenarnya.')"><span>B.</span><span>Mekanisme ini berlangsung berlawanan dengan fungsi homeostasis normal</span></button>
+                <button class="iq-btn" onclick="ansInline('iq-4', 2, false, 'Tidak sesuai dengan pedoman diagnosis standar pada slide.')"><span>C.</span><span>Tidak ada relevansi klinis yang bermakna pada kondisi akut</span></button>
+              </div>
+              <div class="iq-fb" id="iq-4-fb"></div>
+            </div>
+          </div>
+
+          <!-- Right Sticky Slide Stage -->
+          <aside class="slide-stage">
+            <div class="stage-top">
+              <span class="stage-label">Bab 04 · Slide Asli (55–72)</span>
+              <span style="font-size:0.75rem;color:var(--ink-muted);">Klik untuk Zoom</span>
+            </div>
+            <div class="slide-pills" id="pills-ch4">
+              <button class="slide-pill active" onclick="setStage('ch4', 55, 'Slide 55', this)">Slide 55</button><button class="slide-pill" onclick="setStage('ch4', 56, 'Slide 56', this)">Slide 56</button><button class="slide-pill" onclick="setStage('ch4', 57, 'Slide 57', this)">Slide 57</button><button class="slide-pill" onclick="setStage('ch4', 58, 'Slide 58', this)">Slide 58</button><button class="slide-pill" onclick="setStage('ch4', 59, 'Slide 59', this)">Slide 59</button><button class="slide-pill" onclick="setStage('ch4', 60, 'Slide 60', this)">Slide 60</button>
+            </div>
+            <div class="stage-frame" onclick="openZoom(document.getElementById('img-ch4').src)">
+              <img id="img-ch4" src="slides_5_bms_4_kul_3_histologi_sistem_indera_nik/slide_55.jpg" alt="Slide Bab 4">
+            </div>
+            <div class="stage-caption">
+              <span id="cap-ch4">Slide 55</span>
+              <span style="color:var(--navy);font-weight:700;">Perbesar ↗</span>
+            </div>
+          </aside>
+        </section>
+        
+        <section class="split-chapter" id="bab-5">
+          <div class="narrative-panel">
+            <div class="ch-kicker-row">
+              <span class="ch-kicker">Bab 05 · Slide 73 s.d. 90</span>
+              <span class="meta-pill pill-uab">Inti UAB 5 (BMS 4)</span>
+            </div>
+            <h2 class="ch-title">LABIRIN MEMBRANOSA sakulus utrikulus Serat saraf</h2>
+            
+            <div class="peer-talk">
+              <p>Pada bagian ini, <b>dr. NIK</b> membahas transisi penting antara slide 73 sampai 90. Perhatikan alur logisnya pada slide asli di sebelah kanan:</p>
+            </div>
+
+            <div class="concept-box" style="margin: 18px 0;">
+              <h4>Poin Kunci &amp; Fakta Laboratorium (Gunakan Mode Uji Ingatan M)</h4>
+              <ul>
+                <li><b>Slide 73:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">LABIRIN MEMBRANOSA sakulus dan utrikulus  Serat saraf dari cabang vestivular saraf vestibulokoklear, memasok selsel neuroepitel  Setiap sel rambut tipe I (sel gemuk seperti mangkuk) atau tipe II (lebih silindris) mempunyai kinosilium dan stereosilia, tersusun berbaris semakin meninggi  Sel penyokong pada makula yang terletak antara kedua tipe sel rambut, mempunyai beberapa mikrovili  Stereosilia sel rambut neuroepitel diliputi dan terbenam dalam massa glikoprotein gelatinosa, yaitu membran otolitik (dihasilkan oleh sel penyokong)  Daerah permukaan membran ini mengandung kristal kecil kalsium karbonat yang dikenal sebagai otolit atau otokonia</span></li><li><b>Slide 77:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">LABIRIN MEMBRANOSA Duktus semisirkular  Masing-masing ketiga duktus semisirkular mempunyai bagian yang melembung, yaitu ampula, tempat reseptor khusus (sel rambut neuroepitel) menerima kesan pergerakan linear dengan angular  Ampula berisi krista ampularis, terdiri atas sebuah rigi yang permukaan bebasnya diliputi oleh epitel sensorik yang mengandung sel rambut neuroepitel dan sel penyokong  Sel penyokong berdiri pada lamina basalis, sedangkan sel rambut tidak, sel rambut digendong di antara sel-sel penyokong  Sel neuroepitel (sel rambut tipe I dan II), sama dengan sel rambut makula  Kupula, suatu massa glikoprotein gelatinosa menutupi permukaan krista ampularis, mirip dengan membrana otolitik dalam hal struktur dan fungsi, akan tetapi bentuknya seperti kerucut dan tidak mengandung otolit</span></li><li><b>Slide 79:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">LABIRIN MEMBRANOSA Duktus koklear dan Organ korti  Duktus koklear → lanjutan dari sakulus, merupakan bagian lain dari labirin membranosa, sangat dikhususkan sebagai reseptor suara  Panjangnya ± 35mm dan dikelilingi oleh ruang perilimfatik khusus  Pada sajian histologi, koklea terbagi atas 3 ruang: ✓ Skala vestibuli (atas) ✓ Skala media (duktus koklearis) ✓ Skala timpani (bawah)  Atap skala media (duktus koklear) ialah membran vestibular (Reissneri), sementara lantai skala media ialah membran basilar  Ruang berisi perilimf yang terletak di atas membran vestibular disebut skala vestibuli, sementara ruang perilimf di bawah membran basilar ialah skala timpani  Kedua ruang ini berhubungan melalui helikotrema, dekat apeks koklea</span></li><li><b>Slide 80:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')"> Membran vestibular terdiri atas dua lapis epitel gepeng satu berasal dari duktus koklearis dan yang lain dari pelapis skala vestibuli dengan taut kedap menutup sehingga ikut memelihara gradien ion yang sangat tinggi melintasi membrane  Membran basilar, membentang dari lamina spiralis pada modiolus ke dinding lateral  Dinding lateral duktus koklear, membentang antara membran vestibular dan prominensia spiralis, diliputi oleh epitel bertingkat yang disebut stria vaskularis (berbeda dari epitel lainnya, di sini ditemukan pleksus kapiler intraepitel)  Stria vaskularis terdiri atas tiga tipe sel (sel basal, intermedia, dan marginal)  Prominensia spiralis juga terletak pada bagian bawah dinding lateral duktus koklear (penonjolan kecil yang menjulur keluar dari periosteum koklea ke dalam ductus)</span></li>
+              </ul>
+            </div>
+
+            <div class="callout trap">
+              <div class="callout-title">⚠️ Jebakan Soal UAB dr. NIK</div>
+              Dosen sering kali menguji pemahaman dengan memutarbalikkan pernyataan sebab-akibat dari slide 73. Jangan hanya menghafal teksnya; pahami mengapa proses ini terjadi di jaringan tubuh.
+            </div>
+
+            <!-- Inline Quiz Bab -->
+            <div class="inline-quiz" id="iq-5">
+              <div class="iq-kicker">🎯 Cek Paham Bab 05</div>
+              <div class="iq-stem">Berdasarkan pembahasan pada Slide 73, manakah pernyataan klinis yang paling tepat mengenai topik ini?</div>
+              <div class="iq-opts">
+                <button class="iq-btn" onclick="ansInline('iq-5', 0, true, 'Tepat! Sesuai dengan materi yang tertera pada Slide 73.')"><span>A.</span><span>LABIRIN MEMBRANOSA sakulus dan utrikulus  Serat saraf dari cabang vestivular saraf vestibulokoklear, memasok selsel neu</span></button>
+                <button class="iq-btn" onclick="ansInline('iq-5', 1, false, 'Pernyataan ini terbalik dari mekanisme fisiologis yang sebenarnya.')"><span>B.</span><span>Mekanisme ini berlangsung berlawanan dengan fungsi homeostasis normal</span></button>
+                <button class="iq-btn" onclick="ansInline('iq-5', 2, false, 'Tidak sesuai dengan pedoman diagnosis standar pada slide.')"><span>C.</span><span>Tidak ada relevansi klinis yang bermakna pada kondisi akut</span></button>
+              </div>
+              <div class="iq-fb" id="iq-5-fb"></div>
+            </div>
+          </div>
+
+          <!-- Right Sticky Slide Stage -->
+          <aside class="slide-stage">
+            <div class="stage-top">
+              <span class="stage-label">Bab 05 · Slide Asli (73–90)</span>
+              <span style="font-size:0.75rem;color:var(--ink-muted);">Klik untuk Zoom</span>
+            </div>
+            <div class="slide-pills" id="pills-ch5">
+              <button class="slide-pill active" onclick="setStage('ch5', 73, 'Slide 73', this)">Slide 73</button><button class="slide-pill" onclick="setStage('ch5', 74, 'Slide 74', this)">Slide 74</button><button class="slide-pill" onclick="setStage('ch5', 75, 'Slide 75', this)">Slide 75</button><button class="slide-pill" onclick="setStage('ch5', 76, 'Slide 76', this)">Slide 76</button><button class="slide-pill" onclick="setStage('ch5', 77, 'Slide 77', this)">Slide 77</button><button class="slide-pill" onclick="setStage('ch5', 78, 'Slide 78', this)">Slide 78</button>
+            </div>
+            <div class="stage-frame" onclick="openZoom(document.getElementById('img-ch5').src)">
+              <img id="img-ch5" src="slides_5_bms_4_kul_3_histologi_sistem_indera_nik/slide_73.jpg" alt="Slide Bab 5">
+            </div>
+            <div class="stage-caption">
+              <span id="cap-ch5">Slide 73</span>
+              <span style="color:var(--navy);font-weight:700;">Perbesar ↗</span>
+            </div>
+          </aside>
+        </section>
+        
+        <section class="split-chapter" id="bab-6">
+          <div class="narrative-panel">
+            <div class="ch-kicker-row">
+              <span class="ch-kicker">Bab 06 · Slide 91 s.d. 91</span>
+              <span class="meta-pill pill-uab">Inti UAB 5 (BMS 4)</span>
+            </div>
+            <h2 class="ch-title">Topik Bagian 6</h2>
+            
+            <div class="peer-talk">
+              <p>Pada bagian ini, <b>dr. NIK</b> membahas transisi penting antara slide 91 sampai 91. Perhatikan alur logisnya pada slide asli di sebelah kanan:</p>
+            </div>
+
+            <div class="concept-box" style="margin: 18px 0;">
+              <h4>Poin Kunci &amp; Fakta Laboratorium (Gunakan Mode Uji Ingatan M)</h4>
+              <ul>
+                <li><b>Slide 91:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">Mempelajari konsep fisiologis dan klinis pada slide 91–91.</span></li>
+              </ul>
+            </div>
+
+            <div class="callout trap">
+              <div class="callout-title">⚠️ Jebakan Soal UAB dr. NIK</div>
+              Dosen sering kali menguji pemahaman dengan memutarbalikkan pernyataan sebab-akibat dari slide 91. Jangan hanya menghafal teksnya; pahami mengapa proses ini terjadi di jaringan tubuh.
+            </div>
+
+            <!-- Inline Quiz Bab -->
+            <div class="inline-quiz" id="iq-6">
+              <div class="iq-kicker">🎯 Cek Paham Bab 06</div>
+              <div class="iq-stem">Berdasarkan pembahasan pada Slide 91, manakah pernyataan klinis yang paling tepat mengenai topik ini?</div>
+              <div class="iq-opts">
+                <button class="iq-btn" onclick="ansInline('iq-6', 0, true, 'Tepat! Sesuai dengan materi yang tertera pada Slide 91.')"><span>A.</span><span>Mempelajari konsep fisiologis dan klinis pada slide 91–91.</span></button>
+                <button class="iq-btn" onclick="ansInline('iq-6', 1, false, 'Pernyataan ini terbalik dari mekanisme fisiologis yang sebenarnya.')"><span>B.</span><span>Mekanisme ini berlangsung berlawanan dengan fungsi homeostasis normal</span></button>
+                <button class="iq-btn" onclick="ansInline('iq-6', 2, false, 'Tidak sesuai dengan pedoman diagnosis standar pada slide.')"><span>C.</span><span>Tidak ada relevansi klinis yang bermakna pada kondisi akut</span></button>
+              </div>
+              <div class="iq-fb" id="iq-6-fb"></div>
+            </div>
+          </div>
+
+          <!-- Right Sticky Slide Stage -->
+          <aside class="slide-stage">
+            <div class="stage-top">
+              <span class="stage-label">Bab 06 · Slide Asli (91–91)</span>
+              <span style="font-size:0.75rem;color:var(--ink-muted);">Klik untuk Zoom</span>
+            </div>
+            <div class="slide-pills" id="pills-ch6">
+              <button class="slide-pill active" onclick="setStage('ch6', 91, 'Slide 91', this)">Slide 91</button>
+            </div>
+            <div class="stage-frame" onclick="openZoom(document.getElementById('img-ch6').src)">
+              <img id="img-ch6" src="slides_5_bms_4_kul_3_histologi_sistem_indera_nik/slide_91.jpg" alt="Slide Bab 6">
+            </div>
+            <div class="stage-caption">
+              <span id="cap-ch6">Slide 91</span>
+              <span style="color:var(--navy);font-weight:700;">Perbesar ↗</span>
+            </div>
+          </aside>
+        </section>
+        
+  </main>
+
+  <div id="lightbox" class="lightbox" onclick="closeZoom()">
+    <img id="lightbox-img" src="" alt="Slide Zoom" onclick="event.stopPropagation()">
+  </div>
+
+  <script>
+    function setStage(chId, slideNum, caption, btn) {
+      document.getElementById('img-' + chId).src = 'slides_5_bms_4_kul_3_histologi_sistem_indera_nik/slide_' + slideNum + '.jpg';
+      document.getElementById('cap-' + chId).textContent = caption;
+      const wrap = document.getElementById('pills-' + chId);
+      wrap.querySelectorAll('.slide-pill').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+
+    const inlineAnswered = {};
+    function ansInline(id, idx, isRight, reason) {
+      if (inlineAnswered[id]) return;
+      inlineAnswered[id] = true;
+      const wrap = document.getElementById(id);
+      wrap.querySelectorAll('.iq-btn').forEach((b, i) => {
+        if (i === idx) b.classList.add(isRight ? 'is-correct' : 'is-wrong');
+      });
+      const fb = document.getElementById(id + '-fb');
+      fb.className = 'iq-fb show ' + (isRight ? 'ok' : 'no');
+      fb.innerHTML = (isRight ? '<strong>✅ Benar!</strong> ' : '<strong>❌ Kurang Tepat.</strong> ') + reason;
+    }
+
+    let clozeOn = false;
+    function toggleCloze() {
+      clozeOn = !clozeOn;
+      document.body.classList.toggle('cloze-active', clozeOn);
+      document.getElementById('cloze-btn').classList.toggle('active', clozeOn);
+      document.getElementById('cloze-state').textContent = clozeOn ? 'ON' : 'OFF';
+      if (clozeOn) document.querySelectorAll('.cloze-mask').forEach(e => e.classList.remove('revealed'));
+    }
+
+    function toggleTheme() {
+      const root = document.documentElement;
+      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      document.getElementById('theme-label').textContent = next === 'dark' ? '☀️ Mode Kertas' : '🌙 Mode Malam';
+      try { localStorage.setItem('vx_theme_5_bms_4_kul_3_histologi_sistem_indera_nik', next); } catch(e) {}
+    }
+
+    function openZoom(src) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox').classList.add('open');
+    }
+    function closeZoom() {
+      document.getElementById('lightbox').classList.remove('open');
+    }
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeZoom();
+      if (['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement.tagName)) return;
+      if (e.key.toLowerCase() === 'm') toggleCloze();
+      if (e.key.toLowerCase() === 'd') toggleTheme();
+    });
+
+    function stepStage(chId, dir) {
+      const wrap = document.getElementById('pills-' + chId);
+      if (!wrap) return;
+      const pills = [...wrap.querySelectorAll('.slide-pill')];
+      if (pills.length < 2) return;
+      const idx = pills.findIndex(b => b.classList.contains('active'));
+      const nextIdx = (idx + dir + pills.length) % pills.length;
+      pills[nextIdx].click();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.slide-stage').forEach(stage => {
+        const pillsWrap = stage.querySelector('.slide-pills');
+        if (!pillsWrap) return;
+        const chId = pillsWrap.id.replace('pills-', '');
+        const count = pillsWrap.querySelectorAll('.slide-pill').length;
+        const top = stage.querySelector('.stage-top');
+        if (top && count > 1) {
+          const nav = document.createElement('div');
+          nav.className = 'stage-nav-arrows';
+          nav.innerHTML = `<button type="button" class="stage-arrow-btn" title="Slide sebelumnya" onclick="stepStage('${chId}', -1)">‹</button><button type="button" class="stage-arrow-btn" title="Slide berikutnya" onclick="stepStage('${chId}', 1)">›</button>`;
+          top.appendChild(nav);
+        }
+      });
+
+      const chapters = [...document.querySelectorAll('.split-chapter')];
+      const navLinks = [...document.querySelectorAll('.ch-jump')];
+      window.addEventListener('scroll', () => {
+        const doc = document.documentElement;
+        const pct = (doc.scrollTop / Math.max(1, doc.scrollHeight - doc.clientHeight)) * 100;
+        const bar = document.getElementById('scroll-bar');
+        if (bar) bar.style.width = pct + '%';
+
+        let currentId = 'bab-1';
+        for (const sec of chapters) {
+          if (sec.getBoundingClientRect().top <= 160) currentId = sec.id;
+        }
+        navLinks.forEach(a => {
+          a.classList.toggle('active', a.getAttribute('href') === '#' + currentId);
+        });
+      }, { passive: true });
+
+      try {
+        const saved = localStorage.getItem('vx_theme_5_bms_4_kul_3_histologi_sistem_indera_nik');
+        if (saved === 'dark') toggleTheme();
+      } catch(e) {}
+    });
+  </script>
+</body>
+</html>

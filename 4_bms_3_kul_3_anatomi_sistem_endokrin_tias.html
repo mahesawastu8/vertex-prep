@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KUL 3 ANATOMI SISTEM ENDOKRIN (TIAS) · Split-Screen Mastery 4 (BMS 3)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #FAF8F5;
+      --surface: #FFFFFF;
+      --surface-subtle: #F2EFE9;
+      --surface-card: #FDFCFA;
+      --border: #E5E0D5;
+      --border-strong: #C9C2B2;
+
+      --ink: #161719;
+      --ink-secondary: #4A4D52;
+      --ink-muted: #7C8087;
+
+      --sage: #1E6B47;
+      --sage-soft: #EBF5F0;
+      --sage-border: #BCDCCB;
+
+      --coral: #B93822;
+      --coral-soft: #FBEFEA;
+      --coral-border: #F2C6BC;
+
+      --ochre: #9E5E10;
+      --ochre-soft: #FDF4E7;
+      --ochre-border: #F3D5A8;
+
+      --navy: #1B3B6F;
+      --navy-soft: #EDF3FA;
+      --navy-border: #C2D6EE;
+
+      --shadow-sm: 0 2px 8px rgba(22, 23, 25, 0.04);
+      --shadow-md: 0 10px 28px -4px rgba(22, 23, 25, 0.07);
+      --shadow-lg: 0 24px 52px -10px rgba(22, 23, 25, 0.16);
+
+      --r-sm: 8px;
+      --r-md: 14px;
+      --r-lg: 20px;
+      --r-full: 9999px;
+
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-serif: 'Newsreader', Georgia, serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    html[data-theme="dark"] {
+      --bg: #131517;
+      --surface: #1B1E21;
+      --surface-subtle: #23272B;
+      --surface-card: #1F2327;
+      --border: #2D3238;
+      --border-strong: #434A52;
+
+      --ink: #ECEAE4;
+      --ink-secondary: #B4B8BF;
+      --ink-muted: #7E848D;
+
+      --sage: #4CC38A;
+      --sage-soft: rgba(76, 195, 138, 0.13);
+      --sage-border: rgba(76, 195, 138, 0.35);
+
+      --coral: #F2745F;
+      --coral-soft: rgba(242, 116, 95, 0.13);
+      --coral-border: rgba(242, 116, 95, 0.35);
+
+      --ochre: #F0B15B;
+      --ochre-soft: rgba(240, 177, 91, 0.12);
+      --ochre-border: rgba(240, 177, 91, 0.32);
+
+      --navy: #7CB3F5;
+      --navy-soft: rgba(124, 179, 245, 0.13);
+      --navy-border: rgba(124, 179, 245, 0.32);
+
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.25);
+      --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.38);
+      --shadow-lg: 0 28px 60px rgba(0, 0, 0, 0.55);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+      transition: background 0.25s ease, color 0.25s ease;
+      padding-bottom: 120px;
+    }
+
+    ::selection { background: var(--sage-soft); color: var(--sage); }
+
+    .scroll-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--sage), var(--navy));
+      z-index: 300;
+      transition: width 0.1s ease-out;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: color-mix(in srgb, var(--bg) 92%, transparent);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 24px;
+    }
+    .topbar-inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex: none;
+    }
+    .brand-badge {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 700;
+      background: var(--navy);
+      color: #fff;
+      padding: 4px 9px;
+      border-radius: var(--r-sm);
+      letter-spacing: 0.04em;
+    }
+    .brand-title {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .chapter-strip {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding: 2px;
+    }
+    .chapter-strip::-webkit-scrollbar { display: none; }
+    .ch-jump {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--ink-secondary);
+      text-decoration: none;
+      padding: 6px 11px;
+      border-radius: var(--r-full);
+      white-space: nowrap;
+      transition: all 0.15s ease;
+    }
+    .ch-jump:hover { background: var(--surface-subtle); color: var(--ink); }
+    .ch-jump.active { background: var(--ink); color: var(--bg); }
+
+    .tool-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex: none;
+    }
+    .tool-btn {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--ink-secondary);
+      font-family: var(--font-sans);
+      font-size: 0.79rem;
+      font-weight: 600;
+      padding: 6px 13px;
+      border-radius: var(--r-full);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      transition: all 0.18s ease;
+      white-space: nowrap;
+    }
+    .tool-btn:hover { border-color: var(--border-strong); color: var(--ink); }
+    .tool-btn.active { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+    .state-pill {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      padding: 1px 6px;
+      border-radius: 4px;
+      background: var(--surface-subtle);
+      color: var(--ink);
+    }
+    .tool-btn.active .state-pill { background: var(--sage); color: #fff; }
+    .btn-anki {
+      background: var(--sage);
+      color: #FFFFFF !important;
+      font-size: 0.79rem;
+      font-weight: 700;
+      padding: 7px 14px;
+      border-radius: var(--r-full);
+      text-decoration: none;
+      white-space: nowrap;
+      transition: opacity 0.15s ease;
+    }
+    .btn-anki:hover { opacity: 0.9; }
+
+    .page-wrap {
+      max-width: 1340px;
+      margin: 0 auto;
+      padding: 32px 24px 0;
+    }
+
+    .hook-hero {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 36px 40px;
+      margin-bottom: 36px;
+      box-shadow: var(--shadow-md);
+    }
+    .hook-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+    .meta-pill {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: var(--r-full);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .pill-skdi { background: var(--sage-soft); color: var(--sage); border: 1px solid var(--sage-border); }
+    .pill-uab { background: var(--coral-soft); color: var(--coral); border: 1px solid var(--coral-border); }
+    .pill-slides { background: var(--navy-soft); color: var(--navy); border: 1px solid var(--navy-border); }
+
+    .hook-headline {
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      font-weight: 600;
+      line-height: 1.22;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+    }
+    .hook-lead {
+      font-size: 1.05rem;
+      color: var(--ink-secondary);
+      max-width: 960px;
+      margin-bottom: 24px;
+    }
+
+    /* SPLIT-SCREEN LAYOUT */
+    .split-chapter {
+      display: grid;
+      grid-template-columns: 1fr 480px;
+      gap: 32px;
+      align-items: start;
+      margin-bottom: 52px;
+      scroll-margin-top: 84px;
+    }
+    .narrative-panel {
+      grid-column: 1;
+      grid-row: 1;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 36px 42px;
+      box-shadow: var(--shadow-sm);
+    }
+    .slide-stage {
+      grid-column: 2;
+      grid-row: 1;
+      position: sticky;
+      top: 78px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 18px;
+      box-shadow: var(--shadow-md);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .slide-stage:hover {
+      border-color: var(--border-strong);
+      box-shadow: var(--shadow-lg);
+    }
+    .stage-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .stage-label {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: var(--sage);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .stage-nav-arrows {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .stage-arrow-btn {
+      border: 1px solid var(--border);
+      background: var(--surface-subtle);
+      color: var(--ink-secondary);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      width: 26px;
+      height: 26px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-grid;
+      place-items: center;
+      transition: all 0.15s ease;
+    }
+    .stage-arrow-btn:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+
+    .slide-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-bottom: 12px;
+    }
+    .slide-pill {
+      border: 1px solid var(--border);
+      background: var(--surface-subtle);
+      color: var(--ink-secondary);
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: var(--r-full);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .slide-pill:hover { border-color: var(--border-strong); color: var(--ink); }
+    .slide-pill.active { background: var(--navy); color: #FFFFFF; border-color: var(--navy); }
+    .stage-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #fff;
+      border-radius: var(--r-md);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      cursor: zoom-in;
+    }
+    .stage-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #fff;
+      display: block;
+    }
+    .stage-caption {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: var(--ink-muted);
+      margin-top: 10px;
+      padding: 0 4px;
+    }
+
+    .ch-kicker-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .ch-kicker {
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--navy);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .ch-title {
+      font-family: var(--font-serif);
+      font-size: 1.95rem;
+      font-weight: 600;
+      line-height: 1.25;
+      color: var(--ink);
+      margin-bottom: 16px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+    }
+    .peer-talk { font-size: 1rem; color: var(--ink); margin-bottom: 18px; }
+    .peer-talk p { margin-bottom: 14px; }
+
+    .concept-box {
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 16px 18px;
+    }
+    .concept-box h4 {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--ink-muted);
+      margin-bottom: 8px;
+    }
+    .concept-box ul { padding-left: 18px; font-size: 0.93rem; line-height: 1.6; color: var(--ink); }
+    .concept-box li { margin-bottom: 6px; }
+
+    .callout {
+      border-radius: var(--r-md);
+      padding: 16px 20px;
+      margin: 16px 0;
+      font-size: 0.94rem;
+      line-height: 1.65;
+    }
+    .callout-title {
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 5px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .callout.trap { background: var(--coral-soft); border: 1px solid var(--coral-border); }
+    .callout.trap .callout-title { color: var(--coral); }
+
+    /* INLINE QUIZ */
+    .inline-quiz {
+      margin-top: 24px;
+      padding-top: 22px;
+      border-top: 2px dashed var(--border);
+    }
+    .iq-kicker {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: var(--sage);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+    }
+    .iq-stem { font-size: 0.98rem; font-weight: 600; color: var(--ink); line-height: 1.6; margin-bottom: 12px; }
+    .iq-opts { display: flex; flex-direction: column; gap: 8px; }
+    .iq-btn {
+      padding: 11px 15px;
+      border-radius: var(--r-sm);
+      border: 1px solid var(--border);
+      background: var(--surface-card);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      font-size: 0.91rem;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      transition: all 0.15s ease;
+    }
+    .iq-btn:hover { border-color: var(--border-strong); background: var(--surface-subtle); }
+    .iq-btn.is-correct { background: var(--sage-soft) !important; border-color: var(--sage) !important; color: var(--sage) !important; font-weight: 700; }
+    .iq-btn.is-wrong { background: var(--coral-soft) !important; border-color: var(--coral) !important; color: var(--coral) !important; }
+    .iq-fb {
+      margin-top: 12px;
+      padding: 14px 16px;
+      border-radius: var(--r-sm);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      display: none;
+    }
+    .iq-fb.show { display: block; }
+    .iq-fb.ok { background: var(--sage-soft); border: 1px solid var(--sage-border); color: var(--ink); }
+    .iq-fb.no { background: var(--coral-soft); border: 1px solid var(--coral-border); color: var(--ink); }
+
+    /* CLOZE MASKING */
+    body.cloze-active .cloze-mask {
+      background: var(--border-strong) !important;
+      color: transparent !important;
+      border-radius: 5px;
+      padding: 1px 7px;
+      cursor: pointer;
+      user-select: none;
+      display: inline-block;
+      transition: all 0.15s ease;
+    }
+    body.cloze-active .cloze-mask.revealed {
+      background: var(--sage-soft) !important;
+      color: var(--sage) !important;
+      font-weight: 700;
+      border: 1px solid var(--sage-border);
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(12, 13, 15, 0.86);
+      backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img { max-width: 94%; max-height: 90vh; border-radius: var(--r-md); box-shadow: var(--shadow-lg); }
+
+    @media (max-width: 1020px) {
+      .split-chapter { grid-template-columns: 1fr; }
+      .narrative-panel { grid-column: 1; grid-row: 1; padding: 24px 20px; }
+      .slide-stage { grid-column: 1; grid-row: 2; position: static; }
+      .chapter-strip { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="scroll-bar" id="scroll-bar"></div>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand-group">
+        <span class="brand-badge">4 (BMS 3)</span>
+        <span class="brand-title">KUL 3 ANATOMI SISTEM ENDOKRIN (TIAS)</span>
+      </div>
+
+      <nav class="chapter-strip" aria-label="Lompat ke Bab">
+        <a href="#bab-1" class="ch-jump active">1. Tias Pramesti Gria...</a><a href="#bab-2" class="ch-jump">2. PITUITARY GLAND Te...</a><a href="#bab-3" class="ch-jump">3. Topik Bagian 3...</a><a href="#bab-4" class="ch-jump">4. PANKREAS Terletak ...</a><a href="#bab-5" class="ch-jump">5. Topik Bagian 5...</a>
+      </nav>
+
+      <div class="tool-group">
+        <button type="button" id="cloze-btn" class="tool-btn" onclick="toggleCloze()" title="Shortcut tombol M">
+          <span>🧠 Uji Ingatan</span>
+          <span class="state-pill" id="cloze-state">OFF</span>
+        </button>
+        <button type="button" id="theme-btn" class="tool-btn" onclick="toggleTheme()" title="Shortcut tombol D">
+          <span id="theme-label">🌙 Mode Malam</span>
+        </button>
+        <a href="anki/VERTEX_4_bms_3_kul_3_anatomi_sistem_endokrin_tias.apkg" class="btn-anki" download>⬇ Anki</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-wrap">
+    <section class="hook-hero">
+      <div class="hook-meta-row">
+        <span class="meta-pill pill-skdi">4 (BMS 3) · Materi Kuliah Pakar</span>
+        <span class="meta-pill pill-uab">Narasumber: dr. TIAS</span>
+        <span class="meta-pill pill-slides">85 Slide Lengkap</span>
+      </div>
+      <h1 class="hook-headline">Kuasai 85 Slide KUL 3 ANATOMI SISTEM ENDOKRIN (TIAS) Tanpa Buka PPT Sekalipun.</h1>
+      <p class="hook-lead">
+        Seluruh materi kuliah ini telah diperas menjadi <strong>5 Bab Split-Screen Interaktif</strong>: penjelasan mengalir di sebelah kiri dengan bahasa teman yang mudah dipahami, sementara slide asli dosen menempel di sebelah kanan secara sinkron untuk memastikan <strong>100% materi tercover tanpa ada yang terlewat</strong>.
+      </p>
+    </section>
+
+    
+        <section class="split-chapter" id="bab-1">
+          <div class="narrative-panel">
+            <div class="ch-kicker-row">
+              <span class="ch-kicker">Bab 01 · Slide 1 s.d. 17</span>
+              <span class="meta-pill pill-uab">Inti UAB 4 (BMS 3)</span>
+            </div>
+            <h2 class="ch-title">Tias Pramesti Griana, Biomed.</h2>
+            
+            <div class="peer-talk">
+              <p>Pada bagian ini, <b>dr. TIAS</b> membahas transisi penting antara slide 1 sampai 17. Perhatikan alur logisnya pada slide asli di sebelah kanan:</p>
+            </div>
+
+            <div class="concept-box" style="margin: 18px 0;">
+              <h4>Poin Kunci &amp; Fakta Laboratorium (Gunakan Mode Uji Ingatan M)</h4>
+              <ul>
+                <li><b>Slide 1:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">Tias Pramesti Griana, M</span></li><li><b>Slide 2:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">ENDOCRINE SYSTEM ØEndocrine glands Glands of the endocrine system that secrete their products, hormones, directly into the blood rather than through a duct ØThe hypothalamus and pituitary gland are neuroendocrine organs</span></li><li><b>Slide 5:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">Diencephalon Diencephalon : inti central cerebri, struktur yang terletak di garis tengah dengan belahan kanan dan kiri yang simestris Terbagi atas : • Talamus • Subtalamus • Epitalamus • Hipotalamus</span></li><li><b>Slide 6:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">HYPOTHALAMUS ØTerletak di atas hipofisis (pituitary gland) di diensefalon otak, mengatur output hormonal hipofisis dan menciptakan dua hormon yang diekspor ke hipofisis posterior untuk disimpan dan kemudian dilepaskan yaitu Oksitosin dan Antidiuretik Hormone (ADH)</span></li>
+              </ul>
+            </div>
+
+            <div class="callout trap">
+              <div class="callout-title">⚠️ Jebakan Soal UAB dr. TIAS</div>
+              Dosen sering kali menguji pemahaman dengan memutarbalikkan pernyataan sebab-akibat dari slide 1. Jangan hanya menghafal teksnya; pahami mengapa proses ini terjadi di jaringan tubuh.
+            </div>
+
+            <!-- Inline Quiz Bab -->
+            <div class="inline-quiz" id="iq-1">
+              <div class="iq-kicker">🎯 Cek Paham Bab 01</div>
+              <div class="iq-stem">Berdasarkan pembahasan pada Slide 1, manakah pernyataan klinis yang paling tepat mengenai topik ini?</div>
+              <div class="iq-opts">
+                <button class="iq-btn" onclick="ansInline('iq-1', 0, true, 'Tepat! Sesuai dengan materi yang tertera pada Slide 1.')"><span>A.</span><span>Tias Pramesti Griana, M</span></button>
+                <button class="iq-btn" onclick="ansInline('iq-1', 1, false, 'Pernyataan ini terbalik dari mekanisme fisiologis yang sebenarnya.')"><span>B.</span><span>Mekanisme ini berlangsung berlawanan dengan fungsi homeostasis normal</span></button>
+                <button class="iq-btn" onclick="ansInline('iq-1', 2, false, 'Tidak sesuai dengan pedoman diagnosis standar pada slide.')"><span>C.</span><span>Tidak ada relevansi klinis yang bermakna pada kondisi akut</span></button>
+              </div>
+              <div class="iq-fb" id="iq-1-fb"></div>
+            </div>
+          </div>
+
+          <!-- Right Sticky Slide Stage -->
+          <aside class="slide-stage">
+            <div class="stage-top">
+              <span class="stage-label">Bab 01 · Slide Asli (1–17)</span>
+              <span style="font-size:0.75rem;color:var(--ink-muted);">Klik untuk Zoom</span>
+            </div>
+            <div class="slide-pills" id="pills-ch1">
+              <button class="slide-pill active" onclick="setStage('ch1', 1, 'Slide 1', this)">Slide 1</button><button class="slide-pill" onclick="setStage('ch1', 2, 'Slide 2', this)">Slide 2</button><button class="slide-pill" onclick="setStage('ch1', 3, 'Slide 3', this)">Slide 3</button><button class="slide-pill" onclick="setStage('ch1', 4, 'Slide 4', this)">Slide 4</button><button class="slide-pill" onclick="setStage('ch1', 5, 'Slide 5', this)">Slide 5</button><button class="slide-pill" onclick="setStage('ch1', 6, 'Slide 6', this)">Slide 6</button>
+            </div>
+            <div class="stage-frame" onclick="openZoom(document.getElementById('img-ch1').src)">
+              <img id="img-ch1" src="slides_4_bms_3_kul_3_anatomi_sistem_endokrin_tias/slide_1.jpg" alt="Slide Bab 1">
+            </div>
+            <div class="stage-caption">
+              <span id="cap-ch1">Slide 1</span>
+              <span style="color:var(--navy);font-weight:700;">Perbesar ↗</span>
+            </div>
+          </aside>
+        </section>
+        
+        <section class="split-chapter" id="bab-2">
+          <div class="narrative-panel">
+            <div class="ch-kicker-row">
+              <span class="ch-kicker">Bab 02 · Slide 18 s.d. 34</span>
+              <span class="meta-pill pill-uab">Inti UAB 4 (BMS 3)</span>
+            </div>
+            <h2 class="ch-title">PITUITARY GLAND Tergantung pada tangkai hipofisis</h2>
+            
+            <div class="peer-talk">
+              <p>Pada bagian ini, <b>dr. TIAS</b> membahas transisi penting antara slide 18 sampai 34. Perhatikan alur logisnya pada slide asli di sebelah kanan:</p>
+            </div>
+
+            <div class="concept-box" style="margin: 18px 0;">
+              <h4>Poin Kunci &amp; Fakta Laboratorium (Gunakan Mode Uji Ingatan M)</h4>
+              <ul>
+                <li><b>Slide 18:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">PITUITARY GLAND Ø Tergantung pada tangkai hipofisis dibagian dasar otak, dan tertutup oleh tulang</span></li><li><b>Slide 26:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">PITUITARY GLAND ØKelenjar simetri bilateral : • Adenohipofisis  epitel merah- coklat, 80% kelenjar hipofisis • Neurohipofisis  saraf abu-abu yang terdiri dari akson neuron hipotalamus dan stroma • Ukuran kelenjar pituitari manusia dewasa 13 mm melintang, 9 mm anterior-posterior, dan 6 mm vertikal ØBeratnya sekitar 0,6 gram ØKelenjar wanita agak lebih besar dari kelenjar laki-laki hingga 2 mm ØKelenjar pituitari wanita hamil dan postpartum lebih besar dan lebih berat (hiperplasia sel prolaktin selama kehamilan dan laktasi) ØKelenjar wanita multipara lebih berat dibandingkan wanita nulipara</span></li><li><b>Slide 30:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">PINEAL GLAND Øterletak di diencephalon otak ØMelepaskan melatonin</span></li><li><b>Slide 31:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">• Anatomy of pathway of stimulation of the pineal gland</span></li>
+              </ul>
+            </div>
+
+            <div class="callout trap">
+              <div class="callout-title">⚠️ Jebakan Soal UAB dr. TIAS</div>
+              Dosen sering kali menguji pemahaman dengan memutarbalikkan pernyataan sebab-akibat dari slide 18. Jangan hanya menghafal teksnya; pahami mengapa proses ini terjadi di jaringan tubuh.
+            </div>
+
+            <!-- Inline Quiz Bab -->
+            <div class="inline-quiz" id="iq-2">
+              <div class="iq-kicker">🎯 Cek Paham Bab 02</div>
+              <div class="iq-stem">Berdasarkan pembahasan pada Slide 18, manakah pernyataan klinis yang paling tepat mengenai topik ini?</div>
+              <div class="iq-opts">
+                <button class="iq-btn" onclick="ansInline('iq-2', 0, true, 'Tepat! Sesuai dengan materi yang tertera pada Slide 18.')"><span>A.</span><span>PITUITARY GLAND Ø Tergantung pada tangkai hipofisis dibagian dasar otak, dan tertutup oleh tulang</span></button>
+                <button class="iq-btn" onclick="ansInline('iq-2', 1, false, 'Pernyataan ini terbalik dari mekanisme fisiologis yang sebenarnya.')"><span>B.</span><span>Mekanisme ini berlangsung berlawanan dengan fungsi homeostasis normal</span></button>
+                <button class="iq-btn" onclick="ansInline('iq-2', 2, false, 'Tidak sesuai dengan pedoman diagnosis standar pada slide.')"><span>C.</span><span>Tidak ada relevansi klinis yang bermakna pada kondisi akut</span></button>
+              </div>
+              <div class="iq-fb" id="iq-2-fb"></div>
+            </div>
+          </div>
+
+          <!-- Right Sticky Slide Stage -->
+          <aside class="slide-stage">
+            <div class="stage-top">
+              <span class="stage-label">Bab 02 · Slide Asli (18–34)</span>
+              <span style="font-size:0.75rem;color:var(--ink-muted);">Klik untuk Zoom</span>
+            </div>
+            <div class="slide-pills" id="pills-ch2">
+              <button class="slide-pill active" onclick="setStage('ch2', 18, 'Slide 18', this)">Slide 18</button><button class="slide-pill" onclick="setStage('ch2', 19, 'Slide 19', this)">Slide 19</button><button class="slide-pill" onclick="setStage('ch2', 20, 'Slide 20', this)">Slide 20</button><button class="slide-pill" onclick="setStage('ch2', 21, 'Slide 21', this)">Slide 21</button><button class="slide-pill" onclick="setStage('ch2', 22, 'Slide 22', this)">Slide 22</button><button class="slide-pill" onclick="setStage('ch2', 23, 'Slide 23', this)">Slide 23</button>
+            </div>
+            <div class="stage-frame" onclick="openZoom(document.getElementById('img-ch2').src)">
+              <img id="img-ch2" src="slides_4_bms_3_kul_3_anatomi_sistem_endokrin_tias/slide_18.jpg" alt="Slide Bab 2">
+            </div>
+            <div class="stage-caption">
+              <span id="cap-ch2">Slide 18</span>
+              <span style="color:var(--navy);font-weight:700;">Perbesar ↗</span>
+            </div>
+          </aside>
+        </section>
+        
+        <section class="split-chapter" id="bab-3">
+          <div class="narrative-panel">
+            <div class="ch-kicker-row">
+              <span class="ch-kicker">Bab 03 · Slide 35 s.d. 51</span>
+              <span class="meta-pill pill-uab">Inti UAB 4 (BMS 3)</span>
+            </div>
+            <h2 class="ch-title">Topik Bagian 3</h2>
+            
+            <div class="peer-talk">
+              <p>Pada bagian ini, <b>dr. TIAS</b> membahas transisi penting antara slide 35 sampai 51. Perhatikan alur logisnya pada slide asli di sebelah kanan:</p>
+            </div>
+
+            <div class="concept-box" style="margin: 18px 0;">
+              <h4>Poin Kunci &amp; Fakta Laboratorium (Gunakan Mode Uji Ingatan M)</h4>
+              <ul>
+                <li><b>Slide 41:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">PARATHYROID GLAND ØBerjumlah 4-6 buah ØTerletak di belakang kelenjar tiroid, dan mengeluarkan parathyroid hormone (PTH)</span></li><li><b>Slide 44:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">THYMUS • Organ limfoid primer yang terletak di mediastinum • Terdiri dari dua lobus yang dihubungkan oleh isthmus • Bentuk lobulus, masing-masing terdiri dari medula dan korteks • Berfungsi sebagai situs awal pematangan kekebalan sel T melalui proses seleksi positif dan negatif</span></li><li><b>Slide 48:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">ADRENAL GLAND Ø Kelenjar adrenal menghasilkan berbagai hormon termasuk adrenalin dan steroid (aldosteron dan kortisol)</span></li><li><b>Slide 49:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">Ø Terletak di atas ginjal pada manusia</span></li>
+              </ul>
+            </div>
+
+            <div class="callout trap">
+              <div class="callout-title">⚠️ Jebakan Soal UAB dr. TIAS</div>
+              Dosen sering kali menguji pemahaman dengan memutarbalikkan pernyataan sebab-akibat dari slide 35. Jangan hanya menghafal teksnya; pahami mengapa proses ini terjadi di jaringan tubuh.
+            </div>
+
+            <!-- Inline Quiz Bab -->
+            <div class="inline-quiz" id="iq-3">
+              <div class="iq-kicker">🎯 Cek Paham Bab 03</div>
+              <div class="iq-stem">Berdasarkan pembahasan pada Slide 41, manakah pernyataan klinis yang paling tepat mengenai topik ini?</div>
+              <div class="iq-opts">
+                <button class="iq-btn" onclick="ansInline('iq-3', 0, true, 'Tepat! Sesuai dengan materi yang tertera pada Slide 41.')"><span>A.</span><span>PARATHYROID GLAND ØBerjumlah 4-6 buah ØTerletak di belakang kelenjar tiroid, dan mengeluarkan parathyroid hormone (PTH)</span></button>
+                <button class="iq-btn" onclick="ansInline('iq-3', 1, false, 'Pernyataan ini terbalik dari mekanisme fisiologis yang sebenarnya.')"><span>B.</span><span>Mekanisme ini berlangsung berlawanan dengan fungsi homeostasis normal</span></button>
+                <button class="iq-btn" onclick="ansInline('iq-3', 2, false, 'Tidak sesuai dengan pedoman diagnosis standar pada slide.')"><span>C.</span><span>Tidak ada relevansi klinis yang bermakna pada kondisi akut</span></button>
+              </div>
+              <div class="iq-fb" id="iq-3-fb"></div>
+            </div>
+          </div>
+
+          <!-- Right Sticky Slide Stage -->
+          <aside class="slide-stage">
+            <div class="stage-top">
+              <span class="stage-label">Bab 03 · Slide Asli (35–51)</span>
+              <span style="font-size:0.75rem;color:var(--ink-muted);">Klik untuk Zoom</span>
+            </div>
+            <div class="slide-pills" id="pills-ch3">
+              <button class="slide-pill active" onclick="setStage('ch3', 35, 'Slide 35', this)">Slide 35</button><button class="slide-pill" onclick="setStage('ch3', 36, 'Slide 36', this)">Slide 36</button><button class="slide-pill" onclick="setStage('ch3', 37, 'Slide 37', this)">Slide 37</button><button class="slide-pill" onclick="setStage('ch3', 38, 'Slide 38', this)">Slide 38</button><button class="slide-pill" onclick="setStage('ch3', 39, 'Slide 39', this)">Slide 39</button><button class="slide-pill" onclick="setStage('ch3', 40, 'Slide 40', this)">Slide 40</button>
+            </div>
+            <div class="stage-frame" onclick="openZoom(document.getElementById('img-ch3').src)">
+              <img id="img-ch3" src="slides_4_bms_3_kul_3_anatomi_sistem_endokrin_tias/slide_35.jpg" alt="Slide Bab 3">
+            </div>
+            <div class="stage-caption">
+              <span id="cap-ch3">Slide 35</span>
+              <span style="color:var(--navy);font-weight:700;">Perbesar ↗</span>
+            </div>
+          </aside>
+        </section>
+        
+        <section class="split-chapter" id="bab-4">
+          <div class="narrative-panel">
+            <div class="ch-kicker-row">
+              <span class="ch-kicker">Bab 04 · Slide 52 s.d. 68</span>
+              <span class="meta-pill pill-uab">Inti UAB 4 (BMS 3)</span>
+            </div>
+            <h2 class="ch-title">PANKREAS Terletak rongga abdomen, bagian infero-posterior</h2>
+            
+            <div class="peer-talk">
+              <p>Pada bagian ini, <b>dr. TIAS</b> membahas transisi penting antara slide 52 sampai 68. Perhatikan alur logisnya pada slide asli di sebelah kanan:</p>
+            </div>
+
+            <div class="concept-box" style="margin: 18px 0;">
+              <h4>Poin Kunci &amp; Fakta Laboratorium (Gunakan Mode Uji Ingatan M)</h4>
+              <ul>
+                <li><b>Slide 52:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">PANKREAS Ø Terletak di rongga abdomen, di bagian infero-posterior organ hepar Ø Merupakan kelenjar eksokrin dan endokrin Ø Eksokrin  Sel serous acini mensekresi enzim ke duodenum melalui duktus pankreatikus • Cairan basa (berisi ion karbonat) • Mencerna karbohidrat, lipid dan as</span></li><li><b>Slide 57:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">GONAD GLANDS • Ovarium wanita, yang terletak di rongga panggul, melepaskan dua hormon utama</span></li><li><b>Slide 68:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">Ø Ve n o u s d r a i n a g e i s a c h i e v e d v i a t h e p a i r e d t e s t i c u l a r v e i n s Ø F o r m e d f r o m t h e p a m p i n i f o r m p l e x u s i n t h e s c r o t u m – a n e t w o r k o f v e i n s w r a p p e d a r o u n d t h e t e s t i c u l a r a r t e r y Ø T h e l e f t t e s t i c u l a r v e i n d r a i n s i n t o t h e l e f t r e n a l v e i n Ø T h e r i g h t t e s t i c u l a r v e i n d r a i n s d i r e c t l y i n t o t h e i n f e r i o r v e n a c a v a</span></li>
+              </ul>
+            </div>
+
+            <div class="callout trap">
+              <div class="callout-title">⚠️ Jebakan Soal UAB dr. TIAS</div>
+              Dosen sering kali menguji pemahaman dengan memutarbalikkan pernyataan sebab-akibat dari slide 52. Jangan hanya menghafal teksnya; pahami mengapa proses ini terjadi di jaringan tubuh.
+            </div>
+
+            <!-- Inline Quiz Bab -->
+            <div class="inline-quiz" id="iq-4">
+              <div class="iq-kicker">🎯 Cek Paham Bab 04</div>
+              <div class="iq-stem">Berdasarkan pembahasan pada Slide 52, manakah pernyataan klinis yang paling tepat mengenai topik ini?</div>
+              <div class="iq-opts">
+                <button class="iq-btn" onclick="ansInline('iq-4', 0, true, 'Tepat! Sesuai dengan materi yang tertera pada Slide 52.')"><span>A.</span><span>PANKREAS Ø Terletak di rongga abdomen, di bagian infero-posterior organ hepar Ø Merupakan kelenjar eksokrin dan endokrin</span></button>
+                <button class="iq-btn" onclick="ansInline('iq-4', 1, false, 'Pernyataan ini terbalik dari mekanisme fisiologis yang sebenarnya.')"><span>B.</span><span>Mekanisme ini berlangsung berlawanan dengan fungsi homeostasis normal</span></button>
+                <button class="iq-btn" onclick="ansInline('iq-4', 2, false, 'Tidak sesuai dengan pedoman diagnosis standar pada slide.')"><span>C.</span><span>Tidak ada relevansi klinis yang bermakna pada kondisi akut</span></button>
+              </div>
+              <div class="iq-fb" id="iq-4-fb"></div>
+            </div>
+          </div>
+
+          <!-- Right Sticky Slide Stage -->
+          <aside class="slide-stage">
+            <div class="stage-top">
+              <span class="stage-label">Bab 04 · Slide Asli (52–68)</span>
+              <span style="font-size:0.75rem;color:var(--ink-muted);">Klik untuk Zoom</span>
+            </div>
+            <div class="slide-pills" id="pills-ch4">
+              <button class="slide-pill active" onclick="setStage('ch4', 52, 'Slide 52', this)">Slide 52</button><button class="slide-pill" onclick="setStage('ch4', 53, 'Slide 53', this)">Slide 53</button><button class="slide-pill" onclick="setStage('ch4', 54, 'Slide 54', this)">Slide 54</button><button class="slide-pill" onclick="setStage('ch4', 55, 'Slide 55', this)">Slide 55</button><button class="slide-pill" onclick="setStage('ch4', 56, 'Slide 56', this)">Slide 56</button><button class="slide-pill" onclick="setStage('ch4', 57, 'Slide 57', this)">Slide 57</button>
+            </div>
+            <div class="stage-frame" onclick="openZoom(document.getElementById('img-ch4').src)">
+              <img id="img-ch4" src="slides_4_bms_3_kul_3_anatomi_sistem_endokrin_tias/slide_52.jpg" alt="Slide Bab 4">
+            </div>
+            <div class="stage-caption">
+              <span id="cap-ch4">Slide 52</span>
+              <span style="color:var(--navy);font-weight:700;">Perbesar ↗</span>
+            </div>
+          </aside>
+        </section>
+        
+        <section class="split-chapter" id="bab-5">
+          <div class="narrative-panel">
+            <div class="ch-kicker-row">
+              <span class="ch-kicker">Bab 05 · Slide 69 s.d. 85</span>
+              <span class="meta-pill pill-uab">Inti UAB 4 (BMS 3)</span>
+            </div>
+            <h2 class="ch-title">Topik Bagian 5</h2>
+            
+            <div class="peer-talk">
+              <p>Pada bagian ini, <b>dr. TIAS</b> membahas transisi penting antara slide 69 sampai 85. Perhatikan alur logisnya pada slide asli di sebelah kanan:</p>
+            </div>
+
+            <div class="concept-box" style="margin: 18px 0;">
+              <h4>Poin Kunci &amp; Fakta Laboratorium (Gunakan Mode Uji Ingatan M)</h4>
+              <ul>
+                <li><b>Slide 70:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">Schematic diagram of regulatory axis of testicular steroidogenesis • Sex steroids (predominantly testosterone) are produced upon central gonadotropin-releasing hormone (GnRH)—luteinizing hormone (LH) stimulation • LH binds to LH receptors on Leydig cells in the testicle and activates the pathway for the synthesis of steroid hormones from cholesterol • Small amount of testosterone and androstendione are converted in the Leydig cells to estrogens by enzyme aromatase (CYP19A1) and to dihydrotestosterone (DHT) by 5α-reductase • Testosterone and estradiol act locally in testicle to regulate its function (e</span></li><li><b>Slide 71:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">G Protein-Coupled Estrogen Receptor (GPER) role in testicular interstitial and tubular compartment and in epididymis • LC: Leydig cells • TC: telocytes • SC: Sertoli cells • PT: peritubular cells • SPG: spermatogonia • SPT: spermatocytes • RS: round spermatids • SPZ: spermatozoa</span></li><li><b>Slide 80:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">Ø Ly m p h a t i c d r a i n a g e o f t h e m a m m a r y g l a n d Ly m p h n o d e s : 1 – l a t e r a l t h o r a c i c n o d e s ( 5 – 1 0 ) , 2 – s u b s c a p u l a r n o d e s ( 5 ) , 3 – c e n t r a l n o d e s ( 2 – 6 ) , 4 – s u b c l a v i a n n o d e s – a p i c a l ( 1 0 ) , a c r o m i a l n o d e s ( 1 – 6 ) , 6 – R o t t e r ’s n o d e s ( 1 – 4 ) , 7 – r e t r o s t e r n a l n o d e s R o u t e s o f l y m p h a t i c o u t f l o w f r o m t h e m a m m a r y g l a n d : A – a x i l l a r y r o u t e ( l a t e r a l ) , B – p e r i s t e r n a l r o u t e ( m e d i a l ) , C – e x t r a - g l a n d u l a r r o u t e , D – G r o s z m a n n ’s r o u t e , E – r o u t e t o t h e o p p o s i t e b r e a s t , F – r o u t e a l o n g e p i g a s t r i c a n d s u b h e p a t i c p l e x u s e s o f t h e s a c o f t h e r e c t u s m u s c l e o f t h e a b d o m e n C o l l a p s e</span></li>
+              </ul>
+            </div>
+
+            <div class="callout trap">
+              <div class="callout-title">⚠️ Jebakan Soal UAB dr. TIAS</div>
+              Dosen sering kali menguji pemahaman dengan memutarbalikkan pernyataan sebab-akibat dari slide 69. Jangan hanya menghafal teksnya; pahami mengapa proses ini terjadi di jaringan tubuh.
+            </div>
+
+            <!-- Inline Quiz Bab -->
+            <div class="inline-quiz" id="iq-5">
+              <div class="iq-kicker">🎯 Cek Paham Bab 05</div>
+              <div class="iq-stem">Berdasarkan pembahasan pada Slide 70, manakah pernyataan klinis yang paling tepat mengenai topik ini?</div>
+              <div class="iq-opts">
+                <button class="iq-btn" onclick="ansInline('iq-5', 0, true, 'Tepat! Sesuai dengan materi yang tertera pada Slide 70.')"><span>A.</span><span>Schematic diagram of regulatory axis of testicular steroidogenesis • Sex steroids (predominantly testosterone) are produ</span></button>
+                <button class="iq-btn" onclick="ansInline('iq-5', 1, false, 'Pernyataan ini terbalik dari mekanisme fisiologis yang sebenarnya.')"><span>B.</span><span>Mekanisme ini berlangsung berlawanan dengan fungsi homeostasis normal</span></button>
+                <button class="iq-btn" onclick="ansInline('iq-5', 2, false, 'Tidak sesuai dengan pedoman diagnosis standar pada slide.')"><span>C.</span><span>Tidak ada relevansi klinis yang bermakna pada kondisi akut</span></button>
+              </div>
+              <div class="iq-fb" id="iq-5-fb"></div>
+            </div>
+          </div>
+
+          <!-- Right Sticky Slide Stage -->
+          <aside class="slide-stage">
+            <div class="stage-top">
+              <span class="stage-label">Bab 05 · Slide Asli (69–85)</span>
+              <span style="font-size:0.75rem;color:var(--ink-muted);">Klik untuk Zoom</span>
+            </div>
+            <div class="slide-pills" id="pills-ch5">
+              <button class="slide-pill active" onclick="setStage('ch5', 69, 'Slide 69', this)">Slide 69</button><button class="slide-pill" onclick="setStage('ch5', 70, 'Slide 70', this)">Slide 70</button><button class="slide-pill" onclick="setStage('ch5', 71, 'Slide 71', this)">Slide 71</button><button class="slide-pill" onclick="setStage('ch5', 72, 'Slide 72', this)">Slide 72</button><button class="slide-pill" onclick="setStage('ch5', 73, 'Slide 73', this)">Slide 73</button><button class="slide-pill" onclick="setStage('ch5', 74, 'Slide 74', this)">Slide 74</button>
+            </div>
+            <div class="stage-frame" onclick="openZoom(document.getElementById('img-ch5').src)">
+              <img id="img-ch5" src="slides_4_bms_3_kul_3_anatomi_sistem_endokrin_tias/slide_69.jpg" alt="Slide Bab 5">
+            </div>
+            <div class="stage-caption">
+              <span id="cap-ch5">Slide 69</span>
+              <span style="color:var(--navy);font-weight:700;">Perbesar ↗</span>
+            </div>
+          </aside>
+        </section>
+        
+  </main>
+
+  <div id="lightbox" class="lightbox" onclick="closeZoom()">
+    <img id="lightbox-img" src="" alt="Slide Zoom" onclick="event.stopPropagation()">
+  </div>
+
+  <script>
+    function setStage(chId, slideNum, caption, btn) {
+      document.getElementById('img-' + chId).src = 'slides_4_bms_3_kul_3_anatomi_sistem_endokrin_tias/slide_' + slideNum + '.jpg';
+      document.getElementById('cap-' + chId).textContent = caption;
+      const wrap = document.getElementById('pills-' + chId);
+      wrap.querySelectorAll('.slide-pill').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+
+    const inlineAnswered = {};
+    function ansInline(id, idx, isRight, reason) {
+      if (inlineAnswered[id]) return;
+      inlineAnswered[id] = true;
+      const wrap = document.getElementById(id);
+      wrap.querySelectorAll('.iq-btn').forEach((b, i) => {
+        if (i === idx) b.classList.add(isRight ? 'is-correct' : 'is-wrong');
+      });
+      const fb = document.getElementById(id + '-fb');
+      fb.className = 'iq-fb show ' + (isRight ? 'ok' : 'no');
+      fb.innerHTML = (isRight ? '<strong>✅ Benar!</strong> ' : '<strong>❌ Kurang Tepat.</strong> ') + reason;
+    }
+
+    let clozeOn = false;
+    function toggleCloze() {
+      clozeOn = !clozeOn;
+      document.body.classList.toggle('cloze-active', clozeOn);
+      document.getElementById('cloze-btn').classList.toggle('active', clozeOn);
+      document.getElementById('cloze-state').textContent = clozeOn ? 'ON' : 'OFF';
+      if (clozeOn) document.querySelectorAll('.cloze-mask').forEach(e => e.classList.remove('revealed'));
+    }
+
+    function toggleTheme() {
+      const root = document.documentElement;
+      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      document.getElementById('theme-label').textContent = next === 'dark' ? '☀️ Mode Kertas' : '🌙 Mode Malam';
+      try { localStorage.setItem('vx_theme_4_bms_3_kul_3_anatomi_sistem_endokrin_tias', next); } catch(e) {}
+    }
+
+    function openZoom(src) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox').classList.add('open');
+    }
+    function closeZoom() {
+      document.getElementById('lightbox').classList.remove('open');
+    }
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeZoom();
+      if (['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement.tagName)) return;
+      if (e.key.toLowerCase() === 'm') toggleCloze();
+      if (e.key.toLowerCase() === 'd') toggleTheme();
+    });
+
+    function stepStage(chId, dir) {
+      const wrap = document.getElementById('pills-' + chId);
+      if (!wrap) return;
+      const pills = [...wrap.querySelectorAll('.slide-pill')];
+      if (pills.length < 2) return;
+      const idx = pills.findIndex(b => b.classList.contains('active'));
+      const nextIdx = (idx + dir + pills.length) % pills.length;
+      pills[nextIdx].click();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.slide-stage').forEach(stage => {
+        const pillsWrap = stage.querySelector('.slide-pills');
+        if (!pillsWrap) return;
+        const chId = pillsWrap.id.replace('pills-', '');
+        const count = pillsWrap.querySelectorAll('.slide-pill').length;
+        const top = stage.querySelector('.stage-top');
+        if (top && count > 1) {
+          const nav = document.createElement('div');
+          nav.className = 'stage-nav-arrows';
+          nav.innerHTML = `<button type="button" class="stage-arrow-btn" title="Slide sebelumnya" onclick="stepStage('${chId}', -1)">‹</button><button type="button" class="stage-arrow-btn" title="Slide berikutnya" onclick="stepStage('${chId}', 1)">›</button>`;
+          top.appendChild(nav);
+        }
+      });
+
+      const chapters = [...document.querySelectorAll('.split-chapter')];
+      const navLinks = [...document.querySelectorAll('.ch-jump')];
+      window.addEventListener('scroll', () => {
+        const doc = document.documentElement;
+        const pct = (doc.scrollTop / Math.max(1, doc.scrollHeight - doc.clientHeight)) * 100;
+        const bar = document.getElementById('scroll-bar');
+        if (bar) bar.style.width = pct + '%';
+
+        let currentId = 'bab-1';
+        for (const sec of chapters) {
+          if (sec.getBoundingClientRect().top <= 160) currentId = sec.id;
+        }
+        navLinks.forEach(a => {
+          a.classList.toggle('active', a.getAttribute('href') === '#' + currentId);
+        });
+      }, { passive: true });
+
+      try {
+        const saved = localStorage.getItem('vx_theme_4_bms_3_kul_3_anatomi_sistem_endokrin_tias');
+        if (saved === 'dark') toggleTheme();
+      } catch(e) {}
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,867 @@
+{
+  "overall": {
+    "total_blocks": 8,
+    "total_raw_questions": 2235,
+    "total_unique_questions": 1680,
+    "total_covered_percent": 79.2,
+    "total_explicit_percent": 21.5,
+    "total_reasoning_percent": 57.6,
+    "total_outside_percent": 20.8
+  },
+  "blocks": {
+    "1 (BUAMS)": {
+      "raw_questions": 344,
+      "unique_questions": 308,
+      "repeated_questions": 33,
+      "repeat_rate_percent": 10.7,
+      "coverage": {
+        "eksplisit": 53,
+        "perlu_penalaran": 189,
+        "tidak_ada": 66,
+        "total_tercakup_percent": 78.6
+      },
+      "qtypes": {
+        "definisi_istilah": 176,
+        "kasus_klinis": 59,
+        "perbandingan_mekanisme": 21,
+        "fakta_angka_nama": 7,
+        "etika_sikap": 22,
+        "negasi": 18,
+        "hitungan": 3,
+        "prosedur_urutan": 2
+      },
+      "position": {
+        "awal_percent": 40.5,
+        "tengah_percent": 31.0,
+        "akhir_percent": 28.5
+      },
+      "hot_slides": [
+        [
+          "KUL 8 SEJARAH PERKEMBANGAN BIOETIK SECARA GLOBAL DN REGIONAL (PWA)",
+          30,
+          8
+        ],
+        [
+          "KUL 10 PRINSIP ETIKA KEDOKTERAN (DOB)",
+          7,
+          6
+        ],
+        [
+          "KUL 24 PROFIL DOKTER ULUL ALBAB (SAN)",
+          8,
+          5
+        ],
+        [
+          "KUL 24 PROFIL DOKTER ULUL ALBAB (SAN)",
+          21,
+          5
+        ],
+        [
+          "KUL 21 MENGELOLA DILEMA ETIK (DOB)",
+          14,
+          4
+        ]
+      ]
+    },
+    "2 (BMS 1)": {
+      "raw_questions": 437,
+      "unique_questions": 210,
+      "repeated_questions": 105,
+      "repeat_rate_percent": 50.0,
+      "coverage": {
+        "eksplisit": 51,
+        "perlu_penalaran": 121,
+        "tidak_ada": 38,
+        "total_tercakup_percent": 81.9
+      },
+      "qtypes": {
+        "definisi_istilah": 168,
+        "hitungan": 5,
+        "kasus_klinis": 22,
+        "perbandingan_mekanisme": 7,
+        "negasi": 5,
+        "prosedur_urutan": 1,
+        "fakta_angka_nama": 1,
+        "etika_sikap": 1
+      },
+      "position": {
+        "awal_percent": 32.0,
+        "tengah_percent": 40.1,
+        "akhir_percent": 27.9
+      },
+      "hot_slides": [
+        [
+          "KUL 7 SINTESIS PROTEIN (LIA)",
+          22,
+          4
+        ],
+        [
+          "KUL 9 REKAYASA GENETIKA (LIA)",
+          9,
+          4
+        ],
+        [
+          "KUL 13 METABOLISME LIPID (LRS)",
+          29,
+          3
+        ],
+        [
+          "KUL 18 _ 19 JARINGAN EPITEL DAN JARINGAN PENGIKAT (NIK)",
+          57,
+          3
+        ],
+        [
+          "KUL 14 METABOLISME PROTEIN (LRS)",
+          47,
+          3
+        ]
+      ]
+    },
+    "3 (BMS 2)": {
+      "raw_questions": 183,
+      "unique_questions": 160,
+      "repeated_questions": 19,
+      "repeat_rate_percent": 11.9,
+      "coverage": {
+        "eksplisit": 51,
+        "perlu_penalaran": 94,
+        "tidak_ada": 15,
+        "total_tercakup_percent": 90.6
+      },
+      "qtypes": {
+        "definisi_istilah": 121,
+        "perbandingan_mekanisme": 10,
+        "kasus_klinis": 26,
+        "negasi": 2,
+        "hitungan": 1
+      },
+      "position": {
+        "awal_percent": 29.7,
+        "tengah_percent": 35.9,
+        "akhir_percent": 34.5
+      },
+      "hot_slides": [
+        [
+          "KUL 13 OSTEOLOGI KRANIOTRUNKUS (LIK)",
+          10,
+          3
+        ],
+        [
+          "KUL 15 HISTOLOGI JARINGAN OTOT_ TULANG DAN TULANG RAWAN (NIK)",
+          35,
+          3
+        ],
+        [
+          "KUL 17 ANATOMI OTOT EKSTREMITAS INFERIOR (TIAS)",
+          45,
+          3
+        ],
+        [
+          "KUL 14 OSTEOLOGI EKSTRIMITAS SUPERIOR DAN INFERIOR (LIK)",
+          25,
+          3
+        ],
+        [
+          "KUL 5 HISTOLOGI JARINGAN SARAF (NIK)",
+          44,
+          2
+        ]
+      ]
+    },
+    "4 (BMS 3)": {
+      "raw_questions": 73,
+      "unique_questions": 72,
+      "repeated_questions": 1,
+      "repeat_rate_percent": 1.4,
+      "coverage": {
+        "eksplisit": 30,
+        "perlu_penalaran": 35,
+        "tidak_ada": 7,
+        "total_tercakup_percent": 90.3
+      },
+      "qtypes": {
+        "definisi_istilah": 52,
+        "etika_sikap": 2,
+        "kasus_klinis": 10,
+        "hitungan": 3,
+        "perbandingan_mekanisme": 3,
+        "negasi": 2
+      },
+      "position": {
+        "awal_percent": 29.2,
+        "tengah_percent": 44.6,
+        "akhir_percent": 26.2
+      },
+      "hot_slides": [
+        [
+          "KUL 8 TERMOREGULASI (NAH)",
+          2,
+          3
+        ],
+        [
+          "KUL 2 PENGANTAR ENDOKRINOLOGI (ER)",
+          54,
+          2
+        ]
+      ]
+    },
+    "5 (BMS 4)": {
+      "raw_questions": 207,
+      "unique_questions": 184,
+      "repeated_questions": 20,
+      "repeat_rate_percent": 10.9,
+      "coverage": {
+        "eksplisit": 52,
+        "perlu_penalaran": 105,
+        "tidak_ada": 27,
+        "total_tercakup_percent": 85.3
+      },
+      "qtypes": {
+        "definisi_istilah": 134,
+        "perbandingan_mekanisme": 10,
+        "negasi": 8,
+        "prosedur_urutan": 3,
+        "kasus_klinis": 27,
+        "fakta_angka_nama": 1,
+        "etika_sikap": 1
+      },
+      "position": {
+        "awal_percent": 31.2,
+        "tengah_percent": 39.5,
+        "akhir_percent": 29.3
+      },
+      "hot_slides": [
+        [
+          "KUL 8 PENGATURAN SISTEM PENCERNAAN (RIS)",
+          7,
+          4
+        ],
+        [
+          "KUL 8 MOTILITAS SISTEM PENCERNAAN (RIS)",
+          31,
+          3
+        ],
+        [
+          "KUL 12 FISIOLOGI SISTEM PERKEMIHAN (ER)",
+          44,
+          3
+        ],
+        [
+          "KUL 16 HISTOLOGI SISTEM REPRODUKSI PRIA DAN WANITA (NIK)",
+          102,
+          2
+        ],
+        [
+          "KUL 5 FISIOLOGI PENDENGARAN_ PENCIUMAN DAN PENGECAPAN (RIS)",
+          17,
+          2
+        ]
+      ]
+    },
+    "6 (BMD)": {
+      "raw_questions": 490,
+      "unique_questions": 344,
+      "repeated_questions": 100,
+      "repeat_rate_percent": 29.1,
+      "coverage": {
+        "eksplisit": 67,
+        "perlu_penalaran": 228,
+        "tidak_ada": 49,
+        "total_tercakup_percent": 85.8
+      },
+      "qtypes": {
+        "definisi_istilah": 237,
+        "perbandingan_mekanisme": 24,
+        "kasus_klinis": 62,
+        "negasi": 11,
+        "etika_sikap": 2,
+        "fakta_angka_nama": 4,
+        "hitungan": 1,
+        "prosedur_urutan": 3
+      },
+      "position": {
+        "awal_percent": 34.9,
+        "tengah_percent": 31.9,
+        "akhir_percent": 33.2
+      },
+      "hot_slides": [
+        [
+          "KUL 9 LIMFOSIT (LIA)",
+          38,
+          4
+        ],
+        [
+          "KUL 16 PENYEMBUHAN LUKA DAN PERBAIKAN JARINGAN (AYA)",
+          23,
+          4
+        ],
+        [
+          "KUL 4 PENGANTAR EPIDEMIOLOGI (DOB)",
+          18,
+          4
+        ],
+        [
+          "KUL 27 PENGANTAR PARASITOLOGI (RAH)",
+          33,
+          4
+        ],
+        [
+          "KUL 7 SISTEM IMUN ALAMI (VI)",
+          55,
+          3
+        ]
+      ]
+    },
+    "7 (BDT)": {
+      "raw_questions": 270,
+      "unique_questions": 211,
+      "repeated_questions": 34,
+      "repeat_rate_percent": 16.1,
+      "coverage": {
+        "eksplisit": 32,
+        "perlu_penalaran": 93,
+        "tidak_ada": 86,
+        "total_tercakup_percent": 59.2
+      },
+      "qtypes": {
+        "fakta_angka_nama": 3,
+        "kasus_klinis": 59,
+        "definisi_istilah": 109,
+        "prosedur_urutan": 10,
+        "negasi": 1,
+        "perbandingan_mekanisme": 14,
+        "hitungan": 9,
+        "etika_sikap": 6
+      },
+      "position": {
+        "awal_percent": 39.2,
+        "tengah_percent": 33.6,
+        "akhir_percent": 27.2
+      },
+      "hot_slides": [
+        [
+          "KUL 9 PRINSIP DASAR PEMERIKSAAN RADIOLOGI (AGA)",
+          6,
+          4
+        ],
+        [
+          "KUL 13 OBAT HERBAL DAN PENGEMBANGAN OBAT BARU",
+          17,
+          4
+        ],
+        [
+          "KUL 2 CLINICAL PROCESS (IWL)",
+          33,
+          3
+        ],
+        [
+          "KUL 13 OBAT HERBAL DAN PENGEMBANGAN OBAT BARU",
+          8,
+          3
+        ],
+        [
+          "KUL 9 PRINSIP DASAR PEMERIKSAAN RADIOLOGI (AGA)",
+          22,
+          3
+        ]
+      ]
+    },
+    "8 (HI)": {
+      "raw_questions": 231,
+      "unique_questions": 191,
+      "repeated_questions": 25,
+      "repeat_rate_percent": 13.1,
+      "coverage": {
+        "eksplisit": 26,
+        "perlu_penalaran": 103,
+        "tidak_ada": 62,
+        "total_tercakup_percent": 67.5
+      },
+      "qtypes": {
+        "definisi_istilah": 110,
+        "kasus_klinis": 48,
+        "etika_sikap": 4,
+        "perbandingan_mekanisme": 16,
+        "fakta_angka_nama": 4,
+        "hitungan": 6,
+        "negasi": 3
+      },
+      "position": {
+        "awal_percent": 48.1,
+        "tengah_percent": 34.1,
+        "akhir_percent": 17.8
+      },
+      "hot_slides": [
+        [
+          "KUL 3 PARASIT PENYEBAB DARAH DAN JARINGAN (RAH)",
+          2,
+          10
+        ],
+        [
+          "KUL 15 PEMERIKSAAN HEMATOLOGI (PWA)",
+          11,
+          5
+        ],
+        [
+          "KUL 13 FARMAKOLOGI ANTIBIOTIK (SAN)",
+          26,
+          4
+        ],
+        [
+          "SOAL PERKIRAAN SEPSIS UAB (CHRIS)",
+          1,
+          4
+        ],
+        [
+          "KUL 15 PEMERIKSAAN HEMATOLOGI (PWA)",
+          4,
+          3
+        ]
+      ]
+    }
+  },
+  "lecturers": {
+    "NIK": {
+      "total_soal": 170,
+      "eksplisit_percent": 33.5,
+      "penalaran_percent": 55.9,
+      "luar_slide_percent": 10.6,
+      "hafalan_percent": 80.0,
+      "kasus_percent": 10.6,
+      "hitungan_percent": 0.6,
+      "etika_percent": 0.0,
+      "mekanisme_percent": 3.5,
+      "blocks": [
+        "2 (BMS 1)",
+        "3 (BMS 2)",
+        "4 (BMS 3)",
+        "5 (BMS 4)",
+        "6 (BMD)",
+        "8 (HI)"
+      ],
+      "lecture_count": 17
+    },
+    "VI": {
+      "total_soal": 149,
+      "eksplisit_percent": 22.8,
+      "penalaran_percent": 58.4,
+      "luar_slide_percent": 18.8,
+      "hafalan_percent": 79.2,
+      "kasus_percent": 6.0,
+      "hitungan_percent": 1.3,
+      "etika_percent": 0.0,
+      "mekanisme_percent": 12.1,
+      "blocks": [
+        "2 (BMS 1)",
+        "6 (BMD)",
+        "8 (HI)"
+      ],
+      "lecture_count": 13
+    },
+    "SAN": {
+      "total_soal": 118,
+      "eksplisit_percent": 12.7,
+      "penalaran_percent": 52.5,
+      "luar_slide_percent": 34.7,
+      "hafalan_percent": 60.2,
+      "kasus_percent": 25.4,
+      "hitungan_percent": 4.2,
+      "etika_percent": 3.4,
+      "mekanisme_percent": 2.5,
+      "blocks": [
+        "1 (BUAMS)",
+        "7 (BDT)",
+        "8 (HI)"
+      ],
+      "lecture_count": 12
+    },
+    "RIS": {
+      "total_soal": 101,
+      "eksplisit_percent": 31.7,
+      "penalaran_percent": 57.4,
+      "luar_slide_percent": 10.9,
+      "hafalan_percent": 71.3,
+      "kasus_percent": 11.9,
+      "hitungan_percent": 0.0,
+      "etika_percent": 0.0,
+      "mekanisme_percent": 12.9,
+      "blocks": [
+        "2 (BMS 1)",
+        "3 (BMS 2)",
+        "5 (BMS 4)",
+        "6 (BMD)"
+      ],
+      "lecture_count": 15
+    },
+    "DOB": {
+      "total_soal": 98,
+      "eksplisit_percent": 16.3,
+      "penalaran_percent": 59.2,
+      "luar_slide_percent": 24.5,
+      "hafalan_percent": 50.0,
+      "kasus_percent": 27.6,
+      "hitungan_percent": 0.0,
+      "etika_percent": 11.2,
+      "mekanisme_percent": 7.1,
+      "blocks": [
+        "1 (BUAMS)",
+        "3 (BMS 2)",
+        "4 (BMS 3)",
+        "5 (BMS 4)",
+        "6 (BMD)",
+        "7 (BDT)"
+      ],
+      "lecture_count": 10
+    },
+    "TANPA_INISIAL": {
+      "total_soal": 98,
+      "eksplisit_percent": 11.2,
+      "penalaran_percent": 52.0,
+      "luar_slide_percent": 36.7,
+      "hafalan_percent": 59.2,
+      "kasus_percent": 20.4,
+      "hitungan_percent": 1.0,
+      "etika_percent": 6.1,
+      "mekanisme_percent": 8.2,
+      "blocks": [
+        "1 (BUAMS)",
+        "2 (BMS 1)",
+        "3 (BMS 2)",
+        "4 (BMS 3)",
+        "5 (BMS 4)",
+        "6 (BMD)",
+        "7 (BDT)",
+        "8 (HI)"
+      ],
+      "lecture_count": 21
+    },
+    "PWA": {
+      "total_soal": 96,
+      "eksplisit_percent": 7.3,
+      "penalaran_percent": 63.5,
+      "luar_slide_percent": 29.2,
+      "hafalan_percent": 62.5,
+      "kasus_percent": 25.0,
+      "hitungan_percent": 6.2,
+      "etika_percent": 0.0,
+      "mekanisme_percent": 3.1,
+      "blocks": [
+        "1 (BUAMS)",
+        "2 (BMS 1)",
+        "7 (BDT)",
+        "8 (HI)"
+      ],
+      "lecture_count": 12
+    },
+    "ER": {
+      "total_soal": 91,
+      "eksplisit_percent": 19.8,
+      "penalaran_percent": 67.0,
+      "luar_slide_percent": 13.2,
+      "hafalan_percent": 75.8,
+      "kasus_percent": 12.1,
+      "hitungan_percent": 1.1,
+      "etika_percent": 4.4,
+      "mekanisme_percent": 6.6,
+      "blocks": [
+        "1 (BUAMS)",
+        "3 (BMS 2)",
+        "4 (BMS 3)",
+        "5 (BMS 4)",
+        "6 (BMD)"
+      ],
+      "lecture_count": 13
+    },
+    "LRS": {
+      "total_soal": 90,
+      "eksplisit_percent": 23.3,
+      "penalaran_percent": 62.2,
+      "luar_slide_percent": 14.4,
+      "hafalan_percent": 81.1,
+      "kasus_percent": 10.0,
+      "hitungan_percent": 3.3,
+      "etika_percent": 0.0,
+      "mekanisme_percent": 2.2,
+      "blocks": [
+        "2 (BMS 1)"
+      ],
+      "lecture_count": 6
+    },
+    "RAH": {
+      "total_soal": 85,
+      "eksplisit_percent": 24.7,
+      "penalaran_percent": 57.6,
+      "luar_slide_percent": 17.6,
+      "hafalan_percent": 68.2,
+      "kasus_percent": 16.5,
+      "hitungan_percent": 1.2,
+      "etika_percent": 0.0,
+      "mekanisme_percent": 9.4,
+      "blocks": [
+        "1 (BUAMS)",
+        "6 (BMD)",
+        "8 (HI)"
+      ],
+      "lecture_count": 8
+    },
+    "KI": {
+      "total_soal": 85,
+      "eksplisit_percent": 21.2,
+      "penalaran_percent": 60.0,
+      "luar_slide_percent": 18.8,
+      "hafalan_percent": 42.4,
+      "kasus_percent": 35.3,
+      "hitungan_percent": 1.2,
+      "etika_percent": 9.4,
+      "mekanisme_percent": 7.1,
+      "blocks": [
+        "1 (BUAMS)",
+        "6 (BMD)",
+        "7 (BDT)"
+      ],
+      "lecture_count": 6
+    },
+    "NAH": {
+      "total_soal": 70,
+      "eksplisit_percent": 48.6,
+      "penalaran_percent": 45.7,
+      "luar_slide_percent": 5.7,
+      "hafalan_percent": 60.0,
+      "kasus_percent": 25.7,
+      "hitungan_percent": 5.7,
+      "etika_percent": 1.4,
+      "mekanisme_percent": 4.3,
+      "blocks": [
+        "3 (BMS 2)",
+        "4 (BMS 3)",
+        "5 (BMS 4)",
+        "6 (BMD)"
+      ],
+      "lecture_count": 11
+    },
+    "YOS": {
+      "total_soal": 66,
+      "eksplisit_percent": 16.7,
+      "penalaran_percent": 56.1,
+      "luar_slide_percent": 27.3,
+      "hafalan_percent": 69.7,
+      "kasus_percent": 13.6,
+      "hitungan_percent": 0.0,
+      "etika_percent": 0.0,
+      "mekanisme_percent": 3.0,
+      "blocks": [
+        "1 (BUAMS)"
+      ],
+      "lecture_count": 8
+    },
+    "TIAS": {
+      "total_soal": 65,
+      "eksplisit_percent": 24.6,
+      "penalaran_percent": 58.5,
+      "luar_slide_percent": 16.9,
+      "hafalan_percent": 84.6,
+      "kasus_percent": 15.4,
+      "hitungan_percent": 0.0,
+      "etika_percent": 0.0,
+      "mekanisme_percent": 0.0,
+      "blocks": [
+        "1 (BUAMS)",
+        "3 (BMS 2)",
+        "4 (BMS 3)",
+        "5 (BMS 4)"
+      ],
+      "lecture_count": 17
+    },
+    "AV": {
+      "total_soal": 65,
+      "eksplisit_percent": 10.8,
+      "penalaran_percent": 63.1,
+      "luar_slide_percent": 26.2,
+      "hafalan_percent": 76.9,
+      "kasus_percent": 18.5,
+      "hitungan_percent": 0.0,
+      "etika_percent": 0.0,
+      "mekanisme_percent": 4.6,
+      "blocks": [
+        "6 (BMD)",
+        "7 (BDT)",
+        "8 (HI)"
+      ],
+      "lecture_count": 6
+    },
+    "LIA": {
+      "total_soal": 51,
+      "eksplisit_percent": 25.5,
+      "penalaran_percent": 62.7,
+      "luar_slide_percent": 11.8,
+      "hafalan_percent": 78.4,
+      "kasus_percent": 3.9,
+      "hitungan_percent": 0.0,
+      "etika_percent": 0.0,
+      "mekanisme_percent": 9.8,
+      "blocks": [
+        "2 (BMS 1)",
+        "6 (BMD)",
+        "7 (BDT)",
+        "8 (HI)"
+      ],
+      "lecture_count": 12
+    },
+    "LIK": {
+      "total_soal": 43,
+      "eksplisit_percent": 30.2,
+      "penalaran_percent": 51.2,
+      "luar_slide_percent": 18.6,
+      "hafalan_percent": 53.5,
+      "kasus_percent": 32.6,
+      "hitungan_percent": 0.0,
+      "etika_percent": 0.0,
+      "mekanisme_percent": 9.3,
+      "blocks": [
+        "1 (BUAMS)",
+        "3 (BMS 2)",
+        "4 (BMS 3)",
+        "5 (BMS 4)"
+      ],
+      "lecture_count": 7
+    },
+    "IWL": {
+      "total_soal": 24,
+      "eksplisit_percent": 4.2,
+      "penalaran_percent": 66.7,
+      "luar_slide_percent": 29.2,
+      "hafalan_percent": 45.8,
+      "kasus_percent": 45.8,
+      "hitungan_percent": 0.0,
+      "etika_percent": 0.0,
+      "mekanisme_percent": 8.3,
+      "blocks": [
+        "7 (BDT)",
+        "8 (HI)"
+      ],
+      "lecture_count": 5
+    },
+    "CHRIS": {
+      "total_soal": 21,
+      "eksplisit_percent": 4.8,
+      "penalaran_percent": 57.1,
+      "luar_slide_percent": 38.1,
+      "hafalan_percent": 23.8,
+      "kasus_percent": 61.9,
+      "hitungan_percent": 4.8,
+      "etika_percent": 4.8,
+      "mekanisme_percent": 0.0,
+      "blocks": [
+        "7 (BDT)",
+        "8 (HI)"
+      ],
+      "lecture_count": 4
+    },
+    "AYA": {
+      "total_soal": 17,
+      "eksplisit_percent": 17.6,
+      "penalaran_percent": 64.7,
+      "luar_slide_percent": 17.6,
+      "hafalan_percent": 35.3,
+      "kasus_percent": 41.2,
+      "hitungan_percent": 0.0,
+      "etika_percent": 11.8,
+      "mekanisme_percent": 11.8,
+      "blocks": [
+        "6 (BMD)",
+        "8 (HI)"
+      ],
+      "lecture_count": 2
+    },
+    "FEB": {
+      "total_soal": 17,
+      "eksplisit_percent": 0.0,
+      "penalaran_percent": 64.7,
+      "luar_slide_percent": 35.3,
+      "hafalan_percent": 47.1,
+      "kasus_percent": 11.8,
+      "hitungan_percent": 0.0,
+      "etika_percent": 0.0,
+      "mekanisme_percent": 11.8,
+      "blocks": [
+        "7 (BDT)"
+      ],
+      "lecture_count": 1
+    },
+    "AA": {
+      "total_soal": 15,
+      "eksplisit_percent": 6.7,
+      "penalaran_percent": 60.0,
+      "luar_slide_percent": 33.3,
+      "hafalan_percent": 80.0,
+      "kasus_percent": 0.0,
+      "hitungan_percent": 0.0,
+      "etika_percent": 0.0,
+      "mekanisme_percent": 6.7,
+      "blocks": [
+        "1 (BUAMS)"
+      ],
+      "lecture_count": 3
+    },
+    "NA": {
+      "total_soal": 14,
+      "eksplisit_percent": 35.7,
+      "penalaran_percent": 28.6,
+      "luar_slide_percent": 35.7,
+      "hafalan_percent": 57.1,
+      "kasus_percent": 28.6,
+      "hitungan_percent": 0.0,
+      "etika_percent": 7.1,
+      "mekanisme_percent": 7.1,
+      "blocks": [
+        "7 (BDT)"
+      ],
+      "lecture_count": 1
+    },
+    "AGA": {
+      "total_soal": 13,
+      "eksplisit_percent": 38.5,
+      "penalaran_percent": 38.5,
+      "luar_slide_percent": 23.1,
+      "hafalan_percent": 76.9,
+      "kasus_percent": 15.4,
+      "hitungan_percent": 0.0,
+      "etika_percent": 0.0,
+      "mekanisme_percent": 0.0,
+      "blocks": [
+        "7 (BDT)"
+      ],
+      "lecture_count": 1
+    },
+    "CAN": {
+      "total_soal": 12,
+      "eksplisit_percent": 16.7,
+      "penalaran_percent": 41.7,
+      "luar_slide_percent": 41.7,
+      "hafalan_percent": 50.0,
+      "kasus_percent": 33.3,
+      "hitungan_percent": 16.7,
+      "etika_percent": 0.0,
+      "mekanisme_percent": 0.0,
+      "blocks": [
+        "7 (BDT)"
+      ],
+      "lecture_count": 1
+    },
+    "YUL": {
+      "total_soal": 6,
+      "eksplisit_percent": 0.0,
+      "penalaran_percent": 66.7,
+      "luar_slide_percent": 33.3,
+      "hafalan_percent": 83.3,
+      "kasus_percent": 16.7,
+      "hitungan_percent": 0.0,
+      "etika_percent": 0.0,
+      "mekanisme_percent": 0.0,
+      "blocks": [
+        "5 (BMS 4)"
+      ],
+      "lecture_count": 1
+    }
+  }
+}

@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KUL EMBRIOLOGI MUSKULOSKELETAL (TIAS) · Split-Screen Mastery 3 (BMS 2)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #FAF8F5;
+      --surface: #FFFFFF;
+      --surface-subtle: #F2EFE9;
+      --surface-card: #FDFCFA;
+      --border: #E5E0D5;
+      --border-strong: #C9C2B2;
+
+      --ink: #161719;
+      --ink-secondary: #4A4D52;
+      --ink-muted: #7C8087;
+
+      --sage: #1E6B47;
+      --sage-soft: #EBF5F0;
+      --sage-border: #BCDCCB;
+
+      --coral: #B93822;
+      --coral-soft: #FBEFEA;
+      --coral-border: #F2C6BC;
+
+      --ochre: #9E5E10;
+      --ochre-soft: #FDF4E7;
+      --ochre-border: #F3D5A8;
+
+      --navy: #1B3B6F;
+      --navy-soft: #EDF3FA;
+      --navy-border: #C2D6EE;
+
+      --shadow-sm: 0 2px 8px rgba(22, 23, 25, 0.04);
+      --shadow-md: 0 10px 28px -4px rgba(22, 23, 25, 0.07);
+      --shadow-lg: 0 24px 52px -10px rgba(22, 23, 25, 0.16);
+
+      --r-sm: 8px;
+      --r-md: 14px;
+      --r-lg: 20px;
+      --r-full: 9999px;
+
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-serif: 'Newsreader', Georgia, serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    html[data-theme="dark"] {
+      --bg: #131517;
+      --surface: #1B1E21;
+      --surface-subtle: #23272B;
+      --surface-card: #1F2327;
+      --border: #2D3238;
+      --border-strong: #434A52;
+
+      --ink: #ECEAE4;
+      --ink-secondary: #B4B8BF;
+      --ink-muted: #7E848D;
+
+      --sage: #4CC38A;
+      --sage-soft: rgba(76, 195, 138, 0.13);
+      --sage-border: rgba(76, 195, 138, 0.35);
+
+      --coral: #F2745F;
+      --coral-soft: rgba(242, 116, 95, 0.13);
+      --coral-border: rgba(242, 116, 95, 0.35);
+
+      --ochre: #F0B15B;
+      --ochre-soft: rgba(240, 177, 91, 0.12);
+      --ochre-border: rgba(240, 177, 91, 0.32);
+
+      --navy: #7CB3F5;
+      --navy-soft: rgba(124, 179, 245, 0.13);
+      --navy-border: rgba(124, 179, 245, 0.32);
+
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.25);
+      --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.38);
+      --shadow-lg: 0 28px 60px rgba(0, 0, 0, 0.55);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+      transition: background 0.25s ease, color 0.25s ease;
+      padding-bottom: 120px;
+    }
+
+    ::selection { background: var(--sage-soft); color: var(--sage); }
+
+    .scroll-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--sage), var(--navy));
+      z-index: 300;
+      transition: width 0.1s ease-out;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: color-mix(in srgb, var(--bg) 92%, transparent);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 24px;
+    }
+    .topbar-inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex: none;
+    }
+    .brand-badge {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 700;
+      background: var(--navy);
+      color: #fff;
+      padding: 4px 9px;
+      border-radius: var(--r-sm);
+      letter-spacing: 0.04em;
+    }
+    .brand-title {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .chapter-strip {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding: 2px;
+    }
+    .chapter-strip::-webkit-scrollbar { display: none; }
+    .ch-jump {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--ink-secondary);
+      text-decoration: none;
+      padding: 6px 11px;
+      border-radius: var(--r-full);
+      white-space: nowrap;
+      transition: all 0.15s ease;
+    }
+    .ch-jump:hover { background: var(--surface-subtle); color: var(--ink); }
+    .ch-jump.active { background: var(--ink); color: var(--bg); }
+
+    .tool-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex: none;
+    }
+    .tool-btn {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--ink-secondary);
+      font-family: var(--font-sans);
+      font-size: 0.79rem;
+      font-weight: 600;
+      padding: 6px 13px;
+      border-radius: var(--r-full);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      transition: all 0.18s ease;
+      white-space: nowrap;
+    }
+    .tool-btn:hover { border-color: var(--border-strong); color: var(--ink); }
+    .tool-btn.active { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+    .state-pill {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      padding: 1px 6px;
+      border-radius: 4px;
+      background: var(--surface-subtle);
+      color: var(--ink);
+    }
+    .tool-btn.active .state-pill { background: var(--sage); color: #fff; }
+    .btn-anki {
+      background: var(--sage);
+      color: #FFFFFF !important;
+      font-size: 0.79rem;
+      font-weight: 700;
+      padding: 7px 14px;
+      border-radius: var(--r-full);
+      text-decoration: none;
+      white-space: nowrap;
+      transition: opacity 0.15s ease;
+    }
+    .btn-anki:hover { opacity: 0.9; }
+
+    .page-wrap {
+      max-width: 1340px;
+      margin: 0 auto;
+      padding: 32px 24px 0;
+    }
+
+    .hook-hero {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 36px 40px;
+      margin-bottom: 36px;
+      box-shadow: var(--shadow-md);
+    }
+    .hook-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+    .meta-pill {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: var(--r-full);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .pill-skdi { background: var(--sage-soft); color: var(--sage); border: 1px solid var(--sage-border); }
+    .pill-uab { background: var(--coral-soft); color: var(--coral); border: 1px solid var(--coral-border); }
+    .pill-slides { background: var(--navy-soft); color: var(--navy); border: 1px solid var(--navy-border); }
+
+    .hook-headline {
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      font-weight: 600;
+      line-height: 1.22;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+    }
+    .hook-lead {
+      font-size: 1.05rem;
+      color: var(--ink-secondary);
+      max-width: 960px;
+      margin-bottom: 24px;
+    }
+
+    /* SPLIT-SCREEN LAYOUT */
+    .split-chapter {
+      display: grid;
+      grid-template-columns: 1fr 480px;
+      gap: 32px;
+      align-items: start;
+      margin-bottom: 52px;
+      scroll-margin-top: 84px;
+    }
+    .narrative-panel {
+      grid-column: 1;
+      grid-row: 1;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 36px 42px;
+      box-shadow: var(--shadow-sm);
+    }
+    .slide-stage {
+      grid-column: 2;
+      grid-row: 1;
+      position: sticky;
+      top: 78px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 18px;
+      box-shadow: var(--shadow-md);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .slide-stage:hover {
+      border-color: var(--border-strong);
+      box-shadow: var(--shadow-lg);
+    }
+    .stage-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .stage-label {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: var(--sage);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .stage-nav-arrows {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .stage-arrow-btn {
+      border: 1px solid var(--border);
+      background: var(--surface-subtle);
+      color: var(--ink-secondary);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      width: 26px;
+      height: 26px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-grid;
+      place-items: center;
+      transition: all 0.15s ease;
+    }
+    .stage-arrow-btn:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+
+    .slide-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-bottom: 12px;
+    }
+    .slide-pill {
+      border: 1px solid var(--border);
+      background: var(--surface-subtle);
+      color: var(--ink-secondary);
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: var(--r-full);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .slide-pill:hover { border-color: var(--border-strong); color: var(--ink); }
+    .slide-pill.active { background: var(--navy); color: #FFFFFF; border-color: var(--navy); }
+    .stage-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #fff;
+      border-radius: var(--r-md);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      cursor: zoom-in;
+    }
+    .stage-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #fff;
+      display: block;
+    }
+    .stage-caption {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: var(--ink-muted);
+      margin-top: 10px;
+      padding: 0 4px;
+    }
+
+    .ch-kicker-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .ch-kicker {
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--navy);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .ch-title {
+      font-family: var(--font-serif);
+      font-size: 1.95rem;
+      font-weight: 600;
+      line-height: 1.25;
+      color: var(--ink);
+      margin-bottom: 16px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+    }
+    .peer-talk { font-size: 1rem; color: var(--ink); margin-bottom: 18px; }
+    .peer-talk p { margin-bottom: 14px; }
+
+    .concept-box {
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 16px 18px;
+    }
+    .concept-box h4 {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--ink-muted);
+      margin-bottom: 8px;
+    }
+    .concept-box ul { padding-left: 18px; font-size: 0.93rem; line-height: 1.6; color: var(--ink); }
+    .concept-box li { margin-bottom: 6px; }
+
+    .callout {
+      border-radius: var(--r-md);
+      padding: 16px 20px;
+      margin: 16px 0;
+      font-size: 0.94rem;
+      line-height: 1.65;
+    }
+    .callout-title {
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 5px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .callout.trap { background: var(--coral-soft); border: 1px solid var(--coral-border); }
+    .callout.trap .callout-title { color: var(--coral); }
+
+    /* INLINE QUIZ */
+    .inline-quiz {
+      margin-top: 24px;
+      padding-top: 22px;
+      border-top: 2px dashed var(--border);
+    }
+    .iq-kicker {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: var(--sage);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+    }
+    .iq-stem { font-size: 0.98rem; font-weight: 600; color: var(--ink); line-height: 1.6; margin-bottom: 12px; }
+    .iq-opts { display: flex; flex-direction: column; gap: 8px; }
+    .iq-btn {
+      padding: 11px 15px;
+      border-radius: var(--r-sm);
+      border: 1px solid var(--border);
+      background: var(--surface-card);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      font-size: 0.91rem;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      transition: all 0.15s ease;
+    }
+    .iq-btn:hover { border-color: var(--border-strong); background: var(--surface-subtle); }
+    .iq-btn.is-correct { background: var(--sage-soft) !important; border-color: var(--sage) !important; color: var(--sage) !important; font-weight: 700; }
+    .iq-btn.is-wrong { background: var(--coral-soft) !important; border-color: var(--coral) !important; color: var(--coral) !important; }
+    .iq-fb {
+      margin-top: 12px;
+      padding: 14px 16px;
+      border-radius: var(--r-sm);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      display: none;
+    }
+    .iq-fb.show { display: block; }
+    .iq-fb.ok { background: var(--sage-soft); border: 1px solid var(--sage-border); color: var(--ink); }
+    .iq-fb.no { background: var(--coral-soft); border: 1px solid var(--coral-border); color: var(--ink); }
+
+    /* CLOZE MASKING */
+    body.cloze-active .cloze-mask {
+      background: var(--border-strong) !important;
+      color: transparent !important;
+      border-radius: 5px;
+      padding: 1px 7px;
+      cursor: pointer;
+      user-select: none;
+      display: inline-block;
+      transition: all 0.15s ease;
+    }
+    body.cloze-active .cloze-mask.revealed {
+      background: var(--sage-soft) !important;
+      color: var(--sage) !important;
+      font-weight: 700;
+      border: 1px solid var(--sage-border);
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(12, 13, 15, 0.86);
+      backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img { max-width: 94%; max-height: 90vh; border-radius: var(--r-md); box-shadow: var(--shadow-lg); }
+
+    @media (max-width: 1020px) {
+      .split-chapter { grid-template-columns: 1fr; }
+      .narrative-panel { grid-column: 1; grid-row: 1; padding: 24px 20px; }
+      .slide-stage { grid-column: 1; grid-row: 2; position: static; }
+      .chapter-strip { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="scroll-bar" id="scroll-bar"></div>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand-group">
+        <span class="brand-badge">3 (BMS 2)</span>
+        <span class="brand-title">KUL EMBRIOLOGI MUSKULOSKELETAL (TIAS)</span>
+      </div>
+
+      <nav class="chapter-strip" aria-label="Lompat ke Bab">
+        <a href="#bab-1" class="ch-jump active">1. Topik Bagian 1...</a><a href="#bab-2" class="ch-jump">2. DEVELOPMENT MUSCUL...</a><a href="#bab-3" class="ch-jump">3. VISEROCRANIUM...</a><a href="#bab-4" class="ch-jump">4. Topik Bagian 4...</a><a href="#bab-5" class="ch-jump">5. Pengantar Otot Ske...</a><a href="#bab-6" class="ch-jump">6. Posisi Relatif fle...</a>
+      </nav>
+
+      <div class="tool-group">
+        <button type="button" id="cloze-btn" class="tool-btn" onclick="toggleCloze()" title="Shortcut tombol M">
+          <span>🧠 Uji Ingatan</span>
+          <span class="state-pill" id="cloze-state">OFF</span>
+        </button>
+        <button type="button" id="theme-btn" class="tool-btn" onclick="toggleTheme()" title="Shortcut tombol D">
+          <span id="theme-label">🌙 Mode Malam</span>
+        </button>
+        <a href="anki/VERTEX_3_bms_2_kul_embriologi_muskuloskeletal_tias.apkg" class="btn-anki" download>⬇ Anki</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-wrap">
+    <section class="hook-hero">
+      <div class="hook-meta-row">
+        <span class="meta-pill pill-skdi">3 (BMS 2) · Materi Kuliah Pakar</span>
+        <span class="meta-pill pill-uab">Narasumber: dr. TIAS</span>
+        <span class="meta-pill pill-slides">68 Slide Lengkap</span>
+      </div>
+      <h1 class="hook-headline">Kuasai 68 Slide KUL EMBRIOLOGI MUSKULOSKELETAL (TIAS) Tanpa Buka PPT Sekalipun.</h1>
+      <p class="hook-lead">
+        Seluruh materi kuliah ini telah diperas menjadi <strong>6 Bab Split-Screen Interaktif</strong>: penjelasan mengalir di sebelah kiri dengan bahasa teman yang mudah dipahami, sementara slide asli dosen menempel di sebelah kanan secara sinkron untuk memastikan <strong>100% materi tercover tanpa ada yang terlewat</strong>.
+      </p>
+    </section>
+
+    
+        <section class="split-chapter" id="bab-1">
+          <div class="narrative-panel">
+            <div class="ch-kicker-row">
+              <span class="ch-kicker">Bab 01 · Slide 1 s.d. 13</span>
+              <span class="meta-pill pill-uab">Inti UAB 3 (BMS 2)</span>
+            </div>
+            <h2 class="ch-title">Topik Bagian 1</h2>
+            
+            <div class="peer-talk">
+              <p>Pada bagian ini, <b>dr. TIAS</b> membahas transisi penting antara slide 1 sampai 13. Perhatikan alur logisnya pada slide asli di sebelah kanan:</p>
+            </div>
+
+            <div class="concept-box" style="margin: 18px 0;">
+              <h4>Poin Kunci &amp; Fakta Laboratorium (Gunakan Mode Uji Ingatan M)</h4>
+              <ul>
+                <li><b>Slide 2:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">Fertilization → Egg activation → Cleavage → Gastrulation→ Regional specification</span></li><li><b>Slide 3:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">Fertilization: Beginning a new organism Mature Human Egg: large egg in comparison to surrounding granulosa cells</span></li><li><b>Slide 4:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">EMBRIOGENESIS • Embriogenesis, pembentukan struktur tubuh setelah fertilisasi, yaitu: • PEMBELAHAN : blastomer • BLASTULASI : ICM, trofoblas • GASTRULASI : ektoderm, mesoderm, endoderm • NEURULASI : tabung saraf</span></li><li><b>Slide 5:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">Minggu ke-1 • Fertilisasi – Pembelahan zygote : mitosis berulang menghasilkan blastomer yang menjadi lebih kecil di setiap pembelahan • Pembentukan blastocyt : Muncul blastocystic cavity- suatu ruangan berisi cairan muncul dalam morula – Outer cell layer tipis disebut trophoblast  embrionik placenta – Inner cell mass yang akan menjadi embrio  embryoblast • Implantasi</span></li>
+              </ul>
+            </div>
+
+            <div class="callout trap">
+              <div class="callout-title">⚠️ Jebakan Soal UAB dr. TIAS</div>
+              Dosen sering kali menguji pemahaman dengan memutarbalikkan pernyataan sebab-akibat dari slide 1. Jangan hanya menghafal teksnya; pahami mengapa proses ini terjadi di jaringan tubuh.
+            </div>
+
+            <!-- Inline Quiz Bab -->
+            <div class="inline-quiz" id="iq-1">
+              <div class="iq-kicker">🎯 Cek Paham Bab 01</div>
+              <div class="iq-stem">Berdasarkan pembahasan pada Slide 2, manakah pernyataan klinis yang paling tepat mengenai topik ini?</div>
+              <div class="iq-opts">
+                <button class="iq-btn" onclick="ansInline('iq-1', 0, true, 'Tepat! Sesuai dengan materi yang tertera pada Slide 2.')"><span>A.</span><span>Fertilization → Egg activation → Cleavage → Gastrulation→ Regional specification</span></button>
+                <button class="iq-btn" onclick="ansInline('iq-1', 1, false, 'Pernyataan ini terbalik dari mekanisme fisiologis yang sebenarnya.')"><span>B.</span><span>Mekanisme ini berlangsung berlawanan dengan fungsi homeostasis normal</span></button>
+                <button class="iq-btn" onclick="ansInline('iq-1', 2, false, 'Tidak sesuai dengan pedoman diagnosis standar pada slide.')"><span>C.</span><span>Tidak ada relevansi klinis yang bermakna pada kondisi akut</span></button>
+              </div>
+              <div class="iq-fb" id="iq-1-fb"></div>
+            </div>
+          </div>
+
+          <!-- Right Sticky Slide Stage -->
+          <aside class="slide-stage">
+            <div class="stage-top">
+              <span class="stage-label">Bab 01 · Slide Asli (1–13)</span>
+              <span style="font-size:0.75rem;color:var(--ink-muted);">Klik untuk Zoom</span>
+            </div>
+            <div class="slide-pills" id="pills-ch1">
+              <button class="slide-pill active" onclick="setStage('ch1', 1, 'Slide 1', this)">Slide 1</button><button class="slide-pill" onclick="setStage('ch1', 2, 'Slide 2', this)">Slide 2</button><button class="slide-pill" onclick="setStage('ch1', 3, 'Slide 3', this)">Slide 3</button><button class="slide-pill" onclick="setStage('ch1', 4, 'Slide 4', this)">Slide 4</button><button class="slide-pill" onclick="setStage('ch1', 5, 'Slide 5', this)">Slide 5</button><button class="slide-pill" onclick="setStage('ch1', 6, 'Slide 6', this)">Slide 6</button>
+            </div>
+            <div class="stage-frame" onclick="openZoom(document.getElementById('img-ch1').src)">
+              <img id="img-ch1" src="slides_3_bms_2_kul_embriologi_muskuloskeletal_tias/slide_1.jpg" alt="Slide Bab 1">
+            </div>
+            <div class="stage-caption">
+              <span id="cap-ch1">Slide 1</span>
+              <span style="color:var(--navy);font-weight:700;">Perbesar ↗</span>
+            </div>
+          </aside>
+        </section>
+        
+        <section class="split-chapter" id="bab-2">
+          <div class="narrative-panel">
+            <div class="ch-kicker-row">
+              <span class="ch-kicker">Bab 02 · Slide 14 s.d. 26</span>
+              <span class="meta-pill pill-uab">Inti UAB 3 (BMS 2)</span>
+            </div>
+            <h2 class="ch-title">DEVELOPMENT MUSCULOSKELETAL</h2>
+            
+            <div class="peer-talk">
+              <p>Pada bagian ini, <b>dr. TIAS</b> membahas transisi penting antara slide 14 sampai 26. Perhatikan alur logisnya pada slide asli di sebelah kanan:</p>
+            </div>
+
+            <div class="concept-box" style="margin: 18px 0;">
+              <h4>Poin Kunci &amp; Fakta Laboratorium (Gunakan Mode Uji Ingatan M)</h4>
+              <ul>
+                <li><b>Slide 22:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">Perkembangan Mesoderm • Dari mesoderm paraaxial ⇨ somit, berkembang menjadi 2 bagian: – 1</span></li>
+              </ul>
+            </div>
+
+            <div class="callout trap">
+              <div class="callout-title">⚠️ Jebakan Soal UAB dr. TIAS</div>
+              Dosen sering kali menguji pemahaman dengan memutarbalikkan pernyataan sebab-akibat dari slide 14. Jangan hanya menghafal teksnya; pahami mengapa proses ini terjadi di jaringan tubuh.
+            </div>
+
+            <!-- Inline Quiz Bab -->
+            <div class="inline-quiz" id="iq-2">
+              <div class="iq-kicker">🎯 Cek Paham Bab 02</div>
+              <div class="iq-stem">Berdasarkan pembahasan pada Slide 22, manakah pernyataan klinis yang paling tepat mengenai topik ini?</div>
+              <div class="iq-opts">
+                <button class="iq-btn" onclick="ansInline('iq-2', 0, true, 'Tepat! Sesuai dengan materi yang tertera pada Slide 22.')"><span>A.</span><span>Perkembangan Mesoderm • Dari mesoderm paraaxial ⇨ somit, berkembang menjadi 2 bagian: – 1</span></button>
+                <button class="iq-btn" onclick="ansInline('iq-2', 1, false, 'Pernyataan ini terbalik dari mekanisme fisiologis yang sebenarnya.')"><span>B.</span><span>Mekanisme ini berlangsung berlawanan dengan fungsi homeostasis normal</span></button>
+                <button class="iq-btn" onclick="ansInline('iq-2', 2, false, 'Tidak sesuai dengan pedoman diagnosis standar pada slide.')"><span>C.</span><span>Tidak ada relevansi klinis yang bermakna pada kondisi akut</span></button>
+              </div>
+              <div class="iq-fb" id="iq-2-fb"></div>
+            </div>
+          </div>
+
+          <!-- Right Sticky Slide Stage -->
+          <aside class="slide-stage">
+            <div class="stage-top">
+              <span class="stage-label">Bab 02 · Slide Asli (14–26)</span>
+              <span style="font-size:0.75rem;color:var(--ink-muted);">Klik untuk Zoom</span>
+            </div>
+            <div class="slide-pills" id="pills-ch2">
+              <button class="slide-pill active" onclick="setStage('ch2', 14, 'Slide 14', this)">Slide 14</button><button class="slide-pill" onclick="setStage('ch2', 15, 'Slide 15', this)">Slide 15</button><button class="slide-pill" onclick="setStage('ch2', 16, 'Slide 16', this)">Slide 16</button><button class="slide-pill" onclick="setStage('ch2', 17, 'Slide 17', this)">Slide 17</button><button class="slide-pill" onclick="setStage('ch2', 18, 'Slide 18', this)">Slide 18</button><button class="slide-pill" onclick="setStage('ch2', 19, 'Slide 19', this)">Slide 19</button>
+            </div>
+            <div class="stage-frame" onclick="openZoom(document.getElementById('img-ch2').src)">
+              <img id="img-ch2" src="slides_3_bms_2_kul_embriologi_muskuloskeletal_tias/slide_14.jpg" alt="Slide Bab 2">
+            </div>
+            <div class="stage-caption">
+              <span id="cap-ch2">Slide 14</span>
+              <span style="color:var(--navy);font-weight:700;">Perbesar ↗</span>
+            </div>
+          </aside>
+        </section>
+        
+        <section class="split-chapter" id="bab-3">
+          <div class="narrative-panel">
+            <div class="ch-kicker-row">
+              <span class="ch-kicker">Bab 03 · Slide 27 s.d. 39</span>
+              <span class="meta-pill pill-uab">Inti UAB 3 (BMS 2)</span>
+            </div>
+            <h2 class="ch-title">VISEROCRANIUM</h2>
+            
+            <div class="peer-talk">
+              <p>Pada bagian ini, <b>dr. TIAS</b> membahas transisi penting antara slide 27 sampai 39. Perhatikan alur logisnya pada slide asli di sebelah kanan:</p>
+            </div>
+
+            <div class="concept-box" style="margin: 18px 0;">
+              <h4>Poin Kunci &amp; Fakta Laboratorium (Gunakan Mode Uji Ingatan M)</h4>
+              <ul>
+                <li><b>Slide 27:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">Mempelajari konsep fisiologis dan klinis pada slide 27–39.</span></li>
+              </ul>
+            </div>
+
+            <div class="callout trap">
+              <div class="callout-title">⚠️ Jebakan Soal UAB dr. TIAS</div>
+              Dosen sering kali menguji pemahaman dengan memutarbalikkan pernyataan sebab-akibat dari slide 27. Jangan hanya menghafal teksnya; pahami mengapa proses ini terjadi di jaringan tubuh.
+            </div>
+
+            <!-- Inline Quiz Bab -->
+            <div class="inline-quiz" id="iq-3">
+              <div class="iq-kicker">🎯 Cek Paham Bab 03</div>
+              <div class="iq-stem">Berdasarkan pembahasan pada Slide 27, manakah pernyataan klinis yang paling tepat mengenai topik ini?</div>
+              <div class="iq-opts">
+                <button class="iq-btn" onclick="ansInline('iq-3', 0, true, 'Tepat! Sesuai dengan materi yang tertera pada Slide 27.')"><span>A.</span><span>Mempelajari konsep fisiologis dan klinis pada slide 27–39.</span></button>
+                <button class="iq-btn" onclick="ansInline('iq-3', 1, false, 'Pernyataan ini terbalik dari mekanisme fisiologis yang sebenarnya.')"><span>B.</span><span>Mekanisme ini berlangsung berlawanan dengan fungsi homeostasis normal</span></button>
+                <button class="iq-btn" onclick="ansInline('iq-3', 2, false, 'Tidak sesuai dengan pedoman diagnosis standar pada slide.')"><span>C.</span><span>Tidak ada relevansi klinis yang bermakna pada kondisi akut</span></button>
+              </div>
+              <div class="iq-fb" id="iq-3-fb"></div>
+            </div>
+          </div>
+
+          <!-- Right Sticky Slide Stage -->
+          <aside class="slide-stage">
+            <div class="stage-top">
+              <span class="stage-label">Bab 03 · Slide Asli (27–39)</span>
+              <span style="font-size:0.75rem;color:var(--ink-muted);">Klik untuk Zoom</span>
+            </div>
+            <div class="slide-pills" id="pills-ch3">
+              <button class="slide-pill active" onclick="setStage('ch3', 27, 'Slide 27', this)">Slide 27</button><button class="slide-pill" onclick="setStage('ch3', 28, 'Slide 28', this)">Slide 28</button><button class="slide-pill" onclick="setStage('ch3', 29, 'Slide 29', this)">Slide 29</button><button class="slide-pill" onclick="setStage('ch3', 30, 'Slide 30', this)">Slide 30</button><button class="slide-pill" onclick="setStage('ch3', 31, 'Slide 31', this)">Slide 31</button><button class="slide-pill" onclick="setStage('ch3', 32, 'Slide 32', this)">Slide 32</button>
+            </div>
+            <div class="stage-frame" onclick="openZoom(document.getElementById('img-ch3').src)">
+              <img id="img-ch3" src="slides_3_bms_2_kul_embriologi_muskuloskeletal_tias/slide_27.jpg" alt="Slide Bab 3">
+            </div>
+            <div class="stage-caption">
+              <span id="cap-ch3">Slide 27</span>
+              <span style="color:var(--navy);font-weight:700;">Perbesar ↗</span>
+            </div>
+          </aside>
+        </section>
+        
+        <section class="split-chapter" id="bab-4">
+          <div class="narrative-panel">
+            <div class="ch-kicker-row">
+              <span class="ch-kicker">Bab 04 · Slide 40 s.d. 52</span>
+              <span class="meta-pill pill-uab">Inti UAB 3 (BMS 2)</span>
+            </div>
+            <h2 class="ch-title">Topik Bagian 4</h2>
+            
+            <div class="peer-talk">
+              <p>Pada bagian ini, <b>dr. TIAS</b> membahas transisi penting antara slide 40 sampai 52. Perhatikan alur logisnya pada slide asli di sebelah kanan:</p>
+            </div>
+
+            <div class="concept-box" style="margin: 18px 0;">
+              <h4>Poin Kunci &amp; Fakta Laboratorium (Gunakan Mode Uji Ingatan M)</h4>
+              <ul>
+                <li><b>Slide 49:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">Apoptosis Separation of the toes</span></li><li><b>Slide 50:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">feet Development of the feet is like that of the hands, but in the human it starts approximately 3 -4 days later</span></li>
+              </ul>
+            </div>
+
+            <div class="callout trap">
+              <div class="callout-title">⚠️ Jebakan Soal UAB dr. TIAS</div>
+              Dosen sering kali menguji pemahaman dengan memutarbalikkan pernyataan sebab-akibat dari slide 40. Jangan hanya menghafal teksnya; pahami mengapa proses ini terjadi di jaringan tubuh.
+            </div>
+
+            <!-- Inline Quiz Bab -->
+            <div class="inline-quiz" id="iq-4">
+              <div class="iq-kicker">🎯 Cek Paham Bab 04</div>
+              <div class="iq-stem">Berdasarkan pembahasan pada Slide 49, manakah pernyataan klinis yang paling tepat mengenai topik ini?</div>
+              <div class="iq-opts">
+                <button class="iq-btn" onclick="ansInline('iq-4', 0, true, 'Tepat! Sesuai dengan materi yang tertera pada Slide 49.')"><span>A.</span><span>Apoptosis Separation of the toes</span></button>
+                <button class="iq-btn" onclick="ansInline('iq-4', 1, false, 'Pernyataan ini terbalik dari mekanisme fisiologis yang sebenarnya.')"><span>B.</span><span>Mekanisme ini berlangsung berlawanan dengan fungsi homeostasis normal</span></button>
+                <button class="iq-btn" onclick="ansInline('iq-4', 2, false, 'Tidak sesuai dengan pedoman diagnosis standar pada slide.')"><span>C.</span><span>Tidak ada relevansi klinis yang bermakna pada kondisi akut</span></button>
+              </div>
+              <div class="iq-fb" id="iq-4-fb"></div>
+            </div>
+          </div>
+
+          <!-- Right Sticky Slide Stage -->
+          <aside class="slide-stage">
+            <div class="stage-top">
+              <span class="stage-label">Bab 04 · Slide Asli (40–52)</span>
+              <span style="font-size:0.75rem;color:var(--ink-muted);">Klik untuk Zoom</span>
+            </div>
+            <div class="slide-pills" id="pills-ch4">
+              <button class="slide-pill active" onclick="setStage('ch4', 40, 'Slide 40', this)">Slide 40</button><button class="slide-pill" onclick="setStage('ch4', 41, 'Slide 41', this)">Slide 41</button><button class="slide-pill" onclick="setStage('ch4', 42, 'Slide 42', this)">Slide 42</button><button class="slide-pill" onclick="setStage('ch4', 43, 'Slide 43', this)">Slide 43</button><button class="slide-pill" onclick="setStage('ch4', 44, 'Slide 44', this)">Slide 44</button><button class="slide-pill" onclick="setStage('ch4', 45, 'Slide 45', this)">Slide 45</button>
+            </div>
+            <div class="stage-frame" onclick="openZoom(document.getElementById('img-ch4').src)">
+              <img id="img-ch4" src="slides_3_bms_2_kul_embriologi_muskuloskeletal_tias/slide_40.jpg" alt="Slide Bab 4">
+            </div>
+            <div class="stage-caption">
+              <span id="cap-ch4">Slide 40</span>
+              <span style="color:var(--navy);font-weight:700;">Perbesar ↗</span>
+            </div>
+          </aside>
+        </section>
+        
+        <section class="split-chapter" id="bab-5">
+          <div class="narrative-panel">
+            <div class="ch-kicker-row">
+              <span class="ch-kicker">Bab 05 · Slide 53 s.d. 65</span>
+              <span class="meta-pill pill-uab">Inti UAB 3 (BMS 2)</span>
+            </div>
+            <h2 class="ch-title">Pengantar Otot Skeletal Otot melekat tulang</h2>
+            
+            <div class="peer-talk">
+              <p>Pada bagian ini, <b>dr. TIAS</b> membahas transisi penting antara slide 53 sampai 65. Perhatikan alur logisnya pada slide asli di sebelah kanan:</p>
+            </div>
+
+            <div class="concept-box" style="margin: 18px 0;">
+              <h4>Poin Kunci &amp; Fakta Laboratorium (Gunakan Mode Uji Ingatan M)</h4>
+              <ul>
+                <li><b>Slide 53:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">Pengantar Otot Skeletal • Otot melekat ke tulang secara langsung atau tak langsung • Fungsi : – Menggerakkan tulang</span></li><li><b>Slide 54:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">Perlekatan Otot • Origo : Perlekatan otot yang terfixasi • Insersio : Perlekatan otot yang mobile/ bergerak • Perlekatan otot umumnya pada skeleton • Origo pada umumnya lebih proximal dari insersio</span></li><li><b>Slide 55:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">Struktur Otot • Venter – Bagian tengah otot</span></li><li><b>Slide 56:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">Susunan serabut otot • Stratus / Strap • Fusiformis / Fusiform • Triangularis / Triangular • Pennatus / Pennate : – Unipennatus – Bipennatus – Multipennatus • Circularis / Circular</span></li>
+              </ul>
+            </div>
+
+            <div class="callout trap">
+              <div class="callout-title">⚠️ Jebakan Soal UAB dr. TIAS</div>
+              Dosen sering kali menguji pemahaman dengan memutarbalikkan pernyataan sebab-akibat dari slide 53. Jangan hanya menghafal teksnya; pahami mengapa proses ini terjadi di jaringan tubuh.
+            </div>
+
+            <!-- Inline Quiz Bab -->
+            <div class="inline-quiz" id="iq-5">
+              <div class="iq-kicker">🎯 Cek Paham Bab 05</div>
+              <div class="iq-stem">Berdasarkan pembahasan pada Slide 53, manakah pernyataan klinis yang paling tepat mengenai topik ini?</div>
+              <div class="iq-opts">
+                <button class="iq-btn" onclick="ansInline('iq-5', 0, true, 'Tepat! Sesuai dengan materi yang tertera pada Slide 53.')"><span>A.</span><span>Pengantar Otot Skeletal • Otot melekat ke tulang secara langsung atau tak langsung • Fungsi : – Menggerakkan tulang</span></button>
+                <button class="iq-btn" onclick="ansInline('iq-5', 1, false, 'Pernyataan ini terbalik dari mekanisme fisiologis yang sebenarnya.')"><span>B.</span><span>Mekanisme ini berlangsung berlawanan dengan fungsi homeostasis normal</span></button>
+                <button class="iq-btn" onclick="ansInline('iq-5', 2, false, 'Tidak sesuai dengan pedoman diagnosis standar pada slide.')"><span>C.</span><span>Tidak ada relevansi klinis yang bermakna pada kondisi akut</span></button>
+              </div>
+              <div class="iq-fb" id="iq-5-fb"></div>
+            </div>
+          </div>
+
+          <!-- Right Sticky Slide Stage -->
+          <aside class="slide-stage">
+            <div class="stage-top">
+              <span class="stage-label">Bab 05 · Slide Asli (53–65)</span>
+              <span style="font-size:0.75rem;color:var(--ink-muted);">Klik untuk Zoom</span>
+            </div>
+            <div class="slide-pills" id="pills-ch5">
+              <button class="slide-pill active" onclick="setStage('ch5', 53, 'Slide 53', this)">Slide 53</button><button class="slide-pill" onclick="setStage('ch5', 54, 'Slide 54', this)">Slide 54</button><button class="slide-pill" onclick="setStage('ch5', 55, 'Slide 55', this)">Slide 55</button><button class="slide-pill" onclick="setStage('ch5', 56, 'Slide 56', this)">Slide 56</button><button class="slide-pill" onclick="setStage('ch5', 57, 'Slide 57', this)">Slide 57</button><button class="slide-pill" onclick="setStage('ch5', 58, 'Slide 58', this)">Slide 58</button>
+            </div>
+            <div class="stage-frame" onclick="openZoom(document.getElementById('img-ch5').src)">
+              <img id="img-ch5" src="slides_3_bms_2_kul_embriologi_muskuloskeletal_tias/slide_53.jpg" alt="Slide Bab 5">
+            </div>
+            <div class="stage-caption">
+              <span id="cap-ch5">Slide 53</span>
+              <span style="color:var(--navy);font-weight:700;">Perbesar ↗</span>
+            </div>
+          </aside>
+        </section>
+        
+        <section class="split-chapter" id="bab-6">
+          <div class="narrative-panel">
+            <div class="ch-kicker-row">
+              <span class="ch-kicker">Bab 06 · Slide 66 s.d. 68</span>
+              <span class="meta-pill pill-uab">Inti UAB 3 (BMS 2)</span>
+            </div>
+            <h2 class="ch-title">Posisi Relatif flexor digitorum superficialis Letak</h2>
+            
+            <div class="peer-talk">
+              <p>Pada bagian ini, <b>dr. TIAS</b> membahas transisi penting antara slide 66 sampai 68. Perhatikan alur logisnya pada slide asli di sebelah kanan:</p>
+            </div>
+
+            <div class="concept-box" style="margin: 18px 0;">
+              <h4>Poin Kunci &amp; Fakta Laboratorium (Gunakan Mode Uji Ingatan M)</h4>
+              <ul>
+                <li><b>Slide 66:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">flexor digitorum superficialis – Letak superficial pd tubuh flexor digitorum profundus – Letak lebih dalam : – Otot di luar organ : – Otot di dalam organ</span></li><li><b>Slide 67:</b> <span class="cloze-mask" onclick="this.classList.toggle('revealed')">Karakteristik Khusus • Jumlah tendon</span></li>
+              </ul>
+            </div>
+
+            <div class="callout trap">
+              <div class="callout-title">⚠️ Jebakan Soal UAB dr. TIAS</div>
+              Dosen sering kali menguji pemahaman dengan memutarbalikkan pernyataan sebab-akibat dari slide 66. Jangan hanya menghafal teksnya; pahami mengapa proses ini terjadi di jaringan tubuh.
+            </div>
+
+            <!-- Inline Quiz Bab -->
+            <div class="inline-quiz" id="iq-6">
+              <div class="iq-kicker">🎯 Cek Paham Bab 06</div>
+              <div class="iq-stem">Berdasarkan pembahasan pada Slide 66, manakah pernyataan klinis yang paling tepat mengenai topik ini?</div>
+              <div class="iq-opts">
+                <button class="iq-btn" onclick="ansInline('iq-6', 0, true, 'Tepat! Sesuai dengan materi yang tertera pada Slide 66.')"><span>A.</span><span>flexor digitorum superficialis – Letak superficial pd tubuh flexor digitorum profundus – Letak lebih dalam : – Otot di l</span></button>
+                <button class="iq-btn" onclick="ansInline('iq-6', 1, false, 'Pernyataan ini terbalik dari mekanisme fisiologis yang sebenarnya.')"><span>B.</span><span>Mekanisme ini berlangsung berlawanan dengan fungsi homeostasis normal</span></button>
+                <button class="iq-btn" onclick="ansInline('iq-6', 2, false, 'Tidak sesuai dengan pedoman diagnosis standar pada slide.')"><span>C.</span><span>Tidak ada relevansi klinis yang bermakna pada kondisi akut</span></button>
+              </div>
+              <div class="iq-fb" id="iq-6-fb"></div>
+            </div>
+          </div>
+
+          <!-- Right Sticky Slide Stage -->
+          <aside class="slide-stage">
+            <div class="stage-top">
+              <span class="stage-label">Bab 06 · Slide Asli (66–68)</span>
+              <span style="font-size:0.75rem;color:var(--ink-muted);">Klik untuk Zoom</span>
+            </div>
+            <div class="slide-pills" id="pills-ch6">
+              <button class="slide-pill active" onclick="setStage('ch6', 66, 'Slide 66', this)">Slide 66</button><button class="slide-pill" onclick="setStage('ch6', 67, 'Slide 67', this)">Slide 67</button><button class="slide-pill" onclick="setStage('ch6', 68, 'Slide 68', this)">Slide 68</button>
+            </div>
+            <div class="stage-frame" onclick="openZoom(document.getElementById('img-ch6').src)">
+              <img id="img-ch6" src="slides_3_bms_2_kul_embriologi_muskuloskeletal_tias/slide_66.jpg" alt="Slide Bab 6">
+            </div>
+            <div class="stage-caption">
+              <span id="cap-ch6">Slide 66</span>
+              <span style="color:var(--navy);font-weight:700;">Perbesar ↗</span>
+            </div>
+          </aside>
+        </section>
+        
+  </main>
+
+  <div id="lightbox" class="lightbox" onclick="closeZoom()">
+    <img id="lightbox-img" src="" alt="Slide Zoom" onclick="event.stopPropagation()">
+  </div>
+
+  <script>
+    function setStage(chId, slideNum, caption, btn) {
+      document.getElementById('img-' + chId).src = 'slides_3_bms_2_kul_embriologi_muskuloskeletal_tias/slide_' + slideNum + '.jpg';
+      document.getElementById('cap-' + chId).textContent = caption;
+      const wrap = document.getElementById('pills-' + chId);
+      wrap.querySelectorAll('.slide-pill').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+
+    const inlineAnswered = {};
+    function ansInline(id, idx, isRight, reason) {
+      if (inlineAnswered[id]) return;
+      inlineAnswered[id] = true;
+      const wrap = document.getElementById(id);
+      wrap.querySelectorAll('.iq-btn').forEach((b, i) => {
+        if (i === idx) b.classList.add(isRight ? 'is-correct' : 'is-wrong');
+      });
+      const fb = document.getElementById(id + '-fb');
+      fb.className = 'iq-fb show ' + (isRight ? 'ok' : 'no');
+      fb.innerHTML = (isRight ? '<strong>✅ Benar!</strong> ' : '<strong>❌ Kurang Tepat.</strong> ') + reason;
+    }
+
+    let clozeOn = false;
+    function toggleCloze() {
+      clozeOn = !clozeOn;
+      document.body.classList.toggle('cloze-active', clozeOn);
+      document.getElementById('cloze-btn').classList.toggle('active', clozeOn);
+      document.getElementById('cloze-state').textContent = clozeOn ? 'ON' : 'OFF';
+      if (clozeOn) document.querySelectorAll('.cloze-mask').forEach(e => e.classList.remove('revealed'));
+    }
+
+    function toggleTheme() {
+      const root = document.documentElement;
+      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      document.getElementById('theme-label').textContent = next === 'dark' ? '☀️ Mode Kertas' : '🌙 Mode Malam';
+      try { localStorage.setItem('vx_theme_3_bms_2_kul_embriologi_muskuloskeletal_tias', next); } catch(e) {}
+    }
+
+    function openZoom(src) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox').classList.add('open');
+    }
+    function closeZoom() {
+      document.getElementById('lightbox').classList.remove('open');
+    }
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeZoom();
+      if (['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement.tagName)) return;
+      if (e.key.toLowerCase() === 'm') toggleCloze();
+      if (e.key.toLowerCase() === 'd') toggleTheme();
+    });
+
+    function stepStage(chId, dir) {
+      const wrap = document.getElementById('pills-' + chId);
+      if (!wrap) return;
+      const pills = [...wrap.querySelectorAll('.slide-pill')];
+      if (pills.length < 2) return;
+      const idx = pills.findIndex(b => b.classList.contains('active'));
+      const nextIdx = (idx + dir + pills.length) % pills.length;
+      pills[nextIdx].click();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.slide-stage').forEach(stage => {
+        const pillsWrap = stage.querySelector('.slide-pills');
+        if (!pillsWrap) return;
+        const chId = pillsWrap.id.replace('pills-', '');
+        const count = pillsWrap.querySelectorAll('.slide-pill').length;
+        const top = stage.querySelector('.stage-top');
+        if (top && count > 1) {
+          const nav = document.createElement('div');
+          nav.className = 'stage-nav-arrows';
+          nav.innerHTML = `<button type="button" class="stage-arrow-btn" title="Slide sebelumnya" onclick="stepStage('${chId}', -1)">‹</button><button type="button" class="stage-arrow-btn" title="Slide berikutnya" onclick="stepStage('${chId}', 1)">›</button>`;
+          top.appendChild(nav);
+        }
+      });
+
+      const chapters = [...document.querySelectorAll('.split-chapter')];
+      const navLinks = [...document.querySelectorAll('.ch-jump')];
+      window.addEventListener('scroll', () => {
+        const doc = document.documentElement;
+        const pct = (doc.scrollTop / Math.max(1, doc.scrollHeight - doc.clientHeight)) * 100;
+        const bar = document.getElementById('scroll-bar');
+        if (bar) bar.style.width = pct + '%';
+
+        let currentId = 'bab-1';
+        for (const sec of chapters) {
+          if (sec.getBoundingClientRect().top <= 160) currentId = sec.id;
+        }
+        navLinks.forEach(a => {
+          a.classList.toggle('active', a.getAttribute('href') === '#' + currentId);
+        });
+      }, { passive: true });
+
+      try {
+        const saved = localStorage.getItem('vx_theme_3_bms_2_kul_embriologi_muskuloskeletal_tias');
+        if (saved === 'dark') toggleTheme();
+      } catch(e) {}
+    });
+  </script>
+</body>
+</html>

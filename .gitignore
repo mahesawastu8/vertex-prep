@@ -1,0 +1,7 @@
+# Heavy raw archives & mass rendered slide dumps (keep active curated slides)
+slides_[0-9]_*
+analysis/lectures/
+Bank_Soal_UAB/
+.DS_Store
+*.tmp
+__pycache__/

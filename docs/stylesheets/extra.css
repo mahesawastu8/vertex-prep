@@ -1,0 +1,58 @@
+html {
+  font-size: 137.5% !important;
+}
+:root {
+  --md-primary-fg-color: #0F5C4D;
+  --md-primary-fg-color--light: #167A67;
+  --md-primary-fg-color--dark: #0A4036;
+  --md-accent-fg-color: #0B463A;
+}
+.md-typeset {
+  font-size: 0.82rem;
+  line-height: 1.65;
+}
+.md-typeset h1 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.md-typeset h2 {
+  font-weight: 700;
+  border-bottom: 1px solid rgba(15, 92, 77, 0.15);
+  padding-bottom: 0.35rem;
+}
+.slide-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin: 12px 0;
+}
+.slide-card {
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: 8px;
+  padding: 14px;
+  background: var(--md-code-bg-color);
+}
+.slide-card img {
+  border-radius: 6px;
+  width: 100%;
+  display: block;
+}
+.slide-caption {
+  font-size: 0.78rem;
+  font-weight: 600;
+  margin-top: 8px;
+  opacity: 0.9;
+}
+.markmap-box {
+  width: 100%;
+  height: 400px;
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: 10px;
+  background: var(--md-default-bg-color);
+  margin: 14px 0;
+  padding: 12px;
+}
+.markmap-box > svg {
+  width: 100%;
+  height: 100%;
+}

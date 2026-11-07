@@ -1,0 +1,85 @@
+site_name: VERTEX-PREP · FKIK UIN Malang (Angkatan 2025)
+site_description: Platform Belajar Kedokteran Visual & Terbukti Slide Tanpa Perlu Buka PPT
+site_url: http://localhost:8765/
+
+theme:
+  name: material
+  language: id
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: teal
+      toggle:
+        icon: material/weather-night
+        name: Beralih ke Mode Malam
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/weather-sunny
+        name: Beralih ke Mode Terang
+  font:
+    text: Source Sans 3
+    code: JetBrains Mono
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.Instant
+    - navigation.tracking
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+
+plugins:
+  - search:
+      lang: en
+  - glightbox:
+      touchNavigation: true
+      loop: false
+      effect: zoom
+      slide_effect: slide
+      width: 100%
+      height: auto
+      zoomable: true
+      draggable: true
+  - mkdocs_quiz:
+      enabled: true
+      show_correct: true
+      auto_number: true
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - def_list
+  - pymdownx.details
+  - pymdownx.mark
+  - pymdownx.critic
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js
+  - https://cdn.jsdelivr.net/npm/markmap-autoloader@0.18
+  - javascripts/init_diagrams.js
+
+nav:
+  - Beranda: index.md
+  - Blok 7 (BDT) · Patient Safety: bdt-kul3-patient-safety.md
+  - Blok 9 (EMN) · Defisiensi Vitamin: emn-kul2-defisiensi-vitamin.md

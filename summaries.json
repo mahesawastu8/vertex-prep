@@ -1,0 +1,966 @@
+{
+  "150LONb6yrp0lv-hR1tj0ob2w6Ht2mVOB": {
+    "title": "BDT KUL 3 — Patient Safety",
+    "url": "BDT_KUL3_Patient_Safety.html"
+  },
+  "1-JrPD7PhKNVTGua72nDXVcVbDcrcSV0W": {
+    "title": "EMN KUL 2 — Defisiensi Vitamin",
+    "url": "EMN_KUL2_Defisiensi_Vitamin.html"
+  },
+  "1nDM2aZ2IdXxCQPBEwbF84RFVycf5-rkG": {
+    "title": "EMN KUL 3 — Defisiensi Mineral",
+    "url": "EMN_KUL3_Defisiensi_Mineral.html"
+  },
+  "1xzMVftDiXnK8xIOYaEWvRC1JUfkaXMDt": {
+    "title": "HI KUL 20 — Autoimunitas & Toleransi Imun",
+    "url": "HI_KUL20_Autoimunitas.html"
+  },
+  "1B71UFf8tSZRl2apleWiOAsSL4PdtGIEk": {
+    "title": "EMN KUL 5 — Malnutrisi Energi Protein",
+    "url": "EMN_KUL5_Malnutrisi.html"
+  },
+  "1Z8L6M2gmzy_mq8FlIlreoVBdRXH1-Jmw": {
+    "title": "1 (BUAMS) · 00 MODUL BLOK BUAMS",
+    "url": "1_buams_00_modul_blok_buams.html"
+  },
+  "1fnVKkLTOSHBJjmkIBvg6rZ9wZj1Dx8P9": {
+    "title": "1 (BUAMS) · KUL 0 KULIAH PERDANA SEM GANJIL 2025-2026 (TIAS)",
+    "url": "1_buams_kul_0_kuliah_perdana_sem_ganjil_2025_202.html"
+  },
+  "12OgKT9GV_pihEFrWO6hynIQwPCeX2z3k": {
+    "title": "1 (BUAMS) · KUL 1 KULIAH KONTRAK BLOK BUAMS (YOS)",
+    "url": "1_buams_kul_1_kuliah_kontrak_blok_buams_yos.html"
+  },
+  "1VMuVAqxmnqtgduYtxzN54ehIrinCsDS7": {
+    "title": "1 (BUAMS) · KUL 10 PRINSIP ETIKA KEDOKTERAN (DOB)",
+    "url": "1_buams_kul_10_prinsip_etika_kedokteran_dob.html"
+  },
+  "1BrChTBkRxpu95NXKo5saH5n_pC8OPDev": {
+    "title": "1 (BUAMS) · KUL 11 PENDIDIKAN KEDOKTERAN DALAM UU KEDOKTERAN 2023 (DOB)",
+    "url": "1_buams_kul_11_pendidikan_kedokteran_dalam_uu_ke.html"
+  },
+  "1Bk2gU0TbQQM8d7n20jBE-0oj2SCC94P8": {
+    "title": "1 (BUAMS) · KUL 12 KODEKI (KI)",
+    "url": "1_buams_kul_12_kodeki_ki.html"
+  },
+  "1R94ZX4qUgiJ4Z1LoANOtS1eSRzoSxzyj": {
+    "title": "1 (BUAMS) · KUL 13 PERAN UU KEDOKTERAN",
+    "url": "1_buams_kul_13_peran_uu_kedokteran.html"
+  },
+  "1_LTMExP_0u6a3rJFX7ECvvbFFqJyBFt3": {
+    "title": "1 (BUAMS) · KUL 14 INTRODUCTION TO AI",
+    "url": "1_buams_kul_14_introduction_to_ai.html"
+  },
+  "1QsETRgGgq48cEokwmqe4T6E4iE1h-lpR": {
+    "title": "1 (BUAMS) · KUL 15 NILAI KEHIDUPAN DAN MARTABAT MANUSIA (AA)",
+    "url": "1_buams_kul_15_nilai_kehidupan_dan_martabat_manu.html"
+  },
+  "1Sm7agtHwToJhUx0Uq0eq5A0VmEGrq35-": {
+    "title": "1 (BUAMS) · KUL 16 HUBUNGAN DOKTER DAN PASIEN II (PWA).ppt",
+    "url": "1_buams_kul_16_hubungan_dokter_dan_pasien_ii_pwa.html"
+  },
+  "1BHaln06l0rGe3CvHP1upsy7DBcmGoB6a": {
+    "title": "1 (BUAMS) · KUL 17 MALPRAKTIK (PWA)",
+    "url": "1_buams_kul_17_malpraktik_pwa.html"
+  },
+  "1C6dALjyizYA4mmwLZvQqWx1XWChWv15H": {
+    "title": "1 (BUAMS) · KUL 17 MENGENAL MALPRAKTIK KEDOKTERAN (PWA)",
+    "url": "1_buams_kul_17_mengenal_malpraktik_kedokteran_pw.html"
+  },
+  "1L5YKlKWmPYVq9RNm4V4JRgl46Ozh4DCi": {
+    "title": "1 (BUAMS) · KUL 18 INFORMED CONSENT (KI)",
+    "url": "1_buams_kul_18_informed_consent_ki.html"
+  },
+  "1xsx8d-v91wYjnn2gv0UKSnCNTGg7v14p": {
+    "title": "1 (BUAMS) · KUL 19 KERAHASIAAN (CONFIDENTIALITY) (DOB)",
+    "url": "1_buams_kul_19_kerahasiaan_confidentiality_dob.html"
+  },
+  "1aFtJtw1R9TE7L-KtOShGS4yarphtzehr": {
+    "title": "1 (BUAMS) · KUL 2 ADULT LEARNING (YOS)",
+    "url": "1_buams_kul_2_adult_learning_yos.html"
+  },
+  "1tLOMnosLDMI5HMXNRnRjVRwfWFPIw948": {
+    "title": "1 (BUAMS) · KUL 20 ANTROPOSOSKES (AA)",
+    "url": "1_buams_kul_20_antropososkes_aa.html"
+  },
+  "1qvc1084Hjv8H40BiiqBUXDltrk4vOKQG": {
+    "title": "1 (BUAMS) · KUL 21 MENGELOLA DILEMA ETIK (DOB)",
+    "url": "1_buams_kul_21_mengelola_dilema_etik_dob.html"
+  },
+  "1ZE5-GfqKU-uh87UhKAkQWuz1YpLr7eBX": {
+    "title": "1 (BUAMS) · KUL 22 KURIKULUM DAN PEMBELAJARAN DI KEDOKTERAN UIN MALANG (ER)",
+    "url": "1_buams_kul_22_kurikulum_dan_pembelajaran_di_ked.html"
+  },
+  "1-UQ2_kEQDIJ3iK7yAM1bebo183VORUmo": {
+    "title": "1 (BUAMS) · KUL 23 BAHAN AJAR KEPEMIMPINAN (YOS)",
+    "url": "1_buams_kul_23_bahan_ajar_kepemimpinan_yos.html"
+  },
+  "1AglE3qltI50ahyJqPg9_bPu8JBiJkHmy": {
+    "title": "1 (BUAMS) · KUL 24 PROFIL DOKTER ULUL ALBAB (SAN)",
+    "url": "1_buams_kul_24_profil_dokter_ulul_albab_san.html"
+  },
+  "1soqT6EpIcIlAc62nmwPwarWzN0BETffW": {
+    "title": "1 (BUAMS) · KUL 25 DASAR-DASAR MANAJEMEN (KI)",
+    "url": "1_buams_kul_25_dasar_dasar_manajemen_ki.html"
+  },
+  "1v6b6bxHPN0Na6jYVnHm_KoyZVPP1Bpyn": {
+    "title": "1 (BUAMS) · KUL 26 STRES DAN MEKANISME COPING STRES (YOS)",
+    "url": "1_buams_kul_26_stres_dan_mekanisme_coping_stres_.html"
+  },
+  "14CRFKZXr0JBxRm_foxgNFdTTVyEZYW0A": {
+    "title": "1 (BUAMS) · KUL 27 DASAR-DASAR KOMUNIKASI (PWA)",
+    "url": "1_buams_kul_27_dasar_dasar_komunikasi_pwa.html"
+  },
+  "1X0yfeTbJrLvN1qHZ9CT1CYBH7Au6Np79": {
+    "title": "1 (BUAMS) · KUL 3 CRITICAL THINKING AND PROBLEM SOLVING (YOS)",
+    "url": "1_buams_kul_3_critical_thinking_and_problem_solv.html"
+  },
+  "1MyX7vpJusDrbypafu4DRKWjRR51CwGxp": {
+    "title": "1 (BUAMS) · KUL 4 STRATEGI BELAJAR (YOS)",
+    "url": "1_buams_kul_4_strategi_belajar_yos.html"
+  },
+  "1-KgHAy1ysyw8J6o3EzKkVXIBAheK0K0b": {
+    "title": "1 (BUAMS) · KUL 5 SELF REGULATED LEARNING (YOS)",
+    "url": "1_buams_kul_5_self_regulated_learning_yos.html"
+  },
+  "17NQR1CJDRoJiL6l-TI2hug2HyyHux-H-": {
+    "title": "1 (BUAMS) · KUL 6 HAKIKAT ILMU PENGETAHUAN MENURUT QURAN (AA)",
+    "url": "1_buams_kul_6_hakikat_ilmu_pengetahuan_menurut_q.html"
+  },
+  "1LQVnPIrKdXViP51BBSMNRMmfe6nrKZvq": {
+    "title": "1 (BUAMS) · KUL 7 METODE ILMIAH (RAH)",
+    "url": "1_buams_kul_7_metode_ilmiah_rah.html"
+  },
+  "1ZEYUvDsjGzy5_ShqUoSa4HbW9G7_hzVX": {
+    "title": "1 (BUAMS) · KUL 8 SEJARAH PERKEMBANGAN BIOETIK SECARA GLOBAL DN REGIONAL (PWA)",
+    "url": "1_buams_kul_8_sejarah_perkembangan_bioetik_secar.html"
+  },
+  "1rOlJxZqhDH9HJZtEjBH7a6poC4TvgMKy": {
+    "title": "1 (BUAMS) · KUL 9 ETIK VS BIOETIK (PWA)",
+    "url": "1_buams_kul_9_etik_vs_bioetik_pwa.html"
+  },
+  "1JkGWmBUW3a3zPfvF9rboZ048TupP0u3y": {
+    "title": "1 (BUAMS) · PRAK 1 REFLECTIVE PRACTICE (YOS)",
+    "url": "1_buams_prak_1_reflective_practice_yos.html"
+  },
+  "1_25vJ9fInvdvqvK2tgBK3StMq2FyiibB": {
+    "title": "1 (BUAMS) · PRAK 2 & 3 PANDUAN PRAKTIKUM PENGGUNAAN AI TOOLS (LIK)",
+    "url": "1_buams_prak_2_3_panduan_praktikum_penggunaan_ai.html"
+  },
+  "1Gc31-qjnmiBWY2rDbNqmMFxc3ThVGHtv": {
+    "title": "1 (BUAMS) · PRAK 4 JOURNAL READING (RAH)",
+    "url": "1_buams_prak_4_journal_reading_rah.html"
+  },
+  "1RhvO5H8dj4whdIS3sfwOVdJa4crfvGPv": {
+    "title": "1 (BUAMS) · PRAK 5 PBL SEVEN JUMPS (ER)",
+    "url": "1_buams_prak_5_pbl_seven_jumps_er.html"
+  },
+  "1jgJBT1kvnipnuwdpUpCnAKCoN7xbvTHp": {
+    "title": "1 (BUAMS) · V BATES POCKET GUIDE TO PHYSICAL EXAMINATION AND HISTORY TAKING",
+    "url": "1_buams_v_bates_pocket_guide_to_physical_examina.html"
+  },
+  "1n0PkkUTW358k_05LCMfy4F-Yu3O6kasQ": {
+    "title": "1 (BUAMS) · V DARI SEHAT MENUJU TAQWA 2",
+    "url": "1_buams_v_dari_sehat_menuju_taqwa_2.html"
+  },
+  "1mU_QY2uQOLRmIwFYj7QvmAnATMzTRpdO": {
+    "title": "1 (BUAMS) · V DARI SEHAT MENUJU TAQWA",
+    "url": "1_buams_v_dari_sehat_menuju_taqwa.html"
+  },
+  "19JuSpo1erH3ffCyxMhVPj7rw_5JBvETn": {
+    "title": "1 (BUAMS) · V HISTORY OF PHILOSOPHY",
+    "url": "1_buams_v_history_of_philosophy.html"
+  },
+  "1FEB4XMMf4aHQpDmbQJqELBuQrYvr4FF6": {
+    "title": "2 (BMS 1) · 00 MODUL BLOK BMS 1",
+    "url": "2_bms_1_00_modul_blok_bms_1.html"
+  },
+  "1pf15cCAHx1e6F235h6-5bxkKhRO2Hewh": {
+    "title": "2 (BMS 1) · KUL 1 KULIAH KONTRAK BLOK BMS 1 (NIK)",
+    "url": "2_bms_1_kul_1_kuliah_kontrak_blok_bms_1_nik.html"
+  },
+  "1vRPtzGgwhzwMh8qXEVHSx0H7PlANRvqt": {
+    "title": "2 (BMS 1) · KUL 10 BIOLOGI MOLEKULER APLIKATIF (LIA)",
+    "url": "2_bms_1_kul_10_biologi_molekuler_aplikatif_lia.html"
+  },
+  "1jzyTq3XZG9U0f9yL9g2-hDB4hpxSdIfY": {
+    "title": "2 (BMS 1) · KUL 11 ASPEK BIOETIKA DI LABORATORIUM GENETIKA",
+    "url": "2_bms_1_kul_11_aspek_bioetika_di_laboratorium_ge.html"
+  },
+  "1zNoFi4wkr3ksogNNAELD_bxQvnH67_N4": {
+    "title": "2 (BMS 1) · KUL 12 METABOLISME KARBOHIDRAT (LRS)",
+    "url": "2_bms_1_kul_12_metabolisme_karbohidrat_lrs.html"
+  },
+  "1hi44UajHTBwVRjiPvZYwZtRtoa9sPpI7": {
+    "title": "2 (BMS 1) · KUL 13 METABOLISME LIPID (LRS)",
+    "url": "2_bms_1_kul_13_metabolisme_lipid_lrs.html"
+  },
+  "1H856L3zaKLc_Q1Y4b9Txk1Zpi43EPWIw": {
+    "title": "2 (BMS 1) · KUL 14 METABOLISME PROTEIN (LRS)",
+    "url": "2_bms_1_kul_14_metabolisme_protein_lrs.html"
+  },
+  "11gyYPGnoCig1hzF1eXQlYBOBcgFUKbcv": {
+    "title": "2 (BMS 1) · KUL 15 METABOLISME ENZIM (LRS)",
+    "url": "2_bms_1_kul_15_metabolisme_enzim_lrs.html"
+  },
+  "1Ec_9zN40RDdwLPrKxEAs6Hf6tBD29jYn": {
+    "title": "2 (BMS 1) · KUL 16 MAKRONUTRIEN (LRS)",
+    "url": "2_bms_1_kul_16_makronutrien_lrs.html"
+  },
+  "1LQy31hFDkDJ2JCbFPaCIvqR_5dSjBJ9f": {
+    "title": "2 (BMS 1) · KUL 17 MIKRONUTRIEN (LRS)",
+    "url": "2_bms_1_kul_17_mikronutrien_lrs.html"
+  },
+  "1vU9J38YJHIX_8urF6gi7TeWIGJUFJkNp": {
+    "title": "2 (BMS 1) · KUL 18 & 19 JARINGAN EPITEL DAN JARINGAN PENGIKAT (NIK)",
+    "url": "2_bms_1_kul_18_19_jaringan_epitel_dan_jaringan_p.html"
+  },
+  "1R9uQLZ20A7wCFgIHqQT5gdfNSlw8yOAr": {
+    "title": "2 (BMS 1) · KUL 2 BIOSEL 1 (VI)",
+    "url": "2_bms_1_kul_2_biosel_1_vi.html"
+  },
+  "1_bcIPF3aQf79P4jAAwQD1CtycD6Ettq3": {
+    "title": "2 (BMS 1) · KUL 20 BIOKIMIA DARAH (PWA)",
+    "url": "2_bms_1_kul_20_biokimia_darah_pwa.html"
+  },
+  "1K86c2-kkXIyaHVL2aSOBDY4yg6PlfynI": {
+    "title": "2 (BMS 1) · KUL 21 HEMOSTASIS (RIS)",
+    "url": "2_bms_1_kul_21_hemostasis_ris.html"
+  },
+  "1ZY9L1TbD-RV18t5E9-lvx7HcJGpgLgO5": {
+    "title": "2 (BMS 1) · KUL 3 BIOSEL 2 (VI)",
+    "url": "2_bms_1_kul_3_biosel_2_vi.html"
+  },
+  "1qz8saacoCRtAn3nfhtUQnjAf_6-RWreG": {
+    "title": "2 (BMS 1) · KUL 3 TRANSPORT ZAT MELALUI MEMBRAN SEL (VI)",
+    "url": "2_bms_1_kul_3_transport_zat_melalui_membran_sel_.html"
+  },
+  "1tC46gQMa36GZD3uMN1CMv__eSWcDGBj-": {
+    "title": "2 (BMS 1) · KUL 4 KOMUNIKASI SEL (VI)",
+    "url": "2_bms_1_kul_4_komunikasi_sel_vi.html"
+  },
+  "1lfV5mSm438UbLHaiCLqyZRPxVbGJzJWf": {
+    "title": "2 (BMS 1) · KUL 5 SIKLUS SEL (VI)",
+    "url": "2_bms_1_kul_5_siklus_sel_vi.html"
+  },
+  "1vRWCKGWpQJLWe2OV2dBg4ySYjm3pQkv_": {
+    "title": "2 (BMS 1) · KUL 6 GENETIKA DASAR (LIA)",
+    "url": "2_bms_1_kul_6_genetika_dasar_lia.html"
+  },
+  "1jXf1Rqlj-uAbKS7OBWBic7376S_Gp6S9": {
+    "title": "2 (BMS 1) · KUL 7 SINTESIS PROTEIN (LIA)",
+    "url": "2_bms_1_kul_7_sintesis_protein_lia.html"
+  },
+  "13o_46WR5Ugad9S6e8jgZ7Wbej-qBaLcG": {
+    "title": "2 (BMS 1) · KUL 8 DASAR KROMOSOMAL PEWARISAN SIFAT (LIA)",
+    "url": "2_bms_1_kul_8_dasar_kromosomal_pewarisan_sifat_l.html"
+  },
+  "1qG4srTHs_22_OpPoES5g3rinKydGYgcf": {
+    "title": "2 (BMS 1) · KUL 9 REKAYASA GENETIKA (LIA)",
+    "url": "2_bms_1_kul_9_rekayasa_genetika_lia.html"
+  },
+  "1vFeiDcFu7clbkrqcxWA9DxYHEWiWLFrY": {
+    "title": "2 (BMS 1) · PRAK 1 PENGENALAN MIKROSKOP, PENGAMATAN & PEMBELAHAN SEL (VI)",
+    "url": "2_bms_1_prak_1_pengenalan_mikroskop_pengamatan_p.html"
+  },
+  "1WJrZ7pL3cbKFW3ZvprpBXHAJQZHLsJQS": {
+    "title": "2 (BMS 1) · PRAK 1 PENGENALAN MIKROSKOP, PENGAMATAN & PEMBELAHAN SEL (VI)",
+    "url": "2_bms_1_prak_1_pengenalan_mikroskop_pengamatan_p.html"
+  },
+  "1POJRMgqhSIZlWXmYI6McXj0Nh7Yo5HQY": {
+    "title": "2 (BMS 1) · PRAK 2 PETUNJUK PRAKTIKUM JARINGAN EPITEL DAN JARINGAN IKAT (NIK)",
+    "url": "2_bms_1_prak_2_petunjuk_praktikum_jaringan_epite.html"
+  },
+  "1aCbjRMpc9OdMurfPBo9o2sEQmKpAXdDs": {
+    "title": "2 (BMS 1) · PRAK 3 PETUNJUK PRAKTIKUM HEMATOLOGI (PWA)",
+    "url": "2_bms_1_prak_3_petunjuk_praktikum_hematologi_pwa.html"
+  },
+  "1qckMGy-pwMGBKUokiT1oatwbvOALGjQ_": {
+    "title": "2 (BMS 1) · PRAK 3 SEL DARAH (PWA)",
+    "url": "2_bms_1_prak_3_sel_darah_pwa.html"
+  },
+  "1a-ORugHfXGEG0BWIc3nlunCoFpMWqAxa": {
+    "title": "3 (BMS 2) · 00 MODUL BLOK BMS 2",
+    "url": "3_bms_2_00_modul_blok_bms_2.html"
+  },
+  "1O_Pkrbp7Xb6z13AD_SGuEV-pYIBDeNQ3": {
+    "title": "3 (BMS 2) · KUL 1 KULIAH KONTRAK BLOK BMS 2 (RIS)",
+    "url": "3_bms_2_kul_1_kuliah_kontrak_blok_bms_2_ris.html"
+  },
+  "1zWdxh5nhLXJGRBSurJxpApPWyslRlXC8": {
+    "title": "3 (BMS 2) · KUL 10 FUNGSI LUHUR (NAH)",
+    "url": "3_bms_2_kul_10_fungsi_luhur_nah.html"
+  },
+  "16oTAeOWTWMXJaO_Gnez9r0eyw-XlFiN-": {
+    "title": "3 (BMS 2) · KUL 11 KELALAIAN MEDIS (DOB)",
+    "url": "3_bms_2_kul_11_kelalaian_medis_dob.html"
+  },
+  "1G6GxtKwCfKk1ImZ80jkzpMZ1uR3oxtB4": {
+    "title": "3 (BMS 2) · KUL 12 EMBRIOLOGI DAN DASAR OSTEOLOGI (LIK)",
+    "url": "3_bms_2_kul_12_embriologi_dan_dasar_osteologi_li.html"
+  },
+  "1C2ulHLFV202bZNuxvNMHWhKJjsNlKflv": {
+    "title": "3 (BMS 2) · KUL 13 OSTEOLOGI KRANIOTRUNKUS (LIK)",
+    "url": "3_bms_2_kul_13_osteologi_kraniotrunkus_lik.html"
+  },
+  "118bUL-708-be0THniJvePsSll9UVFGD2": {
+    "title": "3 (BMS 2) · KUL 14 OSTEOLOGI EKSTRIMITAS SUPERIOR DAN INFERIOR (LIK)",
+    "url": "3_bms_2_kul_14_osteologi_ekstrimitas_superior_da.html"
+  },
+  "1Cn-59JOM-GXS67cpiDo1mPLIHprJijHp": {
+    "title": "3 (BMS 2) · KUL 15 HISTOLOGI JARINGAN OTOT, TULANG DAN TULANG RAWAN (NIK)",
+    "url": "3_bms_2_kul_15_histologi_jaringan_otot_tulang_da.html"
+  },
+  "1fjgpMSp1u8iaJ15qki5tOMPznUrGC1rV": {
+    "title": "3 (BMS 2) · KUL 16 ANATOMI OTOT EKSTREMITAS SUPERIOR (TIAS)",
+    "url": "3_bms_2_kul_16_anatomi_otot_ekstremitas_superior.html"
+  },
+  "1bw2wfBRTbcNUFDeEcSSlftBR_if2wUDb": {
+    "title": "3 (BMS 2) · KUL 17 ANATOMI OTOT EKSTREMITAS INFERIOR (TIAS)",
+    "url": "3_bms_2_kul_17_anatomi_otot_ekstremitas_inferior.html"
+  },
+  "1pHooMnMftconJJ14_t2rc04mHPs-GB1g": {
+    "title": "3 (BMS 2) · KUL 18 MEKANISME KONTRAKSI OTOT RANGKA DAN OTOT POLOS (RIS)",
+    "url": "3_bms_2_kul_18_mekanisme_kontraksi_otot_rangka_d.html"
+  },
+  "1J2gcMHtjTrJWKRq0CJIGqoxIPzhdOac5": {
+    "title": "3 (BMS 2) · KUL 19 ENERGETIKA OTOT RANGKA (RIS)",
+    "url": "3_bms_2_kul_19_energetika_otot_rangka_ris.html"
+  },
+  "1YLLU-WFJjvMCsJNCuilEH84HjT4wqmQD": {
+    "title": "3 (BMS 2) · KUL 2 DASAR ANATOMI (TIAS)",
+    "url": "3_bms_2_kul_2_dasar_anatomi_tias.html"
+  },
+  "1c1iNTbcNj0Qa2wAFMzZnNFC0ejKxPrnH": {
+    "title": "3 (BMS 2) · KUL 3 ANATOMI SISTEM SARAF PUSAT (CNS-1) (TIAS)",
+    "url": "3_bms_2_kul_3_anatomi_sistem_saraf_pusat_cns_1_t.html"
+  },
+  "1q-63T9PutPkfWBOCJHk7beiOPK-vLfN9": {
+    "title": "3 (BMS 2) · KUL 3 ANATOMI SISTEM SARAF PUSAT (CNS-2) (TIAS)",
+    "url": "3_bms_2_kul_3_anatomi_sistem_saraf_pusat_cns_2_t.html"
+  },
+  "17a781BkYS8y7Rh5KcjTc5zmoIgBt6vMw": {
+    "title": "3 (BMS 2) · KUL 4 ANATOMI SISTEM SARAF TEPI (TIAS)",
+    "url": "3_bms_2_kul_4_anatomi_sistem_saraf_tepi_tias.html"
+  },
+  "1epkrDUmVBE82-_-3xlNsef2sr8Cw3hbc": {
+    "title": "3 (BMS 2) · KUL 5 HISTOLOGI JARINGAN SARAF (NIK)",
+    "url": "3_bms_2_kul_5_histologi_jaringan_saraf_nik.html"
+  },
+  "1W5IfkGoFT0wNY0gZsVlVhZt6iSFlEt0K": {
+    "title": "3 (BMS 2) · KUL 6 NEURON, POTENSIAL AKSI, SINAPS, DAN NEUROTRANSMITTER (NAH)",
+    "url": "3_bms_2_kul_6_neuron_potensial_aksi_sinaps_dan_n.html"
+  },
+  "1tB1naPH4gBFdlXpRzSIwBEud-63LcYb6": {
+    "title": "3 (BMS 2) · KUL 6 XCATATAN (NAH-ASTRA)",
+    "url": "3_bms_2_kul_6_xcatatan_nah_astra.html"
+  },
+  "1B4uu01fr8gIr3VHJIEtz48_DufQmk5bu": {
+    "title": "3 (BMS 2) · KUL 7 FISIOLOGI SISTEM SARAF SENSORIS (ER)",
+    "url": "3_bms_2_kul_7_fisiologi_sistem_saraf_sensoris_er.html"
+  },
+  "1zBPb4dirLX2QQ4nmZ9qu9lhTck7WmP3x": {
+    "title": "3 (BMS 2) · KUL 8 FISIOLOGI SISTEM SARAF MOTORIK (ER)",
+    "url": "3_bms_2_kul_8_fisiologi_sistem_saraf_motorik_er.html"
+  },
+  "1Z28WOk7914r2fVLEsqNgr0Ak5KH9maNv": {
+    "title": "3 (BMS 2) · KUL 9 SISTEM SARAF OTONOM (NAH)",
+    "url": "3_bms_2_kul_9_sistem_saraf_otonom_nah.html"
+  },
+  "13VSEZhszGokQetfhp_qPKXbKzOEiVUhV": {
+    "title": "3 (BMS 2) · KUL EMBRIOLOGI MUSKULOSKELETAL (TIAS)",
+    "url": "3_bms_2_kul_embriologi_muskuloskeletal_tias.html"
+  },
+  "13P4EwtgfRC2T1kjKLalzPv4-_5NnZdW1": {
+    "title": "3 (BMS 2) · KUL EMBRIOLOGI SISTEM SARAF (TIAS)",
+    "url": "3_bms_2_kul_embriologi_sistem_saraf_tias.html"
+  },
+  "1YcqqCfo4QoFx8l2J6ZbYJKt3AuMCHXiO": {
+    "title": "3 (BMS 2) · KUL MUSKULUS KEPALA LEHER (TIAS)",
+    "url": "3_bms_2_kul_muskulus_kepala_leher_tias.html"
+  },
+  "1hkt5LdKRF-TKx8ZVc2tGx7n2ciBAmpSJ": {
+    "title": "3 (BMS 2) · PRAK 1 WORKSHEET ANATOMI SISTEM SARAF (TIAS)",
+    "url": "3_bms_2_prak_1_worksheet_anatomi_sistem_saraf_ti.html"
+  },
+  "1VuqnAP0UN-ONx58rllwQpiGBYpXoMePU": {
+    "title": "3 (BMS 2) · PRAK 2 PENUNTUN PRAKTIKUM SARAF TULANG, TULANG RAWAN, OTOT (NIK)",
+    "url": "3_bms_2_prak_2_penuntun_praktikum_saraf_tulang_t.html"
+  },
+  "1wHa1TxWQHzu-GL-qZXmOod7df0YfWIHL": {
+    "title": "3 (BMS 2) · PRAK 3 & 4 MODUL PRAKTIKUM ANATOMI OSTEOLOGI (LIK)",
+    "url": "3_bms_2_prak_3_4_modul_praktikum_anatomi_osteolo.html"
+  },
+  "13e3oFEIYlodhyl9UZ3A24f-0v6V-zIiY": {
+    "title": "3 (BMS 2) · PRAK 5 & 6 WORKSHEET PRAKTIKUM ANATOMI SISTEM MUSKULOSKELETAL (TIAS)",
+    "url": "3_bms_2_prak_5_6_worksheet_praktikum_anatomi_sis.html"
+  },
+  "1f0QlSBR9TEthftj6rOhzNduvmphhWLB3": {
+    "title": "4 (BMS 3) · 00. MODUL BMS 3 GENAP 2025-2026",
+    "url": "4_bms_3_00_modul_bms_3_genap_2025_2026.html"
+  },
+  "1AgwM2BZoyCzNfFw9h9uAeO9LsIQjAcl9": {
+    "title": "4 (BMS 3) · KUL 1 KULIAH KONTRAK BLOK BMS 3 GENAP 25-26 (NIK)",
+    "url": "4_bms_3_kul_1_kuliah_kontrak_blok_bms_3_genap_25.html"
+  },
+  "1EikXp82cXA5uXVz_FuMx-q3WlHyNcLTS": {
+    "title": "4 (BMS 3) · KUL 10 HISTOLOGI SISTEM KARDIOVASKULAR (NIK)",
+    "url": "4_bms_3_kul_10_histologi_sistem_kardiovaskular_n.html"
+  },
+  "1SDjoi2LqQ_q4ZwGNMDFDsvcjrNwZn6F7": {
+    "title": "4 (BMS 3) · KUL 11 FISIOLOGI KONTRAKSI OTOT JANTUNG (ER)",
+    "url": "4_bms_3_kul_11_fisiologi_kontraksi_otot_jantung_.html"
+  },
+  "1tjBvKB1Ird_x0HSdsO8_GvHZ_ykBdTn3": {
+    "title": "4 (BMS 3) · KUL 12 SIKLUS JANTUNG DAN KERJA JANTUNG (ER)",
+    "url": "4_bms_3_kul_12_siklus_jantung_dan_kerja_jantung_.html"
+  },
+  "1rIg07gDhTV6_ZAZNt7JnVf0fBzNwXtyn": {
+    "title": "4 (BMS 3) · KUL 13 CAIRAN TUBUH (NAH)",
+    "url": "4_bms_3_kul_13_cairan_tubuh_nah.html"
+  },
+  "1ojFAjGAh44CqAcHaiXmxhvLeeWKWqbrr": {
+    "title": "4 (BMS 3) · KUL 14 FISIOLOGI SIRKULASI, DINAMIKA FLUIDA (ER)",
+    "url": "4_bms_3_kul_14_fisiologi_sirkulasi_dinamika_flui.html"
+  },
+  "15YR2TRRgmEclnAzN4Sm1z5mG54XV8QCH": {
+    "title": "4 (BMS 3) · KUL 15 PENGATURAN JANTUNG DAN SIRKULASI (ER)",
+    "url": "4_bms_3_kul_15_pengaturan_jantung_dan_sirkulasi_.html"
+  },
+  "13R6V3gZRmMaQsT1cIoWO2rRur-Nd1q8H": {
+    "title": "4 (BMS 3) · KUL 16 PROFESSIONAL INFAMOUS CONDUCT/MISCONDUCT (DOB)",
+    "url": "4_bms_3_kul_16_professional_infamous_conduct_mis.html"
+  },
+  "1XaTaclEzIGvS5xAVnv5W4K6Favpm6R-d": {
+    "title": "4 (BMS 3) · KUL 17 ANATOMI SISTEM RESPIRASI (LIK)",
+    "url": "4_bms_3_kul_17_anatomi_sistem_respirasi_lik.html"
+  },
+  "11G8MzG2ji4Iy8Y3qZao9AwiHmiTQdX09": {
+    "title": "4 (BMS 3) · KUL 18 HISTOLOGI SISTEM RESPIRASI (NIK)",
+    "url": "4_bms_3_kul_18_histologi_sistem_respirasi_nik.html"
+  },
+  "1Ju5Ftv2p1ZctR4EHNYGdGsFu-M8x4HIj": {
+    "title": "4 (BMS 3) · KUL 19 MEKANIKA PERNAPASAN (NAH)",
+    "url": "4_bms_3_kul_19_mekanika_pernapasan_nah.html"
+  },
+  "1vHEwA3fInwh2pyww9uAXYocDOSRo31tl": {
+    "title": "4 (BMS 3) · KUL 2 PENGANTAR ENDOKRINOLOGI (ER)",
+    "url": "4_bms_3_kul_2_pengantar_endokrinologi_er.html"
+  },
+  "17RRNlqKYj9bOMOkPmlXL0IlJX7gLjK0X": {
+    "title": "4 (BMS 3) · KUL 20 VENTILASI ALVEOLAR (NAH)",
+    "url": "4_bms_3_kul_20_ventilasi_alveolar_nah.html"
+  },
+  "1ZYC7_wLpljxqciVGYaBL26DVl8oTDhU-": {
+    "title": "4 (BMS 3) · KUL 3 ANATOMI SISTEM ENDOKRIN (TIAS)",
+    "url": "4_bms_3_kul_3_anatomi_sistem_endokrin_tias.html"
+  },
+  "1sEoo0Uv0f90nJnCuDv4lrc9_3WJMckbb": {
+    "title": "4 (BMS 3) · KUL 4 HISTOLOGI SISTEM ENDOKRIN (NIK)",
+    "url": "4_bms_3_kul_4_histologi_sistem_endokrin_nik.html"
+  },
+  "1Io7_34hEPoVdpEwb5GOSb9CYCiP320HE": {
+    "title": "4 (BMS 3) · KUL 5 FISIOLOGI HORMON KELENJAR ADRENAL (ER)",
+    "url": "4_bms_3_kul_5_fisiologi_hormon_kelenjar_adrenal_.html"
+  },
+  "10h16aSGCRo97NKOPyAxL7DXHdEJHmiPZ": {
+    "title": "4 (BMS 3) · KUL 6 FISIOLOGI PANKREAS (NAH)",
+    "url": "4_bms_3_kul_6_fisiologi_pankreas_nah.html"
+  },
+  "1JPzUgsL8FEeB8fXQd4GPJtqQOB_AYxWW": {
+    "title": "4 (BMS 3) · KUL 7 FISIOLOGI HORMON TIROID (NAH)",
+    "url": "4_bms_3_kul_7_fisiologi_hormon_tiroid_nah.html"
+  },
+  "1gxH65ZzREH8a141VFBg68ylvO6uEysA0": {
+    "title": "4 (BMS 3) · KUL 8 TERMOREGULASI (NAH)",
+    "url": "4_bms_3_kul_8_termoregulasi_nah.html"
+  },
+  "1CCkthFnAwA-JsqA9v4k0eOlPQWo08OYV": {
+    "title": "4 (BMS 3) · KUL 9 ANATOMI DINDING DADA (LIK)",
+    "url": "4_bms_3_kul_9_anatomi_dinding_dada_lik.html"
+  },
+  "1J-BqNVIQkjrSsyXxRc5M4RA7kugsB5hQ": {
+    "title": "4 (BMS 3) · KUL 9 ANATOMI SISTEM VASKULAR (LIK)",
+    "url": "4_bms_3_kul_9_anatomi_sistem_vaskular_lik.html"
+  },
+  "1PKHIkkxhD8PGih9vzphy_XfeGo7i5qKp": {
+    "title": "4 (BMS 3) · PRAK 3 Modul Praktikum Anatomi Blok Kardiovaskuler UIN 2023",
+    "url": "4_bms_3_prak_3_modul_praktikum_anatomi_blok_kard.html"
+  },
+  "16GNiKrUQR1JbHXIerY9_eVLDnlFzm0w7": {
+    "title": "5 (BMS 4) · 00 MODUL BMS 4 GENAP 2025-2026",
+    "url": "5_bms_4_00_modul_bms_4_genap_2025_2026.html"
+  },
+  "1fsmNUvHsZ7hVK9WpknX6-qBYu8ZxG86e": {
+    "title": "5 (BMS 4) · KUL 1 KULIAH KONTRAK BLOK BMS 4 (RIS)",
+    "url": "5_bms_4_kul_1_kuliah_kontrak_blok_bms_4_ris.html"
+  },
+  "1du8h6ikRbl0ehLn3oGWurCrbH3U20kU_": {
+    "title": "5 (BMS 4) · KUL 10 ANATOMI SISTEM PERKEMIHAN DAN REPRODUKSI PRIA (LIK)",
+    "url": "5_bms_4_kul_10_anatomi_sistem_perkemihan_dan_rep.html"
+  },
+  "1jgrqBwaUby_yC88Qy3yirBiCV1BAFv4P": {
+    "title": "5 (BMS 4) · KUL 11 HISTOLOGI SISTEM URINARIUS (NIK)",
+    "url": "5_bms_4_kul_11_histologi_sistem_urinarius_nik.html"
+  },
+  "1go9Nh1lUs5VcLFYHl6vQxZebe4lEaxgP": {
+    "title": "5 (BMS 4) · KUL 12 FISIOLOGI SISTEM PERKEMIHAN (ER)",
+    "url": "5_bms_4_kul_12_fisiologi_sistem_perkemihan_er.html"
+  },
+  "1nSSAoTWKtnLbDaEqFycWX5I37Ux6Y8v-": {
+    "title": "5 (BMS 4) · KUL 13 KESEIMBANGAN ASAM BASA (NAH)",
+    "url": "5_bms_4_kul_13_keseimbangan_asam_basa_nah.html"
+  },
+  "1sdzu0xgg-z267Rl5SwoflNs-_1Tw6aDy": {
+    "title": "5 (BMS 4) · KUL 14 ETIKA PADA KADAVER (DOB)",
+    "url": "5_bms_4_kul_14_etika_pada_kadaver_dob.html"
+  },
+  "1kYjjnul9JdZhiOplT5BrdytJ6_wtQZbe": {
+    "title": "5 (BMS 4) · KUL 15 ANATOMI REPRODUKSI WANITA (TIAS)",
+    "url": "5_bms_4_kul_15_anatomi_reproduksi_wanita_tias.html"
+  },
+  "1zqUfm7AC0pIZ6SNLfdfdBhkhXpfkRkUR": {
+    "title": "5 (BMS 4) · KUL 15 EMBRIOLOGI SISTEM REPRODUKSI DAN KELAINAN GENETIKA (TIAS)",
+    "url": "5_bms_4_kul_15_embriologi_sistem_reproduksi_dan_.html"
+  },
+  "12EzUAtqS8ivfar9sACpxDDK1VFbxCWrf": {
+    "title": "5 (BMS 4) · KUL 16 HISTOLOGI SISTEM REPRODUKSI PRIA DAN WANITA (NIK)",
+    "url": "5_bms_4_kul_16_histologi_sistem_reproduksi_pria_.html"
+  },
+  "1-jFAbzV8gQUEuFc2kQ0Avxj9n_x2X5ug": {
+    "title": "5 (BMS 4) · KUL 17 FISIOLOGI REPRODUKSI PRIA (RIS)",
+    "url": "5_bms_4_kul_17_fisiologi_reproduksi_pria_ris.html"
+  },
+  "1-cm-YrRMKs1VU1K1jN4aMaK5wdMZCJi4": {
+    "title": "5 (BMS 4) · KUL 17 FISIOLOGI REPRODUKSI WANITA (RIS)",
+    "url": "5_bms_4_kul_17_fisiologi_reproduksi_wanita_ris.html"
+  },
+  "1stJf2Dq5o4omuEuh9dOUdWAV1wAAOp_g": {
+    "title": "5 (BMS 4) · KUL 18 FISIOLOGI KEHAMILAN (RIS)",
+    "url": "5_bms_4_kul_18_fisiologi_kehamilan_ris.html"
+  },
+  "1mqpX13uD7zaqQ__DYJYP9z1cByH0Wwu-": {
+    "title": "5 (BMS 4) · KUL 18 FISIOLOGI PERSALINAN (RIS)",
+    "url": "5_bms_4_kul_18_fisiologi_persalinan_ris.html"
+  },
+  "1eGHRIQjdPWatAX6lyBiEQOmB_-NLhQHj": {
+    "title": "5 (BMS 4) · KUL 2 ANATOMI SISTEM INDERA HIDUNG-TELINGA-TENGGOROKAN (TIAS)",
+    "url": "5_bms_4_kul_2_anatomi_sistem_indera_hidung_telin.html"
+  },
+  "1WP9glwB-0jBizJendUqQoev8F8fv09dR": {
+    "title": "5 (BMS 4) · KUL 2 ANATOMI SISTEM INDERA-MATA (TIAS)",
+    "url": "5_bms_4_kul_2_anatomi_sistem_indera_mata_tias.html"
+  },
+  "1tcnERrO4N1t45cvtaNPA0gLwXCrwz8pp": {
+    "title": "5 (BMS 4) · KUL 3 HISTOLOGI SISTEM INDERA (NIK)",
+    "url": "5_bms_4_kul_3_histologi_sistem_indera_nik.html"
+  },
+  "1go4StlzP800f7M_zz6moqk38mSTqcxB9": {
+    "title": "5 (BMS 4) · KUL 4 FISIOLOGI MATA (YUL)",
+    "url": "5_bms_4_kul_4_fisiologi_mata_yul.html"
+  },
+  "1N4C-t3qv3Fm9NVkEQMCBmh35U__-61qw": {
+    "title": "5 (BMS 4) · KUL 5 FISIOLOGI PENDENGARAN, PENCIUMAN DAN PENGECAPAN (RIS)",
+    "url": "5_bms_4_kul_5_fisiologi_pendengaran_penciuman_da.html"
+  },
+  "118jWyQsI_QnrqwHEvYsOfGrLceai7Zsd": {
+    "title": "5 (BMS 4) · KUL 6 ANATOMI ORGAN DIGESTIF ASESORIUS (TIAS)",
+    "url": "5_bms_4_kul_6_anatomi_organ_digestif_asesorius_t.html"
+  },
+  "1zJ7oIqlfvbKSe_8SQkAb4d2DU6Y09uTk": {
+    "title": "5 (BMS 4) · KUL 6 ANATOMI RONGGA PENCERNAAN (TIAS)",
+    "url": "5_bms_4_kul_6_anatomi_rongga_pencernaan_tias.html"
+  },
+  "1g4vA_AgmmLfWJR1PQ9UnrD4YPOWuFR9n": {
+    "title": "5 (BMS 4) · KUL 6 ANATOMI SALURAN PENCERNAAN (TIAS)",
+    "url": "5_bms_4_kul_6_anatomi_saluran_pencernaan_tias.html"
+  },
+  "1XKcAd5buCz3OUnd-1hRO95k7DRQDHrhG": {
+    "title": "5 (BMS 4) · KUL 7 HISTOLOGI SISTEM PENCERNAAN (NIK)",
+    "url": "5_bms_4_kul_7_histologi_sistem_pencernaan_nik.html"
+  },
+  "17aNu-TABvi_H-7XrXGNhSx3X0lxNyxMZ": {
+    "title": "5 (BMS 4) · KUL 8 MOTILITAS SISTEM PENCERNAAN (RIS)",
+    "url": "5_bms_4_kul_8_motilitas_sistem_pencernaan_ris.html"
+  },
+  "1-HzhBXMviy5n4_xXb6xYIW5TC17oiOPJ": {
+    "title": "5 (BMS 4) · KUL 8 PENGATURAN SISTEM PENCERNAAN (RIS)",
+    "url": "5_bms_4_kul_8_pengaturan_sistem_pencernaan_ris.html"
+  },
+  "1xpZoJmTvP_sFe-Ui-BTkPrf8j-nnwyTx": {
+    "title": "5 (BMS 4) · KUL 9 FISIOLOGI HATI, PANKREAS DAN EMPEDU (RIS)",
+    "url": "5_bms_4_kul_9_fisiologi_hati_pankreas_dan_empedu.html"
+  },
+  "1uhv8f0uzQx2izxrf-ZYb3tYHSHodSpIB": {
+    "title": "5 (BMS 4) · KUL 9 SEKRESI, DIGESTI DAN ABSORBSI (RIS)",
+    "url": "5_bms_4_kul_9_sekresi_digesti_dan_absorbsi_ris.html"
+  },
+  "1v4NYYnJhmGqYZ44tem-lslJ0pSNrIVzu": {
+    "title": "5 (BMS 4) · PRAK 1 WORKSHEET PRAKTIKUM ANATOMI SISTEM INDERA-MATA",
+    "url": "5_bms_4_prak_1_worksheet_praktikum_anatomi_siste.html"
+  },
+  "1QTyLTzterrXSQ9kc9rcbrJFxYT4guai5": {
+    "title": "5 (BMS 4) · PRAK 1 WORKSHEET PRAKTIKUM ANATOMI SISTEM INDERA-THT",
+    "url": "5_bms_4_prak_1_worksheet_praktikum_anatomi_siste.html"
+  },
+  "1II5_KjwLuRXX24EOKJXo7LQvmuZigi8Z": {
+    "title": "5 (BMS 4) · PRAK 3 WORKSHEET PRAKTIKUM ANATOMI SISTEM DIGESTIF",
+    "url": "5_bms_4_prak_3_worksheet_praktikum_anatomi_siste.html"
+  },
+  "1hsdZcQcHtp5WiFwLmjGvTrc6gqzpJCkq": {
+    "title": "5 (BMS 4) · PRAK 5 MODUL PRAKTIKUM Anatomi - SISTEM URINARIA",
+    "url": "5_bms_4_prak_5_modul_praktikum_anatomi_sistem_ur.html"
+  },
+  "1zr2kitkM1psmQBqVW5kyvKbty9JkyAEx": {
+    "title": "5 (BMS 4) · PRAK 6 WORKSHEET PRAKTIKUM ANATOMI SISTEM REPRODUKSI",
+    "url": "5_bms_4_prak_6_worksheet_praktikum_anatomi_siste.html"
+  },
+  "19jZOlfTaIY4_oYc7LQEeS7H5KgjKByFh": {
+    "title": "6 (BMD) · 00",
+    "url": "6_bmd_00.html"
+  },
+  "13u_RoWg7HRMQhCB5bqprGWosU5v0Rk4p": {
+    "title": "6 (BMD) · KUL 10 TRANSDUKSI SINYAL (LIA)",
+    "url": "6_bmd_kul_10_transduksi_sinyal_lia.html"
+  },
+  "13mm2ANlCMXKqdAwpW-72bfa8r3WtHHvm": {
+    "title": "6 (BMD) · KUL 11 MEKANISME EFEKTOR IMUN (VI)",
+    "url": "6_bmd_kul_11_mekanisme_efektor_imun_vi.html"
+  },
+  "11TOALwMIoJwXKBIb4l5WjdbYCIwLHYOj": {
+    "title": "6 (BMD) · KUL 12 TOLERANSI DAN REGULASI RESPONS IMUN (LIA)",
+    "url": "6_bmd_kul_12_toleransi_dan_regulasi_respons_im.html"
+  },
+  "1sh9sjUYJi4F6gim_0yYHq4m7ow9X4Xdg": {
+    "title": "6 (BMD) · KUL 13 JEJAS, ADAPTASI DAN KEMATIAN SELULER (NIK)",
+    "url": "6_bmd_kul_13_jejas_adaptasi_dan_kematian_selul.html"
+  },
+  "157hK0vq5xbbq4d1oleRH0aM-xfcHa094": {
+    "title": "6 (BMD) · KUL 14 INFLAMASI (NIK)",
+    "url": "6_bmd_kul_14_inflamasi_nik.html"
+  },
+  "1-uZt5Cg8jwJ0ngKIpEzR9vHoOLVURpDI": {
+    "title": "6 (BMD) · KUL 15 FISIOLOGI NYERI (RIS)",
+    "url": "6_bmd_kul_15_fisiologi_nyeri_ris.html"
+  },
+  "1umyEC1KGWWxPAxSlgn2w1Jntd8axrEM5": {
+    "title": "6 (BMD) · KUL 16 PENYEMBUHAN LUKA DAN PERBAIKAN JARINGAN (AYA)",
+    "url": "6_bmd_kul_16_penyembuhan_luka_dan_perbaikan_ja.html"
+  },
+  "1x61wa921IAu0ZkQoVJgCEiCcntnHZZ2A": {
+    "title": "6 (BMD) · KUL 17 GANGGUAN HEMODINAMIK (ER)",
+    "url": "6_bmd_kul_17_gangguan_hemodinamik_er.html"
+  },
+  "1QRrhg7Om9nmduQ06sJ3oJn_emsqWk7Gc": {
+    "title": "6 (BMD) · KUL 18, 19, 20 CYTOGENETIC AND GENETIC DISORDER (LIA)",
+    "url": "6_bmd_kul_18_19_20_cytogenetic_and_genetic_dis.html"
+  },
+  "18smStEEJ1Zujux9rO4RAkHcFROOILWIR": {
+    "title": "6 (BMD) · KUL 2 KONSEP SEHAT SAKIT (KI)",
+    "url": "6_bmd_kul_2_konsep_sehat_sakit_ki.html"
+  },
+  "1yW7RFWQOLti8UW4fDyF4-t4sVqvbVPCJ": {
+    "title": "6 (BMD) · KUL 21 PATOFISIOLOGI KEGANASAN (NIK)",
+    "url": "6_bmd_kul_21_patofisiologi_keganasan_nik.html"
+  },
+  "11uK9sQVVEZcYelt26oL2BpBXjGFbn1fu": {
+    "title": "6 (BMD) · KUL 22 STRES OKSIDATIF (NAH)",
+    "url": "6_bmd_kul_22_stres_oksidatif_nah.html"
+  },
+  "1jL5_SgrenTtDUsRqodCNzLD86-gDxvat": {
+    "title": "6 (BMD) · KUL 23 MIKROBIOLOGI DASAR (VI)",
+    "url": "6_bmd_kul_23_mikrobiologi_dasar_vi.html"
+  },
+  "14V5JS83p8M1XBMacmLpDtIktagpqLHDg": {
+    "title": "6 (BMD) · KUL 24 PENGANTAR BAKTERIOLOGI (AV)",
+    "url": "6_bmd_kul_24_pengantar_bakteriologi_av.html"
+  },
+  "1WaMV8ss0lkj5PHdNgoatx41BN6XKI4wM": {
+    "title": "6 (BMD) · KUL 25 PENGANTAR VIROLOGI (AV)",
+    "url": "6_bmd_kul_25_pengantar_virologi_av.html"
+  },
+  "1w7uy6IFsqtVsJ5jEScQXkD8UWozhjlfF": {
+    "title": "6 (BMD) · KUL 26 PENGANTAR MIKOLOGI (AV)",
+    "url": "6_bmd_kul_26_pengantar_mikologi_av.html"
+  },
+  "1B-QjWk9QRbOlz8axclL5lO-cf9J7NxtE": {
+    "title": "6 (BMD) · KUL 27 PENGANTAR PARASITOLOGI (RAH)",
+    "url": "6_bmd_kul_27_pengantar_parasitologi_rah.html"
+  },
+  "1u-ZCcWcmZc2y6AhsgsyYp0FtA05tgwhM": {
+    "title": "6 (BMD) · KUL 28 PARASITOLOGI KEDOKTERAN (RAH)",
+    "url": "6_bmd_kul_28_parasitologi_kedokteran_rah.html"
+  },
+  "1HOWh1nU3y0b_dZSAajLQjQpzdAkul-VC": {
+    "title": "6 (BMD) · KUL 29 ENTOMOLOGI KEDOKTERAN (RAH)",
+    "url": "6_bmd_kul_29_entomologi_kedokteran_rah.html"
+  },
+  "1CBDCg8dtFWns3fJet82inpBJyNNTtlyz": {
+    "title": "6 (BMD) · KUL 3 RIWAYAT ALAMIAH PENYAKIT (KI)",
+    "url": "6_bmd_kul_3_riwayat_alamiah_penyakit_ki.html"
+  },
+  "1NH9SMWTkmNjON6Y52hObRCDcuivIvda9": {
+    "title": "6 (BMD) · KUL 4 PENGANTAR EPIDEMIOLOGI (DOB)",
+    "url": "6_bmd_kul_4_pengantar_epidemiologi_dob.html"
+  },
+  "1_2e-OHSU7MkRVZm7q078fk2Kasa7Ydsw": {
+    "title": "6 (BMD) · KUL 5 TINJAUAN ETIKA PENGGUNAAN MEDIA SOSIAL OLEH DOKTER (DOB)",
+    "url": "6_bmd_kul_5_tinjauan_etika_penggunaan_media_so.html"
+  },
+  "1XEnmgs8w3aZvCh3soI3vlc5MV_XeO-lt": {
+    "title": "6 (BMD) · KUL 6 INTRO IMUN (LIA)",
+    "url": "6_bmd_kul_6_intro_imun_lia.html"
+  },
+  "1oKtd1Q2xEoDOzDCeC_JgXTJWUurzsy9E": {
+    "title": "6 (BMD) · KUL 6 SISTEM IMUN (VI)",
+    "url": "6_bmd_kul_6_sistem_imun_vi.html"
+  },
+  "13gFVcDfD2fpB8XP93Tj2JknwpgQlL4Hx": {
+    "title": "6 (BMD) · KUL 7 SISTEM IMUN ALAMI (VI)",
+    "url": "6_bmd_kul_7_sistem_imun_alami_vi.html"
+  },
+  "1z3SOrfPUN8Mi55YH9Dx4w2LGI4ROkWgU": {
+    "title": "6 (BMD) · KUL 8 ANTIGEN ANTIBODI (VI)",
+    "url": "6_bmd_kul_8_antigen_antibodi_vi.html"
+  },
+  "1UneQrcQhSm8Jns4zHiN4SX_Io7pq9NPo": {
+    "title": "6 (BMD) · KUL 9 LIMFOSIT (LIA)",
+    "url": "6_bmd_kul_9_limfosit_lia.html"
+  },
+  "1xgPMQZ6lveh9UcwAiLhWlDv1QQ3uq48I": {
+    "title": "6 (BMD) · PRAK 1 MODUL PETUNJUK PRAKTIKUM HEWAN COBA (RIS)",
+    "url": "6_bmd_prak_1_modul_petunjuk_praktikum_hewan_co.html"
+  },
+  "18Qp_ljbdDOhnwIobYQJGH9chzKwB8MRe": {
+    "title": "6 (BMD) · PRAK 3 MODUL PRAKTIKUM PENGENALAN ALAT LAB DAN KESELAMATAN KERJA (VI)",
+    "url": "6_bmd_prak_3_modul_praktikum_pengenalan_alat_l.html"
+  },
+  "1C32GSC_S7QT4VmtqWucFnak_VUOiFkGI": {
+    "title": "6 (BMD) · PRAK 3 PRAKTIKUM PENGENALAN ALAT (VI)",
+    "url": "6_bmd_prak_3_praktikum_pengenalan_alat_vi.html"
+  },
+  "1ASi-VlgIqbjkWZdcumjwBE4XzycRRmf1": {
+    "title": "6 (BMD) · TBL RANGKUMAN BMD (RAH)",
+    "url": "6_bmd_tbl_rangkuman_bmd_rah.html"
+  },
+  "1rqtwJEEByoQZTxIMn547BtVws44wGPeP": {
+    "title": "7 (BDT) · 00",
+    "url": "7_bdt_00.html"
+  },
+  "1TfGxIxQbGMedOV3Q6DavSPEJVmST2Zca": {
+    "title": "7 (BDT) · KUL 10 FARMAKOKINETIK (SAN)",
+    "url": "7_bdt_kul_10_farmakokinetik_san.html"
+  },
+  "1gxtg-7X2thE7xg1g7uXwNwqjB_K8zg7f": {
+    "title": "7 (BDT) · KUL 11 FARMAKODINAMIK (SAN)",
+    "url": "7_bdt_kul_11_farmakodinamik_san.html"
+  },
+  "14mNuAtkCO37r1VfFOrYYSgqSKPH89LaD": {
+    "title": "7 (BDT) · KUL 12 DASAR FARMASI (SAN)",
+    "url": "7_bdt_kul_12_dasar_farmasi_san.html"
+  },
+  "1ovARMkAGgOt2lNBSHGA9M_b37cngZ-wO": {
+    "title": "7 (BDT) · KUL 13 OBAT HERBAL DAN PENGEMBANGAN OBAT BARU",
+    "url": "7_bdt_kul_13_obat_herbal_dan_pengembangan_obat.html"
+  },
+  "1mjT3b8PX2UAA75EDkkLW8Ey0IBUeVh9s": {
+    "title": "7 (BDT) · KUL 14 FARMAKOLOGI ANALGETIK, ANTIPIRETIK DAN ANTIINFLAMASI (SAN)",
+    "url": "7_bdt_kul_14_farmakologi_analgetik_antipiretik.html"
+  },
+  "13kftEB-4rtfxUmZGA6lFmH9DnRc0do8C": {
+    "title": "7 (BDT) · KUL 15 DASAR PENULISAN RESEP (SAN)",
+    "url": "7_bdt_kul_15_dasar_penulisan_resep_san.html"
+  },
+  "17pJUWxCboeiiWEqTPlMuj_NJaXNQl5Qg": {
+    "title": "7 (BDT) · KUL 16 DASAR ANESTESIOLOGI (CAN)",
+    "url": "7_bdt_kul_16_dasar_anestesiologi_can.html"
+  },
+  "1upm2ybxRpTb3-wA5VJCDvDrp2l-xoMLY": {
+    "title": "7 (BDT) · KUL 17 DASAR REHABILITASI MEDIK (NA)",
+    "url": "7_bdt_kul_17_dasar_rehabilitasi_medik_na.html"
+  },
+  "1m46sdMnmoY7q1RI__kd5kYtTjJ6w1hqK": {
+    "title": "7 (BDT) · KUL 2 CLINICAL PROCESS (IWL)",
+    "url": "7_bdt_kul_2_clinical_process_iwl.html"
+  },
+  "1_yXU0uQOgrcQ1MheRhEFdZpi6gIzbwcD": {
+    "title": "7 (BDT) · KUL 4 KEGAWATDARURATAN MEDIK (CHRIS)",
+    "url": "7_bdt_kul_4_kegawatdaruratan_medik_chris.html"
+  },
+  "1fnyAw4DUr3Z0N0AX3f4pyvYTjNVDw5Mp": {
+    "title": "7 (BDT) · KUL 4 PRINSIP DASAR EMERGENCY MEDICINE (CHRIS)",
+    "url": "7_bdt_kul_4_prinsip_dasar_emergency_medicine_c.html"
+  },
+  "1230dGWzgi_xi7frpSHlf2gxb7n4nJ5hR": {
+    "title": "7 (BDT) · KUL 5 PROFESIONALISME DOKTER (DOB)",
+    "url": "7_bdt_kul_5_profesionalisme_dokter_dob.html"
+  },
+  "1SWJKQ6WAf0Rr7nHaerP6FkACdSw4KWV4": {
+    "title": "7 (BDT) · KUL 6 PEMERIKSAAN PENUNJANG LABORATORIUM (PWA)",
+    "url": "7_bdt_kul_6_pemeriksaan_penunjang_laboratorium.html"
+  },
+  "1xCVdW71TyGwZ7laAkmOy_2OUV6RckxzA": {
+    "title": "7 (BDT) · KUL 7 DIAGNOSTIC MICROBIOLOGY AND PARASITOLOGY (LIA)",
+    "url": "7_bdt_kul_7_diagnostic_microbiology_and_parasi.html"
+  },
+  "1EeyHB00Q7uKl30pE8kwA8E0CDP9hmnfU": {
+    "title": "7 (BDT) · KUL 8 PRINSIP DASAR PEMERIKSAAN PATOLOGI ANATOMI (FEB)",
+    "url": "7_bdt_kul_8_prinsip_dasar_pemeriksaan_patologi.html"
+  },
+  "1VMnBhz7O4FifBxq0rH1R5OTlhAKni2IC": {
+    "title": "7 (BDT) · KUL 9 PRINSIP DASAR PEMERIKSAAN RADIOLOGI (AGA)",
+    "url": "7_bdt_kul_9_prinsip_dasar_pemeriksaan_radiolog.html"
+  },
+  "1ivF885MR4f0hcjQvJOjcXXcLG-yMaHHS": {
+    "title": "7 (BDT) · PRAK 1 TEKNIK PEMBUATAN MEDIUM BIAKAN, TEKNIK SAMPLING, PEMBENIHAN BAKTERI (AV)",
+    "url": "7_bdt_prak_1_teknik_pembuatan_medium_biakan_te.html"
+  },
+  "1W53EYQ8Pbmq74VSbIOHMgIyofAq_2WT_": {
+    "title": "7 (BDT) · PRAK 2 IDENTIFIKASI DAN ENUMERASI KOLONI (AV)",
+    "url": "7_bdt_prak_2_identifikasi_dan_enumerasi_koloni.html"
+  },
+  "1SU5AVL3Jf9nBoQ0FY_ZNadH13ZxtFfhK": {
+    "title": "7 (BDT) · PRAK 3 MODUL PRAKTIKUM SEDIAAN OBAT (SAN)",
+    "url": "7_bdt_prak_3_modul_praktikum_sediaan_obat_san.html"
+  },
+  "1a58Ze8KOMtjnjsJbUmoJjIDnDsnTkpvd": {
+    "title": "7 (BDT) · PRAK 4 10-ANTIBIOTICS SENSITIVITY TEST (LIA)",
+    "url": "7_bdt_prak_4_10_antibiotics_sensitivity_test_l.html"
+  },
+  "1WNoQcIGhY6JG_f-TcqJ42AtmrzKkGnhC": {
+    "title": "7 (BDT) · PRAK 5 MODUL PRAKTIKUM PENULISAN RESEP (SAN)",
+    "url": "7_bdt_prak_5_modul_praktikum_penulisan_resep_s.html"
+  },
+  "1jBHDjnTDvR7X0HQeeJ8X-mi6E4ti_hr0": {
+    "title": "8 (HI) · 00. MODUL HI GANJIL 2026/2027",
+    "url": "8_hi_00_modul_hi_ganjil_2026_2027.html"
+  },
+  "1OSLidftKOILN7pu_nNHLSjh9DaGa0ern": {
+    "title": "8 (HI) · KUL 10 KEGANASAN HEMATOLOGI (PWA)",
+    "url": "8_hi_kul_10_keganasan_hematologi_pwa.html"
+  },
+  "1DHX0sYlFDTr01UJ0BDFbcu1lUznj-6zj": {
+    "title": "8 (HI) · KUL 11 TRANSFUSI (PWA)",
+    "url": "8_hi_kul_11_transfusi_pwa.html"
+  },
+  "14J1du2RoBQjTr_dqJDcOuo9_w09_0Rkx": {
+    "title": "8 (HI) · KUL 12 FARMAKOLOGI ANTIPARASIT DAN ANTIVIRUS (SAN)",
+    "url": "8_hi_kul_12_farmakologi_antiparasit_dan_antiv.html"
+  },
+  "1HTwOsQ9ZBqktmxJi3zmkvefdXms4caZN": {
+    "title": "8 (HI) · KUL 13 FARMAKOLOGI ANTIBIOTIK (SAN)",
+    "url": "8_hi_kul_13_farmakologi_antibiotik_san.html"
+  },
+  "1ORdSPOL7S9Swi8DOtfhg0LUsVwCnDWZT": {
+    "title": "8 (HI) · KUL 14 IMUNITAS MIKROBA (VI)",
+    "url": "8_hi_kul_14_imunitas_mikroba_vi.html"
+  },
+  "1dbR6G5SjJb9-XzxSflVo1AqWlTqOawRx": {
+    "title": "8 (HI) · KUL 15 PEMERIKSAAN HEMATOLOGI (PWA)",
+    "url": "8_hi_kul_15_pemeriksaan_hematologi_pwa.html"
+  },
+  "1V3anPRl3jePcV5GhN7wSWUJlSjVHUiIb": {
+    "title": "8 (HI) · KUL 16 BIOLOGI MOLEKULAR APLIKATIF 1 (LIA)",
+    "url": "8_hi_kul_16_biologi_molekular_aplikatif_1_lia.html"
+  },
+  "1v9-n7McWIhPg2gDOyg9r_kZIDve0FzA9": {
+    "title": "8 (HI) · KUL 16 BIOLOGI MOLEKULER APLIKATIF 2 (LIA)",
+    "url": "8_hi_kul_16_biologi_molekuler_aplikatif_2_lia.html"
+  },
+  "19sAMW3iWT-ijSzsJs5nEHUmLAdi3Q4oy": {
+    "title": "8 (HI) · KUL 17 MEKANISME RESISTENSI ANTIBIOTIK (LIA)",
+    "url": "8_hi_kul_17_mekanisme_resistensi_antibiotik_l.html"
+  },
+  "1yEWYaQmI5yZYCMtbCEy7EhhEC0lwEagr": {
+    "title": "8 (HI) · KUL 18 JARINGAN LIMFOID (NIK)",
+    "url": "8_hi_kul_18_jaringan_limfoid_nik.html"
+  },
+  "1fpsY5SXG7TgYHcUGth7UZuA0MZG2z82W": {
+    "title": "8 (HI) · KUL 19 ETIKA PERAWATAN PALIATIF DAN PENGELOLAAN PASIEN HIV/AIDS (AYA)",
+    "url": "8_hi_kul_19_etika_perawatan_paliatif_dan_peng.html"
+  },
+  "1NYX1sDmGh3dJEnoP9FPb5HotFwwWs-_X": {
+    "title": "8 (HI) · KUL 2 MIKROBIOLOGI SISTEM HEMATOIMUNOLOGI (AV)",
+    "url": "8_hi_kul_2_mikrobiologi_sistem_hematoimunolog.html"
+  },
+  "1ozpJuCsfIgwV46VjDMolw8IupAi6O98m": {
+    "title": "8 (HI) · KUL 21 REAKSI HIPERSENSITIVITAS (VI)",
+    "url": "8_hi_kul_21_reaksi_hipersensitivitas_vi.html"
+  },
+  "1xJJ_br1LYKozSIYbbX6Opsnp6lBpj-aq": {
+    "title": "8 (HI) · KUL 22 IMUNODEFISIENSI (LIA)",
+    "url": "8_hi_kul_22_imunodefisiensi_lia.html"
+  },
+  "104iwY_0GseLZZ66W_2XmkP_8_lBGqjz9": {
+    "title": "8 (HI) · KUL 23 PENYAKIT AUTOIMUN (IWL)",
+    "url": "8_hi_kul_23_penyakit_autoimun_iwl.html"
+  },
+  "1JD9G9BA7gLWqvB5busszsqDoGKX5pC9r": {
+    "title": "8 (HI) · KUL 24 PHARMACOLOGY IMMUNE, ALERGY, AND CANCER (SAN)",
+    "url": "8_hi_kul_24_pharmacology_immune_alergy_and_ca.html"
+  },
+  "1t7D36kjdLyf4ma5nALtblnnjxa79RTkR": {
+    "title": "8 (HI) · KUL 25 TUMOUR IMMUNOLOGY (LIA)",
+    "url": "8_hi_kul_25_tumour_immunology_lia.html"
+  },
+  "1iF7ShJYtcHmyjR4WY7GWMqwczhSyIoKK": {
+    "title": "8 (HI) · KUL 3 PARASIT PENYEBAB DARAH DAN JARINGAN (RAH)",
+    "url": "8_hi_kul_3_parasit_penyebab_darah_dan_jaringa.html"
+  },
+  "1mEhWBBOWzQFSt98VJu84nhosizLCnWD3": {
+    "title": "8 (HI) · KUL 5 PENYAKIT INFEKSI VIRUS (IWL)",
+    "url": "8_hi_kul_5_penyakit_infeksi_virus_iwl.html"
+  },
+  "1aGC0l6HBIwDNDAdgYqSXsVgc9rqTU-WK": {
+    "title": "8 (HI) · KUL 6 SEPSIS DAN SEPTIC SHOCK (CHRIS)",
+    "url": "8_hi_kul_6_sepsis_dan_septic_shock_chris.html"
+  },
+  "1U-Ha8JYUaLbNqZ-k3WkvBg9xXnH7goz2": {
+    "title": "8 (HI) · KUL 7 FARMAKOLOGI OBAT YANG BEKERJA PADA DARAH (SAN)",
+    "url": "8_hi_kul_7_farmakologi_obat_yang_bekerja_pada.html"
+  },
+  "1VkOkIECWapRzJtcC8Z6eASGufHfDKUvM": {
+    "title": "8 (HI) · KUL 8 KELAINAN SEL DARAH (IWL)",
+    "url": "8_hi_kul_8_kelainan_sel_darah_iwl.html"
+  },
+  "1ejhCe-wsHNz5zE6R_pws3IrIJHtovyyr": {
+    "title": "8 (HI) · KUL 9 GANGGUAN KOAGULASI (IWL)",
+    "url": "8_hi_kul_9_gangguan_koagulasi_iwl.html"
+  },
+  "1CjD9epELnJf_mRnUCmUKh8rB-uDRgvfl": {
+    "title": "8 (HI) · PRAK 1 PANDUAN PRAKTIKUM PARASIT PADA DARAH DAN JARINGAN (RAH)",
+    "url": "8_hi_prak_1_panduan_praktikum_parasit_pada_da.html"
+  },
+  "1JUeuKhVBkId3LZD4i4wq-OamGZMeKZpF": {
+    "title": "8 (HI) · PRAK 1 PARASIT PADA DARAH DAN JARINGAN (RAH)",
+    "url": "8_hi_prak_1_parasit_pada_darah_dan_jaringan_r.html"
+  },
+  "1y6MnHnLBZDAbl4BWmjgSp3zoJGtsC3NN": {
+    "title": "8 (HI) · PRAK 2 IDENTIFIKASI BAKTERI DENGAN PEWARNAAN (AV)",
+    "url": "8_hi_prak_2_identifikasi_bakteri_dengan_pewar.html"
+  },
+  "1-RnWka_RYX1_ggIOEK4b4nH1mUWZMPib": {
+    "title": "8 (HI) · PRAK 2 PRESENTASI PEWARNAAN BAKTERI (AV)",
+    "url": "8_hi_prak_2_presentasi_pewarnaan_bakteri_av.html"
+  },
+  "1bY1FlnuXMESS8U2VNsRtX82tlLSvKH4h": {
+    "title": "8 (HI) · PRAK 3,4 PETUNJUK PRAKTIKUM HEMATOLOGI (PWA)",
+    "url": "8_hi_prak_3_4_petunjuk_praktikum_hematologi_p.html"
+  },
+  "1GwuF-r6rJU4k5lZ-uS8S92ikRAN4CWQM": {
+    "title": "8 (HI) · PRAK 5 PENUNTUN PRAKTIKUM HISTOLOGI SISTEM LIMFATIK (NIK)",
+    "url": "8_hi_prak_5_penuntun_praktikum_histologi_sist.html"
+  },
+  "1X9ShP2afvbFOjRWmJodeCBApBHBD2Qve": {
+    "title": "8 (HI) · SOAL PERKIRAAN SEPSIS UAB (CHRIS)",
+    "url": "8_hi_soal_perkiraan_sepsis_uab_chris.html"
+  },
+  "1GkliSzrTBNggyoIxRkPI4N4TDgwcgz6h": {
+    "title": "9 (EMN) · 00. MODUL EMN 2026",
+    "url": "9_emn_00_modul_emn_2026.html"
+  },
+  "1LY3PgsYHdNCZD73LmKEV2U-s-nJDlTW7": {
+    "title": "8 (HI) · KUL 4 PENYAKIT INFEKSI PARASIT (IWL)",
+    "url": "8_hi_kul_4_penyakit_infeksi_parasit_iwl.html"
+  }
+}

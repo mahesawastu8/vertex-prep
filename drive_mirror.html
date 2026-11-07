@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VERTEXTERIAL — Google Drive Mirror</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:#F8FAFC; --surface:#fff; --subtle:#F1F5F9; --ink9:#0F172A; --ink7:#334155; --ink5:#64748B; --ink4:#94A3B8;
+    --emerald:#059669; --emerald-s:#ECFDF5; --cobalt:#0284C7; --cobalt-s:#E0F2FE; --crimson:#E11D48; --amber:#D97706; --amber-s:#FEF3C7;
+    --border:#E2E8F0; --r-xl:16px; --r-lg:12px; --r-md:8px;
+    --shadow:0 4px 6px -1px rgba(0,0,0,0.05),0 2px 4px -2px rgba(0,0,0,0.05);
+    --shadow-hover:0 10px 15px -3px rgba(0,0,0,0.08),0 4px 6px -4px rgba(0,0,0,0.04);
+    --font:'IBM Plex Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{background:var(--bg);color:var(--ink9);font-family:var(--font);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased;display:flex;flex-direction:column}
+  button{font:inherit;color:inherit;cursor:pointer;border:none;background:none}
+  a{color:inherit;text-decoration:none}
+  :focus-visible{outline:2px solid var(--cobalt);outline-offset:2px}
+
+  /* Topbar */
+  header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:10px 24px}
+  .bar{max-width:1240px;margin:0 auto;display:flex;align-items:center;gap:16px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.1rem;color:var(--ink9);white-space:nowrap}
+  .brand-logo{width:32px;height:32px;border-radius:8px;background:var(--cobalt);color:#fff;display:grid;place-items:center;font-weight:700;font-size:0.9rem}
+  
+  .search{flex:1;position:relative;max-width:640px}
+  .search input{width:100%;border:1px solid var(--border);background:var(--subtle);border-radius:999px;padding:9px 50px 9px 40px;font:inherit;font-size:.92rem;color:var(--ink9);transition:all .15s}
+  .search input:focus{outline:none;border-color:var(--cobalt);background:#fff;box-shadow:0 0 0 3px rgba(2,132,199,0.15)}
+  .search svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:16px;height:16px;stroke:var(--ink5)}
+  .search kbd{position:absolute;right:14px;top:50%;transform:translateY(-50%);font:600 .7rem var(--font);color:var(--ink4);border:1px solid var(--border);border-radius:4px;padding:1px 6px;background:#fff}
+
+  .sync{display:flex;align-items:center;gap:8px;font-size:.78rem;color:var(--ink5);white-space:nowrap}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--emerald)}
+  .dot.err{background:var(--crimson)} .dot.busy{background:var(--amber);animation:pulse 1s infinite}
+  @keyframes pulse{50%{opacity:.25}}
+
+  .btn-pill{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:999px;font-weight:600;font-size:.84rem;transition:all .15s;white-space:nowrap}
+  .btn-pill.ghost{background:var(--subtle);color:var(--ink7);border:1px solid var(--border)}
+  .btn-pill.ghost:hover{background:var(--cobalt-s);color:var(--cobalt);border-color:var(--cobalt)}
+  .btn-pill.solid{background:var(--cobalt);color:#fff}
+  .btn-pill.solid:hover{opacity:.9;transform:translateY(-1px)}
+
+  /* Main App Container (Full Width Google Drive style, No Sidebar) */
+  .app{flex:1;max-width:1240px;width:100%;margin:0 auto;padding:20px 24px 40px;display:flex;flex-direction:column}
+  main{flex:1;background:#fff;border:1px solid var(--border);border-radius:var(--r-xl);box-shadow:var(--shadow);padding:24px 32px 36px;display:flex;flex-direction:column}
+
+  /* Breadcrumb & Path Bar (Google Drive Path View) */
+  .drive-nav-header{display:flex;flex-direction:column;gap:8px;margin-bottom:18px;border-bottom:1px solid var(--border);padding-bottom:16px}
+  .path-trail-row{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+  .path-breadcrumbs{display:flex;align-items:center;gap:4px;flex-wrap:wrap;font-size:0.95rem}
+  .path-btn{display:inline-flex;align-items:center;gap:6px;padding:5px 10px;border-radius:8px;color:var(--ink7);font-weight:600;font-size:0.92rem;transition:all .15s}
+  .path-btn:hover{background:var(--cobalt-s);color:var(--cobalt)}
+  .path-sep{color:var(--ink4);font-size:0.9rem;margin:0 2px}
+  .path-current-tag{padding:5px 10px;font-weight:700;color:var(--ink9);background:var(--subtle);border-radius:8px}
+
+  .btn-back{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:999px;background:var(--subtle);border:1px solid var(--border);font-size:0.84rem;font-weight:600;color:var(--ink7);transition:all .15s}
+  .btn-back:hover{background:var(--cobalt-s);color:var(--cobalt);border-color:var(--cobalt)}
+
+  .folder-main-title{font-size:1.6rem;font-weight:700;color:var(--ink9);display:flex;align-items:center;gap:10px;margin-top:2px}
+
+  /* Toolbar: Meta & Filters */
+  .toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-bottom:20px}
+  .stat-txt{font-size:0.85rem;color:var(--ink5)}
+  .spacer{flex:1}
+  .chips{display:flex;gap:6px;flex-wrap:wrap}
+  .chip{padding:5px 12px;border-radius:999px;border:1px solid var(--border);background:#fff;font-size:.8rem;font-weight:600;color:var(--ink5);transition:all .15s}
+  .chip:hover{border-color:var(--cobalt);color:var(--cobalt)}
+  .chip.on{background:var(--cobalt);border-color:var(--cobalt);color:#fff}
+  .seg{display:inline-flex;border:1px solid var(--border);border-radius:999px;overflow:hidden;background:#fff}
+  .seg button{padding:5px 12px;font-size:.8rem;font-weight:600;color:var(--ink5)}
+  .seg button.on{background:var(--subtle);color:var(--ink9)}
+  select.sort{border:1px solid var(--border);border-radius:999px;padding:5px 10px;font:600 .8rem var(--font);background:#fff;color:var(--ink5)}
+
+  .section-label{font-size:.8rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--ink4);margin:20px 2px 10px}
+  
+  /* Grid Cards */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+  .card{background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;text-align:left;display:flex;flex-direction:column;transition:all .2s cubic-bezier(.4,0,.2,1);position:relative;cursor:pointer}
+  .card:hover{border-color:var(--cobalt);transform:translateY(-2px);box-shadow:var(--shadow-hover)}
+  .card:active{transform:scale(.99)}
+  
+  /* Folder Card */
+  .card-folder{flex-direction:row;align-items:center;gap:12px;padding:14px 18px;background:#fff;border:1px solid var(--border)}
+  .card-folder:hover{background:var(--cobalt-s);border-color:var(--cobalt)}
+  .folder-icon{font-size:1.8rem;line-height:1;color:var(--cobalt)}
+  .folder-name{font-weight:600;font-size:.95rem;color:var(--ink9);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;word-break:break-word}
+  .folder-meta{font-size:.78rem;color:var(--ink5);margin-top:2px}
+
+  /* File Card */
+  .thumb{aspect-ratio:16/10;background:var(--subtle);display:grid;place-items:center;overflow:hidden;font-size:2.4rem;border-bottom:1px solid var(--border)}
+  .thumb img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;image-rendering:-webkit-optimize-contrast}
+  .fbody{padding:12px 14px}
+  .fnm{font-weight:600;font-size:.9rem;color:var(--ink9);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;word-break:break-word;min-height:2.6em}
+  .fsub{display:flex;align-items:center;gap:6px;margin-top:8px;font-size:.74rem;color:var(--ink4)}
+  
+  .tag{font-weight:700;font-size:.68rem;padding:2px 8px;border-radius:6px;background:var(--subtle);color:var(--ink7)}
+  .tag.pdf{background:#FFE4E6;color:var(--crimson)} .tag.ppt{background:var(--amber-s);color:var(--amber)}
+  .tag.doc{background:var(--cobalt-s);color:var(--cobalt)} .tag.img{background:var(--emerald-s);color:var(--emerald)}
+  .ribbon{position:absolute;top:8px;left:8px;background:var(--emerald);color:#fff;font-size:.7rem;font-weight:700;padding:3px 10px;border-radius:999px;box-shadow:0 2px 6px rgba(5,150,105,0.3)}
+
+  /* List View */
+  .list{display:flex;flex-direction:column;border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;background:#fff}
+  .row{display:flex;align-items:center;gap:12px;padding:10px 16px;border-top:1px solid var(--subtle);text-align:left;width:100%;transition:background .15s}
+  .row:first-child{border-top:none} .row:hover{background:var(--cobalt-s)}
+  .row .ic{font-size:1.2rem;width:28px;text-align:center;flex:none}
+  .row .nm{flex:1;min-width:0;font-size:.9rem;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .row .path{font-size:.76rem;color:var(--ink4);max-width:40%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;direction:rtl;text-align:left}
+  .row .rib{font-size:.7rem;font-weight:700;color:var(--emerald);background:var(--emerald-s);padding:2px 8px;border-radius:999px}
+  .empty{padding:48px 16px;text-align:center;color:var(--ink4);font-size:.95rem;border:1px dashed var(--border);border-radius:var(--r-lg);background:#fff}
+
+  /* Modal */
+  .scrim{position:fixed;inset:0;background:rgba(15,23,42,0.65);backdrop-filter:blur(6px);display:none;z-index:100;align-items:center;justify-content:center;padding:20px}
+  .scrim.open{display:flex}
+  .modal{background:#fff;border-radius:var(--r-xl);width:100%;max-width:1100px;max-height:92vh;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 25px 50px -12px rgba(0,0,0,0.25)}
+  .mh{padding:16px 24px;border-bottom:1px solid var(--border);display:flex;gap:14px;align-items:flex-start}
+  .mh .t{flex:1;min-width:0} .mh h2{font-size:1.1rem;word-break:break-word}
+  .mh .p{font-size:.8rem;color:var(--ink5);margin-top:2px}
+  .x{width:32px;height:32px;border-radius:50%;background:var(--subtle);font-size:1.1rem;display:grid;place-items:center;flex:none}
+  .x:hover{background:var(--cobalt-s);color:var(--cobalt)}
+  .mb{flex:1;min-height:0;background:var(--subtle);display:grid;place-items:center}
+  .mb iframe{width:100%;height:100%;min-height:60vh;border:0;background:#fff}
+  .nopv{padding:50px 20px;text-align:center;color:var(--ink5)}
+  .mf{padding:14px 24px;border-top:1px solid var(--border);display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+  .mf .btn-pill{text-decoration:none}
+  .btn-pill.web{background:var(--emerald);color:#fff} .btn-pill.web:hover{opacity:.9;transform:translateY(-1px)}
+
+  .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);opacity:0;pointer-events:none;background:var(--ink9);color:#fff;padding:12px 20px;border-radius:999px;font-size:.88rem;font-weight:500;z-index:200;transition:all .25s;display:flex;gap:12px;align-items:center}
+  .toast.show{opacity:1;transform:translateX(-50%);pointer-events:auto}
+  .toast button{color:#8fd6c5;font-weight:700}
+
+  @media (max-width:768px){
+    .bar{padding:0} .sync .txt{display:none} .brand small{display:none}
+    main{padding:16px}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="bar">
+    <div class="brand">
+      <div class="brand-logo">VX</div>
+      <span>VERTEXTERIAL <span style="font-size:0.8rem;font-weight:500;color:var(--ink5);">Drive Mirror</span></span>
+    </div>
+    <div class="search">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" type="search" placeholder="Cari di seluruh Drive (nama file / folder)…" autocomplete="off" aria-label="Cari">
+      <kbd>/</kbd>
+    </div>
+    <div class="sync" id="sync"><span class="dot" id="dot"></span><span class="txt" id="syncTxt">memuat…</span></div>
+    <button class="btn-pill ghost" id="syncBtn">↻ Sinkron</button>
+    <a class="btn-pill solid" id="openRoot" target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/1vrUGhIJuAjfV8R9zKDe8Wr-ojAtnLeJt">Drive Asli ↗</a>
+  </div>
+</header>
+
+<div class="app">
+  <main id="main" tabindex="-1">
+    <!-- Google Drive Exact Breadcrumb & Navigation Bar -->
+    <div class="drive-nav-header">
+      <div class="path-trail-row">
+        <div class="path-breadcrumbs" id="crumbs"></div>
+        <button type="button" class="btn-back" id="btn-back" style="display:none;" onclick="goParent()">
+          <span>← Kembali</span>
+        </button>
+      </div>
+      <h1 class="folder-main-title" id="folder-title">Memuat Folder...</h1>
+    </div>
+
+    <!-- Toolbar: Counts & Filters -->
+    <div class="toolbar">
+      <span class="stat-txt" id="stat"></span>
+      <span class="spacer"></span>
+      <div class="chips" id="chips"></div>
+      <select class="sort" id="sort" aria-label="Urutkan">
+        <option value="name">Nama A–Z</option>
+        <option value="type">Tipe</option>
+        <option value="name-desc">Nama Z–A</option>
+      </select>
+      <div class="seg">
+        <button id="vGrid" class="on">Grid</button>
+        <button id="vList">Daftar</button>
+      </div>
+    </div>
+
+    <!-- Main Content Area: Folders & Files -->
+    <div id="content"></div>
+  </main>
+</div>
+
+<!-- Modal Preview & Summary Launcher -->
+<div class="scrim" id="scrim" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+  <div class="modal">
+    <div class="mh">
+      <div class="t"><h2 id="mTitle"></h2><div class="p" id="mPath"></div></div>
+      <button class="btn-pill ghost" id="mPrev" title="Sebelumnya (←)">←</button>
+      <button class="btn-pill ghost" id="mNext" title="Berikutnya (→)">→</button>
+      <button class="x" id="mClose" aria-label="Tutup (Esc)">✕</button>
+    </div>
+    <div class="mb" id="mBody"></div>
+    <div class="mf" id="mFoot"></div>
+  </div>
+</div>
+<div class="toast" id="toast"><span id="toastTxt"></span><button id="toastBtn">Muat ulang</button></div>
+
+<script>
+(() => {
+  const $ = id => document.getElementById(id);
+  const ROOT_URL = 'https://drive.google.com/drive/folders/1vrUGhIJuAjfV8R9zKDe8Wr-ojAtnLeJt';
+  let tree = null, byId = new Map(), parent = new Map(), pathOf = new Map(), nFiles = new Map(), nFolders = new Map();
+  let summaries = {}, cur = null, view = localStorage.getItem('vx_view') || 'grid';
+  let filter = 'all', sortBy = 'name', query = '', version = '', pendingVersion = '';
+  let modalList = [], modalIdx = -1, lastFocus = null;
+
+  function el(tag, attrs, ...kids) {
+    const e = document.createElement(tag);
+    for (const [k, v] of Object.entries(attrs || {})) {
+      if (k === 'class') e.className = v; else if (k === 'text') e.textContent = v;
+      else if (k.startsWith('on')) e.addEventListener(k.slice(2), v); else e.setAttribute(k, v);
+    }
+    for (const c of kids) if (c != null) e.append(c);
+    return e;
+  }
+
+  function kind(n) {
+    if (n.isFolder) return 'folder';
+    const m = n.mime || '', nm = n.name.toLowerCase();
+    if (m === 'application/pdf' || nm.endsWith('.pdf')) return 'pdf';
+    if (m.includes('presentation') || /\.(pptx?|key)$/.test(nm)) return 'ppt';
+    if (m.startsWith('image/')) return 'img';
+    if (m.startsWith('video/')) return 'video';
+    if (m.includes('word') || m.includes('document') || m.includes('sheet') || /\.(docx?|xlsx?|txt)$/.test(nm)) return 'doc';
+    return 'other';
+  }
+  const ICON = {folder:'📁', pdf:'📕', ppt:'📙', img:'🖼️', video:'🎬', doc:'📘', other:'📄'};
+  const LABEL = {pdf:'PDF', ppt:'PPT', img:'Gambar', video:'Video', doc:'Dokumen', other:'File'};
+  const dl = n => `https://drive.google.com/uc?export=download&id=${encodeURIComponent(n.id)}`;
+  const pv = n => `https://drive.google.com/file/d/${encodeURIComponent(n.id)}/preview`;
+  const fmt = n => n.toLocaleString('id-ID');
+
+  function index(root) {
+    byId = new Map(); parent = new Map(); pathOf = new Map(); nFiles = new Map(); nFolders = new Map();
+    (function walk(n, p, path) {
+      byId.set(n.id, n); pathOf.set(n.id, path.concat(n.name));
+      if (p) parent.set(n.id, p);
+      if (!n.isFolder) return;
+      let f = 0, d = 0;
+      for (const c of n.children) {
+        walk(c, n, path.concat(n.name));
+        if (c.isFolder) { d += 1 + nFolders.get(c.id); f += nFiles.get(c.id); } else f++;
+      }
+      nFiles.set(n.id, f); nFolders.set(n.id, d);
+    })(root, null, []);
+  }
+
+  async function loadTree() {
+    const r = await fetch('/api/tree', {cache: 'no-store'});
+    if (!r.ok) throw new Error('gagal memuat /api/tree');
+    tree = await r.json();
+    index(tree);
+  }
+
+  async function loadMeta() {
+    try {
+      const m = await (await fetch('/api/meta', {cache: 'no-store'})).json();
+      paintSync(m); return m;
+    } catch { paintSync(null); return null; }
+  }
+
+  function paintSync(m) {
+    const dot = $('dot'), t = $('syncTxt');
+    if (!m) { dot.className = 'dot err'; t.textContent = 'server tidak terjangkau'; return; }
+    dot.className = 'dot' + (m.syncing ? ' busy' : m.error ? ' err' : '');
+    const when = m.checkedAt || m.crawledAt || '-';
+    t.textContent = m.syncing ? 'menyinkron dengan Drive…' : m.error ? `gagal sinkron (data lama dipakai)` :
+      `${fmt(m.stats.files)} file · ${fmt(m.stats.folders)} folder · dicek ${when}`;
+    t.title = `Crawl terakhir: ${m.crawledAt || '-'}`;
+  }
+
+  // Navigation
+  function go(id, push = true) {
+    const n = byId.get(id) || tree;
+    cur = n.isFolder ? n : parent.get(n.id);
+    if (push) location.hash = cur.id === tree.id ? '' : '#/' + cur.id;
+    render();
+    $('main').scrollTop = 0;
+  }
+
+  function goParent() {
+    if (cur && parent.get(cur.id)) {
+      query = ''; $('q').value = '';
+      go(parent.get(cur.id).id);
+    }
+  }
+  window.goParent = goParent;
+
+  function fromHash() {
+    const m = location.hash.match(/^#\/([\w-]+)/);
+    go(m ? m[1] : tree.id, false);
+  }
+
+  // Render Google Drive Breadcrumbs (apa saja yang dibuka darimana kemana)
+  function renderCrumbs() {
+    const c = $('crumbs'); c.replaceChildren();
+    const btnBack = $('btn-back');
+    const chain = []; for (let n = cur; n; n = parent.get(n.id)) chain.unshift(n);
+
+    // Show/hide Back button
+    if (cur.id !== tree.id && !query) {
+      btnBack.style.display = 'inline-flex';
+      const pNode = parent.get(cur.id);
+      btnBack.title = 'Kembali ke ' + (pNode ? pNode.name : 'Folder Induk');
+    } else {
+      btnBack.style.display = 'none';
+    }
+
+    // Breadcrumb trail
+    chain.forEach((n, i) => {
+      if (i > 0) c.append(el('span', {class: 'path-sep', text: '›'}));
+      if (i === chain.length - 1 && !query) {
+        c.append(el('span', {class: 'path-current-tag', text: (n.id === tree.id ? '📁 ' : '') + n.name}));
+      } else {
+        c.append(el('button', {
+          class: 'path-btn',
+          text: (n.id === tree.id ? '📁 ' : '') + n.name,
+          onclick: () => { query = ''; $('q').value = ''; go(n.id); }
+        }));
+      }
+    });
+
+    if (query) {
+      c.append(el('span', {class: 'path-sep', text: '›'}), el('span', {class: 'path-current-tag', text: `Hasil pencarian “${query}”`}));
+      $('folder-title').textContent = `🔍 Pencarian: “${query}”`;
+    } else {
+      $('folder-title').textContent = (cur.id === tree.id ? '📁 ' : '📂 ') + cur.name;
+    }
+  }
+
+  function renderChips(items) {
+    const counts = {all: items.length}; items.forEach(n => { if (!n.isFolder) { const k = kind(n); counts[k] = (counts[k] || 0) + 1; } });
+    const c = $('chips'); c.replaceChildren();
+    ['all', 'pdf', 'ppt', 'doc', 'img', 'video', 'other'].forEach(k => {
+      if (k !== 'all' && !counts[k]) return;
+      c.append(el('button', {class: 'chip' + (filter === k ? ' on' : ''), text: `${k === 'all' ? 'Semua' : LABEL[k]} ${counts[k] || 0}`, onclick: () => { filter = k; render(); }}));
+    });
+    if (filter !== 'all' && !counts[filter]) filter = 'all';
+  }
+
+  function sorted(arr) {
+    const a = arr.slice(), cmp = (x, y) => x.name.localeCompare(y.name, 'id', {numeric: true, sensitivity: 'base'});
+    if (sortBy === 'name') a.sort(cmp); else if (sortBy === 'name-desc') a.sort((x, y) => cmp(y, x));
+    else a.sort((x, y) => kind(x).localeCompare(kind(y)) || cmp(x, y));
+    return a;
+  }
+
+  function folderCard(n) {
+    return el('button', {class: 'card card-folder', onclick: () => { query = ''; $('q').value = ''; go(n.id); }, title: n.name},
+      el('div', {class: 'folder-icon', text: '📁'}),
+      el('div', {},
+        el('div', {class: 'folder-name', text: n.name}),
+        el('div', {class: 'folder-meta', text: `${fmt(nFiles.get(n.id))} file · ${nFolders.get(n.id) ? fmt(nFolders.get(n.id)) + ' subfolder' : 'tanpa subfolder'}`})));
+  }
+
+  function fileCard(n, list) {
+    const k = kind(n), tcls = {pdf: 'pdf', ppt: 'ppt', doc: 'doc', img: 'img'}[k] || '';
+    const th = el('div', {class: 'thumb'});
+    const hdSrc = `https://drive.google.com/thumbnail?id=${encodeURIComponent(n.id)}&sz=w800`;
+    const im = el('img', {src: hdSrc, alt: '', loading: 'lazy', referrerpolicy: 'no-referrer'});
+    im.onerror = () => { th.textContent = ICON[k]; };
+    th.append(im);
+    const c = el('button', {class: 'card', title: n.name, onclick: () => openModal(list, n.id)}, th,
+      el('div', {class: 'fbody'},
+        el('div', {class: 'fnm', text: n.name}),
+        el('div', {class: 'fsub'}, el('span', {class: 'tag ' + tcls, text: LABEL[k]}), query ? el('span', {text: pathOf.get(n.id).slice(1, -1).slice(-2).join(' › ')}) : null)));
+    if (summaries[n.id]) c.append(el('span', {class: 'ribbon', text: '✨ Web Rangkuman'}));
+    return c;
+  }
+
+  function rowFor(n, list) {
+    const k = kind(n);
+    const r = el('button', {class: 'row', title: n.name, onclick: () => n.isFolder ? (query = '', $('q').value = '', go(n.id)) : openModal(list, n.id)},
+      el('span', {class: 'ic', text: ICON[k]}), el('span', {class: 'nm', text: n.name}));
+    if (query) r.append(el('span', {class: 'path', text: pathOf.get(n.id).slice(0, -1).join(' › ')}));
+    if (!n.isFolder && summaries[n.id]) r.append(el('span', {class: 'rib', text: '✨ Web Rangkuman'}));
+    if (!n.isFolder) r.append(el('span', {class: 'tag', text: LABEL[k]}));
+    else r.append(el('span', {class: 'tag', text: `${fmt(nFiles.get(n.id))} file`}));
+    return r;
+  }
+
+  function searchPool() {
+    const toks = query.toLowerCase().split(/\s+/).filter(Boolean), out = [];
+    byId.forEach(n => { if (n.id !== tree.id && toks.every(t => n.name.toLowerCase().includes(t) || pathOf.get(n.id).join(' ').toLowerCase().includes(t))) out.push(n); });
+    return out;
+  }
+
+  function render() {
+    renderCrumbs();
+    const base = query ? searchPool() : cur.children;
+    renderChips(base);
+    const pass = n => n.isFolder ? (filter === 'all') : (filter === 'all' || kind(n) === filter);
+    const items = base.filter(pass);
+    const folders = sorted(items.filter(n => n.isFolder)), files = sorted(items.filter(n => !n.isFolder));
+    
+    $('stat').textContent = query ? `${fmt(folders.length)} folder · ${fmt(files.length)} file ditemukan` :
+      `${fmt(cur.children.filter(c => c.isFolder).length)} folder · ${fmt(cur.children.filter(c => !c.isFolder).length)} file di sini (total ${fmt(nFiles.get(cur.id))} file)`;
+    
+    $('vGrid').classList.toggle('on', view === 'grid'); $('vList').classList.toggle('on', view === 'list');
+    const box = $('content'); box.replaceChildren();
+
+    if (!items.length) {
+      box.append(el('div', {class: 'empty', text: query ? 'Tidak ada hasil pencarian.' : base.length ? 'Tidak ada item untuk filter ini.' : 'Folder ini kosong (sama seperti di Google Drive asli).'}));
+      return;
+    }
+
+    if (view === 'list') {
+      const l = el('div', {class: 'list'});
+      folders.concat(files).forEach(n => l.append(rowFor(n, files)));
+      box.append(l);
+    } else {
+      if (folders.length) {
+        box.append(el('div', {class: 'section-label', text: 'Folder Sub-Kategori'}), el('div', {class: 'grid', style: 'margin-bottom:28px;'}, ...folders.map(folderCard)));
+      }
+      if (files.length) {
+        box.append(el('div', {class: 'section-label', text: 'File Materi'}), el('div', {class: 'grid'}, ...files.map(n => fileCard(n, files))));
+      }
+    }
+  }
+
+  // Modal
+  function openModal(list, id) {
+    modalList = list; modalIdx = list.findIndex(n => n.id === id);
+    lastFocus = document.activeElement; paintModal(); $('scrim').classList.add('open');
+    $('mClose').focus();
+  }
+  function paintModal() {
+    const n = modalList[modalIdx], k = kind(n), s = summaries[n.id];
+    $('mTitle').textContent = n.name; $('mPath').textContent = pathOf.get(n.id).slice(0, -1).join(' › ') + (n.mime ? ' · ' + n.mime : '');
+    $('mPrev').disabled = modalIdx <= 0; $('mNext').disabled = modalIdx >= modalList.length - 1;
+    const body = $('mBody'); body.replaceChildren();
+    body.append(el('iframe', {src: pv(n), title: 'Pratinjau ' + n.name, allow: 'autoplay', loading: 'lazy', referrerpolicy: 'no-referrer'}));
+    const foot = $('mFoot'); foot.replaceChildren();
+    if (s) foot.append(el('a', {class: 'btn-pill web', href: s.url, text: '🚀 Buka Web Rangkuman: ' + s.title}));
+    foot.append(el('a', {class: 'btn-pill solid', href: n.url, target: '_blank', rel: 'noopener', text: 'Buka di Drive ↗'}),
+      el('a', {class: 'btn-pill ghost', href: dl(n), target: '_blank', rel: 'noopener', text: '⬇ Unduh'}),
+      el('span', {class: 'spacer'}), el('span', {style: 'font-size:.8rem;color:var(--ink5)', text: `${modalIdx + 1} / ${modalList.length} · ←/→ pindah · Esc tutup`}));
+    if (k === 'other') body.prepend(el('div', {class: 'nopv', text: 'Tipe file ini mungkin tidak bisa dipratinjau; gunakan “Buka di Drive”.'}));
+  }
+  function step(d) { const i = modalIdx + d; if (i >= 0 && i < modalList.length) { modalIdx = i; paintModal(); } }
+  function closeModal() { $('scrim').classList.remove('open'); $('mBody').replaceChildren(); if (lastFocus) lastFocus.focus(); }
+
+  // Sync
+  function toast(msg, action) {
+    $('toastTxt').textContent = msg; $('toastBtn').style.display = action ? '' : 'none';
+    $('toastBtn').onclick = action || null; $('toast').classList.add('show');
+    if (!action) setTimeout(() => $('toast').classList.remove('show'), 3500);
+  }
+  async function applyUpdate() {
+    const was = cur && cur.id;
+    await loadTree(); $('toast').classList.remove('show');
+    go(byId.has(was) ? was : tree.id, false); toast('Mirror diperbarui dari Drive asli.');
+  }
+  async function poll() {
+    const m = await loadMeta(); if (!m) return;
+    if (!version) version = m.version;
+    else if (m.version && m.version !== version && m.version !== pendingVersion) {
+      pendingVersion = m.version; version = m.version;
+      toast('Drive asli berubah — ada pembaruan.', applyUpdate);
+    }
+  }
+  async function syncNow() {
+    const b = $('syncBtn'); b.disabled = true; b.textContent = '↻ Menyinkron…'; $('dot').className = 'dot busy'; $('syncTxt').textContent = 'menyinkron dengan Drive…';
+    try { const m = await (await fetch('/api/sync', {method: 'POST'})).json(); paintSync(m);
+      if (m.version !== version) { version = m.version; await applyUpdate(); } else toast('Sudah sama dengan Drive asli.');
+    } catch { paintSync(null); }
+    b.disabled = false; b.textContent = '↻ Sinkron';
+  }
+
+  // Event wiring
+  $('q').addEventListener('input', e => { query = e.target.value.trim(); filter = 'all'; render(); });
+  $('sort').addEventListener('change', e => { sortBy = e.target.value; render(); });
+  $('vGrid').onclick = () => { view = 'grid'; localStorage.setItem('vx_view', view); render(); };
+  $('vList').onclick = () => { view = 'list'; localStorage.setItem('vx_view', view); render(); };
+  $('syncBtn').onclick = syncNow;
+  $('mClose').onclick = closeModal; $('mPrev').onclick = () => step(-1); $('mNext').onclick = () => step(1);
+  $('scrim').addEventListener('click', e => { if (e.target === $('scrim')) closeModal(); });
+  window.addEventListener('hashchange', () => { if (tree) fromHash(); });
+  document.addEventListener('keydown', e => {
+    const open = $('scrim').classList.contains('open'), typing = /INPUT|SELECT|TEXTAREA/.test(document.activeElement.tagName);
+    if (open) { if (e.key === 'Escape') closeModal(); else if (e.key === 'ArrowLeft') step(-1); else if (e.key === 'ArrowRight') step(1); return; }
+    if ((e.key === '/' && !typing) || ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k')) { e.preventDefault(); $('q').focus(); $('q').select(); }
+    else if (e.key === 'Escape' && document.activeElement === $('q')) { $('q').value = ''; query = ''; $('q').blur(); render(); }
+  });
+
+  (async () => {
+    try {
+      [summaries] = await Promise.all([fetch('summaries.json', {cache: 'no-store'}).then(r => r.ok ? r.json() : {}).catch(() => ({})), loadTree()]);
+      await poll(); fromHash(); setInterval(poll, 30000);
+    } catch (e) { $('content').append(el('div', {class: 'empty', text: 'Gagal memuat data Drive: ' + e.message + '. Jalankan: python3 mirror_server.py'})); }
+  })();
+})();
+</script>
+</body>
+</html>
