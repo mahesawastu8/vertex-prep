@@ -182,21 +182,36 @@ def generate_module(block_name, file_id, file_name, pdf_path):
             for s_num, pt in ch["points"]
         ])
         
-        # Inline quiz per bab
+        # Inline quiz per bab with randomized correct option
         sample_pt = ch["points"][0][1] if ch["points"] else "Konsep penting pada slide ini."
         s_num = ch["points"][0][0] if ch["points"] else ch["start"]
+        iq_id = f"iq-{ch['num']}"
+        ch_num = ch["num"]
+        ch_start = ch["start"]
+        ch_end = ch["end"]
+        ch_title = ch["title"]
+        correct_idx = (ch["num"] + abs(hash(file_id))) % 3
+        d1 = "Mekanisme ini berlangsung berlawanan dengan fungsi homeostasis normal"
+        d2 = "Proses ini tidak dipengaruhi oleh regulasi enzimatik maupun umpan balik negatif"
+        if correct_idx == 0:
+            opts = [(sample_pt[:120], True, f"Tepat! Sesuai dengan materi yang tertera pada Slide {s_num}."), (d1, False, "Pernyataan ini terbalik dari mekanisme fisiologis yang sebenarnya."), (d2, False, "Tidak sesuai dengan pedoman diagnosis standar pada slide.")]
+        elif correct_idx == 1:
+            opts = [(d1, False, "Pernyataan ini terbalik dari mekanisme fisiologis yang sebenarnya."), (sample_pt[:120], True, f"Tepat! Sesuai dengan materi yang tertera pada Slide {s_num}."), (d2, False, "Tidak sesuai dengan pedoman diagnosis standar pada slide.")]
+        else:
+            opts = [(d1, False, "Pernyataan ini terbalik dari mekanisme fisiologis yang sebenarnya."), (d2, False, "Tidak sesuai dengan pedoman diagnosis standar pada slide."), (sample_pt[:120], True, f"Tepat! Sesuai dengan materi yang tertera pada Slide {s_num}.")]
+        iq_opts_html = "".join([f'<button class="iq-btn" onclick="ansInline(\'{iq_id}\', {i}, {str(is_c).lower()}, \'{fb}\')"><span>{"ABC"[i]}.</span><span>{txt}</span></button>' for i, (txt, is_c, fb) in enumerate(opts)])
         
         chapters_html += f"""
-        <section class="split-chapter" id="bab-{ch['num']}">
+        <section class="split-chapter" id="bab-{ch_num}">
           <div class="narrative-panel">
             <div class="ch-kicker-row">
-              <span class="ch-kicker">Bab 0{ch['num']} · Slide {ch['start']} s.d. {ch['end']}</span>
+              <span class="ch-kicker">Bab 0{ch_num} · Slide {ch_start} s.d. {ch_end}</span>
               <span class="meta-pill pill-uab">Inti UAB {block_name}</span>
             </div>
-            <h2 class="ch-title">{ch['title']}</h2>
+            <h2 class="ch-title">{ch_title}</h2>
             
             <div class="peer-talk">
-              <p>Pada bagian ini, <b>dr. {dosen}</b> membahas transisi penting antara slide {ch['start']} sampai {ch['end']}. Perhatikan alur logisnya pada slide asli di sebelah kanan:</p>
+              <p>Pada bagian ini, <b>dr. {dosen}</b> membahas transisi penting antara slide {ch_start} sampai {ch_end}. Perhatikan alur logisnya pada slide resmi di sebelah kanan:</p>
             </div>
 
             <div class="concept-box" style="margin: 18px 0;">
@@ -208,37 +223,37 @@ def generate_module(block_name, file_id, file_name, pdf_path):
 
             <div class="callout trap">
               <div class="callout-title">⚠️ Jebakan Soal UAB dr. {dosen}</div>
-              Dosen sering kali menguji pemahaman dengan memutarbalikkan pernyataan sebab-akibat dari slide {ch['start']}. Jangan hanya menghafal teksnya; pahami mengapa proses ini terjadi di jaringan tubuh.
+              Dosen sering kali menguji pemahaman dengan memutarbalikkan pernyataan sebab-akibat dari slide {ch_start}. Jangan hanya menghafal teksnya; pahami mengapa proses ini terjadi di jaringan tubuh.
             </div>
 
             <!-- Inline Quiz Bab -->
-            <div class="inline-quiz" id="iq-{ch['num']}">
-              <div class="iq-kicker">🎯 Cek Paham Bab 0{ch['num']}</div>
+            <div class="inline-quiz" id="{iq_id}">
+              <div class="iq-kicker">🎯 Cek Paham Bab 0{ch_num}</div>
               <div class="iq-stem">Berdasarkan pembahasan pada Slide {s_num}, manakah pernyataan klinis yang paling tepat mengenai topik ini?</div>
               <div class="iq-opts">
-                <button class="iq-btn" onclick="ansInline('iq-{ch['num']}', 0, true, 'Tepat! Sesuai dengan materi yang tertera pada Slide {s_num}.')"><span>A.</span><span>{sample_pt[:120]}</span></button>
-                <button class="iq-btn" onclick="ansInline('iq-{ch['num']}', 1, false, 'Pernyataan ini terbalik dari mekanisme fisiologis yang sebenarnya.')"><span>B.</span><span>Mekanisme ini berlangsung berlawanan dengan fungsi homeostasis normal</span></button>
-                <button class="iq-btn" onclick="ansInline('iq-{ch['num']}', 2, false, 'Tidak sesuai dengan pedoman diagnosis standar pada slide.')"><span>C.</span><span>Tidak ada relevansi klinis yang bermakna pada kondisi akut</span></button>
+                {iq_opts_html}
               </div>
-              <div class="iq-fb" id="iq-{ch['num']}-fb"></div>
+              <div class="iq-fb" id="{iq_id}-fb"></div>
             </div>
           </div>
 
           <!-- Right Sticky Slide Stage -->
           <aside class="slide-stage">
             <div class="stage-top">
-              <span class="stage-label">Bab 0{ch['num']} · Slide Asli ({ch['start']}–{ch['end']})</span>
-              <span style="font-size:0.75rem;color:var(--ink-muted);">Klik untuk Zoom</span>
+              <span class="stage-label">Dokumen Slide Resmi</span>
+              <span style="font-size:0.75rem;color:var(--navy);font-weight:700;">Google Drive Asli</span>
             </div>
-            <div class="slide-pills" id="pills-ch{ch['num']}">
-              {pills_html}
+            <div class="stage-frame" style="background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.06);cursor:pointer;" onclick="window.open('https://drive.google.com/file/d/{file_id}/view', '_blank')">
+              <img id="img-ch{ch['num']}" src="https://drive.google.com/thumbnail?id={file_id}&sz=w800" alt="Slide Dokumen {base_name}" style="width:100%;height:auto;display:block;">
             </div>
-            <div class="stage-frame" onclick="openZoom(document.getElementById('img-ch{ch['num']}').src)">
-              <img id="img-ch{ch['num']}" src="{slides_dirname}/slide_{ch['start']}.jpg" alt="Slide Bab {ch['num']}">
-            </div>
-            <div class="stage-caption">
-              <span id="cap-ch{ch['num']}">Slide {ch['start']}</span>
-              <span style="color:var(--navy);font-weight:700;">Perbesar ↗</span>
+            <div style="margin-top:12px;display:flex;flex-direction:column;gap:8px;">
+              <div style="font-size:0.78rem;color:var(--ink-secondary);line-height:1.4;">
+                Bab ini merangkum materi inti dari <b>Slide {ch['start']} s.d. {ch['end']}</b> (total {total_slides} slide).
+              </div>
+              <a href="https://drive.google.com/file/d/{file_id}/view" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;justify-content:center;gap:6px;background:var(--navy);color:#fff;padding:8px 14px;border-radius:999px;font-size:0.82rem;font-weight:700;text-decoration:none;transition:opacity 0.15s;">
+                <span>Buka Slide Lengkap di Google Drive (1–{total_slides})</span>
+                <span>↗</span>
+              </a>
             </div>
           </aside>
         </section>

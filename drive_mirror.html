@@ -122,9 +122,11 @@
   .uab-top{display:flex;align-items:center;gap:8px;margin-bottom:6px;flex-wrap:wrap}
   .uab-badge{font-size:0.68rem;font-weight:700;padding:2px 7px;border-radius:4px;background:var(--amber-s);color:var(--amber);text-transform:uppercase}
   .uab-src{font-size:0.75rem;color:var(--ink5)}
-  .uab-text{font-size:0.9rem;color:var(--ink9);line-height:1.5;margin-bottom:10px}
-  .uab-btn{font-size:0.76rem;font-weight:600;color:var(--cobalt);background:var(--cobalt-s);border:1px solid rgba(2,132,199,0.25);border-radius:999px;padding:3px 12px;display:inline-block}
-
+  .uab-stem{font-size:0.92rem;color:var(--ink9);line-height:1.55;margin-bottom:10px;font-weight:500}
+  .uab-options-grid{display:flex;flex-direction:column;gap:6px;margin-bottom:8px;padding-left:4px}
+  .uab-opt-row{display:flex;align-items:baseline;gap:8px;font-size:0.86rem;color:var(--ink7)}
+  .uab-opt-badge{font-weight:700;color:var(--amber);background:var(--amber-s);padding:1px 6px;border-radius:4px;font-size:0.75rem;flex:none}
+  .uab-opt-text{flex:1;line-height:1.4}
   /* List View */
   .list{display:flex;flex-direction:column;border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;background:#fff}
   .row{display:flex;align-items:center;gap:12px;padding:9px 14px;border-top:1px solid var(--subtle);text-align:left;width:100%;transition:background .15s}
@@ -516,6 +518,30 @@
     return results;
   }
 
+  function formatUABQuestion(rawText) {
+    if (!rawText) return [];
+    const optionRegex = /(?:\s|^)([a-eA-E][\.\)][\s\u200b\u00a0]*)/g;
+    const parts = rawText.split(optionRegex);
+    if (parts.length <= 1) {
+      return [el('div', {class: 'uab-stem', text: rawText.trim()})];
+    }
+    const stem = parts[0].trim();
+    const els = [el('div', {class: 'uab-stem', text: stem})];
+    const optsContainer = el('div', {class: 'uab-options-grid'});
+    for (let i = 1; i < parts.length; i += 2) {
+      const letter = parts[i].trim();
+      const optText = (parts[i+1] || '').trim();
+      optsContainer.append(
+        el('div', {class: 'uab-opt-row'},
+          el('span', {class: 'uab-opt-badge', text: letter}),
+          el('span', {class: 'uab-opt-text', text: optText})
+        )
+      );
+    }
+    els.push(optsContainer);
+    return els;
+  }
+
   function buildHero() {
     const section = el('div', {class: 'hero-showcase'});
     const hdr = el('div', {class: 'hero-header'},
@@ -577,7 +603,7 @@
             el('span', {class: 'uab-badge', text: q.block || 'UAB FK'}),
             el('span', {class: 'uab-src', text: q.source || 'Bank Soal UAB'})
           ),
-          el('div', {class: 'uab-text', text: q.text})
+          ...formatUABQuestion(q.text)
         );
         box.append(itemBox);
       });

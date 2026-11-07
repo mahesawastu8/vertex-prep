@@ -1,0 +1,38 @@
+name: Auto-Sync Google Drive Tree
+
+on:
+  schedule:
+    - cron: '0 2 * * *' # Every day at 02:00 UTC
+  workflow_dispatch: # Manual trigger button in GitHub Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Crawl Google Drive
+        run: |
+          python3 crawl_drive.py
+
+      - name: Commit and Push if Changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if git status --porcelain | grep drive_tree.json; then
+            echo "Drive tree updated from Google Drive! Committing..."
+            git add drive_tree.json
+            git commit -m "chore(auto-sync): update drive_tree.json from Google Drive [skip ci]"
+            git push
+          else
+            echo "No changes detected in Google Drive tree."
+          fi
