@@ -194,8 +194,6 @@
       <kbd>/</kbd>
     </div>
     <div class="sync" id="sync"><span class="dot" id="dot"></span><span class="txt" id="syncTxt">memuat…</span></div>
-    <a href="ecg_simulator.html" class="btn-pill ghost" title="Simulator EKG & Elektrolit Interaktif">⚡ EKG Lab</a>
-    <a href="anatomy_explorer.html" class="btn-pill ghost" title="Atlas Anatomi Klinis Interaktif">🫀 Atlas Anatomi</a>
     <button class="btn-pill ghost" id="syncBtn">↻ Sinkron</button>
     <a class="btn-pill solid" id="openRoot" target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/1vrUGhIJuAjfV8R9zKDe8Wr-ojAtnLeJt">Drive Asli ↗</a>
   </div>
@@ -616,25 +614,7 @@
       grid.append(card);
     });
 
-    const toolsRow = el('div', {style: 'margin-top:16px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;'},
-      el('a', {href: 'ecg_simulator.html', style: 'background:#090D12;border:1px solid #233142;border-radius:12px;padding:14px 18px;display:flex;align-items:center;gap:14px;text-decoration:none;transition:all .15s;'},
-        el('span', {style: 'font-size:2rem;line-height:1;'}, '⚡'),
-        el('div', {},
-          el('div', {style: 'font-size:0.68rem;font-weight:700;color:#00FF66;text-transform:uppercase;letter-spacing:0.05em;'}, 'Lab EKG & Elektrolit'),
-          el('div', {style: 'font-size:1rem;font-weight:700;color:#fff;'}, 'Simulator EKG Interaktif'),
-          el('div', {style: 'font-size:0.78rem;color:#94A3B8;'}, 'Osilograf detak jantung, gelombang U, dan Peaked T')
-        )
-      ),
-      el('a', {href: 'anatomy_explorer.html', style: 'background:#fff;border:1px solid var(--border);border-radius:12px;padding:14px 18px;display:flex;align-items:center;gap:14px;text-decoration:none;transition:all .15s;'},
-        el('span', {style: 'font-size:2rem;line-height:1;'}, '🫀'),
-        el('div', {},
-          el('div', {style: 'font-size:0.68rem;font-weight:700;color:var(--cobalt);text-transform:uppercase;letter-spacing:0.05em;'}, 'Visualizer Klinis'),
-          el('div', {style: 'font-size:1rem;font-weight:700;color:var(--ink9);'}, 'Atlas & Explorer Anatomi'),
-          el('div', {style: 'font-size:0.78rem;color:var(--ink5);'}, 'Ginjal & Nefron ROMK, Jantung, dan Saluran Cerna')
-        )
-      )
-    );
-    section.append(hdr, grid, toolsRow);
+    section.append(hdr, grid);
     return section;
   }
 
