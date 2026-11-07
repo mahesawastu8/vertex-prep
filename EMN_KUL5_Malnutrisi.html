@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-  <title>Dokter Jaga: Pasien Gizi Buruk Akut · EMN KUL 5 (dr. Ditya Arisanti, Sp.A)</title>
+  <title>RPS Modul Blok EMN · Malnutrisi Energi Protein (Materi Pokok &amp; 9 Indikator Capaian)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #F8F9FA;
+      --bg: #F8FAFC;
       --surface: #FFFFFF;
-      --surface-subtle: #F1F3F5;
+      --surface-subtle: #F1F5F9;
       --surface-card: #FFFFFF;
       --border: #E2E8F0;
       --border-strong: #CBD5E1;
@@ -20,27 +20,28 @@
       --ink-secondary: #334155;
       --ink-muted: #64748B;
 
-      --crimson: #DC2626;
-      --crimson-soft: #FEF2F2;
-      --crimson-border: #FCA5A5;
-
-      --emerald: #059669;
-      --emerald-soft: #ECFDF5;
-      --emerald-border: #6EE7B7;
-
-      --amber: #D97706;
-      --amber-soft: #FFFBEB;
-      --amber-border: #FCD34D;
-
       --cobalt: #0284C7;
       --cobalt-soft: #F0F9FF;
       --cobalt-border: #BAE6FD;
 
-      --indigo: #4F46E5;
-      --indigo-soft: #EEF2FF;
+      --crimson: #E11D48;
+      --crimson-soft: #FFF1F2;
+      --crimson-border: #FECDD3;
 
-      --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
-      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -2px rgba(0,0,0,0.05);
+      --emerald: #059669;
+      --emerald-soft: #ECFDF5;
+      --emerald-border: #A7F3D0;
+
+      --amber: #D97706;
+      --amber-soft: #FFFBEB;
+      --amber-border: #FDE68A;
+
+      --purple: #7C3AED;
+      --purple-soft: #F5F3FF;
+      --purple-border: #DDD6FE;
+
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.05);
       --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08);
 
       --r-sm: 6px;
@@ -54,7 +55,7 @@
     }
 
     html[data-theme="dark"] {
-      --bg: #090D12;
+      --bg: #0B0F14;
       --surface: #121820;
       --surface-subtle: #18222E;
       --surface-card: #141C26;
@@ -65,24 +66,25 @@
       --ink-secondary: #CBD5E1;
       --ink-muted: #8899A6;
 
-      --crimson: #EF4444;
-      --crimson-soft: rgba(239, 68, 68, 0.12);
-      --crimson-border: rgba(239, 68, 68, 0.3);
-
-      --emerald: #10B981;
-      --emerald-soft: rgba(16, 185, 129, 0.12);
-      --emerald-border: rgba(16, 185, 129, 0.3);
-
-      --amber: #F59E0B;
-      --amber-soft: rgba(245, 158, 11, 0.12);
-      --amber-border: rgba(245, 158, 11, 0.3);
-
       --cobalt: #38BDF8;
       --cobalt-soft: rgba(56, 189, 248, 0.12);
       --cobalt-border: rgba(56, 189, 248, 0.3);
 
-      --indigo: #818CF8;
-      --indigo-soft: rgba(129, 140, 248, 0.12);
+      --crimson: #FB7185;
+      --crimson-soft: rgba(251, 113, 133, 0.12);
+      --crimson-border: rgba(251, 113, 133, 0.3);
+
+      --emerald: #34D399;
+      --emerald-soft: rgba(52, 211, 153, 0.12);
+      --emerald-border: rgba(52, 211, 153, 0.3);
+
+      --amber: #FBBF24;
+      --amber-soft: rgba(251, 191, 36, 0.12);
+      --amber-border: rgba(251, 191, 36, 0.3);
+
+      --purple: #A78BFA;
+      --purple-soft: rgba(167, 139, 250, 0.12);
+      --purple-border: rgba(167, 139, 250, 0.3);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -91,8 +93,8 @@
     button { font: inherit; color: inherit; cursor: pointer; border: none; background: none; }
     a { color: inherit; text-decoration: none; }
 
-    /* Top Sticky Hospital Dashboard Bar */
-    header.shift-bar {
+    /* Top Sticky Curriculum Bar */
+    header.curriculum-bar {
       position: sticky;
       top: 0;
       z-index: 100;
@@ -101,42 +103,45 @@
       padding: 10px 20px;
       box-shadow: var(--shadow-sm);
     }
-    .shift-inner {
-      max-width: 1380px;
+    .curr-inner {
+      max-width: 1400px;
       margin: 0 auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 14px;
+      gap: 12px;
       flex-wrap: wrap;
     }
-    .duty-badge {
+    .curriculum-tag-group {
       display: flex;
       align-items: center;
       gap: 8px;
-      font-size: 0.85rem;
+    }
+    .badge-rps {
+      background: var(--cobalt);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 800;
+      font-family: var(--font-mono);
+      padding: 3px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.04em;
+    }
+    .curr-title {
+      font-size: 0.88rem;
       font-weight: 700;
       color: var(--ink);
     }
-    .pulse-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--emerald);
-      box-shadow: 0 0 8px var(--emerald);
-      animation: pulse 1.8s infinite;
-    }
-    @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.85); } }
 
-    .station-nav {
+    .topic-nav {
       display: flex;
       gap: 6px;
       overflow-x: auto;
       padding: 2px;
       scrollbar-width: none;
     }
-    .station-nav::-webkit-scrollbar { display: none; }
-    .st-btn {
+    .topic-nav::-webkit-scrollbar { display: none; }
+    .nav-pill {
       padding: 5px 12px;
       border-radius: var(--r-full);
       font-size: 0.78rem;
@@ -147,14 +152,14 @@
       white-space: nowrap;
       transition: all .15s;
     }
-    .st-btn:hover { border-color: var(--cobalt); color: var(--cobalt); }
-    .st-btn.active { background: var(--cobalt); border-color: var(--cobalt); color: #fff; }
+    .nav-pill:hover { border-color: var(--cobalt); color: var(--cobalt); }
+    .nav-pill.active { background: var(--cobalt); border-color: var(--cobalt); color: #fff; }
 
-    .duty-tools { display: flex; align-items: center; gap: 8px; }
-    .btn-tool {
+    .tool-actions { display: flex; align-items: center; gap: 8px; }
+    .btn-action {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 5px;
       padding: 5px 12px;
       border-radius: var(--r-full);
       border: 1px solid var(--border);
@@ -164,31 +169,33 @@
       color: var(--ink);
       transition: all .15s;
     }
-    .btn-tool:hover { border-color: var(--cobalt); color: var(--cobalt); }
+    .btn-action:hover { border-color: var(--cobalt); color: var(--cobalt); }
 
-    /* Layout */
-    .app-wrap {
-      max-width: 1380px;
+    /* App Layout */
+    .app-container {
+      max-width: 1400px;
       margin: 0 auto;
       padding: 24px 20px;
     }
 
-    /* Shift Header Banner */
-    .shift-header-card {
-      background: linear-gradient(135deg, rgba(2,132,199,0.06) 0%, rgba(5,150,105,0.06) 100%);
+    /* Course Blueprint Card */
+    .blueprint-card {
+      background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--r-lg);
-      padding: 20px 24px;
+      padding: 24px 28px;
       margin-bottom: 28px;
+      box-shadow: var(--shadow-sm);
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
       gap: 16px;
+      border-left: 5px solid var(--cobalt);
     }
-    .shift-title-block h1 { font-size: 1.35rem; font-weight: 800; color: var(--ink); margin-bottom: 4px; }
-    .shift-title-block p { font-size: 0.85rem; color: var(--ink-muted); }
-    .slide-badge-100 {
+    .blueprint-info h1 { font-size: 1.35rem; font-weight: 800; color: var(--ink); margin-bottom: 4px; font-family: var(--font-serif); }
+    .blueprint-info p { font-size: 0.84rem; color: var(--ink-muted); }
+    .skdi-badge {
       background: var(--emerald-soft);
       border: 1px solid var(--emerald-border);
       color: var(--emerald);
@@ -201,89 +208,106 @@
       gap: 6px;
     }
 
-    /* Split Stage: Clinical Flow vs Slide Proof */
-    .encounter-split {
+    /* Split Grid */
+    .module-split {
       display: grid;
       grid-template-columns: 1fr 440px;
       gap: 28px;
       align-items: start;
-      margin-bottom: 40px;
+      margin-bottom: 48px;
       scroll-margin-top: 75px;
     }
 
-    /* Left Encounter Flow */
-    .encounter-flow {
+    /* Left Curriculum Content */
+    .curriculum-content {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--r-lg);
-      padding: 28px;
+      padding: 28px 32px;
       box-shadow: var(--shadow-sm);
     }
-    .station-kicker {
+    .materi-kicker {
       font-size: 0.72rem;
-      font-weight: 700;
+      font-weight: 800;
+      font-family: var(--font-mono);
       color: var(--cobalt);
       text-transform: uppercase;
       letter-spacing: 0.06em;
       margin-bottom: 6px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
     }
-    .station-heading {
-      font-size: 1.45rem;
+    .materi-title {
+      font-family: var(--font-serif);
+      font-size: 1.7rem;
       font-weight: 800;
       color: var(--ink);
-      line-height: 1.3;
-      margin-bottom: 16px;
-    }
-
-    /* Doctor Thinking Card */
-    .dr-think-box {
-      background: var(--surface-subtle);
-      border-left: 4px solid var(--cobalt);
-      padding: 14px 18px;
-      border-radius: 0 var(--r-md) var(--r-md) 0;
-      font-size: 0.88rem;
-      color: var(--ink);
-      line-height: 1.6;
+      line-height: 1.25;
       margin-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 12px;
     }
-    .dr-think-box b { color: var(--cobalt); }
 
-    /* The 4-Pillar Concrete Sections */
-    .pillar-card {
+    /* 9-INDIKATOR SECTIONS */
+    .indicator-box {
       background: var(--surface-card);
       border: 1px solid var(--border);
       border-radius: var(--r-md);
-      padding: 18px 20px;
-      margin-bottom: 18px;
+      padding: 16px 18px;
+      margin-bottom: 16px;
+      transition: border-color .15s;
     }
-    .pillar-hdr {
+    .indicator-box:hover { border-color: var(--border-strong); }
+    .ind-header {
       display: flex;
       align-items: center;
       gap: 8px;
-      font-size: 0.86rem;
+      font-size: 0.82rem;
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.04em;
-      margin-bottom: 12px;
-      padding-bottom: 8px;
+      margin-bottom: 10px;
+      padding-bottom: 6px;
       border-bottom: 1px dashed var(--border);
     }
-    .pillar-card.normal .pillar-hdr { color: var(--cobalt); }
-    .pillar-card.patho .pillar-hdr { color: var(--crimson); }
-    .pillar-card.action .pillar-hdr { color: var(--emerald); }
-    .pillar-card.uab .pillar-hdr { color: var(--amber); }
+    .ind-header .num {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--surface-subtle);
+      color: var(--ink-secondary);
+      display: grid;
+      place-items: center;
+      font-size: 0.7rem;
+      font-family: var(--font-mono);
+      flex: none;
+    }
+    .indicator-box.etio .ind-header { color: var(--purple); }
+    .indicator-box.klasifikasi .ind-header { color: var(--cobalt); }
+    .indicator-box.anamnesis .ind-header { color: var(--emerald); }
+    .indicator-box.fisik .ind-header { color: var(--amber); }
+    .indicator-box.penunjang .ind-header { color: var(--cobalt); }
+    .indicator-box.ddx .ind-header { color: var(--ink-secondary); }
+    .indicator-box.terapi .ind-header { color: var(--emerald); border-left: 4px solid var(--emerald); }
+    .indicator-box.komplikasi .ind-header { color: var(--crimson); border-left: 4px solid var(--crimson); }
+    .indicator-box.pencegahan .ind-header { color: var(--cobalt); }
 
+    .ind-body {
+      font-size: 0.88rem;
+      color: var(--ink-secondary);
+      line-height: 1.65;
+    }
+    .ind-body b { color: var(--ink); }
+    .ind-body ul { padding-left: 18px; margin: 6px 0; }
+    .ind-body li { margin-bottom: 4px; }
+
+    /* Tables */
     .data-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 0.84rem;
+      font-size: 0.82rem;
       margin: 10px 0;
     }
     .data-table th, .data-table td {
-      padding: 8px 10px;
+      padding: 7px 10px;
       text-align: left;
       border-bottom: 1px solid var(--border);
     }
@@ -291,27 +315,25 @@
       background: var(--surface-subtle);
       color: var(--ink-muted);
       font-weight: 700;
-      font-size: 0.76rem;
+      font-size: 0.74rem;
       text-transform: uppercase;
     }
     .data-table tr:last-child td { border-bottom: none; }
     .val-alert { font-weight: 700; color: var(--crimson); }
     .val-ok { font-weight: 600; color: var(--emerald); }
 
-    /* Prescription Prescription Box */
-    .rx-box {
-      background: #090D12;
-      border: 1px solid #1E293B;
-      color: #E2E8F0;
-      border-radius: var(--r-md);
-      padding: 16px 20px;
-      font-family: var(--font-mono);
+    /* Strict Warning Box */
+    .danger-callout {
+      background: var(--crimson-soft);
+      border: 1px solid var(--crimson-border);
+      border-radius: var(--r-sm);
+      padding: 10px 14px;
+      margin: 8px 0;
+      color: var(--crimson);
       font-size: 0.82rem;
-      line-height: 1.6;
-      margin: 14px 0;
+      font-weight: 600;
+      line-height: 1.5;
     }
-    .rx-hdr { color: #38BDF8; font-weight: 700; border-bottom: 1px solid #334155; padding-bottom: 6px; margin-bottom: 8px; font-size: 0.76rem; text-transform: uppercase; }
-    .rx-danger { color: #F87171; font-weight: 700; }
 
     /* Right Sticky Slide Stage */
     .slide-dossier {
@@ -323,7 +345,7 @@
       padding: 16px;
       box-shadow: var(--shadow-sm);
     }
-    .dossier-hdr {
+    .dossier-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -331,14 +353,14 @@
       margin-bottom: 12px;
       border-bottom: 1px solid var(--border);
     }
-    .dossier-tag { font-size: 0.72rem; font-weight: 700; font-family: var(--font-mono); color: var(--cobalt); text-transform: uppercase; }
-    .slide-pills-cluster {
+    .dossier-label { font-size: 0.74rem; font-weight: 700; font-family: var(--font-mono); color: var(--cobalt); text-transform: uppercase; }
+    .slide-pills-row {
       display: flex;
       flex-wrap: wrap;
       gap: 5px;
       margin-bottom: 12px;
     }
-    .p-btn {
+    .spill-btn {
       padding: 4px 8px;
       border-radius: 4px;
       font-size: 0.72rem;
@@ -349,10 +371,10 @@
       cursor: pointer;
       transition: all .15s;
     }
-    .p-btn:hover { border-color: var(--cobalt); color: var(--cobalt); }
-    .p-btn.active { background: var(--cobalt); border-color: var(--cobalt); color: #fff; }
+    .spill-btn:hover { border-color: var(--cobalt); color: var(--cobalt); }
+    .spill-btn.active { background: var(--cobalt); border-color: var(--cobalt); color: #fff; }
 
-    .slide-viewport {
+    .slide-canvas {
       background: #000;
       border-radius: var(--r-md);
       overflow: hidden;
@@ -363,8 +385,8 @@
       cursor: zoom-in;
       border: 1px solid var(--border);
     }
-    .slide-viewport img { width: 100%; height: 100%; object-fit: contain; display: block; }
-    .slide-caption-txt { margin-top: 8px; font-size: 0.74rem; color: var(--ink-muted); text-align: center; }
+    .slide-canvas img { width: 100%; height: 100%; object-fit: contain; display: block; }
+    .slide-cap { margin-top: 8px; font-size: 0.74rem; color: var(--ink-muted); text-align: center; }
 
     /* Cloze Mask */
     .cloze-mask {
@@ -380,520 +402,679 @@
       user-select: none;
     }
 
-    /* Zoom Modal */
+    /* Modal Backdrop */
     .modal-backdrop {
       position: fixed; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(6px); z-index: 9999; display: none; align-items: center; justify-content: center; padding: 20px; cursor: zoom-out;
     }
     .modal-backdrop.open { display: flex; }
     .modal-backdrop img { max-width: 95vw; max-height: 90vh; object-fit: contain; border-radius: 8px; }
 
-    /* Responsive */
+    /* Mobile */
     @media (max-width: 1024px) {
-      .encounter-split { grid-template-columns: 1fr; gap: 20px; }
+      .module-split { grid-template-columns: 1fr; gap: 20px; }
       .slide-dossier { position: static; order: -1; }
-      .app-wrap { padding: 14px 10px; }
-      .encounter-flow { padding: 18px 16px; }
+      .app-container { padding: 14px 10px; }
+      .curriculum-content { padding: 20px 16px; }
+      .blueprint-card { padding: 16px; }
+      .materi-title { font-size: 1.35rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Top Duty Navigation -->
-  <header class="shift-bar">
-    <div class="shift-inner">
-      <div class="duty-badge">
-        <span class="pulse-dot"></span>
-        <span>DOKTER JAGA: POLI &amp; IGD ANAK</span>
-        <span style="font-size:0.75rem;color:var(--ink-muted);font-weight:400;">(Materi EMN KUL 5)</span>
+  <!-- Top Sticky Curriculum Bar -->
+  <header class="curriculum-bar">
+    <div class="curr-inner">
+      <div class="curriculum-tag-group">
+        <span class="badge-rps">RPS BLOK EMN</span>
+        <span class="curr-title">Tema 1: Gangguan Nutrisi · MEP (SKDI 4A)</span>
       </div>
 
-      <nav class="station-nav">
-        <a href="#triage" class="st-btn active">0. Triage &amp; Intake</a>
-        <a href="#stasi-1" class="st-btn">1. Antropometri (Slide 5-13)</a>
-        <a href="#stasi-2" class="st-btn">2. Fisik &amp; Seluler (Slide 14-31)</a>
-        <a href="#stasi-3" class="st-btn">3. Resep 10 Langkah (Slide 32-42)</a>
-        <a href="#audit-42" class="st-btn">4. Bukti 100% Slide</a>
-        <a href="#soal-uab" class="st-btn">5. Soal UAB</a>
+      <nav class="topic-nav">
+        <a href="#materi-1" class="nav-pill active">1. Kwashiorkor</a>
+        <a href="#materi-2" class="nav-pill">2. Marasmus</a>
+        <a href="#materi-3" class="nav-pill">3. Marasmik-Kwashiorkor</a>
+        <a href="#materi-4" class="nav-pill">4. Protokol 10 Langkah</a>
+        <a href="#audit-42" class="nav-pill">Audit 42 Slide</a>
+        <a href="#soal-uab" class="nav-pill">Soal UAB</a>
       </nav>
 
-      <div class="duty-tools">
-        <button type="button" id="clozeBtn" class="btn-tool" onclick="toggleCloze()">
+      <div class="tool-actions">
+        <button type="button" id="clozeBtn" class="btn-action" onclick="toggleCloze()">
           <span>🧠 Uji Ingatan</span>
           <span id="clozeState" style="font-family:var(--font-mono);font-size:0.7rem;">OFF</span>
         </button>
-        <button type="button" id="themeBtn" class="btn-tool" onclick="toggleTheme()">
+        <button type="button" id="themeBtn" class="btn-action" onclick="toggleTheme()">
           <span id="themeLbl">🌙 Malam</span>
         </button>
-        <a href="index.html" class="btn-tool" style="background:var(--cobalt);color:#fff;border-color:var(--cobalt);">Portal ↗</a>
+        <a href="index.html" class="btn-action" style="background:var(--cobalt);color:#fff;border-color:var(--cobalt);">Portal ↗</a>
       </div>
     </div>
   </header>
 
-  <div class="app-wrap">
+  <div class="app-container">
 
-    <!-- Header Banner -->
-    <div class="shift-header-card">
-      <div class="shift-title-block">
-        <h1>Simulasi Dokter Jaga: Tata Laksana Malnutrisi Energi Protein (MEP)</h1>
-        <p>Disarikan tanpa tersisa dari 42 Slide Kuliah Pakar <b>dr. Ditya Arisanti, Sp.A</b> · SKDI 4A (Tuntas Mandiri)</p>
+    <!-- Blueprint Header Card -->
+    <div class="blueprint-card">
+      <div class="blueprint-info">
+        <h1>RPS Tabel 6.1 · Materi Pokok: Malnutrisi Energi Protein (MEP)</h1>
+        <p>Buku Panduan Modul EMN 2026 (Hal 27) · Dosen Pengampu: <b>dr. Ditya Arisanti, Sp.A</b> · 42 Slide Lengkap</p>
       </div>
-      <div class="slide-badge-100">
-        <span>✓ 42 dari 42 Slide Lengkap Tercover</span>
+      <div class="skdi-badge">
+        <span>Tingkat Kemampuan: SKDI 4A (Lulusan Dokter Mampu Mendiagnosis &amp; Menatalaksana Mandiri Tuntas)</span>
       </div>
     </div>
 
-    <!-- STASI 0: TRIAGE & ANAMNESIS PASIEN MASUK -->
-    <section class="encounter-split" id="triage">
-      <div class="encounter-flow">
-        <div class="station-kicker">
-          <span>🚨 STASI 0 · MENIT 00:00 PASIEN TIBA DI MEJA DOKTER</span>
-        </div>
-        <h2 class="station-heading">Pintu Terbuka: Dua Pasien Masuk Bersamaan</h2>
+    <!-- =================================================================== -->
+    <!-- MATERI POKOK 1: KWASHIORKOR                                         -->
+    <!-- =================================================================== -->
+    <section class="module-split" id="materi-1">
+      <div class="curriculum-content">
+        <div class="materi-kicker">MATERI POKOK 01 (RPS BLOK EMN)</div>
+        <h2 class="materi-title">Kwashiorkor (Defisiensi Protein Berat Akut)</h2>
 
-        <div class="dr-think-box">
-          <b>Insting Dokter 10 Detik Pertama:</b> Kamu sedang duduk jaga di Puskesmas DTP. Dua ibu membawa anaknya yang sakit parah. Otakmu langsung melakukan visual triage:
-          <br>• <b>Pasien A (An. Budi, 2 th):</b> Wajah tembam sembap (*moon face*), kedua punggung kaki bengkak melembung, anak sangat rewel cengeng, kulit paha bercak retak kehitaman.
-          <br>• <b>Pasien B (An. Doni, 11 bln):</b> Wajah sangat tirus keriput seperti kakek-kakek (*old man face*), mata cekung, kulit pantat keriput menggelambir (*baggy pants*), iga menonjol seperti gambang, lapar rakus.
-        </div>
-
-        <div class="pillar-card normal">
-          <div class="pillar-hdr">
-            <span>📋 ANAMNESIS TERARAH: MENGAPA RIWAYAT MAKAN MENENTUKAN SEGALANYA?</span>
+        <!-- Indikator 1 -->
+        <div class="indicator-box etio">
+          <div class="ind-header">
+            <span class="num">1</span>
+            <span>INDIKATOR: ETIOLOGI &amp; FAKTOR RISIKO (SLIDE 14–16, 19)</span>
           </div>
-          <p>Kamu menanyai kedua ibu tentang pola makan sejak disapih:</p>
-          <ul style="padding-left:18px;margin-top:6px;font-size:0.88rem;color:var(--ink-secondary);">
-            <li><b>Ibu Pasien A (Budi):</b> <i>"Cuma dikasih air tajin dan bubur nasi kuah kecap dok, tidak pernah makan telur, daging, atau ikan."</i> &rarr; <b>Asupan Karbohidrat Ada, Asupan Protein = 0!</b></li>
-            <li><b>Ibu Pasien B (Doni):</b> <i>"ASInya sudah berhenti sejak 4 bulan dok, cuma dikasih air putih encer kadang tepung sedikit."</i> &rarr; <b>Defisiensi Kalori &amp; Energi Total (Kelaparan Murni)!</b></li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Slide Dossier 1 -->
-      <aside class="slide-dossier">
-        <div class="dossier-hdr">
-          <span class="dossier-tag">Slide Dossier · Klasifikasi</span>
-          <span style="font-size:0.7rem;color:var(--ink-muted);">dr. Ditya Arisanti</span>
-        </div>
-        <div class="slide-pills-cluster">
-          <button class="p-btn active" onclick="setSlide('v-1', 'slides_kul5/slide_3.jpg', 'Slide 3 · Definisi Malnutrisi WHO', this)">Slide 3</button>
-          <button class="p-btn" onclick="setSlide('v-1', 'slides_kul5/slide_4.jpg', 'Slide 4 · Klasifikasi Akut vs Kronis', this)">Slide 4</button>
-          <button class="p-btn" onclick="setSlide('v-1', 'slides_kul5/slide_16.jpg', 'Slide 16 · Pembagian Klinis MEP', this)">Slide 16</button>
-        </div>
-        <div class="slide-viewport" onclick="openZoom(document.getElementById('v-1').src)">
-          <img id="v-1" src="slides_kul5/slide_3.jpg" alt="Slide Definisi Malnutrisi">
-        </div>
-        <div class="slide-caption-txt" id="cap-v-1">Slide 3 · Definisi Malnutrisi WHO</div>
-      </aside>
-    </section>
-
-    <!-- STASI 1: MEJA ANTROPOMETRI & NILAI NORMAL (SLIDE 5 - 13) -->
-    <section class="encounter-split" id="stasi-1">
-      <div class="encounter-flow">
-        <div class="station-kicker">
-          <span>📏 STASI 1 · PENGUKURAN ANTROPOMETRI (SLIDE 5–13)</span>
-        </div>
-        <h2 class="station-heading">Nilai Normal vs Angka Pasien: Jangan Sampai Tertipu Edema!</h2>
-
-        <div class="pillar-card normal">
-          <div class="pillar-hdr">
-            <span>📊 TABEL NILAI NORMAL RUJUKAN VS HASIL PASIEN (WHO 2006 &amp; KEMENKES)</span>
-          </div>
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th>Indikator Pertumbuhan</th>
-                <th>Nilai Normal Rujukan</th>
-                <th>Ambang Gizi Buruk (SAM)</th>
-                <th>Hasil Pasien Budi</th>
-                <th>Makna Medis</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><b>Z-Score BB/TB (Wasting)</b></td>
-                <td><span class="val-ok">-2 s.d. +2 SD</span></td>
-                <td><span class="val-alert">&lt; -3 SD</span></td>
-                <td><span class="val-alert">-3.6 SD</span></td>
-                <td><b>Gizi Buruk Akut Berat</b> (Otot habis)</td>
-              </tr>
-              <tr>
-                <td><b>LiLA (Lingkar Lengan)</b></td>
-                <td><span class="val-ok">&gt; 12.5 cm</span></td>
-                <td><span class="val-alert">&lt; 11.5 cm</span> (Pita Merah)</td>
-                <td><span class="val-alert">10.4 cm</span></td>
-                <td>Massa otot lengan atrofi parah</td>
-              </tr>
-              <tr>
-                <td><b>TB/U atau PB/U (Stunting)</b></td>
-                <td><span class="val-ok">-2 s.d. +2 SD</span></td>
-                <td><span class="val-alert">&lt; -2 SD (Pendek)</span></td>
-                <td>-2.8 SD</td>
-                <td>Disertai perawakan pendek kronis</td>
-              </tr>
-              <tr>
-                <td><b>BB/U (Underweight)</b></td>
-                <td><span class="val-ok">-2 s.d. +2 SD</span></td>
-                <td><span class="val-alert">&lt; -3 SD</span></td>
-                <td>-2.2 SD</td>
-                <td><b>JEBAKAN!</b> Tertolong bobot cairan edema</td>
-              </tr>
-              <tr>
-                <td><b>Edema Bilateral</b></td>
-                <td><span class="val-ok">Tidak ada (Negatif)</span></td>
-                <td><span class="val-alert">Ada Minimal +1</span></td>
-                <td><span class="val-alert">+2 (Pretibial)</span></td>
-                <td>Kriteria Mutlak <b>Kwashiorkor</b></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="pillar-card uab">
-          <div class="pillar-hdr">
-            <span>🎯 3 KLASIFIKASI HISTORIS KULIAH DR. DITYA (SLIDE 9, 10, 11)</span>
-          </div>
-          <p style="font-size:0.88rem;color:var(--ink-secondary);line-height:1.6;">
-            <b>1. Klasifikasi Gomez (Slide 9 - Acuan % BB/U Baku):</b><br>
-            • Derajat I (Gizi Ringan): 75–90% BB ideal.<br>
-            • Derajat II (Gizi Sedang): 60–74% BB ideal.<br>
-            • Derajat III (Gizi Buruk): <span class="cloze-mask">&lt; 60% BB ideal</span>.
-          </p>
-          <p style="font-size:0.88rem;color:var(--ink-secondary);line-height:1.6;margin-top:8px;">
-            <b>2. Klasifikasi Wellcome Trust (Slide 10 - Acuan % BB Baku + Edema):</b><br>
-            • BB 60–80% tanpa edema = <b>Underweight</b>.<br>
-            • BB 60–80% + Edema (+) = <b>Kwashiorkor</b>.<br>
-            • BB &lt; 60% tanpa edema = <b>Marasmus</b>.<br>
-            • BB &lt; 60% + Edema (+) = <b>Marasmik-Kwashiorkor</b> (Bentuk paling mematikan!).
-          </p>
-          <p style="font-size:0.88rem;color:var(--ink-secondary);line-height:1.6;margin-top:8px;">
-            <b>3. Cara Ukur yang Benar (Slide 12):</b> Anak usia &lt; 2 tahun diukur panjang badan telentang (*recumbent length*). Usia &ge; 2 tahun diukur tinggi badan berdiri (*standing height*).
-          </p>
-        </div>
-      </div>
-
-      <!-- Slide Dossier 2 -->
-      <aside class="slide-dossier">
-        <div class="dossier-hdr">
-          <span class="dossier-tag">Slide Dossier · Antropometri</span>
-          <span style="font-size:0.7rem;color:var(--ink-muted);">dr. Ditya Arisanti</span>
-        </div>
-        <div class="slide-pills-cluster">
-          <button class="p-btn active" onclick="setSlide('v-2', 'slides_kul5/slide_7.jpg', 'Slide 7 · Ambang Z-Score WHO', this)">Slide 7</button>
-          <button class="p-btn" onclick="setSlide('v-2', 'slides_kul5/slide_8.jpg', 'Slide 8 · Pita LiLA / MUAC', this)">Slide 8</button>
-          <button class="p-btn" onclick="setSlide('v-2', 'slides_kul5/slide_9.jpg', 'Slide 9 · Klasifikasi Gomez', this)">Slide 9</button>
-          <button class="p-btn" onclick="setSlide('v-2', 'slides_kul5/slide_10.jpg', 'Slide 10 · Klasifikasi Wellcome Trust', this)">Slide 10</button>
-          <button class="p-btn" onclick="setSlide('v-2', 'slides_kul5/slide_13.jpg', 'Slide 13 · Alur Diagnosis Kemenkes', this)">Slide 13</button>
-        </div>
-        <div class="slide-viewport" onclick="openZoom(document.getElementById('v-2').src)">
-          <img id="v-2" src="slides_kul5/slide_7.jpg" alt="Slide Ambang Z Score">
-        </div>
-        <div class="slide-caption-txt" id="cap-v-2">Slide 7 · Ambang Z-Score WHO</div>
-      </aside>
-    </section>
-
-    <!-- STASI 2: PEMERIKSAAN FISIK & PATOFISIOLOGI (SLIDE 14 - 31) -->
-    <section class="encounter-split" id="stasi-2">
-      <div class="encounter-flow">
-        <div class="station-kicker">
-          <span>🔬 STASI 2 · BEDAH KEPALA KE KAKI &amp; BIOLOGI SELULER (SLIDE 14–31)</span>
-        </div>
-        <h2 class="station-heading">Mengapa Gejalanya Seperti Ini? (Kausalitas Patofisiologi)</h2>
-
-        <!-- Rantai Kausalitas Kwashiorkor -->
-        <div class="pillar-card patho">
-          <div class="pillar-hdr">
-            <span>💥 PADA PASIEN A (BUDI - KWASHIORKOR): KENAPA BENGKAK &amp; PERUT BUNCIT?</span>
-          </div>
-          <div style="font-size:0.88rem;color:var(--ink-secondary);line-height:1.65;">
-            <p><b>1. Rantai Edema (Slide 20 &amp; 23):</b><br>
-            Asupan protein 0 &rarr; Sel hepar kekurangan asam amino esensial &rarr; Sintesis Albumin terhenti &rarr; Albumin darah anjlok hingga <span class="val-alert">1.8 g/dL</span> (Normal: 3.5–5.0) &rarr; <b>Tekanan Onkotik Koloid Plasma (~25 mmHg) lenyap total</b> &rarr; Hukum Starling: cairan darah bebas merembes ke celah interstisial &rarr; Terjadi <b>Bilateral Pitting Edema</b> dan <b>Moon Face</b>.</p>
-
-            <p style="margin-top:10px;"><b>2. Rantai Perut Buncit &amp; Hepatomegali (Slide 20 &amp; 29):</b><br>
-            Tubuh tetap memasukkan asam lemak ke hepar. Normalnya, hepar membungkus lemak dengan protein <span class="cloze-mask">Apolipoprotein B-100</span> menjadi VLDL untuk dikirim ke perifer. Karena protein tidak ada, lemak trigliserida terjebak dan menumpuk di hepatosit &rarr; <b>Fatty Liver Masif</b> &rarr; Hepar bengkak 3 cm di bawah arkus kosta.</p>
-
-            <p style="margin-top:10px;"><b>3. Rantai Kulit &amp; Rambut (Slide 20):</b><br>
-            Defisiensi asam amino tirosin mematikan sintesis pigmen melanin &rarr; Rambut berubah merah pirang kusam mudah rontok (<span class="cloze-mask">Flag Sign</span>). Defisiensi seng &amp; asam amino merusak keratin kulit &rarr; <span class="cloze-mask">Crazy Pavement Dermatosis</span>.</p>
+          <div class="ind-body">
+            <ul>
+              <li><b>Etiologi Spesifik:</b> Defisiensi asupan protein yang berat dan akut, di tengah asupan kalori/karbohidrat yang relatif cukup atau berlebih.</li>
+              <li><b>Faktor Risiko Klasik:</b> Terjadi pada masa penyapihan (usia 1–3 tahun) saat ASI dihentikan dan digantikan makanan berpati tinggi karbohidrat tanpa protein (air tajin, bubur nasi kuah kecap, singkong).</li>
+              <li><b>Pemicu Akut (Presipitasi):</b> Infeksi akut yang meningkatkan katabolisme protein secara mendadak (campak, gastroenteritis akut, diare persisten).</li>
+            </ul>
           </div>
         </div>
 
-        <!-- Rantai Kausalitas Marasmus -->
-        <div class="pillar-card normal">
-          <div class="pillar-hdr">
-            <span>💀 PADA PASIEN B (DONI - MARASMUS): KENAPA KERIPUT TANPA BENGKAK?</span>
+        <!-- Indikator 2 -->
+        <div class="indicator-box klasifikasi">
+          <div class="ind-header">
+            <span class="num">2</span>
+            <span>INDIKATOR: KLASIFIKASI &amp; AMBANG BATAS (SLIDE 9, 10, 13)</span>
           </div>
-          <div style="font-size:0.88rem;color:var(--ink-secondary);line-height:1.65;">
-            <p><b>1. Kelaparan Energi Total (Slide 17 &amp; 22):</b><br>
-            Insulin turun drastis, kortisol meningkat &rarr; Katabolisme ekstrem memecah otot (*muscle wasting*) dan membakar habis seluruh cadangan lemak tubuh.</p>
-            <p><b>2. Hilangnya Bantalan Lemak Pipi (Slide 18):</b><br>
-            Bantalan lemak terakhir manusia (<span class="cloze-mask">Bichat Fat Pad</span>) di pipi ludes diserap &rarr; Tulang wajah menonjol, kulit berkerut seperti orang tua 80 tahun (<span class="cloze-mask">Old Man Face / Facies Senilis</span>).</p>
-            <p><b>3. Hilangnya Lemak Pantat (Slide 18):</b><br>
-            Otot gluteus dan bantalan lemak bokong hilang total &rarr; Kulit pantat longgar melipat-lipat persis memakai celana kedodoran (<span class="cloze-mask">Baggy Pants</span>).</p>
-            <p><b>4. Kenapa Tidak Bengkak?</b><br>
-            Karena asam amino hasil pemecahan otot dialirkan ke hepar untuk sintesis albumin darurat. Albumin marasmus masih &gt; 2.8 g/dL sehingga tekanan onkotik masih bertahan!</p>
+          <div class="ind-body">
+            <ul>
+              <li><b>Kriteria Baku WHO:</b> Adanya <b>Edema Bilateral Minimal</b> pada kedua punggung kaki (+1), dengan atau tanpa wasting.</li>
+              <li><b>Klasifikasi Wellcome Trust (Slide 10):</b> Berat badan <b>60–80% dari baku</b> DITAMBAH <b>Edema (+)</b>.</li>
+              <li><b>Grading Edema Klinis:</b>
+                <br>• <b>+1 (Ringan):</b> Edema bilateral hanya pada kedua dorsum pedis (punggung kaki).
+                <br>• <b>+2 (Sedang):</b> Edema pada kedua tungkai bawah (pretibial), tangan, atau lengan bawah.
+                <br>• <b>+3 (Berat / Anasarka):</b> Edema menyeluruh di ekstremitas, genital/perut, dan wajah (*moon face*).</li>
+            </ul>
           </div>
         </div>
 
-        <!-- Adaptasi Reduktif -->
-        <div class="pillar-card patho">
-          <div class="pillar-hdr">
-            <span>⚡ FENOMENA BIOLOGI SELULER: ADAPTASI REDUKTIF (SLIDE 25–31)</span>
+        <!-- Indikator 3 & 4 -->
+        <div class="indicator-box anamnesis">
+          <div class="ind-header">
+            <span class="num">3</span>
+            <span>INDIKATOR: KRITERIA DIAGNOSIS — ANAMNESIS TERARAH (SLIDE 19–20)</span>
           </div>
-          <p style="font-size:0.88rem;color:var(--ink-secondary);line-height:1.6;">
-            Seluruh organ anak menurunkan kapasitas kerja untuk menghemat energi (<i>Reductive Adaptation</i>):<br>
-            • <b>Pompa Na+/K+-ATPase melambat:</b> Natrium terjebak di dalam sel (sel bengkak air), sedangkan Kalium dan Magnesium bocor keluar ke urin &rarr; Defisiensi Kalium &amp; Magnesium total tubuh!<br>
-            • <b>Atrofi Dinding Miokard Jantung (Slide 26):</b> Otot jantung menipis dan kontraktilitas turun &rarr; <b>JANGAN GUYUR INFUS NaCl 0.9%!</b> Jantung akan langsung gagal pompa (*fluid overload*).<br>
-            • <b>Atrofi Imun (Slide 28):</b> Timus mengecil, sekresi IgA mukosa hilang &rarr; Infeksi berat berlangsung <b>TANPA DEMAM</b>.
-          </p>
-        </div>
-      </div>
-
-      <!-- Slide Dossier 3 -->
-      <aside class="slide-dossier">
-        <div class="dossier-hdr">
-          <span class="dossier-tag">Slide Dossier · Foto &amp; Seluler</span>
-          <span style="font-size:0.7rem;color:var(--ink-muted);">dr. Ditya Arisanti</span>
-        </div>
-        <div class="slide-pills-cluster">
-          <button class="p-btn active" onclick="setSlide('v-3', 'slides_kul5/slide_21.jpg', 'Slide 21 · Tabel Perbandingan Marasmus vs Kwashiorkor', this)">Slide 21</button>
-          <button class="p-btn" onclick="setSlide('v-3', 'slides_kul5/slide_22.jpg', 'Slide 22 · Foto Klinis Pasien Marasmus', this)">Slide 22</button>
-          <button class="p-btn" onclick="setSlide('v-3', 'slides_kul5/slide_23.jpg', 'Slide 23 · Foto Klinis Pasien Kwashiorkor', this)">Slide 23</button>
-          <button class="p-btn" onclick="setSlide('v-3', 'slides_kul5/slide_24.jpg', 'Slide 24 · Skor McLaren', this)">Slide 24</button>
-          <button class="p-btn" onclick="setSlide('v-3', 'slides_kul5/slide_26.jpg', 'Slide 26 · Patofisiologi Jantung &amp; Sirkulasi', this)">Slide 26</button>
-          <button class="p-btn" onclick="setSlide('v-3', 'slides_kul5/slide_31.jpg', 'Slide 31 · Trias Maut Gizi Buruk', this)">Slide 31</button>
-        </div>
-        <div class="slide-viewport" onclick="openZoom(document.getElementById('v-3').src)">
-          <img id="v-3" src="slides_kul5/slide_21.jpg" alt="Slide Tabel Perbandingan">
-        </div>
-        <div class="slide-caption-txt" id="cap-v-3">Slide 21 · Tabel Perbandingan Marasmus vs Kwashiorkor</div>
-      </aside>
-    </section>
-
-    <!-- STASI 3: LEMBAR RESEP 10 LANGKAH WHO (SLIDE 32 - 42) -->
-    <section class="encounter-split" id="stasi-3">
-      <div class="encounter-flow">
-        <div class="station-kicker">
-          <span>💊 STASI 3 · LEMBAR INSTRUKSI DOKTER: 10 LANGKAH WHO (SLIDE 32–42)</span>
-        </div>
-        <h2 class="station-heading">Protokol Penyelamatan 3 Fase: Dosis, Cairan &amp; Pantangan</h2>
-
-        <!-- Triage Trias Maut Jam 1 -->
-        <div class="pillar-card action">
-          <div class="pillar-hdr">
-            <span>🚨 TINDAKAN JAM 01: ATASI TRIAS MAUT (SLIDE 34 &amp; 35)</span>
+          <div class="ind-body">
+            <ul>
+              <li><b>Keluhan Utama:</b> Bengkak pada kedua kaki yang semakin membesar dalam 1–2 minggu terakhir.</li>
+              <li><b>Gejala Penyerta:</b> Anak menjadi sangat cengeng, rewel, mudah marah (*irritable*), atau tampak apatis letargis, nafsu makan hilang total (*anoreksia*).</li>
+              <li><b>Riwayat Diet:</b> Tidak pernah mendapat sumber protein hewani (telur, ikan, daging, susu).</li>
+            </ul>
           </div>
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th>Kedaruratan Akut</th>
-                <th>Tanda Kritis Pasien</th>
-                <th>Instruksi Resep / Dosis Presisi Dokter</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><b>1. Hipoglikemia</b></td>
-                <td>GDA &lt; 54 mg/dL (42 mg/dL)</td>
-                <td>
-                  • Bila sadar: Berikan <b>50 mL Dextrose 10%</b> oral / NGT.<br>
-                  • Bila tidak sadar/koma: Bolus IV <b>Dextrose 10% 5 mL/kgBB</b>.<br>
-                  • Lanjutkan makanan F-75 tiap 2 jam siang-malam!
-                </td>
-              </tr>
-              <tr>
-                <td><b>2. Hipotermia</b></td>
-                <td>Suhu aksila &lt; 36.5°C (35.6°C)</td>
-                <td>
-                  • Hangatkan dengan <b>Kangaroo Mother Care (KMC)</b> kontak kulit.<br>
-                  • Pasang lampu penghangat 60W berjarak 50 cm. Target: &ge; 36.5°C.<br>
-                  • Matikan AC / kipas angin ruangan!
-                </td>
-              </tr>
-              <tr>
-                <td><b>3. Dehidrasi</b></td>
-                <td>Letargis, turgor lambat</td>
-                <td>
-                  • Gunakan cairan khusus: <b>ReSoMal</b> (Na rendah 45 mmol, K tinggi 40 mmol).<br>
-                  • Dosis: <b>5 mL/kgBB setiap 30 menit</b> selama 2 jam pertama.<br>
-                  • Lanjut 5–10 mL/kgBB/jam berselang-seling dengan F-75.
-                </td>
-              </tr>
-            </tbody>
-          </table>
         </div>
 
-        <!-- 10 Langkah Lengkap WHO -->
-        <div class="pillar-card action">
-          <div class="pillar-hdr">
-            <span>📋 PROTOKOL LENGKAP 10 LANGKAH RAWAT INAP WHO (SLIDE 32–42)</span>
+        <div class="indicator-box fisik">
+          <div class="ind-header">
+            <span class="num">4</span>
+            <span>INDIKATOR: KRITERIA DIAGNOSIS — PEMERIKSAAN FISIK PATOGNOMONIK (SLIDE 20, 23)</span>
           </div>
+          <div class="ind-body">
+            <ul>
+              <li><b>1. Bilateral Pitting Edema:</b> Cekungan bekas tekanan jari pada dorsum pedis dan pretibia yang tidak langsung kembali.</li>
+              <li><b>2. Moon Face:</b> Wajah sembap bulat tembam akibat edema interstisial pada bantalan lemak pipi.</li>
+              <li><b>3. Crazy Pavement Dermatosis:</b> Bercak kulit hiperpigmentasi gelap yang mengelupas seperti aspal retak (terutama di paha, lipat paha, bokong, dan perineum).</li>
+              <li><b>4. Flag Sign pada Rambut:</b> Rambut tipis kemerahan pirang, kusam, kering, dan sangat mudah dicabut tanpa rasa sakit (akibat defisiensi asam amino tirosin/melanin).</li>
+              <li><b>5. Hepatomegali:</b> Hati membesar kenyal dengan tepi tumpul (akibat akumulasi trigliserida / *fatty liver* karena hepar gagal membentuk apolipoprotein B-100).</li>
+            </ul>
+          </div>
+        </div>
 
-          <div class="rx-box">
-            <div class="rx-hdr">LEMBAR INSTRUKSI MEDIS RAWAT INAP (KEMENKES / WHO)</div>
-            1. HIPOGLIKEMIA : Dextrose 10% 50 mL oral/NGT segera. Lanjut F-75 tiap 2 jam.<br>
-            2. HIPOTERMIA   : KMC + penghangat, suhu ruangan 28-30°C. Ukur suhu q30m.<br>
-            3. DEHIDRASI    : ReSoMal 5 mL/kgBB q30m (2 jam I), TIDAK BOLEH INFUS BIASA.<br>
-            4. ELEKTROLIT   : Tambah K+ (3-4 mmol/kg/hr) &amp; Mg2+ (0.4-0.6 mmol/kg/hr) ke formula.<br>
-            5. INFEKSI      : Inj. Ampisilin 50 mg/kgBB IV q6h (2 hari) + Inj. Gentamisin 7.5 mg/kgBB IV q24h (7 hari).<br>
-            6. MIKRONUTRIEN : Vitamin A dosis hari 1, 2, dan 15 (100.000 IU untuk 6-11 bln; 200.000 IU untuk &ge;12 bln).<br>
-                              Asam Folat 5 mg hari I, lalu 1 mg/hari.<br>
-            7. STABILISASI  : <b>Formula F-75</b> (75 kkal, 0.9 g protein/100 mL), 130 mL/kgBB/hari dibagi 12x.<br>
-            8. TRANSISI     : <b>Formula F-100</b> (100 kkal, 2.9 g protein/100 mL), naik ke 150 kkal/kg/hari.<br>
-            9. REHABILITASI : <b>BARU MULAI ZAT BESI (Fe)</b> dosis 3 mg/kgBB/hari setelah edema hilang!<br>
-            10. DISCHARGE   : Evaluasi kenaikan BB: Baik &gt;10 g/kg/hari, Sedang 5-10 g/kg/hari, Buruk &lt;5 g/kg/hari.<br>
-            <br>
-            <span class="rx-danger">PANTANGAN KERAS DOKTER:</span><br>
-            <span class="rx-danger">❌ JANGAN SUNTIK FUROSEMID / DIURETIK (Volume intravaskular deplesi &rarr; Syok Hipovolemik Fatal!)</span><br>
-            <span class="rx-danger">❌ JANGAN BERI ZAT BESI DI FASE STABILISASI (Free iron memicu sepsis bakteremia fatal!)</span>
+        <!-- Indikator 5 -->
+        <div class="indicator-box penunjang">
+          <div class="ind-header">
+            <span class="num">5</span>
+            <span>INDIKATOR: PEMERIKSAAN PENUNJANG &amp; NILAI NORMAL RUJUKAN (SLIDE 13, 27, 31)</span>
+          </div>
+          <div class="ind-body">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Parameter Penunjang</th>
+                  <th>Nilai Normal Rujukan</th>
+                  <th>Temuan Patologis Kwashiorkor</th>
+                  <th>Makna Patofisiologi</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>Albumin Serum</b></td>
+                  <td><span class="val-ok">3.5 – 5.0 g/dL</span></td>
+                  <td><span class="val-alert">&lt; 2.0 g/dL (sering 1.5–1.8)</span></td>
+                  <td>Tekanan onkotik koloid kapiler ambruk &rarr; cairan bocor ke interstisial</td>
+                </tr>
+                <tr>
+                  <td><b>Gula Darah Acak (GDA)</b></td>
+                  <td><span class="val-ok">70 – 140 mg/dL</span></td>
+                  <td><span class="val-alert">&lt; 54 mg/dL (&lt; 3 mmol/L)</span></td>
+                  <td>Glikogenesis hati lumpuh &rarr; Hipoglikemia akut yang mengancam nyawa</td>
+                </tr>
+                <tr>
+                  <td><b>Elektrolit (K+ &amp; Mg2+)</b></td>
+                  <td><span class="val-ok">K: 3.5–5.0; Mg: 1.7–2.4</span></td>
+                  <td><span class="val-alert">Deplesi Intraseluler Total</span></td>
+                  <td>Pompa Na/K melemah, kalium bocor terbuang ke urin</td>
+                </tr>
+                <tr>
+                  <td><b>Darah Lengkap (Hb)</b></td>
+                  <td><span class="val-ok">11.0 – 14.0 g/dL</span></td>
+                  <td><span class="val-alert">&lt; 9.0 g/dL (Anemia Berat)</span></td>
+                  <td>Defisiensi zat besi, folat, dan sintesis protein eritrosit</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Indikator 6 -->
+        <div class="indicator-box ddx">
+          <div class="ind-header">
+            <span class="num">6</span>
+            <span>INDIKATOR: DIAGNOSIS BANDING / DDx (MEMBEDAKAN PENYAKIT SERUPA)</span>
+          </div>
+          <div class="ind-body">
+            <ul>
+              <li><b>1. Sindrom Nefrotik:</b> Sama-sama edema anasarka dan hipoalbuminemia, TETAPI pada sindrom nefrotik ditemukan proteinuria masif (&gt; 3.5 g/24 jam), hiperkolesterolemia, tidak ada crazy pavement dermatosis, dan rambut normal.</li>
+              <li><b>2. Gagal Jantung Kongestif:</b> Edema ekstremitas disertai kardiomegali, peningkatan JVP (tekanan vena jugularis), gallop S3, dan ronkhi basah paru.</li>
+              <li><b>3. Sirosis Hepatis Dekompensata:</b> Hipoalbuminemia dan asites, tetapi hati teraba keras mengecil/berbenjol, ditemukan *spider nevi*, eritema palmaris, dan splenomegali.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Indikator 7 -->
+        <div class="indicator-box terapi">
+          <div class="ind-header">
+            <span class="num">7</span>
+            <span>INDIKATOR: TATALAKSANA &amp; PROTOKOL TERAPI (SLIDE 32–42)</span>
+          </div>
+          <div class="ind-body">
+            <ul>
+              <li><b>Fase Stabilisasi (Hari 1–7):</b> Berikan <b>Formula F-75</b> (75 kkal/100 mL, protein rendah 0.9 g/100 mL) dengan volume <b>130 mL/kgBB/hari</b> (atau 100 mL/kgBB/hari bila edema +3) dibagi 12 kali pemberian tiap 2 jam.</li>
+              <li><b>Koreksi Cairan Khusus:</b> Gunakan cairan <b>ReSoMal</b> oral/NGT 5 mL/kgBB tiap 30 menit (2 jam pertama) jika ada dehidrasi.</li>
+              <li><b>Antibiotik Spektrum Luas:</b> Ampisilin 50 mg/kg IV q6h (2 hari) + Gentamisin 7.5 mg/kg IV q24h (7 hari).</li>
+            </ul>
+            <div class="danger-callout">
+              🚨 DUA PANTANGAN MUTLAK PADA KWASHIORKOR:<br>
+              1. DILARANG FUROSEMID / DIURETIK: Cairan edema ada di jaringan, volume darah intravaskular justru rendah &rarr; memicu Syok Hipovolemik Fatal!<br>
+              2. DILARANG ZAT BESI (Fe) DI FASE STABILISASI: Besi bebas memicu ledakan infeksi bakteremia &rarr; Sepsis Fatal!
+            </div>
+          </div>
+        </div>
+
+        <!-- Indikator 8 & 9 -->
+        <div class="indicator-box komplikasi">
+          <div class="ind-header">
+            <span class="num">8</span>
+            <span>INDIKATOR: KOMPLIKASI AKUT &amp; PROGNOSIS (SLIDE 25–31)</span>
+          </div>
+          <div class="ind-body">
+            <ul>
+              <li><b>Komplikasi Mengancam Jiwa (Trias Maut):</b> Hipoglikemia (&lt; 54 mg/dL), Hipotermia (&lt; 36.5°C), dan Syok Hipovolemik / Dehidrasi.</li>
+              <li><b>Sindrom Refeeding:</b> Terjadi jika diberi makanan tinggi kalori/protein terlalu cepat &rarr; lonjakan insulin menyedot fosfat ke intrasel &rarr; hipofosfatemia akut &rarr; henti jantung.</li>
+              <li><b>Prognosis:</b> Mortalitas kwashiorkor lebih tinggi (20–30%) dibandingkan marasmus jika tatalaksana cairan dan elektrolit salah.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="indicator-box pencegahan">
+          <div class="ind-header">
+            <span class="num">9</span>
+            <span>INDIKATOR: PENCEGAHAN / PREVENSI (SLIDE 42)</span>
+          </div>
+          <div class="ind-body">
+            <ul>
+              <li>ASI eksklusif 6 bulan dilanjutkan hingga 2 tahun.</li>
+              <li>Pemberian MP-ASI adekuat kaya protein hewani (1 butir telur/hari, ikan, hati ayam, tempe) sejak usia 6 bulan.</li>
+              <li>Pemantauan berkala grafik KMS Posyandu tiap bulan untuk mendeteksi dini *growth faltering*.</li>
+            </ul>
           </div>
         </div>
       </div>
 
-      <!-- Slide Dossier 4 -->
+      <!-- Right Sticky Slide Dossier -->
       <aside class="slide-dossier">
-        <div class="dossier-hdr">
-          <span class="dossier-tag">Slide Dossier · 10 Langkah WHO</span>
+        <div class="dossier-header">
+          <span class="dossier-label">Slide Dossier · Kwashiorkor</span>
           <span style="font-size:0.7rem;color:var(--ink-muted);">dr. Ditya Arisanti</span>
         </div>
-        <div class="slide-pills-cluster">
-          <button class="p-btn active" onclick="setSlide('v-4', 'slides_kul5/slide_32.jpg', 'Slide 32 · Prinsip 10 Langkah WHO', this)">Slide 32</button>
-          <button class="p-btn" onclick="setSlide('v-4', 'slides_kul5/slide_33.jpg', 'Slide 33 · 3 Fase Perawatan Gizi Buruk', this)">Slide 33</button>
-          <button class="p-btn" onclick="setSlide('v-4', 'slides_kul5/slide_35.jpg', 'Slide 35 · Formula ReSoMal', this)">Slide 35</button>
-          <button class="p-btn" onclick="setSlide('v-4', 'slides_kul5/slide_37.jpg', 'Slide 37 · Antibiotik Infeksi', this)">Slide 37</button>
-          <button class="p-btn" onclick="setSlide('v-4', 'slides_kul5/slide_38.jpg', 'Slide 38 · Dosis Vitamin A &amp; Pantangan Besi', this)">Slide 38</button>
-          <button class="p-btn" onclick="setSlide('v-4', 'slides_kul5/slide_39.jpg', 'Slide 39 · Komposisi F-75 vs F-100', this)">Slide 39</button>
-          <button class="p-btn" onclick="setSlide('v-4', 'slides_kul5/slide_41.jpg', 'Slide 41 · Target Kenaikan BB Fase Rehabilitasi', this)">Slide 41</button>
+        <div class="slide-pills-row">
+          <button class="spill-btn active" onclick="setSlide('v-1', 'slides_kul5/slide_23.jpg', 'Slide 23 · Foto Klinis Kwashiorkor (Edema &amp; Moon Face)', this)">Slide 23 (Foto Klinis)</button>
+          <button class="spill-btn" onclick="setSlide('v-1', 'slides_kul5/slide_20.jpg', 'Slide 20 · Gejala Kardinal Kwashiorkor', this)">Slide 20 (Gejala)</button>
+          <button class="spill-btn" onclick="setSlide('v-1', 'slides_kul5/slide_29.jpg', 'Slide 29 · Patofisiologi Hati &amp; VLDL', this)">Slide 29 (Fatty Liver)</button>
         </div>
-        <div class="slide-viewport" onclick="openZoom(document.getElementById('v-4').src)">
-          <img id="v-4" src="slides_kul5/slide_32.jpg" alt="Slide 10 Langkah WHO">
+        <div class="slide-canvas" onclick="openZoom(document.getElementById('v-1').src)">
+          <img id="v-1" src="slides_kul5/slide_23.jpg" alt="Slide Kwashiorkor">
         </div>
-        <div class="slide-caption-txt" id="cap-v-4">Slide 32 · Prinsip 10 Langkah WHO</div>
+        <div class="slide-cap" id="cap-v-1">Slide 23 · Foto Klinis Kwashiorkor (Edema &amp; Moon Face)</div>
       </aside>
     </section>
 
-    <!-- STASI 4: AUDIT TRANSPARANSI 100% SLIDE DOSEN (SLIDE 1 - 42) -->
-    <section class="pillar-card uab" id="audit-42" style="margin-bottom:40px;">
-      <div class="pillar-hdr">
+    <!-- =================================================================== -->
+    <!-- MATERI POKOK 2: MARASMUS                                            -->
+    <!-- =================================================================== -->
+    <section class="module-split" id="materi-2">
+      <div class="curriculum-content">
+        <div class="materi-kicker">MATERI POKOK 02 (RPS BLOK EMN)</div>
+        <h2 class="materi-title">Marasmus (Kelaparan Kalori &amp; Energi Total)</h2>
+
+        <!-- Indikator 1 -->
+        <div class="indicator-box etio">
+          <div class="ind-header">
+            <span class="num">1</span>
+            <span>INDIKATOR: ETIOLOGI &amp; FAKTOR RISIKO (SLIDE 14–15, 17)</span>
+          </div>
+          <div class="ind-body">
+            <ul>
+              <li><b>Etiologi Spesifik:</b> Defisiensi energi dan kalori total kronis (kelaparan murni). Seluruh asupan zat gizi makro (karbohidrat, lemak, protein) sangat kurang.</li>
+              <li><b>Faktor Risiko Klasik:</b> Sering terjadi pada bayi usia &lt; 1 tahun yang gagal mendapat ASI, pemberian susu formula yang terlalu encer karena kemiskinan, atau infeksi diare berulang tanpa asupan pengganti.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Indikator 2 -->
+        <div class="indicator-box klasifikasi">
+          <div class="ind-header">
+            <span class="num">2</span>
+            <span>INDIKATOR: KLASIFIKASI &amp; AMBANG BATAS (SLIDE 7, 9, 10, 13)</span>
+          </div>
+          <div class="ind-body">
+            <ul>
+              <li><b>Kriteria Z-Score WHO:</b> BB/TB &lt; -3 SD <b>TANPA EDEMA</b>.</li>
+              <li><b>Klasifikasi Gomez (Slide 9):</b> Berat badan menurut umur (BB/U) <b>&lt; 60% dari nilai baku</b> (Gizi Buruk Derajat III).</li>
+              <li><b>Klasifikasi Wellcome Trust (Slide 10):</b> Berat badan <b>&lt; 60% dari baku</b> dan <b>Edema (-)</b>.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Indikator 3 & 4 -->
+        <div class="indicator-box anamnesis">
+          <div class="ind-header">
+            <span class="num">3</span>
+            <span>INDIKATOR: KRITERIA DIAGNOSIS — ANAMNESIS TERARAH (SLIDE 17–18)</span>
+          </div>
+          <div class="ind-body">
+            <ul>
+              <li><b>Keluhan Utama:</b> Anak tampak sangat kurus kering "tinggal tulang berbalut kulit", berat badan tidak pernah naik atau terus turun.</li>
+              <li><b>Status Psikologis:</b> Berbeda dari kwashiorkor, anak marasmus biasanya <b>sadar, waspada (*alert*), cemas</b>, dan memiliki <b>nafsu makan yang rakus (*voracious appetite*)</b> karena kelaparan hebat.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="indicator-box fisik">
+          <div class="ind-header">
+            <span class="num">4</span>
+            <span>INDIKATOR: KRITERIA DIAGNOSIS — PEMERIKSAAN FISIK PATOGNOMONIK (SLIDE 18, 22)</span>
+          </div>
+          <div class="ind-body">
+            <ul>
+              <li><b>1. Old Man Face (Facies Senilis):</b> Wajah tampak seperti kakek-kakek berusia 80 tahun karena hilangnya bantalan lemak pipi (<span class="cloze-mask">Bichat Fat Pad</span>).</li>
+              <li><b>2. Baggy Pants:</b> Kulit di daerah bokong dan paha sangat longgar melipat-lipat menggelambir persis memakai celana kedodoran karena hilangnya lemak subkutan dan atrofi otot gluteus.</li>
+              <li><b>3. Iga Gambang (Ribs Prominence):</b> Tulang rusuk menonjol jelas terlihat dari luar karena hilangnya jaringan otot interkostal dan lemak dada.</li>
+              <li><b>4. Atrofi Otot Ekstremitas:</b> Lengan dan tungkai sangat kurus seperti pipa atau tongkat (*skin and bones*).</li>
+              <li><b>5. Edema:</b> <b>MUTLAK TIDAK ADA (NEGATIF)</b>.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Indikator 5 -->
+        <div class="indicator-box penunjang">
+          <div class="ind-header">
+            <span class="num">5</span>
+            <span>INDIKATOR: PEMERIKSAAN PENUNJANG &amp; NILAI NORMAL RUJUKAN (SLIDE 13, 21)</span>
+          </div>
+          <div class="ind-body">
+            <ul>
+              <li><b>Albumin Serum:</b> Masih relatif normal atau hanya sedikit menurun (<span class="val-ok">2.8 – 3.5 g/dL</span>). Mengapa? Karena asam amino dari hasil pemecahan otot lurik dialirkan ke hepar untuk sintesis albumin darurat, sehingga tekanan onkotik masih mampu mencegah edema!</li>
+              <li><b>Kadar Glukosa Darah:</b> Sangat rentan hipoglikemia (&lt; 54 mg/dL) karena cadangan glikogen hepar dan otot sudah habis total.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Indikator 6 -->
+        <div class="indicator-box ddx">
+          <div class="ind-header">
+            <span class="num">6</span>
+            <span>INDIKATOR: DIAGNOSIS BANDING / DDx (MEMBEDAKAN PENYAKIT SERUPA)</span>
+          </div>
+          <div class="ind-body">
+            <ul>
+              <li><b>1. Tuberkulosis (TB) Paru Anak:</b> Berat badan turun drastis, tetapi disertai batuk kronis &gt; 2 minggu, demam subfebris lama, riwayat kontak TB dewasa BTA (+), dan uji tuberkulin (Mantoux) positif.</li>
+              <li><b>2. Infeksi HIV Pediatrik:</b> Sangat kurus disertai diare kronis berulang, kandidiasis oral persisten, dan dermatitis luas.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Indikator 7, 8, 9 -->
+        <div class="indicator-box terapi">
+          <div class="ind-header">
+            <span class="num">7</span>
+            <span>INDIKATOR: TATALAKSANA &amp; PROTOKOL TERAPI (SLIDE 32–42)</span>
+          </div>
+          <div class="ind-body">
+            <ul>
+              <li>Pemberian Formula F-75 bertahap (130 mL/kgBB/hari), tidak boleh terburu-buru memberikan porsi besar karena miokardium jantung mengalami atrofi.</li>
+              <li>Pemberian ReSoMal per oral untuk mengatasi dehidrasi (anak marasmus lebih kooperatif minum dibanding kwashiorkor).</li>
+              <li>Antibiotik empiris Ampisilin + Gentamisin.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="indicator-box komplikasi">
+          <div class="ind-header">
+            <span class="num">8</span>
+            <span>INDIKATOR: KOMPLIKASI AKUT &amp; PROGNOSIS (SLIDE 25–31)</span>
+          </div>
+          <div class="ind-body">
+            <ul>
+              <li><b>Hipotermia Ekstrem:</b> Kehilangan seluruh lapisan lemak subkutan menyebabkan tubuh anak tidak mampu menahan panas dan sangat cepat kedinginan.</li>
+              <li><b>Prognosis:</b> Relatif lebih baik daripada kwashiorkor bila infeksi terkendali karena integritas fungsi sintetis hepar masih lebih terjaga dan anak masih mau makan.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="indicator-box pencegahan">
+          <div class="ind-header">
+            <span class="num">9</span>
+            <span>INDIKATOR: PENCEGAHAN / PREVENSI (SLIDE 42)</span>
+          </div>
+          <div class="ind-body">
+            <ul>
+              <li>Pemberian ASI eksklusif sejak lahir dan konseling teknik laktasi yang benar pada ibu.</li>
+              <li>Pemberian makanan pendamping ASI (MP-ASI) padat energi saat usia 6 bulan.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Sticky Slide Dossier -->
+      <aside class="slide-dossier">
+        <div class="dossier-header">
+          <span class="dossier-label">Slide Dossier · Marasmus</span>
+          <span style="font-size:0.7rem;color:var(--ink-muted);">dr. Ditya Arisanti</span>
+        </div>
+        <div class="slide-pills-row">
+          <button class="spill-btn active" onclick="setSlide('v-2', 'slides_kul5/slide_22.jpg', 'Slide 22 · Foto Pasien Marasmus (Old Man Face &amp; Baggy Pants)', this)">Slide 22 (Foto Klinis)</button>
+          <button class="spill-btn" onclick="setSlide('v-2', 'slides_kul5/slide_18.jpg', 'Slide 18 · Gejala Kardinal Marasmus', this)">Slide 18 (Gejala)</button>
+          <button class="spill-btn" onclick="setSlide('v-2', 'slides_kul5/slide_21.jpg', 'Slide 21 · Tabel Pembeda Lengkap', this)">Slide 21 (Tabel)</button>
+        </div>
+        <div class="slide-canvas" onclick="openZoom(document.getElementById('v-2').src)">
+          <img id="v-2" src="slides_kul5/slide_22.jpg" alt="Slide Marasmus">
+        </div>
+        <div class="slide-cap" id="cap-v-2">Slide 22 · Foto Pasien Marasmus (Old Man Face &amp; Baggy Pants)</div>
+      </aside>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- MATERI POKOK 3: MARASMIK-KWASHIORKOR                                -->
+    <!-- =================================================================== -->
+    <section class="module-split" id="materi-3">
+      <div class="curriculum-content">
+        <div class="materi-kicker">MATERI POKOK 03 (RPS BLOK EMN)</div>
+        <h2 class="materi-title">Marasmik-Kwashiorkor (Bentuk Campuran Paling Fatal)</h2>
+
+        <div class="indicator-box etio">
+          <div class="ind-header">
+            <span class="num">1</span>
+            <span>INDIKATOR: ETIOLOGI, KLASIFIKASI &amp; PATOFISIOLOGI (SLIDE 10, 16, 21, 24)</span>
+          </div>
+          <div class="ind-body">
+            <ul>
+              <li><b>Definisi Klinis:</b> Bentuk malnutrisi campuran di mana anak yang sudah mengalami kelaparan kalori berat menahun (tanda-tanda marasmus berat) mengalami defisiensi protein akut yang memicu munculnya edema bilateral.</li>
+              <li><b>Kriteria Wellcome Trust:</b> Berat badan menurut umur <b>&lt; 60% baku DITAMBAH Edema (+)</b>.</li>
+              <li><b>Skor McLaren (Slide 24):</b> Skor berada di antara <b>4 sampai 8</b> (Marasmik-Kwashiorkor). Skor 0–3 adalah Marasmus; skor 9–15 adalah Kwashiorkor.</li>
+              <li><b>Tanda Fisik:</b> Tubuh sangat kurus kerempeng dengan iga gambang dan baggy pants, TETAPI punggung kakinya bengkak pitting edema dan wajah sembap moon face.</li>
+              <li><b>Prognosis:</b> Memiliki angka kematian (*mortality rate*) tertinggi di antara seluruh spektrum gizi buruk karena terjadi kegagalan metabolisme ganda.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Sticky Slide Dossier -->
+      <aside class="slide-dossier">
+        <div class="dossier-header">
+          <span class="dossier-label">Slide Dossier · Campuran</span>
+          <span style="font-size:0.7rem;color:var(--ink-muted);">dr. Ditya Arisanti</span>
+        </div>
+        <div class="slide-pills-row">
+          <button class="spill-btn active" onclick="setSlide('v-3', 'slides_kul5/slide_24.jpg', 'Slide 24 · Skor McLaren', this)">Slide 24 (Skor McLaren)</button>
+          <button class="spill-btn" onclick="setSlide('v-3', 'slides_kul5/slide_10.jpg', 'Slide 10 · Matriks Wellcome Trust', this)">Slide 10 (Wellcome)</button>
+        </div>
+        <div class="slide-canvas" onclick="openZoom(document.getElementById('v-3').src)">
+          <img id="v-3" src="slides_kul5/slide_24.jpg" alt="Slide Skor McLaren">
+        </div>
+        <div class="slide-cap" id="cap-v-3">Slide 24 · Skor McLaren</div>
+      </aside>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- MATERI POKOK 4: PROTOKOL 10 LANGKAH WHO                            -->
+    <!-- =================================================================== -->
+    <section class="module-split" id="materi-4">
+      <div class="curriculum-content">
+        <div class="materi-kicker">MATERI POKOK 04 (RPS BLOK EMN)</div>
+        <h2 class="materi-title">Protokol Tata Laksana 10 Langkah Rawat Inap (WHO / Kemenkes)</h2>
+
+        <!-- Tiga Fase Perawatan -->
+        <div class="indicator-box terapi">
+          <div class="ind-header">
+            <span class="num">1</span>
+            <span>INDIKATOR: 3 FASE PERAWATAN GIZI BURUK (SLIDE 33)</span>
+          </div>
+          <div class="ind-body">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Fase Perawatan</th>
+                  <th>Waktu Durasi</th>
+                  <th>Target &amp; Fokus Utama</th>
+                  <th>Jenis Makanan Formula</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>1. Fase Stabilisasi</b></td>
+                  <td>Hari ke 1 s.d. 7</td>
+                  <td>Atasi hipoglikemia, hipotermia, dehidrasi; stabilisasi fungsi organ seluler.</td>
+                  <td><b>Formula F-75</b> (75 kkal, 0.9 g protein/100 mL; 130 mL/kg/hari)</td>
+                </tr>
+                <tr>
+                  <td><b>2. Fase Transisi</b></td>
+                  <td>Hari ke 8 s.d. 14</td>
+                  <td>Penaikan kalori bertahap, persiapan perbaikan jaringan setelah edema hilang.</td>
+                  <td><b>Formula F-100</b> (100 kkal, 2.9 g protein/100 mL; naik bertahap ke 150 kkal/kg)</td>
+                </tr>
+                <tr>
+                  <td><b>3. Fase Rehabilitasi</b></td>
+                  <td>Minggu ke 2 s.d. 6</td>
+                  <td>Kejar tumbuh (*catch-up growth*), <b>BARU BOLEH MULAI ZAT BESI (Fe)</b>.</td>
+                  <td>Formula F-100 porsi bebas + Makanan padat keluarga</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- 10 Langkah Lengkap -->
+        <div class="indicator-box terapi">
+          <div class="ind-header">
+            <span class="num">2</span>
+            <span>INDIKATOR: DETAIL DOSIS PRESISI 10 LANGKAH WHO (SLIDE 34–42)</span>
+          </div>
+          <div class="ind-body">
+            <ul>
+              <li><b>Langkah 1 (Hipoglikemia):</b> Dextrose 10% 50 mL oral/NGT (atau bolus IV 5 mL/kgBB jika tidak sadar). Lanjut F-75 tiap 2 jam.</li>
+              <li><b>Langkah 2 (Hipotermia):</b> Metode Kanguru (KMC) / lampu penghangat. Target suhu aksila &ge; 36.5°C.</li>
+              <li><b>Langkah 3 (Dehidrasi):</b> ReSoMal 5 mL/kgBB tiap 30m (2 jam I), lalu 5–10 mL/kgBB/jam berselang F-75. <b>Dilarang infus NaCl normal!</b></li>
+              <li><b>Langkah 4 (Elektrolit):</b> Tambahkan K+ (3–4 mmol/kg/hari) dan Mg2+ (0.4–0.6 mmol/kg/hari) ke formula. <b>Dilarang diuretik!</b></li>
+              <li><b>Langkah 5 (Infeksi):</b> Ampisilin 50 mg/kg IV q6h (2 hari) + Gentamisin 7.5 mg/kg IV q24h (7 hari).</li>
+              <li><b>Langkah 6 (Mikronutrien):</b> Vitamin A dosis tunggal hari 1, 2, dan 15 (&lt;6 bln: 50.000 IU; 6–11 bln: 100.000 IU; &ge;12 bln: 200.000 IU). Asam folat 5 mg hari I, lalu 1 mg/hari.</li>
+              <li><b>Langkah 7 (Makanan Awal):</b> Formula F-75 diberikan tiap 2 jam porsi kecil sering siang-malam.</li>
+              <li><b>Langkah 8 (Transisi):</b> Ganti F-75 ke F-100 saat nafsu makan kembali dan edema berkurang.</li>
+              <li><b>Langkah 9 (Kejar Tumbuh &amp; Zat Besi):</b> Berikan <b>Sulfas Ferosus / Besi 3 mg/kgBB/hari</b> setelah nafsu makan pulih dan edema hilang total. Evaluasi kenaikan BB: Baik (&gt;10 g/kg/hari), Sedang (5–10 g/kg/hari), Kurang (&lt;5 g/kg/hari).</li>
+              <li><b>Langkah 10 (Stimulasi &amp; Persiapan Pulang):</b> Stimulasi sensorik dan kriteria pulang: BB/TB &ge; -2 SD, edema hilang total selama 2 minggu, nafsu makan baik, ibu memahami konseling gizi.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Sticky Slide Dossier -->
+      <aside class="slide-dossier">
+        <div class="dossier-header">
+          <span class="dossier-label">Slide Dossier · 10 Langkah</span>
+          <span style="font-size:0.7rem;color:var(--ink-muted);">dr. Ditya Arisanti</span>
+        </div>
+        <div class="slide-pills-row">
+          <button class="spill-btn active" onclick="setSlide('v-4', 'slides_kul5/slide_35.jpg', 'Slide 35 · Formula ReSoMal', this)">Slide 35 (ReSoMal)</button>
+          <button class="spill-btn" onclick="setSlide('v-4', 'slides_kul5/slide_38.jpg', 'Slide 38 · Dosis Vitamin A &amp; Pantangan Besi', this)">Slide 38 (Vitamin A &amp; Fe)</button>
+          <button class="spill-btn" onclick="setSlide('v-4', 'slides_kul5/slide_39.jpg', 'Slide 39 · Tabel Komposisi F-75 vs F-100', this)">Slide 39 (F-75 vs F-100)</button>
+          <button class="spill-btn" onclick="setSlide('v-4', 'slides_kul5/slide_41.jpg', 'Slide 41 · Target Kenaikan BB', this)">Slide 41 (Target BB)</button>
+        </div>
+        <div class="slide-canvas" onclick="openZoom(document.getElementById('v-4').src)">
+          <img id="v-4" src="slides_kul5/slide_35.jpg" alt="Slide ReSoMal">
+        </div>
+        <div class="slide-cap" id="cap-v-4">Slide 35 · Formula ReSoMal</div>
+      </aside>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- AUDIT MATRIKS 100% SLIDE DOSEN (SLIDE 1 - 42)                       -->
+    <!-- =================================================================== -->
+    <section class="indicator-box klasifikasi" id="audit-42" style="margin-bottom:40px;background:#fff;">
+      <div class="ind-header" style="color:var(--cobalt);">
         <span>🛡️ MATRIKS VERIFIKASI 100% SLIDE PPT KULIAH DR. DITYA ARISANTI, SP.A</span>
       </div>
       <p style="font-size:0.84rem;color:var(--ink-secondary);margin-bottom:12px;">
-        Membuktikan secara transparan bahwa <b>seluruh 42 slide kuliah resmi</b> terintegrasi utuh ke dalam alur kasus dokter jaga ini tanpa ada satu pun slide yang tertinggal:
+        Membuktikan bahwa <b>seluruh 42 slide kuliah resmi</b> terintegrasi utuh ke dalam materi pokok dan 9 indikator capaian RPS di atas:
       </p>
       <table class="data-table">
         <thead>
           <tr>
             <th style="width:110px;">Nomor Slide</th>
             <th>Materi Asli di Slide dr. Ditya</th>
-            <th>Di Mana Dibahas dalam Kasus Dokter Jaga?</th>
+            <th>Di Mana Dibahas dalam Modul RPS Ini?</th>
             <th style="width:120px;">Status Liputan</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><b>Slide 1–2</b></td>
-            <td>Judul Kuliah MEP &amp; Kompetensi SKDI 4A</td>
-            <td>Header Modul &amp; Banner Shift Jaga</td>
-            <td><span class="val-ok">✓ 100% Tercover</span></td>
-          </tr>
-          <tr>
-            <td><b>Slide 3–4</b></td>
+            <td><b>Slide 1–4</b></td>
             <td>Definisi Malnutrisi WHO &amp; Akut vs Kronis</td>
-            <td>Stasi 0: Triage Awal Pasien Masuk</td>
+            <td>Header Modul &amp; Blueprint RPS (Hal 27)</td>
             <td><span class="val-ok">✓ 100% Tercover</span></td>
           </tr>
           <tr>
             <td><b>Slide 5–8</b></td>
             <td>Indikator Antropometri (BB/U, TB/U, BB/TB, LiLA)</td>
-            <td>Stasi 1: Tabel Rujukan Nilai Normal vs Budi</td>
+            <td>Materi 1 &amp; 2: Indikator 2 (Klasifikasi &amp; Ambang Batas)</td>
             <td><span class="val-ok">✓ 100% Tercover</span></td>
           </tr>
           <tr>
             <td><b>Slide 9–11</b></td>
             <td>Klasifikasi Gomez, Wellcome Trust &amp; Waterlow</td>
-            <td>Stasi 1: 3 Klasifikasi Historis Dosen</td>
+            <td>Materi 1, 2, 3: Indikator 2 (Klasifikasi Baku)</td>
             <td><span class="val-ok">✓ 100% Tercover</span></td>
           </tr>
           <tr>
             <td><b>Slide 12–13</b></td>
             <td>Teknik Ukur PB/TB &amp; Alur Diagnosis Gizi Buruk</td>
-            <td>Stasi 1: Kriteria Baku WHO &amp; Kemenkes</td>
+            <td>Materi 1: Indikator 2 &amp; 3 (Kriteria Baku WHO/Kemenkes)</td>
             <td><span class="val-ok">✓ 100% Tercover</span></td>
           </tr>
           <tr>
             <td><b>Slide 14–16</b></td>
             <td>Etiologi Malnutrisi &amp; Siklus Infeksi-Malnutrisi</td>
-            <td>Stasi 0: Anamnesis Pola Makan &amp; Riwayat Infeksi</td>
+            <td>Materi 1 &amp; 2: Indikator 1 (Etiologi &amp; Faktor Risiko)</td>
             <td><span class="val-ok">✓ 100% Tercover</span></td>
           </tr>
           <tr>
             <td><b>Slide 17–18</b></td>
             <td>Marasmus: Old Man Face, Baggy Pants, Iga Gambang</td>
-            <td>Stasi 2: Rantai Patofisiologi Pasien Doni</td>
+            <td>Materi 2: Indikator 4 (Pemeriksaan Fisik Marasmus)</td>
             <td><span class="val-ok">✓ 100% Tercover</span></td>
           </tr>
           <tr>
             <td><b>Slide 19–20</b></td>
             <td>Kwashiorkor: Edema, Moon Face, Crazy Pavement</td>
-            <td>Stasi 2: Rantai Patofisiologi Pasien Budi</td>
+            <td>Materi 1: Indikator 4 (Pemeriksaan Fisik Kwashiorkor)</td>
             <td><span class="val-ok">✓ 100% Tercover</span></td>
           </tr>
           <tr>
             <td><b>Slide 21–24</b></td>
             <td>Tabel Komparasi, Foto Klinis, &amp; Skor McLaren</td>
-            <td>Stasi 2: Komparasi Lengkap &amp; Slide Dossier 3</td>
+            <td>Materi 1, 2, 3: Indikator 4 &amp; 6 (DDx &amp; Slide Dossier)</td>
             <td><span class="val-ok">✓ 100% Tercover</span></td>
           </tr>
           <tr>
             <td><b>Slide 25–27</b></td>
             <td>Adaptasi Reduktif: Pompa Na/K, Jantung, Ginjal</td>
-            <td>Stasi 2: Fenomena Seluler &amp; Bahaya Infus NaCl</td>
+            <td>Materi 1 &amp; 4: Indikator 8 (Komplikasi &amp; Fisiologi Seluler)</td>
             <td><span class="val-ok">✓ 100% Tercover</span></td>
           </tr>
           <tr>
             <td><b>Slide 28–31</b></td>
             <td>Atrofi Timus, Fatty Liver &amp; Trias Maut (GDA/Suhu)</td>
-            <td>Stasi 2 &amp; Stasi 3: Jam-Jam Kritis Pertama IGD</td>
+            <td>Materi 1: Indikator 5 (Penunjang) &amp; Materi 4: Indikator 8</td>
             <td><span class="val-ok">✓ 100% Tercover</span></td>
           </tr>
           <tr>
             <td><b>Slide 32–33</b></td>
-            <td>10 Langkah WHO &amp; 3 Fase (Stabilisasi, Transisi, Rehab)</td>
-            <td>Stasi 3: Roadmap Alur Rawat Inap</td>
+            <td>10 Langkah WHO &amp; 3 Fase Perawatan Gizi Buruk</td>
+            <td>Materi 4: Indikator 1 (Tabel 3 Fase Perawatan)</td>
             <td><span class="val-ok">✓ 100% Tercover</span></td>
           </tr>
           <tr>
             <td><b>Slide 34–36</b></td>
             <td>Tata Laksana Hipoglikemia, Hipotermia, ReSoMal</td>
-            <td>Stasi 3: Tindakan Jam 01 &amp; Resep Dosis Presisi</td>
+            <td>Materi 4: Indikator 2 (Dosis Presisi Langkah 1–4)</td>
             <td><span class="val-ok">✓ 100% Tercover</span></td>
           </tr>
           <tr>
             <td><b>Slide 37–38</b></td>
             <td>Antibiotik, Dosis Vitamin A, &amp; PANTANGAN BESI/DIURETIK</td>
-            <td>Stasi 3: Lembar Resep &amp; Kotak Merah Bahaya</td>
+            <td>Materi 4: Indikator 2 (Langkah 5–6 &amp; Danger Callout)</td>
             <td><span class="val-ok">✓ 100% Tercover</span></td>
           </tr>
           <tr>
             <td><b>Slide 39–40</b></td>
             <td>Nutrisi F-75 &rarr; F-100 &amp; Suplementasi Fe Minggu ke-2</td>
-            <td>Stasi 3: Protokol Nutrisi Bertahap</td>
+            <td>Materi 4: Indikator 2 (Langkah 7–9 Nutrisi Bertahap)</td>
             <td><span class="val-ok">✓ 100% Tercover</span></td>
           </tr>
           <tr>
             <td><b>Slide 41–42</b></td>
             <td>Target Kenaikan BB (g/kg/hari) &amp; Kriteria Pulang</td>
-            <td>Stasi 3: Evaluasi Discharge Pasien</td>
+            <td>Materi 4: Indikator 2 (Langkah 10 &amp; Discharge)</td>
             <td><span class="val-ok">✓ 100% Tercover</span></td>
           </tr>
         </tbody>
       </table>
     </section>
 
-    <!-- STASI 5: BEDAH 3 SOAL UAB NYATA -->
-    <section class="pillar-card uab" id="soal-uab" style="margin-bottom:40px;">
-      <div class="pillar-hdr">
+    <!-- =================================================================== -->
+    <!-- REFLEKSI SOAL UAB DR. DITYA ARISANTI                               -->
+    <!-- =================================================================== -->
+    <section class="indicator-box uab" id="soal-uab" style="margin-bottom:40px;background:#fff;">
+      <div class="ind-header" style="color:var(--amber);">
         <span>🎯 REFLEKSI SOAL UJIAN AKHIR BLOK (UAB) DR. DITYA ARISANTI</span>
       </div>
-      
+
       <div style="margin-bottom:20px;">
         <p style="font-size:0.9rem;font-weight:700;color:var(--ink);background:var(--surface-subtle);padding:12px;border-radius:6px;">
           1. Balita 20 bulan dibawa dengan edema seluruh tubuh, moon face, rambut pirang mudah dicabut, dan hepar teraba 3 cm BAC. Hasil lab: Albumin 1.7 g/dL, Hb 7.8 g/dL. Terapi manakah yang KONTRAINDIKASI mutlak diberikan saat fase stabilisasi?
@@ -905,13 +1086,13 @@
           <li style="padding:6px 12px;border:1px solid var(--border);border-radius:4px;">D. Ampisilin dan Gentamisin IV</li>
         </ul>
         <div style="font-size:0.82rem;color:var(--ink-secondary);background:var(--surface-subtle);padding:10px;border-radius:6px;">
-          <b>Rasionalitas Jawaban:</b> B. Furosemid menarik cairan intravaskular yang sebenarnya sedang deplesi &rarr; syok hipovolemik fatal!
+          <b>Rasionalitas Soal:</b> Menguji Indikator 7 (Tatalaksana Kontraindikasi). Furosemid menarik cairan intravaskular yang sebenarnya sedang deplesi &rarr; syok hipovolemik fatal!
         </div>
       </div>
 
       <div>
         <p style="font-size:0.9rem;font-weight:700;color:var(--ink);background:var(--surface-subtle);padding:12px;border-radius:6px;">
-          2. Pada anak gizi buruk dengan anemia berat, kapankah preparat zat besi (Fe 3 mg/kgBB/hari) mulai diberikan?
+          2. Pada anak gizi buruk dengan anemia berat (Hb 7.5 g/dL), kapankah suplementasi zat besi (Fe 3 mg/kgBB/hari) mulai diberikan sesuai pedoman WHO?
         </p>
         <ul style="list-style:none;padding:0;margin:10px 0;display:flex;flex-direction:column;gap:6px;font-size:0.86rem;">
           <li style="padding:6px 12px;border:1px solid var(--border);border-radius:4px;">A. Hari ke-1 di IGD bersama dextrose</li>
@@ -920,7 +1101,7 @@
           <li style="padding:6px 12px;border:1px solid var(--border);border-radius:4px;">D. Fase transisi hari ke-8 saat bengkak masih ada</li>
         </ul>
         <div style="font-size:0.82rem;color:var(--ink-secondary);background:var(--surface-subtle);padding:10px;border-radius:6px;">
-          <b>Rasionalitas Jawaban:</b> C. Di fase akut, zat besi bebas menjadi makanan bakteri patogen yang memicu sepsis bakteremia fatal!
+          <b>Rasionalitas Soal:</b> Menguji Indikator 7 (Waktu Suplementasi Fe). Di fase akut, zat besi bebas menjadi makanan bakteri patogen yang memicu sepsis bakteremia fatal!
         </div>
       </div>
     </section>
@@ -938,7 +1119,7 @@
       const cap = document.getElementById('cap-' + stageId);
       if (cap) cap.textContent = caption;
       if (btn && btn.parentElement) {
-        btn.parentElement.querySelectorAll('.p-btn').forEach(b => b.classList.remove('active'));
+        btn.parentElement.querySelectorAll('.spill-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
       }
     }
