@@ -335,6 +335,26 @@
       line-height: 1.5;
     }
 
+    /* Vector Diagram Box */
+    .vector-diagram-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 16px 18px;
+      margin: 14px 0 18px;
+      box-shadow: var(--shadow-sm);
+    }
+    .diagram-title {
+      font-size: 0.74rem;
+      font-weight: 800;
+      font-family: var(--font-mono);
+      color: var(--cobalt);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 10px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
     /* Right Sticky Slide Stage */
     .slide-dossier {
       position: sticky;
@@ -535,6 +555,66 @@
               <li><b>5. Hepatomegali:</b> Hati membesar kenyal dengan tepi tumpul (akibat akumulasi trigliserida / *fatty liver* karena hepar gagal membentuk apolipoprotein B-100).</li>
             </ul>
           </div>
+        </div>
+        <!-- MIKRO-DIAGRAM 1: HUKUM STARLING & EDEMA -->
+        <div class="vector-diagram-box">
+          <div class="diagram-title">🔬 MIKRO-DIAGRAM PATOFISIOLOGI: HUKUM STARLING &amp; KEBOCORAN CAIRAN KAPILER</div>
+          <svg viewBox="0 0 740 160" width="100%" height="auto" style="font-family:system-ui,-apple-system,sans-serif;font-size:12px;">
+            <defs>
+              <marker id="arr-red" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1 L 10 5 L 0 9 z" fill="var(--crimson)" />
+              </marker>
+            </defs>
+            <rect x="20" y="20" width="340" height="120" rx="8" fill="var(--surface-subtle)" stroke="var(--border)" stroke-width="1.5" />
+            <text x="190" y="44" font-weight="800" fill="var(--cobalt)" text-anchor="middle" font-size="12">LUMEN PEMBULUH DARAH (KAPILER)</text>
+            <text x="190" y="68" fill="var(--crimson)" font-weight="700" text-anchor="middle">Albumin Serum &lt; 2.0 g/dL (Hipoalbuminemia)</text>
+            <text x="190" y="90" fill="var(--ink-secondary)" text-anchor="middle">Tekanan Onkotik Koloid Ambruk: ~8 mmHg</text>
+            <text x="190" y="112" fill="var(--ink-muted)" text-anchor="middle" font-size="11">(Normal: ~25 mmHg penahan cairan di dalam)</text>
+
+            <path d="M 320 50 L 410 50" stroke="var(--crimson)" stroke-width="2.5" stroke-dasharray="4" marker-end="url(#arr-red)" />
+            <path d="M 320 85 L 410 85" stroke="var(--crimson)" stroke-width="2.5" stroke-dasharray="4" marker-end="url(#arr-red)" />
+            <path d="M 320 120 L 410 120" stroke="var(--crimson)" stroke-width="2.5" stroke-dasharray="4" marker-end="url(#arr-red)" />
+            <text x="365" y="38" font-weight="800" fill="var(--crimson)" text-anchor="middle" font-size="10">REMBES</text>
+
+            <rect x="420" y="20" width="300" height="120" rx="8" fill="var(--surface)" stroke="var(--crimson)" stroke-width="1.5" />
+            <text x="570" y="46" font-weight="800" fill="var(--crimson)" text-anchor="middle" font-size="12">RUANG INTERSTISIAL (JARINGAN KAKI)</text>
+            <text x="570" y="70" fill="var(--ink)" font-weight="700" text-anchor="middle">Akumulasi Cairan Ekstraseluler</text>
+            <text x="570" y="92" fill="var(--ink-secondary)" text-anchor="middle" font-size="11">Celah antar sel tergenang air bebas</text>
+            <rect x="460" y="104" width="220" height="24" rx="12" fill="var(--crimson-soft)" stroke="var(--crimson-border)" stroke-width="1" />
+            <text x="570" y="120" font-weight="800" fill="var(--crimson)" text-anchor="middle" font-size="11">KLINIS: BILATERAL PITTING EDEMA (+)</text>
+          </svg>
+        </div>
+
+        <!-- MIKRO-DIAGRAM 2: PERLEMAKAN HATI & FATTY LIVER -->
+        <div class="vector-diagram-box">
+          <div class="diagram-title">🔬 MIKRO-DIAGRAM PATOFISIOLOGI: AKUMULASI LEMAK HEPAR (STEATOSIS / HEPATOMEGALI)</div>
+          <svg viewBox="0 0 740 140" width="100%" height="auto" style="font-family:system-ui,-apple-system,sans-serif;font-size:12px;">
+            <defs>
+              <marker id="arr-amber" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1 L 10 5 L 0 9 z" fill="var(--amber)" />
+              </marker>
+            </defs>
+            <rect x="20" y="20" width="200" height="100" rx="8" fill="var(--surface)" stroke="var(--border)" stroke-width="1.5" />
+            <text x="120" y="48" font-weight="800" fill="var(--ink)" text-anchor="middle">ASAM LEMAK BEBAS</text>
+            <text x="120" y="70" fill="var(--ink-secondary)" text-anchor="middle">Masuk ke sel hati</text>
+            <text x="120" y="92" fill="var(--amber)" font-weight="700" text-anchor="middle">&rarr; Jadi Trigliserida</text>
+
+            <line x1="220" y1="70" x2="265" y2="70" stroke="var(--amber)" stroke-width="2" marker-end="url(#arr-amber)" />
+
+            <rect x="275" y="20" width="230" height="100" rx="8" fill="var(--crimson-soft)" stroke="var(--crimson-border)" stroke-width="1.5" />
+            <text x="390" y="45" font-weight="800" fill="var(--crimson)" text-anchor="middle">SEL HEPATOSIT (HATI)</text>
+            <text x="390" y="66" fill="var(--crimson)" font-weight="700" text-anchor="middle">Apolipoprotein B-100 = 0</text>
+            <text x="390" y="86" fill="var(--ink-secondary)" text-anchor="middle" font-size="11">Gagal membentuk paket VLDL</text>
+            <text x="390" y="105" fill="var(--crimson)" font-weight="800" text-anchor="middle" font-size="11">Trigliserida Terperangkap!</text>
+
+            <line x1="505" y1="70" x2="540" y2="70" stroke="var(--crimson)" stroke-width="2" stroke-dasharray="3" marker-end="url(#arr-red)" />
+
+            <rect x="550" y="20" width="170" height="100" rx="8" fill="var(--surface)" stroke="var(--crimson)" stroke-width="1.5" />
+            <text x="635" y="46" font-weight="800" fill="var(--crimson)" text-anchor="middle">AKIBAT KLINIS</text>
+            <text x="635" y="68" fill="var(--ink)" font-weight="700" text-anchor="middle">Fatty Liver Masif</text>
+            <text x="635" y="88" fill="var(--crimson)" font-weight="800" text-anchor="middle">Hepatomegali</text>
+            <text x="635" y="106" fill="var(--ink-muted)" text-anchor="middle" font-size="10">(3 cm BAC kenyal tumpul)</text>
+          </svg>
         </div>
 
         <!-- Indikator 5 -->
@@ -909,6 +989,47 @@
               </tbody>
             </table>
           </div>
+        </div>
+        <!-- MIKRO-DIAGRAM 3: VISUAL STEPPER 10 LANGKAH WHO -->
+        <div class="vector-diagram-box">
+          <div class="diagram-title">🧭 VISUAL STEPPER: ROADMAP ALUR RAWAT INAP GIZI BURUK (WHO / KEMENKES)</div>
+          <svg viewBox="0 0 740 140" width="100%" height="auto" style="font-family:system-ui,-apple-system,sans-serif;font-size:12px;">
+            <defs>
+              <marker id="arr-blue" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1 L 10 5 L 0 9 z" fill="var(--cobalt)" />
+              </marker>
+            </defs>
+            <!-- Phase 1: Stabilisasi -->
+            <rect x="15" y="15" width="225" height="110" rx="8" fill="var(--surface)" stroke="var(--crimson)" stroke-width="1.5" />
+            <rect x="15" y="15" width="225" height="26" rx="6" fill="var(--crimson-soft)" />
+            <text x="127" y="32" font-weight="800" fill="var(--crimson)" text-anchor="middle" font-size="11">FASE 1: STABILISASI (HARI 1–7)</text>
+            <text x="26" y="58" font-weight="700" fill="var(--ink)">• Atasi Hipoglikemi, Hipotermi</text>
+            <text x="26" y="76" font-weight="700" fill="var(--ink)">• ReSoMal (Bukan Infus Biasa)</text>
+            <text x="26" y="94" font-weight="700" fill="var(--ink)">• Formula F-75 (Rendah Protein)</text>
+            <text x="26" y="112" font-weight="800" fill="var(--crimson)" font-size="10">❌ Dilarang Fe &amp; Furosemid!</text>
+
+            <line x1="240" y1="70" x2="265" y2="70" stroke="var(--cobalt)" stroke-width="2" marker-end="url(#arr-blue)" />
+
+            <!-- Phase 2: Transisi -->
+            <rect x="270" y="15" width="210" height="110" rx="8" fill="var(--surface)" stroke="var(--amber)" stroke-width="1.5" />
+            <rect x="270" y="15" width="210" height="26" rx="6" fill="var(--amber-soft)" />
+            <text x="375" y="32" font-weight="800" fill="var(--amber)" text-anchor="middle" font-size="11">FASE 2: TRANSISI (HARI 8–14)</text>
+            <text x="282" y="58" font-weight="700" fill="var(--ink)">• Naik ke Formula F-100</text>
+            <text x="282" y="76" fill="var(--ink-secondary)">• Kalori: 100 &rarr; 150 kkal/kg</text>
+            <text x="282" y="94" fill="var(--ink-secondary)">• Edema mulai berkurang</text>
+            <text x="282" y="112" fill="var(--amber)" font-weight="700" font-size="10">⚠️ Waspada gagal jantung</text>
+
+            <line x1="480" y1="70" x2="505" y2="70" stroke="var(--cobalt)" stroke-width="2" marker-end="url(#arr-blue)" />
+
+            <!-- Phase 3: Rehabilitasi -->
+            <rect x="510" y="15" width="215" height="110" rx="8" fill="var(--surface)" stroke="var(--emerald)" stroke-width="1.5" />
+            <rect x="510" y="15" width="215" height="26" rx="6" fill="var(--emerald-soft)" />
+            <text x="617" y="32" font-weight="800" fill="var(--emerald)" text-anchor="middle" font-size="11">FASE 3: REHABILITASI (MGG 2–6)</text>
+            <text x="522" y="58" font-weight="800" fill="var(--emerald)">• BARU MULAI BESI (Fe)!</text>
+            <text x="522" y="76" fill="var(--ink)">• Dosis: 3 mg/kgBB/hari</text>
+            <text x="522" y="94" fill="var(--ink)">• Target BB &gt; 10 g/kg/hari</text>
+            <text x="522" y="112" fill="var(--emerald)" font-weight="700" font-size="10">✓ Persiapan kriteria pulang</text>
+          </svg>
         </div>
 
         <!-- 10 Langkah Lengkap -->
