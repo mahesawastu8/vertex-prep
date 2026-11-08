@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mahesawastu8.github.io/vertex-prep/sitemap.xml
