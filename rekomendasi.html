@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>Rekomendasi Alat Medis, Skill Lab &amp; Gadget Belajar FK Terverifikasi</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,600;1,6..72,400&family=JetBrains+Mono:wght@600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F8FAFC;
+    --surface: #FFFFFF;
+    --surface-subtle: #F1F5F9;
+    --border: #E2E8F0;
+    --border-strong: #CBD5E1;
+    --ink: #0F172A;
+    --ink-secondary: #334155;
+    --ink-muted: #64748B;
+    --orange: #EE4D2D; /* Shopee Brand Orange */
+    --orange-soft: #FEF0ED;
+    --orange-border: #FCD2CA;
+    --cobalt: #0284C7;
+    --cobalt-soft: #F0F9FF;
+    --emerald: #059669;
+    --emerald-soft: #ECFDF5;
+    --amber: #D97706;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.04);
+    --shadow-md: 0 4px 12px -2px rgba(0,0,0,0.06);
+    --shadow-hover: 0 12px 24px -4px rgba(0,0,0,0.09);
+    --r-sm: 8px;
+    --r-md: 12px;
+    --r-lg: 16px;
+    --r-full: 9999px;
+    --font-sans: 'Plus Jakarta Sans', -apple-system, sans-serif;
+    --font-serif: 'Newsreader', Georgia, serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 100%; max-width: 100vw; overflow-x: hidden; background: var(--bg); color: var(--ink); font-family: var(--font-sans); }
+  body { font-size: 15px; line-height: 1.65; -webkit-font-smoothing: antialiased; padding-bottom: 100px; }
+  button { font: inherit; color: inherit; cursor: pointer; border: none; background: none; }
+  a { color: inherit; text-decoration: none; }
+
+  /* Navbar */
+  header.nav {
+    position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 12px 24px;
+  }
+  .nav-inner {
+    max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;
+  }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.05rem; }
+  .brand-badge { background: var(--orange); color: #fff; font-size: 0.72rem; font-family: var(--font-mono); padding: 3px 8px; border-radius: var(--r-sm); font-weight: 700; }
+  .nav-link-btn { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: var(--r-full); background: var(--surface-subtle); border: 1px solid var(--border); font-size: 0.82rem; font-weight: 600; color: var(--ink-secondary); transition: all .15s; }
+  .nav-link-btn:hover { border-color: var(--cobalt); color: var(--cobalt); }
+
+  /* Hero Section */
+  .hero-wrap {
+    max-width: 1280px; margin: 0 auto; padding: 32px 24px 20px;
+  }
+  .hero-box {
+    background: linear-gradient(135deg, rgba(238, 77, 45, 0.05) 0%, rgba(2, 132, 199, 0.05) 100%);
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    padding: 32px 36px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-box::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--orange) 0%, var(--cobalt) 100%);
+  }
+  .hero-kicker {
+    font-size: 0.75rem; font-weight: 800; font-family: var(--font-mono); color: var(--orange); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px; display: block;
+  }
+  .hero-title {
+    font-family: var(--font-serif); font-size: 2.1rem; font-weight: 700; color: var(--ink); line-height: 1.25; margin-bottom: 12px;
+  }
+  .hero-desc {
+    font-size: 0.98rem; color: var(--ink-secondary); max-width: 850px; line-height: 1.6; margin-bottom: 20px;
+  }
+  .trust-row {
+    display: flex; gap: 18px; flex-wrap: wrap; font-size: 0.82rem; font-weight: 600; color: var(--ink-muted);
+  }
+  .trust-item { display: flex; align-items: center; gap: 6px; }
+
+  /* Category Filter Pills */
+  .filter-wrap {
+    max-width: 1280px; margin: 0 auto; padding: 10px 24px 20px; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none;
+  }
+  .filter-wrap::-webkit-scrollbar { display: none; }
+  .f-pill {
+    padding: 7px 16px; border-radius: var(--r-full); font-size: 0.82rem; font-weight: 700; background: var(--surface); border: 1px solid var(--border); color: var(--ink-secondary); white-space: nowrap; transition: all .15s;
+  }
+  .f-pill:hover { border-color: var(--orange); color: var(--orange); }
+  .f-pill.active { background: var(--orange); border-color: var(--orange); color: #fff; box-shadow: 0 2px 8px rgba(238, 77, 45, 0.3); }
+
+  /* Product Grid */
+  .grid-wrap {
+    max-width: 1280px; margin: 0 auto; padding: 10px 24px 60px;
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 20px;
+  }
+
+  /* Product Card */
+  .p-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--r-md);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: all .2s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: var(--shadow-sm);
+    position: relative;
+  }
+  .p-card:hover {
+    border-color: var(--orange);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+  }
+
+  .p-badge-top {
+    position: absolute; top: 10px; left: 10px; z-index: 2;
+    font-size: 0.68rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em;
+    padding: 3px 9px; border-radius: var(--r-full);
+    background: #fff; box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+  }
+  .badge-best { color: var(--emerald); border: 1px solid var(--emerald); }
+  .badge-budget { color: var(--cobalt); border: 1px solid var(--cobalt); }
+  .badge-must { color: var(--orange); border: 1px solid var(--orange); }
+
+  .p-thumb {
+    width: 100%; aspect-ratio: 4/3; background: var(--surface-subtle); display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; border-bottom: 1px solid var(--border); font-size: 3.5rem;
+  }
+  .p-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  .p-body {
+    padding: 18px 20px; display: flex; flex-direction: column; flex: 1;
+  }
+  .p-category {
+    font-size: 0.72rem; font-weight: 700; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px;
+  }
+  .p-title {
+    font-size: 1.05rem; font-weight: 800; color: var(--ink); line-height: 1.35; margin-bottom: 6px;
+  }
+  .p-price {
+    font-size: 1.15rem; font-weight: 800; color: var(--orange); font-family: var(--font-mono); margin-bottom: 12px;
+  }
+
+  .p-reasons {
+    background: var(--surface-subtle); border-radius: var(--r-sm); padding: 10px 12px; margin-bottom: 16px; font-size: 0.8rem; line-height: 1.5; color: var(--ink-secondary);
+  }
+  .p-reasons b { color: var(--ink); display: block; margin-bottom: 3px; font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.04em; }
+
+  .p-stats-row {
+    display: flex; align-items: center; justify-content: space-between; font-size: 0.75rem; color: var(--ink-muted); font-weight: 600; margin-bottom: 14px; padding-top: 8px; border-top: 1px dashed var(--border);
+  }
+  .star-score { color: #F59E0B; display: inline-flex; align-items: center; gap: 3px; font-weight: 700; }
+
+  .btn-shopee {
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    background: var(--orange); color: #fff !important;
+    padding: 10px 16px; border-radius: var(--r-sm);
+    font-weight: 800; font-size: 0.86rem; text-align: center;
+    transition: all .15s ease; box-shadow: 0 2px 6px rgba(238,77,45,0.25);
+  }
+  .btn-shopee:hover {
+    background: #D73211; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(238,77,45,0.35);
+  }
+
+  /* Footer Notice */
+  footer.disclaimer {
+    max-width: 1280px; margin: 0 auto; padding: 20px 24px; font-size: 0.76rem; color: var(--ink-muted); border-top: 1px solid var(--border); line-height: 1.6; text-align: center;
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .hero-wrap { padding: 20px 16px 14px; }
+    .hero-box { padding: 20px 18px; }
+    .hero-title { font-size: 1.6rem; }
+    .grid-wrap { padding: 10px 16px 60px; grid-template-columns: 1fr; gap: 16px; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- Top Navbar -->
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="brand">
+        <span>VERTEX-PREP</span>
+        <span class="brand-badge">AFFILIATE HUB</span>
+        <span style="font-size:0.85rem;color:var(--ink-muted);font-weight:400;">· Katalog Terverifikasi Mahasiswa FK</span>
+      </div>
+      <div style="display:flex;gap:8px;">
+        <a href="index.html" class="nav-link-btn">← Portal Kuliah &amp; Drive</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Header -->
+  <div class="hero-wrap">
+    <div class="hero-box">
+      <span class="hero-kicker">🎯 KURASI KHUSUS MAHASISWA KEDOKTERAN &amp; KESEHATAN</span>
+      <h1 class="hero-title">Rekomendasi Alat Medis, Skill Lab &amp; Gadget Belajar Terbaik</h1>
+      <p class="hero-desc">
+        Jangan buang uang beli alat murah yang cepat rusak atau gagal saat ujian Skill Lab / OSCE. Seluruh produk di bawah telah dikurasi berdasarkan standar ujian preklinik dan rotasi klinis (Koas) dengan garansi original toko resmi Shopee.
+      </p>
+      <div class="trust-row">
+        <div class="trust-item"><span>✓</span> 100% Original &amp; Lolos Standar OSCE</div>
+        <div class="trust-item"><span>✓</span> Toko Official Shopee Mall Terpercaya</div>
+        <div class="trust-item"><span>✓</span> Rekomendasi Dokter &amp; Kakak Tingkat</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Category Filter Pills -->
+  <div class="filter-wrap">
+    <button class="f-pill active" onclick="filterCategory('all', this)">✨ Semua Produk (8)</button>
+    <button class="f-pill" onclick="filterCategory('alat', this)">🩺 Alat Medis &amp; Skill Lab (4)</button>
+    <button class="f-pill" onclick="filterCategory('gadget', this)">📱 Gadget &amp; Tablet Belajar (2)</button>
+    <button class="f-pill" onclick="filterCategory('seragam', this)">👔 Jas &amp; Seragam Scrub (1)</button>
+    <button class="f-pill" onclick="filterCategory('buku', this)">📚 Buku Panduan Klinis (1)</button>
+  </div>
+
+  <!-- Product Grid -->
+  <div class="grid-wrap" id="productGrid">
+    <!-- Products rendered via JS -->
+  </div>
+
+  <footer class="disclaimer">
+    <b>Transparansi Afiliasi:</b> Pembelian melalui link di atas memberikan komisi kecil bagi pemeliharaan platform gratis VERTEX-PREP tanpa biaya tambahan sepeser pun untuk Anda. Harga tetap sama persis dengan aplikasi Shopee resmi.<br>
+    ID Mitra Afiliasi Terdaftar: <code>11316671792</code> · Dikurasi oleh Tim Akademik Preklinik FK.
+  </footer>
+
+<script>
+(() => {
+  // YOUR REGISTERED SHOPEE AFFILIATE ID
+  const AFFILIATE_USER_ID = "11316671792";
+
+  // High-Yield Curated Products for Medical Students
+  const PRODUCTS = [
+    {
+      id: "littmann-3",
+      category: "alat",
+      badge: "Pilihan Utama Dokter",
+      badgeClass: "badge-best",
+      icon: "🩺",
+      categoryLabel: "Auskultasi Klinis",
+      title: "Stetoskop 3M Littmann Classic III (Original USA)",
+      price: "Rp 1.650.000 – Rp 2.050.000",
+      reasons: "Akustik Grade 9/10, diafragma dua sisi (dewasa & pediatri). Standar wajib OSCE ujian blok, rotasi stase anak/paru/jantung, hingga lulus dokter.",
+      rating: "4.9",
+      sales: "10.000+ Terjual",
+      shopeeKeyword: "Littmann Classic III Original 3M",
+      customShortlink: "" // Can be filled with direct Shopee shortlink (https://s.shopee.co.id/...)
+    },
+    {
+      id: "omron-tensi",
+      category: "alat",
+      badge: "Wajib Skill Lab",
+      badgeClass: "badge-must",
+      icon: "🩺",
+      categoryLabel: "Pemeriksaan Fisik Vital",
+      title: "Tensimeter Digital Omron HEM-7156 (Akurat & Standar RS)",
+      price: "Rp 540.000 – Rp 650.000",
+      reasons: "Manset akurasi 360° IntelliWrap Cuff. Mencegah hasil bias saat latihan pemeriksaan tanda vital mandiri di rumah atau kos.",
+      rating: "4.9",
+      sales: "15.000+ Terjual",
+      shopeeKeyword: "Omron HEM 7156 Tensimeter Digital Original",
+      customShortlink: ""
+    },
+    {
+      id: "penlight-led",
+      category: "alat",
+      badge: "Budget Mahasiswa",
+      badgeClass: "badge-budget",
+      icon: "🔦",
+      categoryLabel: "Pemeriksaan Saraf & THT",
+      title: "Medical Penlight LED Stainless (Cahaya Kuning/Putih Warm)",
+      price: "Rp 35.000 – Rp 65.000",
+      reasons: "Cahaya warm tidak menyilaukan saat memeriksa refleks pupil mata (Nervus II & III) dan inspeksi faring/tonsil mulut.",
+      rating: "4.8",
+      sales: "25.000+ Terjual",
+      shopeeKeyword: "Penlight Medis LED Stainless Pupil Gauge",
+      customShortlink: ""
+    },
+    {
+      id: "palu-refleks",
+      category: "alat",
+      badge: "Wajib Skill Lab",
+      badgeClass: "badge-must",
+      icon: "🔨",
+      categoryLabel: "Pemeriksaan Neurologi",
+      title: "Palu Refleks Troemner / Taylor Stainless Medical Grade",
+      price: "Rp 45.000 – Rp 95.000",
+      reasons: "Kepala karet elastis padat dengan berat seimbang untuk memicu refleks fisiologis Biceps, Triceps, Patella (L3-L4), dan Achilles (S1-S2).",
+      rating: "4.8",
+      sales: "12.000+ Terjual",
+      shopeeKeyword: "Palu Refleks Troemner Taylor Medis",
+      customShortlink: ""
+    },
+    {
+      id: "stylus-ipad",
+      category: "gadget",
+      badge: "Paling Laris",
+      badgeClass: "badge-best",
+      icon: "✏️",
+      categoryLabel: "Gadget Catatan Belajar",
+      title: "Stylus Pen iPad Palm Rejection (Alternatif Apple Pencil)",
+      price: "Rp 150.000 – Rp 230.000",
+      reasons: "Tangan bisa menempel di layar tanpa tergores (*palm rejection*). Sempurna untuk mencoret-coret slide dosen di GoodNotes / Notability tanpa beli pensil 2 juta.",
+      rating: "4.9",
+      sales: "50.000+ Terjual",
+      shopeeKeyword: "Stylus Pen iPad Palm Rejection Wireless",
+      customShortlink: ""
+    },
+    {
+      id: "stand-laptop",
+      category: "gadget",
+      badge: "Ergonomis Belajar",
+      badgeClass: "badge-budget",
+      icon: "💻",
+      categoryLabel: "Ergonomi Belajar",
+      title: "Stand Laptop Aluminium Lipat (Anti Sakit Leher H-1 Ujian)",
+      price: "Rp 85.000 – Rp 140.000",
+      reasons: "Menaikkan layar sejajar pandangan mata. Mencegah tegang otot servikal (*cervical myalgia*) saat belajar maraton berjam-jam.",
+      rating: "4.9",
+      sales: "40.000+ Terjual",
+      shopeeKeyword: "Stand Laptop Aluminium Lipat Portable",
+      customShortlink: ""
+    },
+    {
+      id: "scrub-medis",
+      category: "seragam",
+      badge: "Kenyamanan Bangsal",
+      badgeClass: "badge-best",
+      icon: "👔",
+      categoryLabel: "Pakaian Jaga & Lab",
+      title: "Baju Jaga Scrub Medis Bahan Adem Lembut (Unisex)",
+      price: "Rp 115.000 – Rp 175.000",
+      reasons: "Bahan katun stretch anti kusut dan menyerap keringat. Nyaman dipakai seharian penuh di laboratorium anatomi, mikrobiologi, maupun jaga malam.",
+      rating: "4.9",
+      sales: "30.000+ Terjual",
+      shopeeKeyword: "Baju Scrub Medis Baju Jaga Dokter Perawat",
+      customShortlink: ""
+    },
+    {
+      id: "oxford-handbook",
+      category: "buku",
+      badge: "Buku Saku Wajib",
+      badgeClass: "badge-must",
+      icon: "📚",
+      categoryLabel: "Buku Saku Klinis",
+      title: "Oxford Handbook of Clinical Medicine / Buku Obat ISO MIMS",
+      price: "Rp 165.000 – Rp 295.000",
+      reasons: "Buku saku pegangan dokter seluruh dunia. Menyajikan dosis obat darurat, algoritma tatalaksana, dan diagnosis banding cepat di kantong jas lab.",
+      rating: "4.9",
+      sales: "8.000+ Terjual",
+      shopeeKeyword: "Buku Saku Obat MIMS ISO Kedokteran",
+      customShortlink: ""
+    }
+  ];
+
+  function buildShopeeAffiliateUrl(p) {
+    if (p.customShortlink) return p.customShortlink;
+    // Standard affiliate redirect generator targeting official search / product
+    const encoded = encodeURIComponent(p.shopeeKeyword);
+    return `https://shopee.co.id/search?keyword=${encoded}&aff_id=${AFFILIATE_USER_ID}&utm_source=vertex_prep&utm_medium=affiliate&utm_campaign=medical_tools`;
+  }
+
+  function renderProducts(cat = 'all') {
+    const grid = document.getElementById('productGrid');
+    grid.innerHTML = '';
+    const filtered = cat === 'all' ? PRODUCTS : PRODUCTS.filter(p => p.category === cat);
+
+    filtered.forEach(p => {
+      const card = document.createElement('div');
+      card.className = 'p-card';
+
+      const affUrl = buildShopeeAffiliateUrl(p);
+
+      card.innerHTML = `
+        <span class="p-badge-top ${p.badgeClass}">${p.badge}</span>
+        <div class="p-thumb">
+          <span>${p.icon}</span>
+        </div>
+        <div class="p-body">
+          <div class="p-category">${p.categoryLabel}</div>
+          <h3 class="p-title">${p.title}</h3>
+          <div class="p-price">${p.price}</div>
+          
+          <div class="p-reasons">
+            <b>Kenapa Wajib Punya?</b>
+            ${p.reasons}
+          </div>
+
+          <div class="p-stats-row">
+            <span class="star-score">★ ${p.rating}</span>
+            <span>${p.sales}</span>
+          </div>
+
+          <a href="${affUrl}" target="_blank" rel="noopener sponsored" class="btn-shopee">
+            <span>Beli di Shopee</span>
+            <span>↗</span>
+          </a>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+  }
+
+  window.filterCategory = function(cat, btn) {
+    document.querySelectorAll('.f-pill').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderProducts(cat);
+  };
+
+  // Init
+  renderProducts('all');
+})();
+</script>
+</body>
+</html>
